@@ -18,7 +18,7 @@ public class BrowserTests(string browser) : BrowserBaseTest(browser)
                 }, screenshotOnly: true))
             .Assert<IPage>(async _ =>
             {
-                await Expect(Page).ToHaveTitleAsync("AvaloniaXKCD");
+                await Expect(Page).ToHaveTitleAsync(new Regex(@"^(A\(valonia\)XKCD|AXKCD: .*)$"));
             });
     }
 }

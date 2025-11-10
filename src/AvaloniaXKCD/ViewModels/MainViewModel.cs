@@ -2,12 +2,17 @@
 
 public partial class MainViewModel : ViewModelBaseWithDialog
 {
+    public MainViewModel()
+    {
+        CurrentView = new XKCDViewModel(null);
+    }
+
     public MainViewModel(int? initialComic)
     {
         CurrentView = new XKCDViewModel(initialComic);
     }
 
-    public IViewModelBase CurrentView { get; } 
+    public IViewModelBase CurrentView { get; }
 
     public void OpenErrorDialog(Exception exception, bool fatal)
     {

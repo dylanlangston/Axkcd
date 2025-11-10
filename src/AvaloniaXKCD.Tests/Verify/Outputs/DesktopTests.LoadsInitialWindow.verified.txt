@@ -47,13 +47,10 @@
                 Children: [
                   {
                     Type: StackPanel,
-                    IsVisible: false,
                     Children: [
                       {
                         Type: TextBlock,
                         FontWeight: Bold,
-                        Foreground: Black,
-                        Text: ,
                         TextAlignment: Center,
                         Margin: 0,5,0,0,
                         HorizontalAlignment: Center
@@ -62,152 +59,152 @@
                         Type: TextBlock,
                         FontSize: 12.0,
                         FontWeight: DemiBold,
-                        Foreground: Black,
-                        Text: # - //,
                         TextAlignment: Center,
                         Margin: 0,5,0,0,
                         HorizontalAlignment: Center
                       },
                       {
-                        Type: WrapPanel,
-                        HorizontalAlignment: Center,
-                        Children: [
-                          {
-                            Type: Button,
-                            Command: {
-                              CanBeCanceled: false,
-                              IsCancellationRequested: false,
-                              IsRunning: false
+                        Type: NavigationControlsView,
+                        Content: {
+                          Type: WrapPanel,
+                          HorizontalAlignment: Center,
+                          Children: [
+                            {
+                              Type: Button,
+                              Command: {
+                                CanBeCanceled: false,
+                                IsCancellationRequested: false,
+                                IsRunning: false
+                              },
+                              Content: |<
                             },
-                            Content: |<
-                          },
-                          {
-                            Type: Button,
-                            Command: {
-                              CanBeCanceled: false,
-                              IsCancellationRequested: false,
-                              IsRunning: false
+                            {
+                              Type: Button,
+                              Command: {
+                                CanBeCanceled: false,
+                                IsCancellationRequested: false,
+                                IsRunning: false
+                              },
+                              Content: < Prev
                             },
-                            Content: < Prev
-                          },
-                          {
-                            Type: Button,
-                            Command: {
-                              CanBeCanceled: false,
-                              IsCancellationRequested: false,
-                              IsRunning: false
+                            {
+                              Type: Button,
+                              Command: {
+                                CanBeCanceled: false,
+                                IsCancellationRequested: false,
+                                IsRunning: false
+                              },
+                              Content: Random
                             },
-                            Content: Random
-                          },
-                          {
-                            Type: Button,
-                            Command: {},
-                            Content: Explain
-                          },
-                          {
-                            Type: Button,
-                            Command: {},
-                            Content: Go To
-                          },
-                          {
-                            Type: Button,
-                            Command: {
-                              CanBeCanceled: false,
-                              IsCancellationRequested: false,
-                              IsRunning: false
+                            {
+                              Type: Button,
+                              Command: {},
+                              Content: Explain
                             },
-                            Content: Next >
-                          },
-                          {
-                            Type: Button,
-                            Command: {
-                              CanBeCanceled: false,
-                              IsCancellationRequested: false,
-                              IsRunning: false
+                            {
+                              Type: Button,
+                              Command: {},
+                              Content: Go To
                             },
-                            Content: >|
-                          }
-                        ]
+                            {
+                              Type: Button,
+                              Command: {
+                                CanBeCanceled: false,
+                                IsCancellationRequested: false,
+                                IsRunning: false
+                              },
+                              Content: Next >
+                            },
+                            {
+                              Type: Button,
+                              Command: {
+                                CanBeCanceled: false,
+                                IsCancellationRequested: false,
+                                IsRunning: false
+                              },
+                              Content: >|
+                            }
+                          ]
+                        },
+                        Name: This
                       },
                       {
                         Type: Button,
                         Command: {},
                         Content: {
-                          Type: ScrollViewer,
-                          Content: {
-                            Type: AdvancedImage,
-                            MinWidth: 500.0,
-                            MaxHeight: -20.0,
-                            Margin: 5,
-                            HorizontalAlignment: Center,
-                            Name: ComicImage
-                          },
-                          HorizontalAlignment: Stretch,
-                          Name: ComicScrollbar
+                          Type: AdvancedImage,
+                          MaxHeight: 628.0,
+                          Margin: 5,
+                          HorizontalAlignment: Center,
+                          Name: ComicImage
                         },
-                        Height: -120.0,
+                        Height: 648.0,
                         HorizontalAlignment: Stretch
                       },
                       {
-                        Type: WrapPanel,
-                        HorizontalAlignment: Center,
-                        Children: [
-                          {
-                            Type: Button,
-                            Command: {
-                              CanBeCanceled: false,
-                              IsCancellationRequested: false,
-                              IsRunning: false
+                        Type: NavigationControlsView,
+                        Content: {
+                          Type: WrapPanel,
+                          HorizontalAlignment: Center,
+                          Children: [
+                            {
+                              Type: Button,
+                              Command: {
+                                CanBeCanceled: false,
+                                IsCancellationRequested: false,
+                                IsRunning: false
+                              },
+                              Content: |<
                             },
-                            Content: |<
-                          },
-                          {
-                            Type: Button,
-                            Command: {
-                              CanBeCanceled: false,
-                              IsCancellationRequested: false,
-                              IsRunning: false
+                            {
+                              Type: Button,
+                              Command: {
+                                CanBeCanceled: false,
+                                IsCancellationRequested: false,
+                                IsRunning: false
+                              },
+                              Content: < Prev
                             },
-                            Content: < Prev
-                          },
-                          {
-                            Type: Button,
-                            Command: {
-                              CanBeCanceled: false,
-                              IsCancellationRequested: false,
-                              IsRunning: false
+                            {
+                              Type: Button,
+                              Command: {
+                                CanBeCanceled: false,
+                                IsCancellationRequested: false,
+                                IsRunning: false
+                              },
+                              Content: Random
                             },
-                            Content: Random
-                          },
-                          {
-                            Type: Button,
-                            Command: {},
-                            Content: Explain
-                          },
-                          {
-                            Type: Button,
-                            Command: {},
-                            Content: Go To
-                          },
-                          {
-                            Type: Button,
-                            Command: {
-                              CanBeCanceled: false,
-                              IsCancellationRequested: false,
-                              IsRunning: false
+                            {
+                              Type: Button,
+                              Command: {},
+                              Content: Explain
                             },
-                            Content: Next >
-                          },
-                          {
-                            Type: Button,
-                            Command: {
-                              CanBeCanceled: false,
-                              IsCancellationRequested: false,
-                              IsRunning: false
+                            {
+                              Type: Button,
+                              Command: {},
+                              Content: Go To
                             },
-                            Content: >|
-                          }
-                        ]
+                            {
+                              Type: Button,
+                              Command: {
+                                CanBeCanceled: false,
+                                IsCancellationRequested: false,
+                                IsRunning: false
+                              },
+                              Content: Next >
+                            },
+                            {
+                              Type: Button,
+                              Command: {
+                                CanBeCanceled: false,
+                                IsCancellationRequested: false,
+                                IsRunning: false
+                              },
+                              Content: >|
+                            }
+                          ]
+                        },
+                        Name: This
                       }
                     ]
                   }
@@ -219,8 +216,6 @@
           },
           DataContext: {
             ComicLoaded: false,
-            ComicTitle: ,
-            ComicInfo: # - //,
             DialogOpen: false,
             GetFirstCommand: {
               CanBeCanceled: false,
@@ -271,8 +266,6 @@
   DataContext: {
     CurrentView: {
       ComicLoaded: false,
-      ComicTitle: ,
-      ComicInfo: # - //,
       DialogOpen: false,
       GetFirstCommand: {
         CanBeCanceled: false,

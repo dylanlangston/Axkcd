@@ -2,8 +2,9 @@ namespace AvaloniaXKCD.Tests;
 
 public partial class NullrSystemActions : ISystemActions
 {
+#pragma warning disable CS0067 // The event 'DesktopSystemActions.OnUriChange' is never used
     public event EventHandler<string>? OnUriChange;
-
+#pragma warning restore CS0067
     public Uri GetBaseUri()
     {
         throw new NotImplementedException();
@@ -14,8 +15,13 @@ public partial class NullrSystemActions : ISystemActions
         return true;
     }
 
+    public void InvokeOnUriChange(string newUri)
+    {
+        // NoOp
+    }
+
     public void SetTitle(string title)
     {
-        throw new NotImplementedException();
+        // NoOp
     }
 }

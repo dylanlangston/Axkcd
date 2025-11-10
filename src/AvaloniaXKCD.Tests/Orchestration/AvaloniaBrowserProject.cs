@@ -31,22 +31,34 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
             UseShellExecute = false,
             CreateNoWindow = true
         };
-        startInfo.EnvironmentVariables.Add("DOTNET_USE_POLLING_FILE_WATCHER", "1");
+        startInfo.EnvironmentVariables["ASPNETCORE_ENVIRONMENT"] = "true";
 
         _avaloniaProcess = new Process { StartInfo = startInfo };
 
         _avaloniaProcess.OutputDataReceived += OnOutputDataReceived;
         _avaloniaProcess.ErrorDataReceived += OnOutputDataReceived;
 
-        _avaloniaProcess.Start();
-        _avaloniaProcess.BeginOutputReadLine();
-        _avaloniaProcess.BeginErrorReadLine();
+        try
 
-        // Wait for the App url to be logged, with a timeout.
-        Url = await _appUrlCompletionSource.Task.WaitAsync(TimeSpan.FromSeconds(30));
-        await PingUntilSuccess(Url);
+        {
+            _avaloniaProcess.Start();
+            _avaloniaProcess.BeginOutputReadLine();
+            _avaloniaProcess.BeginErrorReadLine();
 
-        HttpClient.Dispose();
+            // Wait for the App url to be logged, with a decent timeout to allow for the build process.
+            Url = await _appUrlCompletionSource.Task.WaitAsync(TimeSpan.FromSeconds(60));
+            await PingUntilSuccess(Url);
+        }
+        catch
+        {
+            _avaloniaProcess.Kill(true);
+            throw;
+        }
+        finally
+        {
+            HttpClient.Dispose();
+        }
+
     }
 
     [GeneratedRegex(@"(http|https)://localhost:\d+", RegexOptions.Compiled)]
@@ -71,7 +83,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
         var attempts = 0;
         const int maxAttempts = 5;
 
-        while (attempts < maxAttempts)
+        while (attempts < maxAttempts && (TestContext.Current?.Execution.CancellationToken.IsCancellationRequested != true))
         {
             try
             {
