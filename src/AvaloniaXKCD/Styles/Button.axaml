@@ -1,0 +1,43 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:CompileBindings="True">
+    <Style Selector="Button">
+        <Setter Property="Background" Value="{DynamicResource NavBackgroundColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource NavTextColor}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource NavBorderColor}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Margin" Value="2, 4" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.2" />
+                <BrushTransition Property="Foreground" Duration="0:0:0.2" />
+            </Transitions>
+        </Setter>
+    </Style>
+
+    <Style Selector="Button /template/ ContentPresenter">
+        <Setter Property="BoxShadow" Value="0 0 5 1 DarkGray" />
+    </Style>
+
+    <Style Selector="Button:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource NavHoverBackgroundColor}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource NavBorderColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource NavHoverTextColor}" />
+    </Style>
+
+    <Style Selector="Button:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource NavHoverBackgroundColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource NavHoverTextColor}" />
+        <Setter Property="Opacity" Value="0.8" />
+    </Style>
+
+    <Style Selector="Button:disabled /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource NavBackgroundColor}" />
+        <Setter Property="Opacity" Value="0.5" />
+    </Style>
+</Styles>

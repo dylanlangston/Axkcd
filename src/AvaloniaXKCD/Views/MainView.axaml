@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:CompileBindings="True"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dialogHost="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AvaloniaXKCD.ViewModels"
+             xmlns:converters="clr-namespace:AvaloniaXKCD.Converters"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaXKCD.Views.MainView"
+             x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+    <vm:MainViewModel />
+  </Design.DataContext>
+
+  <UserControl.Resources>
+    <converters:ViewLocatorConverter x:Key="ViewLocator" />
+  </UserControl.Resources>
+
+  <dialogHost:DialogHost
+    dialogHost:DialogHostStyle.CornerRadius="10"
+    CloseOnClickAway="{Binding CloseDialogOnClickAway}"
+    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+    IsOpen="{Binding DialogOpen}">
+    <dialogHost:DialogHost.DialogContent>
+      <Panel>
+        <ContentControl Content="{Binding DialogViewModel, Converter={StaticResource ViewLocator}}" />
+      </Panel>
+    </dialogHost:DialogHost.DialogContent>
+    <ContentControl Content="{Binding CurrentView, Converter={StaticResource ViewLocator}}" />
+  </dialogHost:DialogHost>
+
+</UserControl>

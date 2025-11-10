@@ -1,0 +1,28 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="BackgroundColorValue">#96A8C8</Color>
+    <Color x:Key="TextColorValue">#1b2a4e</Color>
+    <Color x:Key="BorderColorValue">#000000</Color>
+    <Color x:Key="ContentBackgroundColorValue">#FFFFFF</Color>
+    <Color x:Key="LinkColorValue">#2020FF</Color>
+    <Color x:Key="LinkVisitedColorValue">#000077</Color>
+    <Color x:Key="NavBackgroundColorValue">#6E7B91</Color>
+    <Color x:Key="NavTextColorValue">#FFFFFF</Color>
+    <Color x:Key="NavBorderColorValue">#333333</Color>
+    <Color x:Key="NavHoverBackgroundColorValue">#FFFFFF</Color>
+    <Color x:Key="NavHoverTextColorValue">#6E7B91</Color>
+    <Color x:Key="IndeterminateBackgroundColorValue">#e0e0e0</Color>
+
+    <SolidColorBrush x:Key="BackgroundColor" Color="{StaticResource BackgroundColorValue}"/>
+    <SolidColorBrush x:Key="TextColor" Color="{StaticResource TextColorValue}"/>
+    <SolidColorBrush x:Key="BorderColor" Color="{StaticResource BorderColorValue}"/>
+    <SolidColorBrush x:Key="ContentBackgroundColor" Color="{StaticResource ContentBackgroundColorValue}"/>
+    <SolidColorBrush x:Key="LinkColor" Color="{StaticResource LinkColorValue}"/>
+    <SolidColorBrush x:Key="LinkVisitedColor" Color="{StaticResource LinkVisitedColorValue}"/>
+    <SolidColorBrush x:Key="NavBackgroundColor" Color="{StaticResource NavBackgroundColorValue}"/>
+    <SolidColorBrush x:Key="NavTextColor" Color="{StaticResource NavTextColorValue}"/>
+    <SolidColorBrush x:Key="NavBorderColor" Color="{StaticResource NavBorderColorValue}"/>
+    <SolidColorBrush x:Key="NavHoverBackgroundColor" Color="{StaticResource NavHoverBackgroundColorValue}"/>
+    <SolidColorBrush x:Key="NavHoverTextColor" Color="{StaticResource NavHoverTextColorValue}"/>
+    <SolidColorBrush x:Key="IndeterminateBackgroundColor" Color="{StaticResource IndeterminateBackgroundColorValue}"/>
+</ResourceDictionary>

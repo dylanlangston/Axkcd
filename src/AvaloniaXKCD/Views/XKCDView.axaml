@@ -1,0 +1,110 @@
+<UserControl
+    x:Class="AvaloniaXKCD.Views.XKCDView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+    xmlns:converters="clr-namespace:AvaloniaXKCD.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dialogHost="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+    xmlns:ext="using:AvaloniaXKCD.MarkupExtensions"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:svc="using:AvaloniaXKCD.Services"
+    xmlns:views="clr-namespace:AvaloniaXKCD.Views"
+    xmlns:vm="clr-namespace:AvaloniaXKCD.ViewModels"
+    Name="XKCDComicControl"
+    d:DesignHeight="450"
+    d:DesignWidth="500"
+    x:CompileBindings="True"
+    x:DataType="vm:XKCDViewModel"
+    mc:Ignorable="d">
+
+    <UserControl.Styles>
+        <Style Selector="Button.ImgButton /template/ ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BoxShadow" Value="0 0 0 0 Transparent" />
+        </Style>
+        <Style Selector="Button.ImgButton:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+    </UserControl.Styles>
+
+    <UserControl.Resources>
+        <converters:MathAddConverter x:Key="Math" x:TypeArguments="x:Double" />
+        <converters:BitmapWidthConverter x:Key="BitmapWidthConverter" />
+        <x:Decimal x:Key="XKCDImageButtonSubtractAmount">-120</x:Decimal>
+        <x:Decimal x:Key="AdvancedImageSubtractAmount">-20</x:Decimal>
+    </UserControl.Resources>
+
+    <Design.DataContext>
+        <vm:XKCDViewModel />
+    </Design.DataContext>
+
+    <ThemeVariantScope RequestedThemeVariant="Light">
+        <dialogHost:DialogHost
+            dialogHost:DialogHostStyle.CornerRadius="10"
+            x:DataType="vm:XKCDViewModel"
+            CloseOnClickAway="True"
+            Identifier="GotoComicDialog"
+            IsOpen="{Binding DialogOpen}">
+            <dialogHost:DialogHost.DialogContent>
+                <views:GoToComicDialogView />
+            </dialogHost:DialogHost.DialogContent>
+
+            <Panel VerticalAlignment="Stretch" Background="White">
+                <Panel.ContextMenu>
+                    <ContextMenu Name="WindowContextMenu">
+                        <MenuItem Command="{Binding CopyURICommand}" Header="Copy URL" />
+                    </ContextMenu>
+                </Panel.ContextMenu>
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,5,0,0"
+                        HorizontalAlignment="Center"
+                        FontWeight="Bold"
+                        Text="{Binding CurrentComic.ComicTitle}"
+                        TextAlignment="Center" />
+                    <TextBlock
+                        Margin="0,5,0,0"
+                        HorizontalAlignment="Center"
+                        FontSize="12"
+                        FontWeight="DemiBold"
+                        Text="{Binding CurrentComic.ComicInfo}"
+                        TextAlignment="Center" />
+                    <views:NavigationControlsView
+                        ExplainCommand="{Binding ExplainCommand}"
+                        GetFirstCommand="{Binding GetFirstCommand}"
+                        GetLastCommand="{Binding GetLastCommand}"
+                        GetNextCommand="{Binding GetNextCommand}"
+                        GetPreviousCommand="{Binding GetPreviousCommand}"
+                        GetRandomCommand="{Binding GetRandomCommand}"
+                        OpenDialogCommand="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHost:DialogHost}, Path=OpenDialogCommand}" />
+                    <Button
+                        Height="{Binding $parent.Bounds.Height, Converter={StaticResource Math}, ConverterParameter={StaticResource XKCDImageButtonSubtractAmount}}"
+                        HorizontalAlignment="Stretch"
+                        Classes="ImgButton"
+                        Command="{Binding OpenCommand}">
+                        <asyncImageLoader:AdvancedImage
+                            Name="ComicImage"
+                            MaxWidth="{Binding $self.Source, Converter={StaticResource BitmapWidthConverter}}"
+                            MaxHeight="{Binding $parent.Bounds.Height, Converter={StaticResource Math}, ConverterParameter={StaticResource AdvancedImageSubtractAmount}}"
+                            Margin="5"
+                            HorizontalAlignment="Center"
+                            Loader="{ext:Service svc:XKCDImageLoader}"
+                            RenderOptions.BitmapInterpolationMode="HighQuality"
+                            Source="{Binding ImageSource}"
+                            ToolTip.Tip="{Binding CurrentComic.Alt}" />
+                    </Button>
+                    <views:NavigationControlsView
+                        ExplainCommand="{Binding ExplainCommand}"
+                        GetFirstCommand="{Binding GetFirstCommand}"
+                        GetLastCommand="{Binding GetLastCommand}"
+                        GetNextCommand="{Binding GetNextCommand}"
+                        GetPreviousCommand="{Binding GetPreviousCommand}"
+                        GetRandomCommand="{Binding GetRandomCommand}"
+                        OpenDialogCommand="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHost:DialogHost}, Path=OpenDialogCommand}" />
+                </StackPanel>
+            </Panel>
+        </dialogHost:DialogHost>
+    </ThemeVariantScope>
+</UserControl>

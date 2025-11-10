@@ -1,0 +1,41 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style Selector="NumericUpDown /template/ ButtonSpinner:right /template/ RepeatButton">
+        <Setter Property="Background" Value="{DynamicResource NavBackgroundColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource NavTextColor}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.2" />
+                <BrushTransition Property="Foreground" Duration="0:0:0.2" />
+            </Transitions>
+        </Setter>
+    </Style>
+
+    <Style Selector="NumericUpDown /template/ ButtonSpinner:right /template/ RepeatButton /template/ ContentPresenter">
+        <Setter Property="BoxShadow" Value="0 0 5 1 DarkGray" />
+    </Style>
+
+    <Style Selector="NumericUpDown /template/ ButtonSpinner:right /template/ RepeatButton PathIcon">
+        <Setter Property="Foreground" Value="{DynamicResource NavTextColor}" />
+    </Style>
+
+    <Style Selector="NumericUpDown /template/ ButtonSpinner:right /template/ RepeatButton:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource NavHoverBackgroundColor}" />
+    </Style>
+    
+    <Style Selector="NumericUpDown /template/ ButtonSpinner:right /template/ RepeatButton:pointerover PathIcon">
+        <Setter Property="Foreground" Value="{DynamicResource NavHoverTextColor}" />
+    </Style>
+
+    <Style Selector="NumericUpDown /template/ ButtonSpinner:right /template/ RepeatButton:pressed /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource NavHoverBackgroundColor}" />
+        <Setter Property="Opacity" Value="0.8" />
+    </Style>
+    
+    <Style Selector="NumericUpDown /template/ ButtonSpinner:right /template/ RepeatButton:pressed PathIcon">
+        <Setter Property="Foreground" Value="{DynamicResource NavHoverTextColor}" />
+    </Style>
+
+</Styles>
