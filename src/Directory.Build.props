@@ -1,0 +1,32 @@
+<Project>
+  <PropertyGroup>
+    <Description>An XKCD Viewer written in Avalonia.</Description>
+    <Copyright>© $(Company) 2025</Copyright>
+    <Authors>$(Company)</Authors>
+    <Company>Dylan Langston</Company>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <Deterministic>false</Deterministic>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <VersionMajor>1</VersionMajor>
+    <VersionMinor>0</VersionMinor>
+
+    <VersionPatch>$([System.DateTime]::Now.ToString("yyMMdd"))</VersionPatch>
+    <VersionBuild>$([System.DateTime]::Now.ToString("HHmm"))</VersionBuild>
+
+    <Version>$(VersionMajor).$(VersionMinor).0.0</Version>
+
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
+    <InformationalVersion>$(Version)</InformationalVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="LICENSE" Pack="true" PackagePath="..\"/>
+  </ItemGroup>
+</Project>

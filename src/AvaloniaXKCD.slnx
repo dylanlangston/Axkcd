@@ -1,0 +1,22 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="nuget.config" />
+    <File Path="XKCDSyncTool.cs" />
+  </Folder>
+  <Folder Name="/Solution Items/NewFolder1/" />
+  <Project Path="AvaloniaXKCD.Browser/AvaloniaXKCD.Browser.csproj" />
+  <Project Path="AvaloniaXKCD.Desktop/AvaloniaXKCD.Desktop.csproj" />
+  <Project Path="AvaloniaXKCD.Exports/AvaloniaXKCD.Exports.csproj" />
+  <Project Path="AvaloniaXKCD.Generators/AvaloniaXKCD.Generators.csproj" />
+  <Project Path="AvaloniaXKCD.Tests/AvaloniaXKCD.Tests.csproj" />
+  <Project Path="AvaloniaXKCD/AvaloniaXKCD.csproj" />
+  <Project Path="XKCDCore/XKCDCore.csproj" />
+</Solution>
