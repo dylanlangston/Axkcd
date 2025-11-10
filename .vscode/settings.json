@@ -1,0 +1,7 @@
+{
+    "dotnet.defaultSolution": "./src/AvaloniaXKCD.slnx",
+    "dotnet.testWindow.useTestingPlatformProtocol": true,
+    "dotnet.useLegacyDotnetResolution": true,
+    "omnisharp.enableLspDriver": true,
+    "axaml.trace.server": "verbose"
+}
