@@ -1,0 +1,1 @@
+﻿http://test.local/info.0.json

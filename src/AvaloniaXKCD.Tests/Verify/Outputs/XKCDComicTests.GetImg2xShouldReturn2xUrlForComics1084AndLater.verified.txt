@@ -1,0 +1,4 @@
+﻿{
+  pngResult: https://imgs.xkcd.com/comics/test_2x.png,
+  jpgResult: https://imgs.xkcd.com/comics/another_2x.jpg
+}

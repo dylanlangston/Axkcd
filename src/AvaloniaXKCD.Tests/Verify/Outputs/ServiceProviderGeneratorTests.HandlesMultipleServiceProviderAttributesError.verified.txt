@@ -1,0 +1,16 @@
+﻿{
+  Diagnostics: [
+    {
+      Message: Only one class can be decorated with the [ServiceProvider] attribute.,
+      Severity: Error,
+      Descriptor: {
+        Id: SPG001,
+        Title: Multiple ServiceProvider classes,
+        MessageFormat: Only one class can be decorated with the [ServiceProvider] attribute.,
+        Category: Generator,
+        DefaultSeverity: Error,
+        IsEnabledByDefault: true
+      }
+    }
+  ]
+}

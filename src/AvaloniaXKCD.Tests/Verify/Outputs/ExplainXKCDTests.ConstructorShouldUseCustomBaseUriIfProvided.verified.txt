@@ -1,0 +1,16 @@
+﻿{
+  Uri: {
+    Path: http://test.local/wiki/api.php,
+    Query: {
+      action: query,
+      format: json,
+      prop: revisions,
+      redirects: 1,
+      rvprop: content,
+      titles: 1
+    }
+  },
+  Headers: {
+    User-Agent: XKCDCore/1.0
+  }
+}

@@ -1,0 +1,16 @@
+﻿{
+  Diagnostics: [
+    {
+      Message: Only one class can be decorated with the [ViewLocator] attribute.,
+      Severity: Error,
+      Descriptor: {
+        Id: XKC001,
+        Title: Multiple ViewLocator classes,
+        MessageFormat: Only one class can be decorated with the [ViewLocator] attribute.,
+        Category: Generator,
+        DefaultSeverity: Error,
+        IsEnabledByDefault: true
+      }
+    }
+  ]
+}

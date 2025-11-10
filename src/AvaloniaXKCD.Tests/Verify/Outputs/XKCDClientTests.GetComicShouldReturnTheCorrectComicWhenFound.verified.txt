@@ -1,0 +1,14 @@
+﻿{
+  Month: 4,
+  Num: 614,
+  Link: ,
+  Year: 2009,
+  News: ,
+  SafeTitle: Woodpecker,
+  Transcript: [[A comic about a woodpecker.]],
+  Alt: There's no wood, but it sounds like he's found a metal stud.,
+  Img: https://imgs.xkcd.com/comics/woodpecker.png,
+  Title: Woodpecker,
+  Day: 22,
+  BaseUri: https://xkcd.com/
+}

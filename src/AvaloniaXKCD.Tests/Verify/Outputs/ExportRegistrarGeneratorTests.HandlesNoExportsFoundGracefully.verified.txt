@@ -1,0 +1,17 @@
+﻿{
+  Diagnostics: [
+    {
+      Message: The ExportRegistrarGenerator did not find any classes implementing IExport.,
+      Severity: Info,
+      WarningLevel: 1,
+      Descriptor: {
+        Id: XKC001,
+        Title: No exportable classes found,
+        MessageFormat: The ExportRegistrarGenerator did not find any classes implementing IExport.,
+        Category: Generator,
+        DefaultSeverity: Info,
+        IsEnabledByDefault: true
+      }
+    }
+  ]
+}

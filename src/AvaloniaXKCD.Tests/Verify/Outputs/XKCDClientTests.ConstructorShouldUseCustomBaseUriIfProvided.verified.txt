@@ -1,0 +1,6 @@
+﻿{
+  Uri: http://test.local/info.0.json,
+  Headers: {
+    User-Agent: XKCDCore/1.0
+  }
+}

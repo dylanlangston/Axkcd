@@ -1,0 +1,17 @@
+﻿{
+  Diagnostics: [
+    {
+      Message: ViewModel 'TestNamespace.OrphanViewModel' was found, but a corresponding View like 'TestNamespace.OrphanView' was not.,
+      Severity: Info,
+      WarningLevel: 1,
+      Descriptor: {
+        Id: XKC101,
+        Title: Orphaned ViewModel,
+        MessageFormat: ViewModel 'TestNamespace.OrphanViewModel' was found, but a corresponding View like 'TestNamespace.OrphanView' was not.,
+        Category: Generator,
+        DefaultSeverity: Info,
+        IsEnabledByDefault: true
+      }
+    }
+  ]
+}

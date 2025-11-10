@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Headless" />
+    <PackageReference Include="Avalonia.Skia" />
+    <PackageReference Include="Avalonia.Themes.Fluent" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+    <PackageReference Include="Shouldly" />
+    <PackageReference Include="TUnit" />
+    <PackageReference Include="TUnit.Playwright" />
+    <PackageReference Include="Verify.Avalonia" />
+    <PackageReference Include="Verify.CommunityToolkit.Mvvm" />
+    <PackageReference Include="Verify.Http" />
+    <PackageReference Include="Verify.ImageMagick" />
+    <PackageReference Include="Verify.Playwright" />
+    <PackageReference Include="Verify.SourceGenerators" />
+    <PackageReference Include="Verify.TUnit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XKCDCore\XKCDCore.csproj" />
+    <ProjectReference Include="..\AvaloniaXKCD\AvaloniaXKCD.csproj" />
+    <ProjectReference Include="..\AvaloniaXKCD.Generators\AvaloniaXKCD.Generators.csproj" />
+    <ProjectReference Include="..\AvaloniaXKCD.Generators\AvaloniaXKCD.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\AvaloniaXKCD.Exports\AvaloniaXKCD.Exports.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Compile Remove="Verify/**/*.cs" />
+    <Compile Include="Verify/Plugins/*.cs" />
+    <Content Include="Verify/**/*.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

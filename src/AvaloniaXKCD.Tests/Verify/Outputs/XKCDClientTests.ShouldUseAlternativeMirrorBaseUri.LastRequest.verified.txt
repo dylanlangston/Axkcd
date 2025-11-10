@@ -1,0 +1,6 @@
+﻿{
+  Uri: https://raw.githubusercontent.com/aghontpi/mirror-xkcd-api/main/api/300/info.0.json,
+  Headers: {
+    User-Agent: XKCDCore/1.0
+  }
+}

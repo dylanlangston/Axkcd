@@ -1,0 +1,14 @@
+﻿{
+  Month: 10,
+  Num: 2999,
+  Link: ,
+  Year: 2025,
+  News: ,
+  SafeTitle: Fake Latest Comic,
+  Transcript: [[A fake comic for testing purposes.]],
+  Alt: This is a test.,
+  Img: https://imgs.xkcd.com/comics/fake_latest.png,
+  Title: Fake Latest Comic,
+  Day: 18,
+  BaseUri: https://xkcd.com/
+}

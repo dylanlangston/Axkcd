@@ -1,0 +1,1 @@
+﻿<p>Text with &lt;angle brackets&gt; &amp; ampersand</p>
