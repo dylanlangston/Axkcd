@@ -1,0 +1,176 @@
+# Dockerfile and Docker-related files
+Dockerfile
+.dockerignore
+
+# Git folder
+.git/
+.gitignore
+
+# dotenv files
+.env
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Mono auto generated files
+mono_crash.*
+
+# Build results - These should be generated inside the container
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+out/
+
+# Visual Studio s
+**/.vs/
+Generated\ Files/
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.tlog
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+*.psess
+*.vsp
+*.vspx
+*.sap
+*.e2e
+$tf/
+
+# .NET artifacts
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Tye
+.tye/
+
+# NuGet Packages - These should be restored within the container
+**/[Pp]ackages/*
+*.nupkg
+*.snupkg
+
+# Node.js dependencies - These should be installed within the container
+**/node_modules
+
+# ReSharper and other JetBrains files
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+.idea/
+*.sln.iml
+
+# VS Code specific files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+# OS-generated files
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+# Windows
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Avalonia temp files
+src/*/.avalonia*/*
+.mono/
+
+# Publish output
+publish/
+*.[Pp]ublish.xml
+*.azurePubxml
+*.pubxml
+*.publishproj
+PublishScripts/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+# Other
+~*
+*~
+
+# Avalonia Site
+src/AvaloniaXKCD.Browser/wwwroot
+
+# Build output
+out/
