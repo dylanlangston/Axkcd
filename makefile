@@ -182,7 +182,7 @@ endif
 	@cd src/AvaloniaXKCD.Site; bun ci
 
 setup-playwright: ## Setup playwright browsers for testing.
-	@cd src; dotnet build; dnx -y Microsoft.Playwright.CLI -p ./AvaloniaXKCD.Tests install --with-deps
+	@cd src; dotnet build; dotnet dnx -y Microsoft.Playwright.CLI -p ./AvaloniaXKCD.Tests install --with-deps
 
 format: ## Format source code.
 	@cd src; dotnet format
