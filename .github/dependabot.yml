@@ -1,0 +1,47 @@
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+version: 2
+updates:
+  - package-ecosystem: "nuget"
+    open-pull-requests-limit: 1
+    commit-message:
+      prefix: "C# - "
+    directory: "./src"
+    schedule:
+      interval: "monthly"
+    groups:
+      "C#":
+        patterns:
+          - "*"
+  - package-ecosystem: "bun"
+    open-pull-requests-limit: 1
+    commit-message:
+      prefix: "Bun - "
+    directory: "./src/AvaloniaXKCD.Site"
+    schedule:
+      interval: "monthly"
+    groups:
+      "Bun":
+        patterns:
+          - "*"
+  - package-ecosystem: "github-actions"
+    open-pull-requests-limit: 1
+    commit-message:
+      prefix: "GitHub Actions - "
+    directory: ./.github/workflows/
+    schedule:
+      interval: "monthly"
+    groups:
+      "GitHub Actions":
+        patterns:
+          - "*"
+  - package-ecosystem: "devcontainers"
+    open-pull-requests-limit: 1
+    commit-message:
+      prefix: "Dev Container - "
+    directory: ./.devcontainer
+    schedule:
+      interval: "monthly"
+    groups:
+      "Dev Container":
+        patterns:
+          - "*"
