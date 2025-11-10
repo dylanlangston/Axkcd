@@ -1,0 +1,14 @@
+{
+  "month": "12",
+  "num": 518,
+  "link": "",
+  "year": "2008",
+  "news": "",
+  "safeTitle": "Flow Charts",
+  "transcript": "A guide to [[line break, bigger text]] understanding flow charts [[line break, normal text]] presented in flow chart form.\n0.Box: Start\n   [[Arrow|Text=null Target=1.Box]]\n1.Box: Do you understand flow charts?\n   [[Arrow|Text=\u0027Yes\u0027 Target=2.Box]]\n   [[Arrow|Text=\u0027No\u0027 Target=4.Box]]\n2.Box: Good\n   [[Arrow|Text=\u0027Yes\u0027 Target=3.Box]]\n3.Box: Let\u0027s go drink.\n   [[Arrow|Text=\u00276 drinks\u0027 Target=Final.Box]]\n4.Box: Okay. You see the line labeled \u0022yes\u0022?\n   [[Arrow|Text=\u0027Yes\u0027 Target=6.Box]]\n   [[Arrow|Text=\u0027No\u0027 Target=5.Box]]\n5.Box: But you see the ones labeled \u0022no\u0022.\n   [[Arrow|Text=\u0027Yes\u0027 Target=End1.Box]]\n   [[Arrow|Text=\u0027No\u0027 Target=End2a.Box]]\nEnd1.Box: Wait, what?\n   [[NoArrows]]\nEnd2a.Box: Listen.\n   [[Arrow|Text=null Target=End2b.Box]]\nEnd2b.Box: I hate you.\n   [[NoArrows]]\n6.Box: ...and you can see the ones labeled \u0022no\u0022?\n   [[Arrow|Text=\u0027Yes\u0027 Target=3.Box]]\n   [[Arrow|Text=\u0027No\u0027 Target=7.Box]]\n7.Box: But you just followed them twice!\n   [[Arrow|Text=\u0027Yes\u0027 Target=8a.Box]]\n   [[Arrow|Text=\u0027No\u0027 Target=8a.Box]]\n8a.Box: (That wasn\u0027t a question.)\n   [[Arrow|Text=null Target=8b.Box]]\n8b.Box: Screw it.\n   [[Arrow|Text=null Target=3.Box]]\nFinal.Box: Hey I should try installing FreeBSD!\n{{Title text: At 8 drinks, you switch the torrent from FreeBSD to Microsoft Bob. C\u0027mon, it\u0027ll be fun!}}",
+  "alt": "At 8 drinks, you switch the torrent from FreeBSD to Microsoft Bob.  C\u0027mon, it\u0027ll be fun!",
+  "img": "518/flow_charts.png",
+  "title": "Flow Charts",
+  "day": "17",
+  "baseUri": "https://example.com/"
+}

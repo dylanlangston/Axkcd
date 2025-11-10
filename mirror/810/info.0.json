@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 810,
+  "link": "",
+  "year": "2010",
+  "news": "",
+  "safeTitle": "Constructive",
+  "transcript": "[[A man is talking to a woman]]\nMan: Spammers are breaking traditional captchas with AI, so I\u0027ve built a new system. It asks users to rate a slate of comments as \u0022Constructive\u0022 or \u0022Not constructive\u0022.\n[[Close up of man]]\nMan: Then it has them reply with comments of their own, which are later rated by other users.\n[[Woman standing next to man again]]\nWoman: But what will you do when spammers train their bots to make automated constructive and helpful comments?\n[[Close up of man again]]\nMan: Mission. Fucking. Accomplished.\n\n{{Title text: And what about all the people who won\u0027t be able to join the community because they\u0027re terrible at making helpful and constructive co-- ... oh.}}",
+  "alt": "And what about all the people who won\u0027t be able to join the community because they\u0027re terrible at making helpful and constructive co-- ... oh.",
+  "img": "810/constructive.png",
+  "title": "Constructive",
+  "day": "25",
+  "baseUri": "https://example.com/"
+}

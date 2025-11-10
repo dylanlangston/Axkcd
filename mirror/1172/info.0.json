@@ -1,0 +1,14 @@
+{
+  "month": "2",
+  "num": 1172,
+  "link": "",
+  "year": "2013",
+  "news": "",
+  "safeTitle": "Workflow",
+  "transcript": "[[Changelog for version 10.17 of a piece of software.  One change listed: \u0022The CPU no longer overheats when you hold down the spacebar\u0022\n\nComments:\nLongtimeUser4 writes:\nThis update broke my workflow! My control key is hard to reach, so I hold spacebar instead, and I configured Emacs to interpret a rapid temperature rise as \u0022control\u0022e\n\nAdmin writes:\nThat\u0027s horrifying.\n\nLongtimeUser4 writes:\nLook, my setup works for me.  Just add an option to reenable spacebar heating.]]\n\n\n\n{{Title text: There are probably children out there holding down spacebar to stay warm in the winter! YOUR UPDATE MURDERS CHILDREN.}}",
+  "alt": "There are probably children out there holding down spacebar to stay warm in the winter! YOUR UPDATE MURDERS CHILDREN.",
+  "img": "1172/workflow.png",
+  "title": "Workflow",
+  "day": "11",
+  "baseUri": "https://example.com/"
+}

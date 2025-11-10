@@ -1,0 +1,14 @@
+{
+  "month": "12",
+  "num": 360,
+  "link": "",
+  "year": "2007",
+  "news": "",
+  "safeTitle": "Writers Strike",
+  "transcript": "[[One character sits in front of a computer, Hat Guy behind him]]\nPerson: This writer\u0027s strike sucks.\nHat Guy: Why? You don\u0027t watch sitcoms.\nPerson: Yeah, but it sucks having political campaigns without Jon Stewart\u0027s commentary.\nHat Guy: True. I finally got sick of it a couple weeks ago.\nPerson: And you quit following the campaigns?\nHat Guy: No. I kidnapped Jon Stewart to do analysis for me.\nPerson: You what?\nHat Guy [[Pointing at a door]]: He\u0027s locked in the basement.\nHat Guy: Jon! Obama\u0027s leading in Iowa! Gimme a wry, witty comment on the situation!\nStewart [[Voice coming from door]]: Please let me go. I have a family.\n{{Alt: He\u0027s just jealous because everyone\u0027s up in the attic listening to Stephen Colbert.}}",
+  "alt": "He\u0027s just jealous because everyone\u0027s up in the attic listening to Stephen Colbert.",
+  "img": "360/writers_strike.png",
+  "title": "Writers Strike",
+  "day": "21",
+  "baseUri": "https://example.com/"
+}

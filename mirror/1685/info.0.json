@@ -1,0 +1,14 @@
+{
+  "month": "5",
+  "num": 1685,
+  "link": "",
+  "year": "2016",
+  "news": "",
+  "safeTitle": "Patch",
+  "transcript": "",
+  "alt": "My optimizer uses content-aware inpainting to fill in all the wasted whitespace in the code, repeating the process until it compiles.",
+  "img": "1685/patch.png",
+  "title": "Patch",
+  "day": "25",
+  "baseUri": "https://example.com/"
+}

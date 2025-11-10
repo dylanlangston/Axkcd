@@ -1,0 +1,14 @@
+{
+  "month": "1",
+  "num": 688,
+  "link": "",
+  "year": "2010",
+  "news": "",
+  "safeTitle": "Self-Description",
+  "transcript": "[[There is a pie chart, mostly white with a black slice. The white is labeled \u0022Fraction of this image which is white.\u0022 The black is labeled \u0022Fraction of this image which is black.\u0022]]\n\n[[There is a bar graph labeled \u0022Amount of black ink by panel.\u0022 Bar 1 is medium height, Bar 2 higher, Bar 3 lowest.]]\n\n[[There is a scatterplot labeled \u0022Location of black ink in this image.\u0022 It is the positive quarter of a coordinate grid with the zeroes marked. The graph is, of course, the whole comic scaled to fit the axes, including a smaller version of itself in the last panel, etc.]]\n\n{{Title text: The contents of any one panel are dependent on the contents of every panel including itself. The graph of panel dependencies is complete and bidirectional, and each node has a loop. The mouseover text has two hundred and forty-two characters.}}",
+  "alt": "The contents of any one panel are dependent on the contents of every panel including itself. The graph of panel dependencies is complete and bidirectional, and each node has a loop. The mouseover text has two hundred and forty-two characters.",
+  "img": "688/self_description.png",
+  "title": "Self-Description",
+  "day": "13",
+  "baseUri": "https://example.com/"
+}

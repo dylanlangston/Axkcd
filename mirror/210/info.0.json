@@ -1,0 +1,14 @@
+{
+  "month": "1",
+  "num": 210,
+  "link": "",
+  "year": "2007",
+  "news": "",
+  "safeTitle": "90\u0027s Flowchart",
+  "transcript": "Start\n |\nThe 90\u0027s?\n \n          \\\nNo       Yes\n |           |\nStop      Stop\n           \n       \\\nHammertime  Collaborate\n                       |\n                    Listen\n{{alt: Freestyle rapping is basically applied Markov chains.}}",
+  "alt": "Freestyle rapping is basically applied Markov chains.",
+  "img": "210/90s_flowchart.png",
+  "title": "90\u0027s Flowchart",
+  "day": "15",
+  "baseUri": "https://example.com/"
+}

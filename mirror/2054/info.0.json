@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 2054,
+  "link": "",
+  "year": "2018",
+  "news": "",
+  "safeTitle": "Data Pipeline",
+  "transcript": "",
+  "alt": "\u0022Is the pipeline literally running from your laptop?\u0022 \u0022Don\u0027t be silly, my laptop disconnects far too often to host a service we rely on. It\u0027s running on my phone.\u0022",
+  "img": "2054/data_pipeline.png",
+  "title": "Data Pipeline",
+  "day": "3",
+  "baseUri": "https://example.com/"
+}

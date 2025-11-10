@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 1906,
+  "link": "",
+  "year": "2017",
+  "news": "",
+  "safeTitle": "Making Progress",
+  "transcript": "",
+  "alt": "I started off with countless problems. But now I know, thanks to COUNT(), that I have \u0022#REF! ERROR: Circular dependency detected\u0022 problems.",
+  "img": "1906/making_progress.png",
+  "title": "Making Progress",
+  "day": "23",
+  "baseUri": "https://example.com/"
+}

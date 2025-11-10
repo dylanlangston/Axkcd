@@ -1,0 +1,14 @@
+{
+  "month": "11",
+  "num": 179,
+  "link": "",
+  "year": "2006",
+  "news": "",
+  "safeTitle": "e to the pi times i",
+  "transcript": "{{Note my use of ^(x) and \u00E2\u0088\u009A(x) standing in for the normal maths syntax in the comic}}\n[[Two people (anonymous: no hair or hats) stand in conversation, one gesturing over a flipchart of indistinct algebra.]]\nEXPLAINER: NUMBERS OF THE FORM n\u00E2\u0088\u009A(-1) ARE \u0022IMAGINARY\u0022 BUT WE CAN STILL USE THEM IN EQUATIONS.\nOTHER: OKAY.\nEXPLAINER: AND e^(\u00CF\u0080 \u00E2\u0088\u009A(-1))=-1.\nOTHER: NOW YOU\u0027RE JUST FUCKING WITH ME.\n{{alt text: I have never been totally satisfied by the explanations for why e to the ix gives a sinusoidal wave.}}",
+  "alt": "I have never been totally satisfied by the explanations for why e to the ix gives a sinusoidal wave.",
+  "img": "179/e_to_the_pi_times_i.png",
+  "title": "e to the pi times i",
+  "day": "3",
+  "baseUri": "https://example.com/"
+}

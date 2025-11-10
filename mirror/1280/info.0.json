@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 1280,
+  "link": "",
+  "year": "2013",
+  "news": "",
+  "safeTitle": "Mystery News",
+  "transcript": "[[A figure sits at a laptop.]]\nLaptop: It\u0027s day five of the trade summit, and still no...\n\u003C\u003CClick\u003E\u003E\n\u003C\u003CClick\u003E\u003E\n\u003C\u003CClick\u003E\u003E\nFigure: Dammit\nI get most of my news from autoplaying videos in browser tabs I can\u0027t find.\n\n{{Title text: If you find and stop the video, but you\u0027ve--against all odds--gotten curious about the trade summit, just leave the tab opened. It will mysteriously start playing again 30 minutes later!}}",
+  "alt": "If you find and stop the video, but you\u0027ve--against all odds--gotten curious about the trade summit, just leave the tab opened. It will mysteriously start playing again 30 minutes later!",
+  "img": "1280/mystery_news.png",
+  "title": "Mystery News",
+  "day": "21",
+  "baseUri": "https://example.com/"
+}

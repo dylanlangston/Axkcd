@@ -1,0 +1,14 @@
+{
+  "month": "7",
+  "num": 931,
+  "link": "",
+  "year": "2011",
+  "news": "\u003Ca href=\u0022https://blog.xkcd.com/2011/06/30/family-illness/\u0022\u003ESome context\u003C/a\u003E.",
+  "safeTitle": "Lanes",
+  "transcript": "((The panels are arranged top to bottom.  The first is set above a larger image.))\nPerson: So, are you guys out of the woods?\nSecond Person: We don\u0027t know.\nPerson: Well, did the treatment work?\nSecond Person: We don\u0027t know.\n\n[[The diagram shows a simple highway.  Starting at the bottom, with diagnosis for five lanes, the road travels through a cloud of treatment, after which two lanes disappear, and three continue.  Later on, there\u0027s another offramp labeled \u0027cancer \u0022comes back\u0022\u0027, which loops back into the treatment cloud.  Otherwise, the highway enters a later cloud called survive.]]\nI always assumed that when you got cancer, they gave you a prognosis, then treated you, and at the end of treatment either you beat it or you died.\nAnd I knew sometimes it \u0022recurred,\u0022 which I assumed meant back to square one.\nBut that\u0027s turned out not to be quite right.\n\n[[Back to the two people.]]\nSecond Person: Once most cancers spread out into your body, they\u0027re incurable.\nSecond Person: If your 10-year prognosis is 60%, that means a 40% chance that some cancer will slip past the treatment and get out.\n\nSecond Person: So they kill all the cancer they can find, and then you\u0027re a \u0022survivor.\u0022  But your odds are still 60%.\n\n[[The frame zooms just to show the second person.]]\nSecond Person: They can\u0027t scan for individual cancer cells.  The only way to know if it worked is to wait for tumors to pop up elsewhere.\nSecond Person: If you go enough years without that happening then you were in the 60%.\n\n[[The frame shows both people again.]]\nSecond Person: And often the first sign is a cough or bone pain.\nSecond Person: So you spend the next five or ten years trying not to worry that every ache and pain is the answer to the question \u0022Do I make it?\u0022\n\n((There\u0027s an extra large panel, with a small one floating inside it.))\n[[The panel shows roughly fifty lanes emerging from the cloud of \u0027Treatment\u0027.  Signs show 1 year, 2 years, 3 years, 4 years, 5 years, 6 years.  Lanes branch off and fade into darkness earlier on the right, with some lanes continuing off the top of the panel.]]\n\n((Inset panel.))\nPerson: Man.\nPerson: Fuck cancer.\nSecond Person: \nSeriously.\n\n\n{{Title text: Each quarter of the lanes from left to right correspond loosely to breast cancer stages one through four (at diagnosis).}}",
+  "alt": "Each quarter of the lanes from left to right correspond loosely to breast cancer stages one through four (at diagnosis).",
+  "img": "931/lanes.png",
+  "title": "Lanes",
+  "day": "29",
+  "baseUri": "https://example.com/"
+}

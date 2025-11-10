@@ -1,0 +1,14 @@
+{
+  "month": "11",
+  "num": 2545,
+  "link": "",
+  "year": "2021",
+  "news": "",
+  "safeTitle": "Bayes\u0027 Theorem",
+  "transcript": "",
+  "alt": "P((B|A)|(A|B)) represents the probability that you\u0027ll mix up the order of the terms when using Bayesian notation.",
+  "img": "2545/bayes_theorem.png",
+  "title": "Bayes\u0027 Theorem",
+  "day": "22",
+  "baseUri": "https://example.com/"
+}

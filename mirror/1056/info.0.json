@@ -1,0 +1,14 @@
+{
+  "month": "5",
+  "num": 1056,
+  "link": "",
+  "year": "2012",
+  "news": "",
+  "safeTitle": "Felidae",
+  "transcript": "Well-known felines:\n[[A graph organizing various feline species labeled with common names ordered by Genera(in order of which would win in a fight) on the y axis, and coolness of name on the x axis]]\nSmilodon(extinct): \u0022Saber-toothed cat (scientific name: Smilodon fatalis)\nPanthera: \u0022Jaguar\u0022, \u0022Leopard\u0022, \u0022Snow Leopard\u0022, \u0022Tiger\u0022, \u0022Lion\u0022\nPuma: \u0022Cougar\u0022, \u0022Puma\u0022, \u0022Panther\u0022, \u0022Mountain Lion\u0022\nOther felidae: \u0022Ocelot\u0022, \u0022Cheetah\u0022\nFelis \u0026 Lynx: \u0022Housecat\u0022, \u0022Bobcat\u0022, \u0022Wildcat\u0022, \u0022Lynx\u0022\n[[Some elements are further connected using an unbranched acyclic digraph.  The elements are connected thus: \u0022Cheetah\u0022 -\u003E \u0022Puma\u0022 -\u003E \u0022Jaguar\u0022 -\u003E \u0022Panther\u0022 -\u003E \u0022Tiger\u0022 -\u003E \u0022Leopard\u0022 -\u003E \u0022Snow Leopard\u0022 -\u003E \u0022Lion\u0022 -\u003E \u0022Mountain Lion\u0022\nThe OS X Problem\n\n{{Title text: \u0027Smilodon fatalis\u0027 narrowly edged out \u0027Tyrannosaurus rex\u0027 to win this year\u0027s Most Badass Latin Names competition, after edging out \u0027Dracorex hogwartsia\u0027 and \u0027Stygimoloch spinifer\u0027 (meaning \u0027horned dragon from the river of death\u0027) in the semifinals.}}",
+  "alt": "\u0027Smilodon fatalis\u0027 narrowly edged out \u0027Tyrannosaurus rex\u0027 to win this year\u0027s Most Badass Latin Names competition, after edging out \u0027Dracorex hogwartsia\u0027 and \u0027Stygimoloch spinifer\u0027 (meaning \u0027horned dragon from the river of death\u0027) in the semifinals.",
+  "img": "1056/felidae.png",
+  "title": "Felidae",
+  "day": "16",
+  "baseUri": "https://example.com/"
+}

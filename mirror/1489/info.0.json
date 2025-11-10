@@ -1,0 +1,14 @@
+{
+  "month": "2",
+  "num": 1489,
+  "link": "",
+  "year": "2015",
+  "news": "",
+  "safeTitle": "Fundamental Forces",
+  "transcript": "[[A stick figure lectures]]\n\nFigure: There are four fundamental forces between particles: (1) Gravity, which obeys this inverse square law: Fgravity = G(M1M2)\nd^2\nOff-panel: Ok...\n\nFigure: (2) Electromagnetism, which obeys this inverse-square law: Fstatic = Ke (q1q2)\nd^2\nFigure: ANd also maxwell\u0027s equations\nOff-panel: Also what?\n\nFigure: (3) The Strong Nuclear Force, which obeys uh... well, umm... It holds protons and neutrons together.\nOff-panel: I see.\nFigure: It\u0027s strong.\n\nFigure: And (4) The Weak Force. It [mumble mumble] radioactive decay [mumble mumble]\nOff-panel: That\u0027s not a sentence. You just said \u0022Radio-\nFigure: -And those are the four fundamental forces!\n\n{{Title text: \u0022Of these four forces, there\u0027s one we don\u0027t really understand.\u0022 \u0022Is it the weak force or the strong--\u0022 \u0022It\u0027s gravity.\u0022}}",
+  "alt": "\u0022Of these four forces, there\u0027s one we don\u0027t really understand.\u0022 \u0022Is it the weak force or the strong--\u0022 \u0022It\u0027s gravity.\u0022",
+  "img": "1489/fundamental_forces.png",
+  "title": "Fundamental Forces",
+  "day": "20",
+  "baseUri": "https://example.com/"
+}

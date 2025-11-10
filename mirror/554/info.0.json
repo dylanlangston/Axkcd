@@ -1,0 +1,14 @@
+{
+  "month": "3",
+  "num": 554,
+  "link": "",
+  "year": "2009",
+  "news": "",
+  "safeTitle": "Not Enough Work",
+  "transcript": "Narration: Signs your coders don\u0027t have enough work to do:\n[[A man sitting at his workstation; a female co-worker behind him]]\nMan: I\u0027m almost up to my old typing speed in dvorak\n[[Two men standing by a server rack]]\nMan #1: Our servers now support gopher.\nMan #1: Just in case.\n[[A woman standing near her workstation speaking to a male co-worker]]\nWoman: Our pages are now HTML, XHTML-STRICT, and haiku-compliant\nMan: Haiku?\nWoman: \u003Cdiv class=\u0022main\u0022\u003E\nWoman: \u003Cspan id=\u0022marquee\u0022\u003E\nWoman: Blog!\u003C\nspan\u003E\u003C\ndiv\u003E\n[[A woman sitting at her workstation]]\nWoman: Hey!  Have you guys seen this webcomic?\n{{title text: It\u0027s even harder if you\u0027re an asshole who pronounces \u003C\u003E brackets.}}",
+  "alt": "It\u0027s even harder if you\u0027re an asshole who pronounces \u003C\u003E brackets.",
+  "img": "554/not_enough_work.png",
+  "title": "Not Enough Work",
+  "day": "11",
+  "baseUri": "https://example.com/"
+}

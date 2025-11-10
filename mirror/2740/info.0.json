@@ -1,0 +1,14 @@
+{
+  "month": "2",
+  "num": 2740,
+  "link": "",
+  "year": "2023",
+  "news": "",
+  "safeTitle": "Square Packing",
+  "transcript": "",
+  "alt": "I also managed to improve the solution for n=1 to s\u003C0.97, and with some upgrades I think I can hit 0.96.",
+  "img": "2740/square_packing.png",
+  "title": "Square Packing",
+  "day": "20",
+  "baseUri": "https://example.com/"
+}

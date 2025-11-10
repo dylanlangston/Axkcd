@@ -1,0 +1,14 @@
+{
+  "month": "3",
+  "num": 1654,
+  "link": "",
+  "year": "2016",
+  "news": "",
+  "safeTitle": "Universal Install Script",
+  "transcript": "[[A person looking at their phone. Their text conversation is displayed above their head.]]\nA: I\u0027ll be in your city tomorrow if you want to hang out.\nB: But where will you be I \ndon\u0027t\n want to hang out?!\nA: You know, I just remembered I\u0027m busy.\nWhy I try not to be pedantic about conditionals.\n{{Title text: \u0027If you\u0027re done being pedantic, we should get dinner.\u0027 \u0027You did it again!\u0027 \u0027No, I didn\u0027t.\u0027}}",
+  "alt": "The failures usually don\u0027t hurt anything, and if it installs several versions, it increases the chance that one of them is right. (Note: The \u0027yes\u0027 command and \u00272\u003E/dev/null\u0027 are recommended additions.)",
+  "img": "1654/universal_install_script.png",
+  "title": "Universal Install Script",
+  "day": "11",
+  "baseUri": "https://example.com/"
+}

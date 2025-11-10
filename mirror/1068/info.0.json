@@ -1,0 +1,14 @@
+{
+  "month": "6",
+  "num": 1068,
+  "link": "",
+  "year": "2012",
+  "news": "",
+  "safeTitle": "Swiftkey",
+  "transcript": "[[Person 1 shows off phone to Person 2]]\nPerson 1: Have you tried SwiftKey?  It\u0027s got the first decent language model I\u0027ve seen. It learns from your SMS\nEmail archives what words you use together most often.\n\nPerson 1: Spacebar inserts its best guess. So if I type \u0022The Empi\u0022 and hit space three times, it types \u0022The Empire Strikes Back\u0022.\nPerson 2: What if you mash space in a blank message?\n\nPerson 1: I guess it fills in your most likely first word, then the word that usually follows it..\nPerson 2: So it builds up your \u0022typical\u0022 sentence. Cool! Let\u0027s see yours!\nPerson 1: Uh--\n\nSwiftKey: I\n\nSwiftKey: Am\n\nSwiftKey: So\n\nSwiftKey: Sorry\n\nSwiftKey: That\u0027s\n\nSwiftKey: Never\n\nSwiftKey: Happened\n\nSwiftKey: Before.\n\n{{Title text: Although the Markov chain-style text model is still rudimentary; it recently gave me \u0022Massachusetts Institute of America\u0022. Although I have to admit it sounds prestigious.}}",
+  "alt": "Although the Markov chain-style text model is still rudimentary; it recently gave me \u0022Massachusetts Institute of America\u0022. Although I have to admit it sounds prestigious.",
+  "img": "1068/swiftkey.png",
+  "title": "Swiftkey",
+  "day": "13",
+  "baseUri": "https://example.com/"
+}

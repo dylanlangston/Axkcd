@@ -1,0 +1,14 @@
+{
+  "month": "1",
+  "num": 42,
+  "link": "",
+  "year": "2006",
+  "news": "",
+  "safeTitle": "Geico",
+  "transcript": "I just saved a bunch of money on my car insurance by threatening my agent with a golf club.\n{{title text: David did this}}",
+  "alt": "David did this",
+  "img": "42/geico.jpg",
+  "title": "Geico",
+  "day": "1",
+  "baseUri": "https://example.com/"
+}

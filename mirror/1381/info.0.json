@@ -1,0 +1,14 @@
+{
+  "month": "6",
+  "num": 1381,
+  "link": "",
+  "year": "2014",
+  "news": "",
+  "safeTitle": "Margin",
+  "transcript": "[[The panel shows a mostly-illegible page of a book.  In the margin is a note.  Unusually for xkcd, this note is written in lower-case.]]\nI have discovered a truly marvelous proof that information is infinitely compressible, but this margin is too small to...\n...oh\nnever mind :(\n\n{{Title text: PROTIP: You can get around the Shannon-Hartley limit by setting your font size to 0.}}",
+  "alt": "PROTIP: You can get around the Shannon-Hartley limit by setting your font size to 0.",
+  "img": "1381/margin.png",
+  "title": "Margin",
+  "day": "13",
+  "baseUri": "https://example.com/"
+}

@@ -1,0 +1,14 @@
+{
+  "month": "6",
+  "num": 434,
+  "link": "",
+  "year": "2008",
+  "news": "",
+  "safeTitle": "xkcd Goes to the Airport",
+  "transcript": "[[Standing outside the Airport. There is a sign saying \u0022Airport\u0022 and a plane in the background.]]\nGirl: Okay, what airline?\nGuy: I\u0027m following you.\nGirl: ...I\u0027m following *you*.\nGuy: I assumed we were walking to the bakery.\nGirl: You always assume that!\n[[Presumably the security checkpoint]]\nSecurity Guy: Lockpicks? These are... illegal, actually. Where did you get them?\nGuy: Oh man, it all started with this hacker girl.\nSecurity Guy: You need to come with -\nGuy: Sure, sure. But man, let me tell you about her!\n[[On a plane]]\nAnnouncement: If your device has a \u0022Transmit\u0022 function, please disable it.\nGuy: Okay - hang on, I\u0027m half way through the iwconfig man page.\n[[Security checkpoint]]\nSecurity guy: Sir, is this container under three ounces?\nGuy with hat: Not sure, how much blood is there in a churchmouse?\nSecurity guy: Why don\u0027t you just go.\n{{Alt text: Under three ounces, but it stains panties.}}",
+  "alt": "Under three ounces, but it stains panties.",
+  "img": "434/xkcd_goes_to_the_airport.png",
+  "title": "xkcd Goes to the Airport",
+  "day": "9",
+  "baseUri": "https://example.com/"
+}

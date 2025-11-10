@@ -1,0 +1,14 @@
+{
+  "month": "12",
+  "num": 830,
+  "link": "",
+  "year": "2010",
+  "news": "",
+  "safeTitle": "Genetic Analysis",
+  "transcript": "[[A man stands next to a woman holding a clipboard, she gestures to a comfy-looking chair.]]\nMan: Did my genetic tests come back?\nWoman: Yeah. Sit down.\nMan: Is it bad news? What are my risk factors?\n\n[[The man is now sitting in the chair awaiting her answer. The woman looks down at the clipboard.]]\nWoman: We can\u0027t be sure about this, but we\u0027ve analyzed genes on several of your chromosomes and it\u0027s ard to avoid the conclusion:\n\n[[The woman puts down the clipboard and looks at the man as she delivers her news. The man puts his hands to his face in dismay.]]\nWoman: At some point, your parents had sex.\nMan: Oh God!\nWoman: Stay calm! It\u0027s possible it was just once!\nMan: I... I need to be alone.\n\n{{Title text: There\u0027s still a chance you were conceived via IVF. But we\u0027ve checked your mom\u0027s college yearbook photos, and whether or not she and your father had sex, it\u0027s clear that ... listen, I know this is hard for you.}}",
+  "alt": "There\u0027s still a chance you were conceived via IVF. But we\u0027ve checked your mom\u0027s college yearbook photos, and whether or not she and your father had sex, it\u0027s clear that ... listen, I know this is hard for you.",
+  "img": "830/genetic_analysis.png",
+  "title": "Genetic Analysis",
+  "day": "6",
+  "baseUri": "https://example.com/"
+}

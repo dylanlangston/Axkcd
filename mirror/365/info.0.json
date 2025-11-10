@@ -1,0 +1,14 @@
+{
+  "month": "1",
+  "num": 365,
+  "link": "",
+  "year": "2008",
+  "news": "",
+  "safeTitle": "Slides",
+  "transcript": "Man: That chart explained the quantum hall effect. Now, if you\u0027ll bear with me a moment, this next graph shows rainfall over the amazon basin...\nNarration: If you keep saying \u0022bear with me a moment\u0022 people will take a while to figure out that you\u0027re just showing them random slides.\n{{ Did you know that they could actually physically throw you out of SIGGRAPH? }}",
+  "alt": "Did you know they can actually physically throw you out of SIGGRAPH?",
+  "img": "365/slides.png",
+  "title": "Slides",
+  "day": "2",
+  "baseUri": "https://example.com/"
+}

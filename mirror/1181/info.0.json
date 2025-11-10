@@ -1,0 +1,14 @@
+{
+  "month": "3",
+  "num": 1181,
+  "link": "",
+  "year": "2013",
+  "news": "",
+  "safeTitle": "PGP",
+  "transcript": "How to use PGP to verify that an email is authentic:\n\nLook for this text at the top:\n----- BEGIN PGP SIGNED MESSAGE-----\n[[text surrounded by the normal accoutrements of an email message]]\n\nIf it\u0027s there, the email is probably fine.\n\n{{Title text: If you want to be extra safe, check that there\u0027s a big block of jumbled characters at the bottom.}}",
+  "alt": "If you want to be extra safe, check that there\u0027s a big block of jumbled characters at the bottom.",
+  "img": "1181/pgp.png",
+  "title": "PGP",
+  "day": "4",
+  "baseUri": "https://example.com/"
+}

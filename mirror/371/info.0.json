@@ -1,0 +1,14 @@
+{
+  "month": "1",
+  "num": 371,
+  "link": "",
+  "year": "2008",
+  "news": "",
+  "safeTitle": "Compiler Complaint",
+  "transcript": "[[A man sits at a computer, hand over the keyboard]]\nComputer: Okay, human.\nMan: Huh?\nComputer: Before you hit \u0027compile,\u0027 listen up.\nComputer: You know when you\u0027re falling asleep, and you imagine yourself walking or something, and suddenly you misstep, stumble, and jolt awake?\nMan: Yeah!\nComputer: Well, that\u0027s what a segfault feels like. \u003C\u003CPause\u003E\u003E Double-check your damn pointers, okay?\n{{alt text: Checking whether build environment is sane ... build environment is grinning and holding a spatula.  Guess not.}}",
+  "alt": "Checking whether build environment is sane ... build environment is grinning and holding a spatula.  Guess not.",
+  "img": "371/compiler_complaint.png",
+  "title": "Compiler Complaint",
+  "day": "16",
+  "baseUri": "https://example.com/"
+}

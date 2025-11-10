@@ -1,0 +1,14 @@
+{
+  "month": "5",
+  "num": 2775,
+  "link": "",
+  "year": "2023",
+  "news": "",
+  "safeTitle": "Siphon",
+  "transcript": "",
+  "alt": "ADDITIONAL NOTES: Fixed a bug that caused some rocks to generate virtually infinite heat while just sitting there.",
+  "img": "2775/siphon.png",
+  "title": "Siphon",
+  "day": "12",
+  "baseUri": "https://example.com/"
+}

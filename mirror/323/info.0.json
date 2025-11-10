@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 323,
+  "link": "",
+  "year": "2007",
+  "news": "",
+  "safeTitle": "Ballmer Peak",
+  "transcript": "[[A graph with \u0022programming skill\u0022 on the X-axis and \u0022blood alcohol concentration\u0022 on the Y one]]\n[[A man is making a presentation with the graph]]\nPresenter: Called the Ballmer Peak, it was discovered by Microsoft in the 80\u0027s. The cause is unknown but somehow a B.A.C between 0.129% and 0.138% confers superhuman programming ability.\nPresenter: However, it\u0027s a delicate effect requiring careful calibration--you can\u0027t just give a team of coders a year\u0027s supply of whiskey and tell them to get cracking.\nMan in public: ...Has that ever happened.\nPresenter: Remember Windows ME?\nMan: I knew it!\n{{title text: Apple uses automated schnapps IVs.}}",
+  "alt": "Apple uses automated schnapps IVs.",
+  "img": "323/ballmer_peak.png",
+  "title": "Ballmer Peak",
+  "day": "1",
+  "baseUri": "https://example.com/"
+}

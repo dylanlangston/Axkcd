@@ -1,0 +1,14 @@
+{
+  "month": "4",
+  "num": 1200,
+  "link": "",
+  "year": "2013",
+  "news": "",
+  "safeTitle": "Authorization",
+  "transcript": "[[A web chart. In the center is a bubble labeled \u0027user account on my laptop\u0027, connecting from which are the bubbles \u0027Dropbox\u0027, \u0027photos \u0026 files\u0027, \u0027Facebook\u0027, \u0027Gmail\u0027, \u0027Paypal\u0027, and \u0027bank\u0027. These bubbles are also all connected to each other. A seventh bubble is attached to the center bubble, labeled \u0027admin account\u0027. It is covered in a thick border, spikes, and has a lock between it and the central bubble.]]\nIf someone steals my laptop while I\u0027m logged in, they can read my email, take my money, and impersonate me to my friends, but at least they can\u0027t install drivers without my permission.\n\n{{Title text: Before you say anything, no, I know not to leave my computer sitting out logged in to all my accounts. I have it set up so after a few minutes of inactivity it automatically switches to my brother\u0027s.}}",
+  "alt": "Before you say anything, no, I know not to leave my computer sitting out logged in to all my accounts. I have it set up so after a few minutes of inactivity it automatically switches to my brother\u0027s.",
+  "img": "1200/authorization.png",
+  "title": "Authorization",
+  "day": "17",
+  "baseUri": "https://example.com/"
+}

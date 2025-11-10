@@ -1,0 +1,14 @@
+{
+  "month": "3",
+  "num": 74,
+  "link": "",
+  "year": "2006",
+  "news": "",
+  "safeTitle": "Su Doku",
+  "transcript": "[[A square divided into 2x2 squares, the top-right one has an 1 in it, the bottom-right one has a 0, the two left ones are empty]]\n[[Label: Binary Su Doku]]\n{{alt text: This one is from the Red Belt collection, of \u0027medium\u0027 difficulty.}}",
+  "alt": "This one is from the Red Belt collection, of \u0027medium\u0027 difficulty.",
+  "img": "74/su_doku.jpg",
+  "title": "Su Doku",
+  "day": "10",
+  "baseUri": "https://example.com/"
+}

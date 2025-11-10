@@ -1,0 +1,14 @@
+{
+  "month": "8",
+  "num": 1407,
+  "link": "https://xkcd.com/1407/large/",
+  "year": "2014",
+  "news": "",
+  "safeTitle": "Worst Hurricane",
+  "transcript": "{{Title text: \u0027Finding a 105-year-old who\u0027s lived in each location and asking them which hurricane they think was the worst\u0027 is left as an exercise for the reader.}}\n\nWhat\u0027s the worst hurricane anyone in your town remembers?\nEstimated from Hurdat database and NCEP rainfall totals 1914-2014\n\n[[Map showing the eastern coastline from Texas through Maine, showing which hurricanes were the worst in any given area.]]",
+  "alt": "\u0027Finding a 105-year-old who\u0027s lived in each location and asking them which hurricane they think was the worst\u0027 is left as an exercise for the reader.",
+  "img": "1407/worst_hurricane.png",
+  "title": "Worst Hurricane",
+  "day": "13",
+  "baseUri": "https://example.com/"
+}

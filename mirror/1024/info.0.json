@@ -1,0 +1,14 @@
+{
+  "month": "3",
+  "num": 1024,
+  "link": "",
+  "year": "2012",
+  "news": "",
+  "safeTitle": "Error Code",
+  "transcript": "[[A man sits at a computer, while another man takes a book off a shelf behind him.]]\nMan #1: \u0022Error -41\u0022? That\u0027s helpful. It doesn\u0027t even say which program it\u0027s from!\nMan #2: -41? I\u0027ll look it up...\n\n[[The second man looks at the book.]]\nMan #2: It says -41 is: \u0022Sit by a lake.\u0022 \n\n[[The two walk.]]\n\n[[The two sit down.]]\n\n[[A large, in-color painting of a lake with pond lilies.]]\n\n[[The two are still sitting.]]\nMan #1: I don\u0027t know where you got that book, but I like it.\nMan #2: Hasn\u0027t been wrong yet.\n\n{{Title text: It has a section on motherboard beep codes that lists, for each beep pattern, a song that syncs up well with it.}}",
+  "alt": "It has a section on motherboard beep codes that lists, for each beep pattern, a song that syncs up well with it.",
+  "img": "1024/error_code.png",
+  "title": "Error Code",
+  "day": "2",
+  "baseUri": "https://example.com/"
+}

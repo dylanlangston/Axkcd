@@ -1,0 +1,14 @@
+{
+  "month": "3",
+  "num": 1347,
+  "link": "",
+  "year": "2014",
+  "news": "",
+  "safeTitle": "t Distribution",
+  "transcript": "[[A physical bell-curve-shaped object labeled \u0022Student\u0027s t distribution\u0022 is resting on a table. A figure is working with it and a piece of paper.]]\nFigure: hmm\n\n[[The figure looks at the piece of paper.]]\nFigure: ...nope.\n\n[[The figure picks up the object and begins to walk off the panel with it.]]\n\n[[The figure comes back onto the panel, now carrying an object shaped like a much more complex curve, with many symmetric spikes and dips, labeled \u0022Teacher\u0027s t distribution\u0022.]]\n\n{{Title text: If data fails the Teacher\u0027s t test, you can just force it to take the test again until it passes.}}",
+  "alt": "If data fails the Teacher\u0027s t test, you can just force it to take the test again until it passes.",
+  "img": "1347/t_distribution.png",
+  "title": "t Distribution",
+  "day": "26",
+  "baseUri": "https://example.com/"
+}

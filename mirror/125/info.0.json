@@ -1,0 +1,14 @@
+{
+  "month": "7",
+  "num": 125,
+  "link": "",
+  "year": "2006",
+  "news": "",
+  "safeTitle": "Marketing Interview",
+  "transcript": "[[Two people, one sitting behind a executive desk, looking at some paper, and the other one by foot using a hat.]]\nGuy behind the desk: I\u0027ve heard you\u0027re one of the best in marketing business, but I\u0027ve got your portfolio here and looks like you\u0027ve never run a major campaign. Why should I hire you to head our new initiative?\nGuy with a hat: If you don\u0027t mind asking, what gave you the idea I was one of the best in the business?\nGuy behind the desk: Hm? I don\u0027t remember. Just word of mouth or someth-- ...oh, you\u0027re good.\nGuy with a hat: Thank you. When can I start?\n{{title text: There are a lot of books on marketing out there.  I wonder if you\u0027re safest just buying the most popular one.}}",
+  "alt": "There are a lot of books on marketing out there.  I wonder if you\u0027re safest just buying the most popular one.",
+  "img": "125/marketing_interview.png",
+  "title": "Marketing Interview",
+  "day": "7",
+  "baseUri": "https://example.com/"
+}

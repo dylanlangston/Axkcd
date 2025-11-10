@@ -1,0 +1,14 @@
+{
+  "month": "11",
+  "num": 184,
+  "link": "",
+  "year": "2006",
+  "news": "",
+  "safeTitle": "Matrix Transform",
+  "transcript": "( ( cos 90\u00BA  sin 90\u00BA) ( -sin 90\u00BA cos 90\u00BA ) )  ( a1 a2 )t = [[The same (a1 a2)t matrix turned 90\u00BA to the right]]\n{{In fact, draw all your rotational matrices sideways.  Your professors will love it!  And then they\u0027ll go home and shrink.}}",
+  "alt": "In fact, draw all your rotational matrices sideways.  Your professors will love it!  And then they\u0027ll go home and shrink.",
+  "img": "184/matrix_transform.png",
+  "title": "Matrix Transform",
+  "day": "15",
+  "baseUri": "https://example.com/"
+}

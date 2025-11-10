@@ -1,0 +1,14 @@
+{
+  "month": "7",
+  "num": 1236,
+  "link": "",
+  "year": "2013",
+  "news": "",
+  "safeTitle": "Seashell",
+  "transcript": "((At the top of the panel is an equation showing Bayes\u0027 Theorem for the probability that a person is near the ocean given that they just picked up a seashell.))\n\nThe probability that I\u0027m near the ocean given I picked up a seashell equals the probability I picked up a seashell given I\u0027m near the ocean times the probability I\u0027m near the ocean all divided by the probability I picked up a seashell.\n\n[[A person holding a seashell stands to the left of the panel, to the right a few birds are flying around and the sound of a wave crashing against the shore is depicted.]]\n\n\u003C\u003CCrashhh\u003E\u003E\n\u003C\u003CSploosh\u003E\u003E\n\nCaption: Statistically speaking, if you pick up a seashell and don\u0027t hold it to your ear, you can probably hear the ocean.\n\n{{Title text: This is roughly equivalent to \u0027number of times I\u0027ve picked up a seashell at the ocean\u0027 \n \u0027number of times I\u0027ve picked up a seashell\u0027, which in my case is pretty close to 1, and gets much closer if we\u0027re considering only times I didn\u0027t put it to my ear.}}",
+  "alt": "This is roughly equivalent to \u0027number of times I\u0027ve picked up a seashell at the ocean\u0027 / \u0027number of times I\u0027ve picked up a seashell\u0027, which in my case is pretty close to 1, and gets much closer if we\u0027re considering only times I didn\u0027t put it to my ear.",
+  "img": "1236/seashell.png",
+  "title": "Seashell",
+  "day": "10",
+  "baseUri": "https://example.com/"
+}

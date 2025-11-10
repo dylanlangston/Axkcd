@@ -1,0 +1,14 @@
+{
+  "month": "11",
+  "num": 664,
+  "link": "",
+  "year": "2009",
+  "news": "",
+  "safeTitle": "Academia vs. Business",
+  "transcript": "[[A programmer sits at a desk in front of a computer. There are cans on the desk and more crushed ones on the floor.]]\nProgrammer: I just wrote the most beautiful code of my life.\n\nProgrammer: They casually handed me an impossible problem. In 48 hours and 200 lines, I SOLVED it.\n\n((Lines divide the comic into two possible end panels here, labeled \u0022Academia\u0022 and \u0022Business.\u0022))\n\n[[Academia]]\nProfessor: My god ... this will mean a half-dozen papers, a thesis or two, and a paragraph in every textbook on queueing theory!\n\n[[Business]]\nBoss: You got the program to stop jamming up? Great. While you\u0027re fixing stuff, can you get Outlook to sync with our new phones?\n\n{{Title text: Some engineer out there has solved P=NP and it\u0027s locked up in an electric eggbeater calibration routine.  For every 0x5f375a86 we learn about, there are thousands we never see.}}",
+  "alt": "Some engineer out there has solved P=NP and it\u0027s locked up in an electric eggbeater calibration routine.  For every 0x5f375a86 we learn about, there are thousands we never see.",
+  "img": "664/academia_vs_business.png",
+  "title": "Academia vs. Business",
+  "day": "18",
+  "baseUri": "https://example.com/"
+}

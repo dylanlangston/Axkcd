@@ -1,0 +1,14 @@
+{
+  "month": "7",
+  "num": 456,
+  "link": "",
+  "year": "2008",
+  "news": "",
+  "safeTitle": "Cautionary",
+  "transcript": "Linux: A True Story:\n[[A man talks on a cell phone]]\nWeek One:\nFemale cousin [[via phone]]: Hey, it\u0027s your cousin. I got a new computer but don\u0027t want Windows. Can you help me install \u0022Linux\u0022?\nMan: Sure.\n[[The female cousin sits in an office chair with her laptop on her lap. She is on the phone]]\nWeek Two:\nFemale cousin: It says my XORG is broken. What\u0027s an \u0022XORG\u0022? Where can I look that up?\nMan [[via phone]]: Hmm, lemme show you man pages.\n[[The female cousin crouches on the floor with the laptop on her lap. She is still on the phone]]\nWeek Six:\nFemale cousin: Due to auto-config issues, I\u0027m leaving Ubuntu for Debian.\nMan [[via phone]] Uh.\nFemale cousin: Or Gentoo.\nMan [[via phone]]: Uh oh.\n[[The female cousin lies on her stomach with the laptop on the floor. On the floor are several pieces of paper and a book. The man stands to her left]]\nWeek Twelve:\nMan: You haven\u0027t answered your phone in days.\nFemale cousin: Can\u0027t sleep. Must compile kernel.\nMan: I\u0027m too late.\n[[Box with text:]]\nParents: talk to your kids about Linux... Before somebody else does.\n{{title text: This really is a true story, and she doesn\u0027t know I put it in my comic because her wifi hasn\u0027t worked for weeks.}}",
+  "alt": "This really is a true story, and she doesn\u0027t know I put it in my comic because her wifi hasn\u0027t worked for weeks.",
+  "img": "456/cautionary.png",
+  "title": "Cautionary",
+  "day": "30",
+  "baseUri": "https://example.com/"
+}

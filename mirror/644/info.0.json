@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 644,
+  "link": "",
+  "year": "2009",
+  "news": "",
+  "safeTitle": "Surgery",
+  "transcript": "[[A surgeon is standing over a patient on a gurney.]]\nPatient: While you\u0027re doing the surgery, can you also implant this in my arm?\n\nSurgeon: A USB port?\nMan: Just wire it up to some nerves.\n\nSurgeon: ... This won\u0027t let your brain control USB devices, you know.\nMan: Sure -- I just want the hardware.\n\nMan: The rest is software; I\u0027m sure there will be a project to patch together support eventually.\nSurgeon: Ah -- you\u0027re a Linux user, I see.\nMan: Yeah, how\u0027d you know?\n\n{{Title text: Damn. Not only did he not install it, he sutured a \u0027Vista-Ready\u0027 sticker onto my arm.}}",
+  "alt": "Damn. Not only did he not install it, he sutured a \u0027Vista-Ready\u0027 sticker onto my arm.",
+  "img": "644/surgery.png",
+  "title": "Surgery",
+  "day": "2",
+  "baseUri": "https://example.com/"
+}

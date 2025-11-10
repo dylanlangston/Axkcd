@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 1121,
+  "link": "",
+  "year": "2012",
+  "news": "",
+  "safeTitle": "Identity",
+  "transcript": "[[A character is sending a message from their phone.]]\nCharacter: Hey, I lost the server password.  What is it, again?\n\n[[Someone at a desk with a laptop on it replies.]]\nDesk Haver: It\u0027s -- ...wait.  How do I know it\u0027s really you?\n\nCharacter: Ooh, good question!  I bet we can construct a cool proof-of-identity protocol.  I\u0027ll start by picking two random--\nDesk Haver: Oh good; it\u0027s you.  Here\u0027s the psasword...\nCharacter: \nNO!\n\n\n{{Title text: Not sure why I just taught everyone to flawlessly impersonate me to pretty much anyone I know. Just remember to constantly bring up how cool it is that birds are dinosaurs and you\u0027ll be set.}}",
+  "alt": "Not sure why I just taught everyone to flawlessly impersonate me to pretty much anyone I know. Just remember to constantly bring up how cool it is that birds are dinosaurs and you\u0027ll be set.",
+  "img": "1121/identity.png",
+  "title": "Identity",
+  "day": "15",
+  "baseUri": "https://example.com/"
+}

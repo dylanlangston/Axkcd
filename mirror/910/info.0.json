@@ -1,0 +1,14 @@
+{
+  "month": "6",
+  "num": 910,
+  "link": "",
+  "year": "2011",
+  "news": "",
+  "safeTitle": "Permanence",
+  "transcript": "((A large panel the combined width of the four panels below it.))\n[[A blue Linux terminal installer screen with a grey box that is labeled \u0022[!]CONFIGURE THE NETWORK\u0022 in red. Below, in black, it reads \u0022Please enter the hostname for the system.\u0022 Below is an empty blue entry box with a cursor and dashed underscore, and below this it says \u0022\u003CGO BACK\u003E\u0022.]]\n\n[[A man sits at his computer, a woman stands behind him.]]\nWoman: You\u0027ve been staring at that screen a while.\nMan: Picking a good server name is important.\n\n[[The woman stares at him.]]\n\n[[She continues to stare.]]\n\n[[The man pushes his chair back, puts one elbow on the back of the chair and points with his other hand at the screen.]]\nWoman: And yet you settled on \u0022Caroline\u0022 for our daughter in like 15 seconds.\nMan: But this is a \nserver!\n -- Besides, I had to- you were trying to name her \u0022epidural.\u0022 \nWoman: Those \nwere\n good drugs.\n\n{{Title text: This hostname is going in dozens of remote config files. Changing a kid\u0027s name is comparatively easy!}}",
+  "alt": "This hostname is going in dozens of remote config files. Changing a kid\u0027s name is comparatively easy!",
+  "img": "910/permanence.png",
+  "title": "Permanence",
+  "day": "10",
+  "baseUri": "https://example.com/"
+}

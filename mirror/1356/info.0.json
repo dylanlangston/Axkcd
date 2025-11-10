@@ -1,0 +1,14 @@
+{
+  "month": "4",
+  "num": 1356,
+  "link": "",
+  "year": "2014",
+  "news": "",
+  "safeTitle": "Orbital Mechanics",
+  "transcript": "[A line graph labeled \u0027How Well I Understand Orbital Mechanics:\u0027. The x-axis is labeled \u0027time --\u003E\u0027. The line starts slightly above 0 at the y-axis and increases very little until a point at which it peaks slightly, labeled \u0027took high school physics\u0027. It decreases slightly for a while and then increases significantly over a short period of time, the peak of which is labeled \u0027got physics degree\u0027. It dips shallowly for a while, then starts to increase slightly for a time, labeled \u0027actual job at NASA\u0027. The line starts to slope downward again, and then shoots up very, very high. The beginning of this increase is labeled \u0027started playing Kerbal Space Program\u0027.]]\n\n{{Title text: To be fair, my job at NASA was working on robots and didn\u0027t actually involve any orbital mechanics. The small positive slope over that period is because it turns out that if you hang around at NASA, you get in a lot of conversations about space.}}",
+  "alt": "To be fair, my job at NASA was working on robots and didn\u0027t actually involve any orbital mechanics. The small positive slope over that period is because it turns out that if you hang around at NASA, you get in a lot of conversations about space.",
+  "img": "1356/orbital_mechanics.png",
+  "title": "Orbital Mechanics",
+  "day": "16",
+  "baseUri": "https://example.com/"
+}

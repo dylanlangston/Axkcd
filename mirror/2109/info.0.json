@@ -1,0 +1,14 @@
+{
+  "month": "2",
+  "num": 2109,
+  "link": "",
+  "year": "2019",
+  "news": "",
+  "safeTitle": "Invisible Formatting",
+  "transcript": "",
+  "alt": "To avoid errors like this, we render all text and pipe it through OCR before processing, fixing a handful of irregular bugs by burying them beneath a smooth, uniform layer of bugs.",
+  "img": "2109/invisible_formatting.png",
+  "title": "Invisible Formatting",
+  "day": "8",
+  "baseUri": "https://example.com/"
+}

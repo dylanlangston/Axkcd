@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 173,
+  "link": "",
+  "year": "2006",
+  "news": "",
+  "safeTitle": "Movie Seating",
+  "transcript": "At the movies, I get frustrated when we file into our row haphazardly, ignoring the computationally difficulty problem of seating people together for maximum enjoyment. [[Map of relationships between 8 people.]] \n{{legend:}} Single line: friends. Double line: in a relationship. Arrow: one-way crush. Dashed line: acquaintances\n[[The eight friends sitting in a row in a dark cinema. Narrator and one other are between two lovers.]] Guys! This is not socially optimal!\n{{Title-text: It\u0027s like the traveling salesman problem, but the endpoints are different and you can\u0027t ask your friends for help because they\u0027re sitting three seats down.}}",
+  "alt": "It\u0027s like the traveling salesman problem, but the endpoints are different and you can\u0027t ask your friends for help because they\u0027re sitting three seats down.",
+  "img": "173/movie_seating.png",
+  "title": "Movie Seating",
+  "day": "20",
+  "baseUri": "https://example.com/"
+}

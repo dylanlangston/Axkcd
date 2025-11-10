@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 806,
+  "link": "",
+  "year": "2010",
+  "news": "",
+  "safeTitle": "Tech Support",
+  "transcript": "[[Person is on the phone, and holding up some networking hardware.]]\nPerson: ... restart my computer? I know you have a script to follow, but the uplink light on the modem is going off every few hours. The problem is between your office and the modem.\n\nPerson: My computer has nothing to do with ... okay, whatever, I \u0022restarted my computer.\u0022\nPerson: It\u0027s still down, and even if it comes back, it\u0027s going to die again in a few hours, because your--\n\nPerson: I don\u0027t HAVE a start menu. This is a Haiku install, but that\u0027s not import--\nPerson: Haiku? It\u0027s an experimental OS that I ... oh, never mind.\n\nPerson: I\u0027m sorry, but this won\u0027t get fixed until I talk to an engineer. Can you look around for someone wearing cargo pants, maybe a subway map on their wall?\n\n[[The tech support person on the other end is wearing a headset, and looks around.]]\nTech: There\u0027s a chick two phones over with a stuffed penguin doll and a poster of some bearded dudes with swords.\nPerson: Perfect. Can you put her on?\nTech: Sure.\n\n[[Person is now talking to the engineer.]]\nPerson: Hey, so sorry to bother you, but my connection--\nEngineer: Yeah, I see it. Lingering problems from a server move.\n\u003C\u003Ctype type\u003E\u003E\nEngineer: Should be fixed now.\nPerson: Thank you SO MUCH.\n\nEngineer: No problem. Hey, in the future, if you\u0027re on any tech support call, you can say the code word \u0022shibboleet\u0022 at any point and you\u0027ll be automatically transferred to someone who knows a minimum of two programming languages.\n\nPerson: Seriously?\nEngineer: Yup. It\u0027s a backdoor put in by the geeks who built these phone support systems back in the 1990\u0027s.\nEngineer: Don\u0027t tell anyone.\n\nPerson: Oh my god, this is the greatest--\n[[Person wakes up.]]\nPerson: Wha--\nPerson: ... DAMMIT.\n\n{{Title text: I recently had someone ask me to go get a computer and turn it on so I could restart it. He refused to move further in the script until I said I had done that.}}",
+  "alt": "I recently had someone ask me to go get a computer and turn it on so I could restart it. He refused to move further in the script until I said I had done that.",
+  "img": "806/tech_support.png",
+  "title": "Tech Support",
+  "day": "15",
+  "baseUri": "https://example.com/"
+}

@@ -1,0 +1,14 @@
+{
+  "month": "1",
+  "num": 216,
+  "link": "",
+  "year": "2007",
+  "news": "",
+  "safeTitle": "Romantic Drama Equation",
+  "transcript": "TV Romantic Drama Equation\n(Derived during a series of \u0027Queer as Folk\u0027 episodes)\n[[A table shows equations for possible romantic pairings in a TV show. The equation under \u0022gay\u0022 is n(n-1)\n2\u002Bx(x-n); the equation under \u0022straight\u0022 is x(n-x).]]\nx: Number of male (or female) cast members.\nn: total number of cast members.\n[[A graph plots pairings (for large casts) against cast makeup. Each of the above equations forms a curve.\n\u0022Gay cast\u0022 starts high for an all male cast, dips down at 50\n50 cast makeup, and then rises again for all female.\n\u0022Straight cast\u0022 starts at zero for an all male cast, peaks at 50\n50 cast makeup, and then drops to zero again for an all female cast.\nThe two curves intersect at two points close to the middle.]]\n\n{{Title text: Real-life prospective-pairing curves over things like age can get depressing.}}",
+  "alt": "Real-life prospective-pairing curves over things like age can get depressing.",
+  "img": "216/romantic_drama_equation.png",
+  "title": "Romantic Drama Equation",
+  "day": "29",
+  "baseUri": "https://example.com/"
+}

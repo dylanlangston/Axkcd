@@ -1,0 +1,14 @@
+{
+  "month": "2",
+  "num": 379,
+  "link": "",
+  "year": "2008",
+  "news": "",
+  "safeTitle": "Forgetting",
+  "transcript": "[[Man sits at computer, coding]]\nText on computer: prev-\u003Enext = toDelete-\u003Enext;\ndelete toDelete;\n\nif only forgetting were \n\nthis easy for me\nMan at computer: \u003C\u003Csniff\u003E\u003E\n[[Man at computer lowers his head into his hands and cries]]\n[[Man types again]]\nText on computer: assert \u0022It\u0027s going to be okay.\u0022;\n{{title text: Of course, the assert doesn\u0027t work.}}",
+  "alt": "Of course, the assert doesn\u0027t work.",
+  "img": "379/forgetting.png",
+  "title": "Forgetting",
+  "day": "4",
+  "baseUri": "https://example.com/"
+}

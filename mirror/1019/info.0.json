@@ -1,0 +1,14 @@
+{
+  "month": "2",
+  "num": 1019,
+  "link": "",
+  "year": "2012",
+  "news": "",
+  "safeTitle": "First Post",
+  "transcript": "[[A bar graph with two bars. The first bar is much taller than the second. It is marked \u0027$1,500,000\u0027, and below the x-axis, is labelled \u0022Cost to buy an ad on every story on a major news site every day until the election. The second bar is much shorter, marked \u0027$200,000\u0027, and labelled \u0022Cost to pay five college students $20\nhour to camp the site 24\n7 and post the first few comments the moment a story goes up, giving you the last word in every article and creating an impression of peer consensus.]]\nThe problem with posting comments in the order they\u0027re submitted.\n\n{{Title text: \u0027Nuh-uh! We let users vote on comments and display them by number of votes. Everyone knows that makes it impossible for a few persistent voices to dominate the discussion.\u0027}}",
+  "alt": "\u0027Nuh-uh! We let users vote on comments and display them by number of votes. Everyone knows that makes it impossible for a few persistent voices to dominate the discussion.\u0027",
+  "img": "1019/first_post.png",
+  "title": "First Post",
+  "day": "20",
+  "baseUri": "https://example.com/"
+}

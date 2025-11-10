@@ -1,0 +1,14 @@
+{
+  "month": "1",
+  "num": 1938,
+  "link": "",
+  "year": "2018",
+  "news": "",
+  "safeTitle": "Meltdown and Spectre",
+  "transcript": "",
+  "alt": "New zero-day vulnerability: In addition to rowhammer, it turns out lots of servers are vulnerable to regular hammers, too.",
+  "img": "1938/meltdown_and_spectre.png",
+  "title": "Meltdown and Spectre",
+  "day": "5",
+  "baseUri": "https://example.com/"
+}

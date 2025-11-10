@@ -1,0 +1,14 @@
+{
+  "month": "9",
+  "num": 1579,
+  "link": "",
+  "year": "2015",
+  "news": "",
+  "safeTitle": "Tech Loops",
+  "transcript": "[[Flowchart of things which support things. Arrows indicate what supports what.]]\n\nLibrary supports\nlibrary, supports\ncustom settings, supports\nlibrary, supports\ntool, supports\nupdater, supports\nvm, supports\nchat client, supports\nrepository, supports nothing at all!\n\nlibrary, supports\nhardware workaround, supports\nawful hack from 2009, supports\nirc for some reason, supports\nawful hack from 2009, supports\nthe library we started with\n\nDLL needed by something, supports\ntwo mysterious items???\n\n\u0022Things I actually want to use my computer for\u0022 neither supports nor is supported by anything else on the chart.\n\nCAPTION: Every now and then I realize I\u0027m maintaining a huge chain of technology solely to support itself.\n\n{{Title text: And when I think about it, a lot of \u0022things I want to do\u0022 are just learning about and discussing new tools for tinkering with the chain.}}",
+  "alt": "And when I think about it, a lot of \u0022things I want to do\u0022 are just learning about and discussing new tools for tinkering with the chain.",
+  "img": "1579/tech_loops.png",
+  "title": "Tech Loops",
+  "day": "18",
+  "baseUri": "https://example.com/"
+}

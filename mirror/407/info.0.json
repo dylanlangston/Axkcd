@@ -1,0 +1,14 @@
+{
+  "month": "4",
+  "num": 407,
+  "link": "",
+  "year": "2008",
+  "news": "",
+  "safeTitle": "Cheap GPS",
+  "transcript": "[[Guy driving down the road, with a GPS reading \u0022COLD\u0022]] \nGPS: COLD... WARM... HOT! COLD...\n{{title text: In lieu of mapping software, I once wrote a Perl program which, given a USB GPS receiver and a destination, printed \u0027LEFT\u0027 \u0027RIGHT\u0027 OR \u0027STRAIGHT\u0027 based on my heading.}}",
+  "alt": "In lieu of mapping software, I once wrote a Perl program which, given a USB GPS receiver and a destination, printed \u0027LEFT\u0027 \u0027RIGHT\u0027 OR \u0027STRAIGHT\u0027 based on my heading.",
+  "img": "407/cheap_gps.png",
+  "title": "Cheap GPS",
+  "day": "7",
+  "baseUri": "https://example.com/"
+}

@@ -1,0 +1,14 @@
+{
+  "month": "6",
+  "num": 277,
+  "link": "",
+  "year": "2007",
+  "news": "",
+  "safeTitle": "Long Light",
+  "transcript": "[[A man in a car, sitting at a red light.]]\nMan: This light always takes forever.  I\u0027d like to smack the idiot who designed this intersection.\n[[An engineer steps up onto the hood of the man\u0027s car.]]\nEngineer: Hi.\nMan: Who the hell are you?\nEngineer: I designed this intersection.\nEngineer [[arms spread outward]] : You\u0027re right - I should have just made the light shorter! Never mind the hours of simulation and testing I did.  Never mind that this intersection interacts with it\u0027s neighbors in a complicated way and it took me a week to work out timing sequences that avoided total jams.\nEngineer: Clearly, I\u0027m a crappy engineer and you have a better solution.  Go on, show me your proposed timings.\nMan: Get the hell off my hood before I start driving and fling you into traffic.\nEngineer: You can\u0027t.  Light\u0027s red.\nMan: Well, when will it change?\nEngineer: Tuesday.\n{{Title Text: You can look at practically any part of anything manmade around you and think \u0027some engineer was frustrated while designing this.\u0027  It\u0027s a little human connection.}}",
+  "alt": "You can look at practically any part of anything manmade around you and think \u0027some engineer was frustrated while designing this.\u0027  It\u0027s a little human connection.",
+  "img": "277/long_light.png",
+  "title": "Long Light",
+  "day": "15",
+  "baseUri": "https://example.com/"
+}

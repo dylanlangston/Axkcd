@@ -1,0 +1,14 @@
+{
+  "month": "3",
+  "num": 1341,
+  "link": "",
+  "year": "2014",
+  "news": "",
+  "safeTitle": "Types of Editors",
+  "transcript": "WYSIWYG\nWhat you see is what you get\n[[Two boxes, the first labeled \u0022What you see:\u0022 contains an italic \u0022Hi\u0022, the second labeled \u0022What you get:\u0022 contains an italic \u0022Hi\u0022.]]\n\nWYSINWYG\nWhat you see is not what you get\n[[Two boxes, the first labeled \u0022What you see:\u0022 contains \u0022\u003Cem\u003EHi\u003C\nem\u003E\u0022, the second labeled \u0022What you get:\u0022 contains an italic \u0022Hi\u0022.]]\n\nWYSITUTWYG\nWhat you see is totally unrelated to what you get\n[[Two boxes, the first labeled \u0022What you see:\u0022 contains \u0022\u003Cem\u003EHi\u003C\nem\u003E\u0022, the second labeled \u0022What you get:\u0022 contains \u0022The HORSE is a noble animal.\u0022]]\n\nWYSIHYD\nWhat you see is how you die\n[[Two boxes, the first labeled \u0022What you see:\u0022 contains \u0022EATEN BY WOLVES\u0022 as white text on a black background, the second labeled \u0022What you get:\u0022 without a border is says \u0022eaten by wolves\u0022.]]\n\n\n{{Title text: m-x machineofdeath-mode}}",
+  "alt": "m-x machineofdeath-mode",
+  "img": "1341/types_of_editors.png",
+  "title": "Types of Editors",
+  "day": "12",
+  "baseUri": "https://example.com/"
+}

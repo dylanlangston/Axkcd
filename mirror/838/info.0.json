@@ -1,0 +1,14 @@
+{
+  "month": "12",
+  "num": 838,
+  "link": "",
+  "year": "2010",
+  "news": "",
+  "safeTitle": "Incident",
+  "transcript": "[[Someone is sitting at a computer.  The computer\u0027s prompt is shown.]]\nrobm@homebox~$ sudo su\nPassword:\nrobm is not in the sudoers file. This incident will be reported.\nrobm@homebox~$ \n\n[[A second person approaches.]]\nPerson: Hey -- who does sudo report these \u0022incidents\u0022 \nto\n?\nSecond person: You know, I\u0027ve never checked.\n\n[[Santa Claus is sitting at a desk supported by candy canes, with a red monitor.  On the wall are two lists labeled \u0027naughty\u0027 and \u0027nice\u0027.  He is adding a name to the \u0027naughty\u0027 list.]]\n\n{{Title text: He sees you when you\u0027re sleeping, he knows when you\u0027re awake, he\u0027s copied on \nvar\nspool\nmail\nroot, so be good for goodness\u0027 sake.}}",
+  "alt": "He sees you when you\u0027re sleeping, he knows when you\u0027re awake, he\u0027s copied on /var/spool/mail/root, so be good for goodness\u0027 sake.",
+  "img": "838/incident.png",
+  "title": "Incident",
+  "day": "24",
+  "baseUri": "https://example.com/"
+}

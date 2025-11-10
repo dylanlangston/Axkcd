@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 165,
+  "link": "",
+  "year": "2006",
+  "news": "",
+  "safeTitle": "Turn Signals",
+  "transcript": "[[Two cars are seen sitting at a red light. One person is seen walking from his car up to the driver of the car in front of him. The turn signals of both cars seem to be blinking at the same time.]]\nPerson in Street: Hey, our turn signals are in sync!\nPerson in Car: What the hell?\nPerson in Street: Usually they\u0027re at least a little off. But I\u0027ve been watching like 30 seconds and haven\u0027t seen any beat frequency!\nPerson in Car: Who are you?\nPerson in Street: You know, from the beat frequency you can tell the difference in timing of the two signals.\nPerson in Car: ...\nPerson in Street: But ours are the same!\nPerson in Car: ...\nPerson in Street: So, wanna hang out later?\n{{Alt: I\u0027m not very good at meeting people.}}",
+  "alt": "I\u0027m not very good at meeting people.",
+  "img": "165/turn_signals.png",
+  "title": "Turn Signals",
+  "day": "2",
+  "baseUri": "https://example.com/"
+}

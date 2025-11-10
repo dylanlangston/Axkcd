@@ -1,0 +1,14 @@
+{
+  "month": "11",
+  "num": 982,
+  "link": "",
+  "year": "2011",
+  "news": "",
+  "safeTitle": "Set Theory",
+  "transcript": "[[A woman with a ponytail stands at a blackboard, facing away from it. She has a pointer in her hand, and written on the blackboard is some set theory math.]]\nWoman: The axiom of choice allows you to select one element from each set in a collection -- and have it \nexecuted\n as an example to the others.\n\n{{Title text: Proof of Zermelo\u0027s well-ordering theorem given the Axiom of Choice: 1: Take S to be any set. 2: When I reach step three, if S hasn\u0027t managed to find a well-ordering relation for itself, I\u0027ll feed it into this wood chipper. 3: Hey, look, S is well-ordered.}}",
+  "alt": "Proof of Zermelo\u0027s well-ordering theorem given the Axiom of Choice: 1: Take S to be any set. 2: When I reach step three, if S hasn\u0027t managed to find a well-ordering relation for itself, I\u0027ll feed it into this wood chipper. 3: Hey, look, S is well-ordered.",
+  "img": "982/set_theory.png",
+  "title": "Set Theory",
+  "day": "25",
+  "baseUri": "https://example.com/"
+}

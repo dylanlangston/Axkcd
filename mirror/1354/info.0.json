@@ -1,0 +1,14 @@
+{
+  "month": "4",
+  "num": 1354,
+  "link": "",
+  "year": "2014",
+  "news": "",
+  "safeTitle": "Heartbleed Explanation",
+  "transcript": "How the Heartbleed Bug Works:\n\n[[Meg stands by a server. There\u0027s a thought bubble arising from the server showing the data the server is currently processing, including a portion that states \u0022User Meg wants these six letters: POTATO.\u0022]]\nMeg: Server, are you still there? If so, reply \u0022POTATO\u0022 (6 letters).\n\n[[The 6 letters \u0022POTATO\u0022 are highlighted yellow in the server\u0027s thought bubble, and the server emits \u0022POTATO\u0022.]]\n\n[[The phrase \u0022User Meg wants these 4 letters: BIRD.\u0022 is in the server\u0027s thought bubble with other data around it, with \u0022BIRD\u0022 highlighted. The server is emitting \u0022BIRD\u0022.]]\nMeg: Hmm...\n\n[[The phrase \u0022User meg wants these 500 letters: HAT.\u0022 is in the server\u0027s thought bubble, along with other data around it.]]\nMeg: Server, are you still there? IF so, reply \u0022HAT\u0022 (500 letters).\n\n[[\u0022HAT\u0022 and many more characters after it in the thought bubble are highlighted, and the server emits a long string of text starting with \u0022HAT\u0022 but then including much more other unrelated data. Meg is busily writing it down in a notebook.]]\n\n{{Title text: Are you still there, server? It\u0027s me, Margaret.}}",
+  "alt": "Are you still there, server? It\u0027s me, Margaret.",
+  "img": "1354/heartbleed_explanation.png",
+  "title": "Heartbleed Explanation",
+  "day": "11",
+  "baseUri": "https://example.com/"
+}

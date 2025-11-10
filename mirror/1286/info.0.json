@@ -1,0 +1,14 @@
+{
+  "month": "11",
+  "num": 1286,
+  "link": "",
+  "year": "2013",
+  "news": "",
+  "safeTitle": "Encryptic",
+  "transcript": "Hackers recently leaked 153 million Adobe user emails, encrypted passwords, and password hints.\n\nAdobe encrypted these passwords improperly, misusing block-mode 3DES. The result is something wonderful:\n\n[[A column titled \u0022user password\u0022 with colored hashes in it, identical hashes colored identically. A column titled \u0022hint\u0022 with various phrases one might enter as a password hint in it, e.g. \u0022favorite of 12 apostles\u0022, \u0022name \u002B jersey #\u0022, \u0022he did the mash, he did the\u0022 and so on. In a third, titleless column, a set of empty boxes that one might use to fill in a sequence of letters.]]\n\nThe greatest crossword puzzle in the history of the world\n\n{{Title text: It was bound to happen eventually. This data theft will enable almost limitless [xkcd.com\n792]-style password reuse attacks in the coming weeks. There\u0027s only one group that comes out of this looking smart: Everyone who pirated Photoshop.}}",
+  "alt": "It was bound to happen eventually. This data theft will enable almost limitless [xkcd.com/792]-style password reuse attacks in the coming weeks. There\u0027s only one group that comes out of this looking smart: Everyone who pirated Photoshop.",
+  "img": "1286/encryptic.png",
+  "title": "Encryptic",
+  "day": "4",
+  "baseUri": "https://example.com/"
+}

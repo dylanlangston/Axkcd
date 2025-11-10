@@ -1,0 +1,14 @@
+{
+  "month": "7",
+  "num": 930,
+  "link": "https://xkcd.com/930/large/",
+  "year": "2011",
+  "news": "",
+  "safeTitle": "Days of the Week",
+  "transcript": "((The whole comic is a single panel, with a circular diagram of the days of the week.))\nPolar graph of what stuff happens on which days, based on number of Google results for phrases like \u0022company meeting on \u003Cday\u003E.\u0022\nThe relative frequency of \u003Cday\u003E in \u003Cphrase\u003E is shown by the distance from the center at which \u003Cphrase\u003E\u0027s line crosses \u003Cday\u003E.\nEach curve is normalized to have the same number of total hits - they\u0027re not on the same scale.\n((Not easy to reproduce the actual plot, these are the phrases, in order of popularity on Wednesday.))\n1. \u003Cday\u003E is ladies night\n2. announced \u003Cday\u003E\n3. company meeting on \u003Cday\u003E \n company meeting \u003Cday\u003E\n4. due on \u003Cday\u003E\n5. got laid \u003Cday\u003E\n6. drunk on \u003Cday\u003E \n so drunk \u003Cday\u003E\n7. \u003Cday\u003E is the big day\n8. Church \u003Cday\u003E\n9. got my period \u003Cday\u003E\n10. we broke up on \u003Cday\u003E\n11. \u003Cday\u003E sucked\n((Thursday, from most common to least common: 11, 2, 1, 3, 9, 4, 5, 7, 10, 6, 8))\n((Friday, from most common to least common: 10, 4, 6, 7, 5, 9, 11, 3, 2, 1, 8))\n((Saturday, ditto: 6, 7, 5, 11, 9, 10, 8, 3, 2, 1, 4))\n((Sunday, ditto: 8, 9, 7, 11, 10, 5, 6, 2, 3, 4, 1))\n((Monday, ditto: 4, 2, 9, 11, 3, 5, 10, 6, 7, 8, 1))\n((Tuesday, ditto: 3, 2, 4, 5, 1, 7, 9, 10, 11, 8, 6))\n\n{{Title text: Not pictured: the elongated Halley\u0027s-Comet-like orbit of every Rebecca Black lyric.}}",
+  "alt": "Not pictured: the elongated Halley\u0027s-Comet-like orbit of every Rebecca Black lyric.",
+  "img": "930/days_of_the_week.png",
+  "title": "Days of the Week",
+  "day": "27",
+  "baseUri": "https://example.com/"
+}

@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 646,
+  "link": "",
+  "year": "2009",
+  "news": "",
+  "safeTitle": "Conversations",
+  "transcript": "[[A graph plots time vs. 3 lines.]]\n[[Dysentery cases starts high, drops to near zero with time.]]\n[[Laptop sales starts at zero, then raises.]]\n[[Frequency of conversations in which one participant is on the toilet - falls as dysentery cases falls, then rises again with laptop sales.]]\n\n{{Title text: If the dysentery graph looks historically inaccurate it\u0027s because I got all my data from Oregon Trail.}}",
+  "alt": "If the dysentery graph looks historically inaccurate it\u0027s because I got all my data from Oregon Trail.",
+  "img": "646/conversations.png",
+  "title": "Conversations",
+  "day": "7",
+  "baseUri": "https://example.com/"
+}

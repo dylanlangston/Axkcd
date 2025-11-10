@@ -1,0 +1,14 @@
+{
+  "month": "1",
+  "num": 1318,
+  "link": "",
+  "year": "2014",
+  "news": "",
+  "safeTitle": "Actually",
+  "transcript": "((The text of the comic is circular. Each statement is followed by the next, wrapping around back to the original speaker. Thus, the speaker chosen to be \u0022first\u0022 below is chosen arbitrarily - in this case, the one that is facing upwards on the page.))\n[[6 figures stand on the surface of a circle, equidistant around it.]]\nFirst figure: Actually, measurements suggest it\u0027s flat.\nSecond figure: Actually, it\u0027s a sphere.\nThird figure: Actually, it\u0027s an oblate spheroid.\nFourth figure: Actually, it\u0027s a shape defined by the EGM96 coefficients.\nFifth figure: Actually, it\u0027s that plus local topography.\nSixth figure: Actually, it\u0027s embedded in a universe that\u0027s curved.\n((And thus the text has arrived back at the beginning of the first figure\u0027s statement.))\n\n{{Title text: Protip: You can win every exchange just by being one level more precise than whoever talked last. Eventually, you\u0027ll defeat all conversational opponents and stand alone.}}",
+  "alt": "Protip: You can win every exchange just by being one level more precise than whoever talked last. Eventually, you\u0027ll defeat all conversational opponents and stand alone.",
+  "img": "1318/actually.png",
+  "title": "Actually",
+  "day": "17",
+  "baseUri": "https://example.com/"
+}

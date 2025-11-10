@@ -1,0 +1,14 @@
+{
+  "month": "6",
+  "num": 1066,
+  "link": "",
+  "year": "2012",
+  "news": "",
+  "safeTitle": "Laundry",
+  "transcript": "[[Heading reads \u0022College Laundry Habits\u0022.]]\n\n[[Panel labeled \u0022First Week\u0022. 5 ovals arranged in a rough circle, with a clockwise path connecting them: \u0022Dresser \u0026 Closet\u0022, \u0022On Body\u0022, \u0022Hamper\u0022, \u0022Washer \u0026 Dryer\u0022, \u0022Folding Area\u0022 (and back to the first). The area outside the ovals is labeled \u0022Floor\u0022.]]\n\n[[Panel labeled \u0022Second Week\u0022. The path has been modified so that it does not go through \u0022Folding Area\u0022 - only through the other 4 ovals.]]\n\n[[Panel labeled \u0022Third Week\u0022. The path has been modified so that it does not go through \u0022Dresser \u0026 Closet\u0022. Only \u0022On Body\u0022, \u0022Hamper\u0022, and \u0022Washer \u0026 Dryer\u0022 remain.]]\n\n[[Panel labeled \u0022Second Month\u0022. The path no longer passes through \u0022Hamper\u0022 - only \u0022On Body\u0022 and \u0022Washer \u0026 Dryer\u0022.]]\n\n[[Panel labeled \u0022End of Semester\u0022. The path no longer goes to \u0022Washer \u0026 Dryer\u0022, instead just looping back around from \u0022On Body\u0022 to \u0022On Body\u0022 again after passing through the \u0022Floor\u0022.]]\n\n{{Title text: During the second semester, the path is briefly routed through the dishwasher.}}",
+  "alt": "During the second semester, the path is briefly routed through the dishwasher.",
+  "img": "1066/laundry.png",
+  "title": "Laundry",
+  "day": "8",
+  "baseUri": "https://example.com/"
+}

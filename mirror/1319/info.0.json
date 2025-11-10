@@ -1,0 +1,14 @@
+{
+  "month": "1",
+  "num": 1319,
+  "link": "",
+  "year": "2014",
+  "news": "",
+  "safeTitle": "Automation",
+  "transcript": "\u0022I spend a lot of time on this task. I should write a program automating it!\u0022\n\n[[Panel titled \u0022Theory:\u0022 at the top contains a line plot, with \u0022work\u0022 on the y-axis and \u0022time\u0022 on the x-axis. Two curves indicate \u0022work on the original task\u0022 eventually being permanently reduced by temporarily spending more work on coding, and then having the produced automation take over.]]\n\n[[Panel titled \u0022Reality:\u0022 at the top contains a similar line plot, but the line for \u0022work on the original task\u0022 does not decrease. The second curve, which starts out as \u0022writing code\u0022, becomes \u0022debugging\u0022, \u0022rethinking\u0022, and then \u0022ongoing development\u0022. The line for work on the original task becomes dotted, with the label \u0022no time for original task anymore.\u0022]]\n\n{{Title text: \u0027Automating\u0027 comes from the roots \u0027auto-\u0027 meaning \u0027self-\u0027, and \u0027mating\u0027, meaning \u0027screwing\u0027.}}",
+  "alt": "\u0027Automating\u0027 comes from the roots \u0027auto-\u0027 meaning \u0027self-\u0027, and \u0027mating\u0027, meaning \u0027screwing\u0027.",
+  "img": "1319/automation.png",
+  "title": "Automation",
+  "day": "20",
+  "baseUri": "https://example.com/"
+}

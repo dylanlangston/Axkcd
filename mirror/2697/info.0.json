@@ -1,0 +1,14 @@
+{
+  "month": "11",
+  "num": 2697,
+  "link": "",
+  "year": "2022",
+  "news": "",
+  "safeTitle": "Y2K and 2038",
+  "transcript": "",
+  "alt": "It\u0027s taken me 20 years, but I\u0027ve finally finished rebuilding all my software to use 33-bit signed ints.",
+  "img": "2697/y2k_and_2038.png",
+  "title": "Y2K and 2038",
+  "day": "11",
+  "baseUri": "https://example.com/"
+}

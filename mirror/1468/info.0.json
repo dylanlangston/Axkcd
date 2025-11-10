@@ -1,0 +1,14 @@
+{
+  "month": "1",
+  "num": 1468,
+  "link": "",
+  "year": "2015",
+  "news": "",
+  "safeTitle": "Worrying",
+  "transcript": "((There\u0027s a 2D chart.))\n((The vertical axis reads:))\nnot very worried \u003C-- ... in real life --\u003E very worried\n((The chart itself includes the following items:))\n           \u003C---------------- Chest wound --------------\u003E\n          * ... on your right side                      * ... on your left side\n * Getting knocked out by a punch\n                                           * \u0022We need to talk.\u0022\n                                                                 * Persistent cough\n * Parking ticket\n                                                    * Breaking news\n   * Spilling a drink on your shirt                                  * Nosebleed\n((The horizontal axis reads:))\nnot very worried \u003C-- ... in movies                        --\u003E very worried\n\n{{Title text: If the breaking news is about an event at a hospital or a lab, move it all the way over to the right.}}",
+  "alt": "If the breaking news is about an event at a hospital or a lab, move it all the way over to the right.",
+  "img": "1468/worrying.png",
+  "title": "Worrying",
+  "day": "2",
+  "baseUri": "https://example.com/"
+}

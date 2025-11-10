@@ -1,0 +1,14 @@
+{
+  "month": "2",
+  "num": 1328,
+  "link": "",
+  "year": "2014",
+  "news": "",
+  "safeTitle": "Update",
+  "transcript": "[[A figure sits at a desk. A message is being displayed on the figure\u0027s laptop screen. It reads \u0022Urgent: critical update available!\u0022]]\n\n[[The message continues. \u0022Details: Fixes an issue that was causing random laptop electrical fires.\u0022]]\n\n(This update will require restarting your computer.)\n\n[[The figure clicks on \u0022Remind me later.\u0022]]\n\n{{Title text: I have a bunch of things open right now.}}",
+  "alt": "I have a bunch of things open right now.",
+  "img": "1328/update.png",
+  "title": "Update",
+  "day": "10",
+  "baseUri": "https://example.com/"
+}

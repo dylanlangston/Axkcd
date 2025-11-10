@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 2531,
+  "link": "",
+  "year": "2021",
+  "news": "",
+  "safeTitle": "Dark Arts",
+  "transcript": "",
+  "alt": "You think, \u0027okay, THIS is an ideal use case for hardlinks!\u0027 but then 6 months later you\u0027re doing some extremely cursed Google search like \u0027javascript ext4\u0027 and wondering where things went wrong.",
+  "img": "2531/dark_arts.png",
+  "title": "Dark Arts",
+  "day": "20",
+  "baseUri": "https://example.com/"
+}

@@ -1,0 +1,14 @@
+{
+  "month": "8",
+  "num": 937,
+  "link": "",
+  "year": "2011",
+  "news": "",
+  "safeTitle": "TornadoGuard",
+  "transcript": "((The comic is a single panel which resembles a reviews page for a mobile phone application))\n\nApplication name: Tornado Guard\nAuthor: DroidCoder2187\nDescription: Plays a loud alert sound when there is a tornado warning for your area.\nRating: 4 out of 5 stars. (Based on 4 reviews)\nUser Reviews:\nReviewer 1: \u003C\u003CRated 5 stars\u003E\u003E Good UI! Many alert choices.\nReviewer 2: \u003C\u003CRated 5 stars\u003E\u003E Running great, no crashes\nReviewer 3: \u003C\u003CRated 5 stars\u003E\u003E I like how you can set multiple locations\nReviewer 4: \u003C\u003CRated 1 star\u003E\u003E App did not warn me about tornado.\n\n[[The caption below the comic reads: The problem with averaging star ratings]]\n\n{{Title text: The bug report was marked \u0027could not reproduce\u0027.}}",
+  "alt": "The bug report was marked \u0027could not reproduce\u0027.",
+  "img": "937/tornadoguard.png",
+  "title": "TornadoGuard",
+  "day": "12",
+  "baseUri": "https://example.com/"
+}

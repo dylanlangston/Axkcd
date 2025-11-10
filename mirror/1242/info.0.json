@@ -1,0 +1,14 @@
+{
+  "month": "7",
+  "num": 1242,
+  "link": "",
+  "year": "2013",
+  "news": "",
+  "safeTitle": "Scary Names",
+  "transcript": "[[A scatterplot, with the y-axis labeled \u0022scariness of name\u0022 and the x-axis labeled \u0022scariness of thing name refers to.\n\nAt the top-left is \u0022chernobyl packet\u0022.\nSlightly right and downwards of that is \u0022bomb calorimeter\u0022.\nTowards the middle-top is \u0022kessler syndrome\u0022.\nTowards the middle-bottom is \u0022soil liquefaction\u0022.\nTowards the center is \u0022mustard gas\u0022.\nAlong the bottom, two-thirds of the way to the right, is \u0022grey goo\u0022.\nSlightly up and to the right from that is \u0022criticality incident\u0022.\nAbout midway up from there is \u0022bird flu\u0022.\nFurther up, not quite at the top, is \u0022demon core\u0022.\nBack towards the middle vertically, but slightly farther to the right, is \u0022superbug\u0022.\nAlmost all the way to the right but still near the middle vertically is \u0022nuclear football\u0022.\nAt the far top-right is \u0022flesh-eating bacteria\u0022.]]\n\n{{Title text: Far off to the right of the chart is the Helvetica Scenario.}}",
+  "alt": "Far off to the right of the chart is the Helvetica Scenario.",
+  "img": "1242/scary_names.png",
+  "title": "Scary Names",
+  "day": "24",
+  "baseUri": "https://example.com/"
+}

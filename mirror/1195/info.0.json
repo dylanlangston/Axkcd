@@ -1,0 +1,14 @@
+{
+  "month": "4",
+  "num": 1195,
+  "link": "",
+  "year": "2013",
+  "news": "",
+  "safeTitle": "Flowchart",
+  "transcript": "[[A flowchart. The first box is rectangular and says \u0022START\u0022 and has an arrow leading to a larger diamond-shaped box that reads, \u0022Hey, wait, this flowchart is a trap!\u0022. There is an arrow labeled \u0027YES\u0027 leading from this box back to itself.]]\n \n{{Title text: The way out is to use the marker you have to add a box that says \u0027get a marker\u0027 to the line between you and \u0027start\u0027, then add a \u0027no\u0027 line from the trap box to \u0027end\u0027.}}",
+  "alt": "The way out is to use the marker you have to add a box that says \u0027get a marker\u0027 to the line between you and \u0027start\u0027, then add a \u0027no\u0027 line from the trap box to \u0027end\u0027.",
+  "img": "1195/flowchart.png",
+  "title": "Flowchart",
+  "day": "5",
+  "baseUri": "https://example.com/"
+}

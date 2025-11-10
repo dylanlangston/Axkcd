@@ -1,0 +1,14 @@
+{
+  "month": "5",
+  "num": 742,
+  "link": "",
+  "year": "2010",
+  "news": "",
+  "safeTitle": "Campfire",
+  "transcript": "[[An adult stands in front of a campfire with three children listening intently. The adult holds a flashlight under his chin to create a menacing visage.]]\nAdult: But when she traced the killer\u0027s IP address... It was in the 192.168\n16 block!\nChildren, together: GASP!\n\n{{Title text: 100 years later, this story remains terrifying--not because it\u0027s the local network block, but because the killer is still on IPv4.}}",
+  "alt": "100 years later, this story remains terrifying--not because it\u0027s the local network block, but because the killer is still on IPv4.",
+  "img": "742/campfire.png",
+  "title": "Campfire",
+  "day": "19",
+  "baseUri": "https://example.com/"
+}

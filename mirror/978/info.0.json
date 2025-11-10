@@ -1,0 +1,14 @@
+{
+  "month": "11",
+  "num": 978,
+  "link": "",
+  "year": "2011",
+  "news": "",
+  "safeTitle": "Citogenesis",
+  "transcript": "Where Citations Come From:\n\nCitogenesis Step #1\nThrough a convoluted process, a user\u0027s brain generates facts. These are typed into Wikipedia.\n[[A guy with short hair sits at a desk, typing on a laptop.]]\nGuy: (typing) The \u0022scroll lock\u0022 key was designed by future Energy Secretary Steven Chu in a college project.\n\nA rushed writer checks Wikipedia for a summary of their subject.\n[[A woman with a ponytail sits at a desk, typing on a desktop.]]\nWoman: (typing) US Energy Secretary Steven Chu, (Nobel Prizewinner and creator of the ubiquitous \u0022scroll lock\u0022 key) testified before Congress today...\nStep #2\n\nSurprised readers check Wikipedia, see the claim, and flag it for review. A passing editor finds the piece and adds it as a citation. \n[[A man sits on a couch with a laptop in his lap, typing.]]\nMan: Google is your friend, people. (typing) \u003Cref\u003E{{cite web|url=\nStep #3\n\nStep #4\nNow that other writers have a real source, they repeat the fact.\n[[A flow chart, with \u0022Wikipedia citation\u0022 in the center. The word \u0022Wikipedia\u0022 is in black, the word \u0022citations\u0022 is white with a red background. \nA black arrow leads from \u0022brain\u0022 to \u0022Wikipedia.\u0022\nA black arrow labeled \u0022words\u0022 leads from \u0022Wikipedia\u0022 to \u0022careless writers,\u0022 and a red arrow labeled \u0022citations\u0022 leads back to \u0022Wikipedia citations.\u0022 \nA black \u0026 red arrow leads from \u0022Wikipedia\u0022 to \u0022cited facts\u0022 which leads to \u0022slightly more careful writers,\u0022 which leads to \u0022more citations,\u0022 which leads back to \u0022Wikipedia\u0022 (all black \u0026 red arrows).]]\nReferences proliferate, completing the citogenesis process.\n\n{{Title text: I just read a pop-science book by a respected author. One chapter, and much of the thesis, was based around wildly inaccurate data which traced back to ... Wikipedia. To encourage people to be on their toes, I\u0027m not going to say what book or author.}}",
+  "alt": "I just read a pop-science book by a respected author. One chapter, and much of the thesis, was based around wildly inaccurate data which traced back to ... Wikipedia. To encourage people to be on their toes, I\u0027m not going to say what book or author.",
+  "img": "978/citogenesis.png",
+  "title": "Citogenesis",
+  "day": "16",
+  "baseUri": "https://example.com/"
+}

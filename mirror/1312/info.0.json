@@ -1,0 +1,14 @@
+{
+  "month": "1",
+  "num": 1312,
+  "link": "",
+  "year": "2014",
+  "news": "",
+  "safeTitle": "Haskell",
+  "transcript": "[[Two people are conversing.]]\nPerson #1: Code written in Haskell is guaranteed to have no side effects.\nPerson #2: ...because no one will ever run it?\n \n{{Title text: The problem with Haskell is that it\u0027s a language built on lazy evaluation and nobody\u0027s actually called for it.}}",
+  "alt": "The problem with Haskell is that it\u0027s a language built on lazy evaluation and nobody\u0027s actually called for it.",
+  "img": "1312/haskell.png",
+  "title": "Haskell",
+  "day": "3",
+  "baseUri": "https://example.com/"
+}

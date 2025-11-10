@@ -1,0 +1,14 @@
+{
+  "month": "3",
+  "num": 1343,
+  "link": "",
+  "year": "2014",
+  "news": "",
+  "safeTitle": "Manuals",
+  "transcript": "[[A horizontal line has four points labeled on it, with the second point from the left marked with a dashed vertical line dividing the horizontal line into two parts. An arrow labeled \u0022Solve problems\u0022 points left from the vertical line. An arrow labeled \u0022Create problems\u0022 points right from the vertical line. The points are labeled, from left to right, \u0022Tools that don\u0027t need a manual\u0022, \u0022Tools that need a manual\u0022, \u0022Tools that need a manual but don\u0027t have one\u0022, and \u0022Tools whose manual starts with \u0027how to read this manual\u0027\u0022.]]\n\n{{Title text: The most ridiculous offender of all is the sudoers man page, which for 15 years has started with a \u0027quick guide\u0027 to EBNF, a system for defining the grammar of a language. \u0027Don\u0027t despair\u0027, it says, \u0027the definitions below are annotated.\u0027}}",
+  "alt": "The most ridiculous offender of all is the sudoers man page, which for 15 years has started with a \u0027quick guide\u0027 to EBNF, a system for defining the grammar of a language. \u0027Don\u0027t despair\u0027, it says, \u0027the definitions below are annotated.\u0027",
+  "img": "1343/manuals.png",
+  "title": "Manuals",
+  "day": "17",
+  "baseUri": "https://example.com/"
+}

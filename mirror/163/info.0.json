@@ -1,0 +1,14 @@
+{
+  "month": "9",
+  "num": 163,
+  "link": "",
+  "year": "2006",
+  "news": "",
+  "safeTitle": "Donald Knuth",
+  "transcript": "[[Two programmers, one with a black hat and one without a hat, are sitting back to back at two separate desks, typing.]]\nNo-Hat Programmer: Man, you\u0027re being inconsistent with your array indices.  Some are from one, some are from zero.\nBlack-Hat Programmer: Different tasks call for different conventions.  To quote Stanford algorithm\u0027s expert Donald Knuth, \u0022Who are you?  How did you get in my house?\u0022\nNo-Hat Programmer: Wait, what?\nBlack-Hat Programmer: Well, that\u0027s what he said when I asked him about it.\n{{alt: His books were kinda intimidating; rappelling down through his skylight seemed like the best option.}}",
+  "alt": "His books were kinda intimidating; rappelling down through his skylight seemed like the best option.",
+  "img": "163/donald_knuth.png",
+  "title": "Donald Knuth",
+  "day": "27",
+  "baseUri": "https://example.com/"
+}

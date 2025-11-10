@@ -1,0 +1,14 @@
+{
+  "month": "3",
+  "num": 3062,
+  "link": "",
+  "year": "2025",
+  "news": "",
+  "safeTitle": "Off By One",
+  "transcript": "",
+  "alt": "It does come at the small cost of a LOT more off-by-40-or-50 errors.",
+  "img": "3062/off_by_one.png",
+  "title": "Off By One",
+  "day": "12",
+  "baseUri": "https://example.com/"
+}

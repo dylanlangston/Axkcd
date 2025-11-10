@@ -1,0 +1,14 @@
+{
+  "month": "4",
+  "num": 1513,
+  "link": "",
+  "year": "2015",
+  "news": "",
+  "safeTitle": "Code Quality",
+  "transcript": "[[An AMATEUR CODER excitedly gestures a PRO CODER towards a laptop computer on a desk.]]\nAmateur: Keep in mind that I\u0027m self-taught, so my code may be a little messy.\nPro: Lemme see, I\u0027m sure it\u0027s fine.\n\n[[PRO CODER sits at the desk, clacking at the laptop.]]\nPro: Wow. This is like being in a house built by a child using nothing but a hatchet and a picture of a house.\n\n[[PRO CODER leans forward, slightly engrossed.]]\nPro: It\u0027s like a salad recipe written by a corporate lawyer using a phone autocorrect that only knew excel formulas.\n\n[[PRO CODER leans back, slightly horrified.]]\nPro: It\u0027s like someone took a transcript of a couple arguing at ikea and made random edits until it compiled without errors.\nAmateur: OKAY I will read a style guide.\n\n{{Title text: I honestly didn\u0027t think you could even USE emoji in variable names. Or that there were so many different crying ones.}}",
+  "alt": "I honestly didn\u0027t think you could even USE emoji in variable names. Or that there were so many different crying ones.",
+  "img": "1513/code_quality.png",
+  "title": "Code Quality",
+  "day": "17",
+  "baseUri": "https://example.com/"
+}

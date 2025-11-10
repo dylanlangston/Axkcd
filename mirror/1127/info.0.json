@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 1127,
+  "link": "https://xkcd.com/1127/large/",
+  "year": "2012",
+  "news": "You can get this comic as a \u003Ca href=\u0022https://store.xkcd.com/products/congress-poster\u0022\u003Eposter\u003C/a\u003E!",
+  "safeTitle": "Congress",
+  "transcript": "A history of the\nUnited States Congress\npartisan and ideological makeup\n\n[[A chart showing the makeup of the US Senate and House of Representatives throughout history. It shows which ideological blocs (far left, left, center-left, center-right, right, far-right) made up what portion of the left-leaning and right-leaning parties in each chamber.]]\n\n{{Title text: It\u0027d be great if some news network started featuring partisan hack talking heads who were all Federalists and Jacksonians, just to see how long it took us to catch on.}}",
+  "alt": "It\u0027d be great if some news network started featuring partisan hack talking heads who were all Federalists and Jacksonians, just to see how long it took us to catch on.",
+  "img": "1127/congress.png",
+  "title": "Congress",
+  "day": "29",
+  "baseUri": "https://example.com/"
+}

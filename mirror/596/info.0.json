@@ -1,0 +1,14 @@
+{
+  "month": "6",
+  "num": 596,
+  "link": "",
+  "year": "2009",
+  "news": "",
+  "safeTitle": "Latitude",
+  "transcript": "[[The Black Hat Guy is holding a phone up to someone.]]\nBlack Hat Guy: We\u0027re in a narrow window in which people are using Google Latitude, but haven\u0027t learned the habit of turning it off when they\u0027re doing something discreetly.\nBlack Hat Guy: I wrote an app to log friends\u0027 locations and work out addresses and business names.\n\n[[A timetable is visible.  Each column represents a different person.]]\n[[First column: Megan.]]\n11:00AM Home\n12:30PM Eastview Adult Toy Store\n1:30PM Home\n2:00PM Laketown Sex Toy Shop\n2:30PM Home\n3:00PM Fry\u0027s Electronics\n3:30PM Ed\u0027s Power Tool Emporium\n4:00PM Home\n4:10PM Hospital Burn Ward\n\n[[Second column: Rober - the rest of the name is cut off, as well as the end nof each entry.]]\n12:30PM Home\n2:00PM Schoo\n3:30PM Subwa\n\n{{Title text: The G1, especially with the new Android upgrade, is way better than I originally thought.}}",
+  "alt": "The G1, especially with the new Android upgrade, is way better than I originally thought.",
+  "img": "596/latitude.png",
+  "title": "Latitude",
+  "day": "12",
+  "baseUri": "https://example.com/"
+}

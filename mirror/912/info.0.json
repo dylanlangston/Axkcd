@@ -1,0 +1,14 @@
+{
+  "month": "6",
+  "num": 912,
+  "link": "",
+  "year": "2011",
+  "news": "",
+  "safeTitle": "Manual Override",
+  "transcript": "[[A plane is in a nosedive with smoke pouring from one wing. Text comes from someone reading in the cockpit.]]\n\u0022This is the emergency override system, which can be used to regain control of the aircraft.\nComplete instructions for activating this system are available as a GNU info page.\u0022\n\n{{Title text: I think you mean \u0027GNU Info Override\u0027.}}",
+  "alt": "I think you mean \u0027GNU Info Override\u0027.",
+  "img": "912/manual_override.png",
+  "title": "Manual Override",
+  "day": "15",
+  "baseUri": "https://example.com/"
+}

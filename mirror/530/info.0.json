@@ -1,0 +1,14 @@
+{
+  "month": "1",
+  "num": 530,
+  "link": "",
+  "year": "2009",
+  "news": "",
+  "safeTitle": "I\u0027m An Idiot",
+  "transcript": "[[Ponytailed stick figure approaches stick figure, who is sitting on porch steps, laptop in lap and backpack open]]\nPonytailed stick figure: Should  I ask?\nStick figure: I\u0027m locked out, and I\u0027m trying to get my roommate to let me in.\n[[unplugged cell phone on table]]\nStick figure: First I tried her cell phone, but it\u0027s off.\n[[Stick figure sitting on steps, laptop in lap and gesturing]]\nStick figure: Then I tried IRC, but she\u0027s not online.\n[[Stick figure standing in front of house and looking up at window]]\nStick figure: I couldn\u0027t find anything to throw at her window,\n[[living room with couch\neasy chair and computer set up]]\nStick figure: so I SSH\u0027d into the Mac Mini in the living room and got the speech synth to yell at her for me.\nComputer: Hey I\u0027m locked out downstairs\n[[Roommate sitting at table with laptop open]]\nStick figure: But I think I left the volume way down, so I\u0027m reading the OS X docs to learn to set the volume via command line.\n[[Ponytailed stick figure facing stick figure, who is still sitting on the porch with his laptop.]]\nPonytailed stick figure: Ah.\nPonytailed stick figure: I take it the doorbell doesn\u0027t work?\n[[Ponytailed stick figure characters remain in place, Stick figure tilts head back slightly, as if staring in realization]]",
+  "alt": "Sadly, this is a true story.  At least I learned about the OS X \u0027say\u0027 command.",
+  "img": "530/im_an_idiot.png",
+  "title": "I\u0027m An Idiot",
+  "day": "14",
+  "baseUri": "https://example.com/"
+}

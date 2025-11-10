@@ -1,0 +1,14 @@
+{
+  "month": "7",
+  "num": 607,
+  "link": "",
+  "year": "2009",
+  "news": "",
+  "safeTitle": "2038",
+  "transcript": "I\u0027m glad we\u0027re switching to 64-bit, because I wasn\u0027t looking forward to convincing people to care about the UNIX 2038 problem.\n\nMan #1: What\u0027s that?\nMan #2: Remember Y2K? This could be even \nworse!\n\n\n{{Title text: If only we\u0027d chosen 1944-12-02 08:45:52 as the Unix epoch, we could\u0027ve combined two doomsday scenarios into one and added a really boring scene to that Roland Emmerich movie.}}",
+  "alt": "If only we\u0027d chosen 1944-12-02 08:45:52 as the Unix epoch, we could\u0027ve combined two doomsday scenarios into one and added a really boring scene to that Roland Emmerich movie.",
+  "img": "607/2038.png",
+  "title": "2038",
+  "day": "8",
+  "baseUri": "https://example.com/"
+}

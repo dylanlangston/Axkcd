@@ -1,0 +1,14 @@
+{
+  "month": "7",
+  "num": 763,
+  "link": "",
+  "year": "2010",
+  "news": "",
+  "safeTitle": "Workaround",
+  "transcript": "[[A man stands at a computer terminal, while another man behind him stands with his head in his hands.]]\n\nMan 1: See, I\u0027ve got a really good system: if I want to send a YouTube video to someone, I go to File -\u003E Save, then import the saved page into Word. Then I go to \u0022Share This Document\u0022 and under \u0022recipient\u0022 I put the email of this video extraction service...\n\nCaption: I\u0027ll often encourage relatives to try to solve computer problems themselves by trial and error. However, I\u0027ve learned an important lesson: if they say they\u0027ve solved their problem, \nnever\n ask how.\n\n{{Title text: I once worked on a friend\u0027s dad\u0027s computer. He had the hard drive divided into eight partitions, C: through H:, with a \u0027Documents\u0027 directory tree on each one. Each new file appeared to be saved to a partition at random. I knew enough not to ask.}}",
+  "alt": "I once worked on a friend\u0027s dad\u0027s computer. He had the hard drive divided into six partitions, C: through J:, with a \u0027Documents\u0027 directory tree on each one. Each new file appeared to be saved to a partition at random. I knew enough not to ask.",
+  "img": "763/workaround.png",
+  "title": "Workaround",
+  "day": "7",
+  "baseUri": "https://example.com/"
+}

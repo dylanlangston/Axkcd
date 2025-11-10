@@ -1,0 +1,14 @@
+{
+  "month": "7",
+  "num": 1237,
+  "link": "",
+  "year": "2013",
+  "news": "",
+  "safeTitle": "QR Code",
+  "transcript": "[[A smartphone.  On the display, the following text: \u0022To continue installing, scan this code. 12 seconds remaining\u0022.  A particularly recursive QR code is displayed on the screen]]\nHow to freak out a mobile app user.\n\n{{Title text: Remember, the installer is watching the camera for the checksum it generated, so you have to scan it using your own phone.}}",
+  "alt": "Remember, the installer is watching the camera for the checksum it generated, so you have to scan it using your own phone.",
+  "img": "1237/qr_code.png",
+  "title": "QR Code",
+  "day": "12",
+  "baseUri": "https://example.com/"
+}

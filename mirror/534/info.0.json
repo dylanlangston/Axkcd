@@ -1,0 +1,14 @@
+{
+  "month": "1",
+  "num": 534,
+  "link": "",
+  "year": "2009",
+  "news": "",
+  "safeTitle": "Genetic Algorithms",
+  "transcript": "[[Code displayed, presumably from an IDE]]\ndef getSolutionCosts(navigationCode):\n    fuelStopCost = 15\n    extraComputationCost = 8\n[[There is a giant arrow pointing to the next line]]\n    thisAlgorithmBecomingSkynetCost = 999999999\n    waterCrossingCost = 45\nNarration: Genetic algorithms tip: *Always* include this in your fitness function.\n{{title text: Just make sure you don\u0027t have it maximize instead of minimize.}}",
+  "alt": "Just make sure you don\u0027t have it maximize instead of minimize.",
+  "img": "534/genetic_algorithms.png",
+  "title": "Genetic Algorithms",
+  "day": "23",
+  "baseUri": "https://example.com/"
+}

@@ -1,0 +1,14 @@
+{
+  "month": "12",
+  "num": 3024,
+  "link": "",
+  "year": "2024",
+  "news": "",
+  "safeTitle": "METAR",
+  "transcript": "",
+  "alt": "In the aviation world, they don\u0027t use AM/PM times. Instead, all times are assumed to be AM unless they\u0027re labeled NOTAM.",
+  "img": "3024/metar.png",
+  "title": "METAR",
+  "day": "13",
+  "baseUri": "https://example.com/"
+}

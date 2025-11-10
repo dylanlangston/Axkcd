@@ -1,0 +1,14 @@
+{
+  "month": "6",
+  "num": 754,
+  "link": "",
+  "year": "2010",
+  "news": "",
+  "safeTitle": "Dependencies",
+  "transcript": "((A portion of a page from an imaginary course catalog.)\n\n[[A table with four columns labeled Department, Course, Description, and Prereqs. Under \u0027Department\u0027 it reads, \u0022computer science\u0022. Under \u0027course\u0027 it reads, \u0022CPSC 432\u0022. Under \u0027Description\u0027 it reads, \u0022Intermediate compiler design, with a focus on dependency resolution.\u0022 Under \u0027Prereqs\u0027 it reads, \u0022CPSC 432\u0022. \n\n{{Title text: The prereqs for CPSC 357, the class on package management, are CPCS 432, CPSC 357, and glibc2.5 or later.}}",
+  "alt": "The prereqs for CPSC 357, the class on package management, are CPSC 432, CPSC 357, and glibc2.5 or later.",
+  "img": "754/dependencies.png",
+  "title": "Dependencies",
+  "day": "16",
+  "baseUri": "https://example.com/"
+}

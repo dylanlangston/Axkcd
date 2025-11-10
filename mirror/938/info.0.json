@@ -1,0 +1,14 @@
+{
+  "month": "8",
+  "num": 938,
+  "link": "",
+  "year": "2011",
+  "news": "",
+  "safeTitle": "T-Cells",
+  "transcript": "[[Two people are standing facing each other, having a conversation. One is holding a laptop.]]\nPerson #1 (with laptop): What\u0027s the deal with this leukemia trial? {{Citation: Nejm, Aug 10, 2011}}\nPerson #2: Gotta wait and see.\nPerson #2: Helping the immune system attack tumors has been a longtime research target.\nPerson #2: Lots of promising leads. Often they don\u0027t pan out.\n\nPerson #1: What\u0027d these guys do?\nPerson #2: They took some of the patient\u0027s T-cells and patched their genes so they\u0027d attack the cancer. That hasn\u0027t been enough in the past but their patch also added code to get the T-cells to replicate wildly and persist in the body.\n\nPerson #1: Which worked, but created its own set of problems?\nPerson #2: How\u0027d you guess? But I think the craziest part is the way they insert the patched genes.\nPerson #1: How?\nPerson #2: Well, think - What specializes in invading and modifying T-cells?\nPerson #1: Seriously?\nPerson #2: Yup. Must\u0027ve been a fun conversation.\n\n[[The last panel is set in a doctors office. A patient is sitting on the observation bed talking to their doctor.]]\nPatient: Ok, so I have blood cells growing out of control, so you\u0027re going to give me different blood cells that *also* grow out of control?\nDoctor: Yes, but it\u0027s ok, because we\u0027ve treated *this* blood with HIV!\nPatient: Are you sure you\u0027re a doctor?\nDoctor: Almost definitely.\n\n{{Title text: \u0027We\u0027re not sure how to wipe out the chimeral T-cells after they\u0027ve destroyed the cancer. Though I do have this vial of smallpox ...\u0027}}",
+  "alt": "\u0027We\u0027re not sure how to wipe out the chimeral T-cells after they\u0027ve destroyed the cancer. Though I do have this vial of smallpox ...\u0027",
+  "img": "938/t_cells.png",
+  "title": "T-Cells",
+  "day": "15",
+  "baseUri": "https://example.com/"
+}

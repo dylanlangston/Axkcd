@@ -1,0 +1,14 @@
+{
+  "month": "4",
+  "num": 1359,
+  "link": "",
+  "year": "2014",
+  "news": "",
+  "safeTitle": "Phone Alarm",
+  "transcript": "[[A flow chart. First box says, \u0027Alarm goes off\u0027 which leads with a straight arrow to the next box, reading \u0027BEEP BEEP BEEP BEEP\u0027. One curved arrow leads from this box back to itself. Another leads in the opposite direction to a box that says, \u0027\u0022???\u0022\u0027. From that an arrow leads down to \u0027Answer phone in dream\u0027, which leads to \u0027talk\u0027, which leads to \u0027hang up\u0027, which leads back to \u0027BEEP BEEP BEEP BEEP\u0027.]]\nMy problem with phone alarms\n\n{{Title text: Who\u0027s calling me?? WHY IS THE WORST PERSON IN THE WORLD CALLING ME!?}}",
+  "alt": "Who\u0027s calling me?? WHY IS THE WORST PERSON IN THE WORLD CALLING ME!?",
+  "img": "1359/phone_alarm.png",
+  "title": "Phone Alarm",
+  "day": "23",
+  "baseUri": "https://example.com/"
+}

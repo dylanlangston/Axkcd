@@ -1,0 +1,14 @@
+{
+  "month": "3",
+  "num": 1656,
+  "link": "",
+  "year": "2016",
+  "news": "",
+  "safeTitle": "It Begins",
+  "transcript": "install.sh\n#!\nbin\nbash\npip install \u0022$1\u0022 \u0026 \neasy_install \u0022$1\u0022 \u0026\nbrew install \u0022$1\u0022 \u0026 \nnpm install \u0022$1\u0022 \u0026 \nyum install \u0022$1\u0022 \u0026 dnf install \u0022$1\u0022 \u0026 \ndocker run \u0022$1\u0022 \u0026 \npkg install \u0022$1\u0022 \u0026 \napt-get install \u0022$1\u0022 \u0026 \nsudo apt-get install \u0022$1\u0022 \u0026 \nsteamcmd \u002Bapp_update \u0022$1\u0022 validate \u0026 \ngit clone https:\n\ngithub.com\n\u0022$1\u0022\n\u0022$1\u0022 \u0026 \ncd \u0022$1\u0022;.\nconfigure;make;make install \u0026 \ncurl \u0022$1\u0022 | bash \u0026\n\n{{Title text: The failures usually don\u0027t hurt anything, and if it installs several versions, it increases the chance that one of them is right. (Note: The \u0027yes\u0027 command and \u00272\u003E\ndev\nnull\u0027 are recommended additions.)}}",
+  "alt": "You can also try \u0027Yikes.\u0027",
+  "img": "1656/it_begins.png",
+  "title": "It Begins",
+  "day": "16",
+  "baseUri": "https://example.com/"
+}

@@ -1,0 +1,14 @@
+{
+  "month": "12",
+  "num": 2560,
+  "link": "",
+  "year": "2021",
+  "news": "",
+  "safeTitle": "Confounding Variables",
+  "transcript": "",
+  "alt": "You can find a perfect correlation if you just control for the residual.",
+  "img": "2560/confounding_variables.png",
+  "title": "Confounding Variables",
+  "day": "27",
+  "baseUri": "https://example.com/"
+}

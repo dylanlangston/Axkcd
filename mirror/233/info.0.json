@@ -1,0 +1,14 @@
+{
+  "month": "3",
+  "num": 233,
+  "link": "",
+  "year": "2007",
+  "news": "",
+  "safeTitle": "A New CAPTCHA Approach",
+  "transcript": "To complete your web registration, please prove that you\u0027re human:\nWhen Littlefoot\u0027s mother died in the original \u0060Land Before Time\u0027, did you feel sad?\n[[radio button]] Yes\n[[radio button]] No\n(Bots: no lying)",
+  "alt": "They\u0027d use that Futurama episode with Fry\u0027s dog, but even spambots cry at that.",
+  "img": "233/a_new_captcha_approach.png",
+  "title": "A New CAPTCHA Approach",
+  "day": "9",
+  "baseUri": "https://example.com/"
+}

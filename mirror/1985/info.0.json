@@ -1,0 +1,14 @@
+{
+  "month": "4",
+  "num": 1985,
+  "link": "",
+  "year": "2018",
+  "news": "",
+  "safeTitle": "Meteorologist",
+  "transcript": "",
+  "alt": "Hi, I\u0027m your new meteorologist and a former software developer. Hey, when we say 12pm, does that mean the hour from 12pm to 1pm, or the hour centered on 12pm? Or is it a snapshot at 12:00 exactly? Because our 24-hour forecast has midnight at both ends, and I\u0027m worried we have an off-by-one error.",
+  "img": "1985/meteorologist.png",
+  "title": "Meteorologist",
+  "day": "25",
+  "baseUri": "https://example.com/"
+}

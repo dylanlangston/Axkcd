@@ -1,0 +1,14 @@
+{
+  "month": "3",
+  "num": 1180,
+  "link": "",
+  "year": "2013",
+  "news": "",
+  "safeTitle": "Virus Venn Diagram",
+  "transcript": "[[There are two circles, a green one, and a blue one. They form a Venn diagram composed of two disjoint sets.]]\nGreen circle: Computer problems that make people say \u0022Maybe it has a virus?\u0022 \nBlue circle: Computer problems caused by viruses\n\n{{Title text: Within five minutes of the Singularity appearing, somebody will suggest defragging it.}}",
+  "alt": "Within five minutes of the Singularity appearing, somebody will suggest defragging it.",
+  "img": "1180/virus_venn_diagram.png",
+  "title": "Virus Venn Diagram",
+  "day": "1",
+  "baseUri": "https://example.com/"
+}

@@ -1,0 +1,14 @@
+{
+  "month": "5",
+  "num": 1367,
+  "link": "",
+  "year": "2014",
+  "news": "",
+  "safeTitle": "Installing",
+  "transcript": "[[One character is talking to another.]]\nCharacter: Installing things has gotten so fast and painless.\nCharacter: Why not skip it entirely, and make a phone that has every app \u0022installed\u0022 already and just downloads and runs them on the fly?\nI felt pretty clever until I realized I\u0027d invented webpages.\n\n{{Title text: But still, my scheme for creating and saving user config files and data locally to preserve them across reinstalls might be useful for--wait, that\u0027s cookies.}}",
+  "alt": "But still, my scheme for creating and saving user config files and data locally to preserve them across reinstalls might be useful for--wait, that\u0027s cookies.",
+  "img": "1367/installing.png",
+  "title": "Installing",
+  "day": "12",
+  "baseUri": "https://example.com/"
+}

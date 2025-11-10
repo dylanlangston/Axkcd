@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 330,
+  "link": "",
+  "year": "2007",
+  "news": "",
+  "safeTitle": "Indecision",
+  "transcript": "First Guy: So, what do you want to do?\nSecond Guy: Still no ideas.\nFirst guy: Wait, I think there\u0027s a rule about this.\n[[First Guy goes to bookshelf and removes a book called \u0022Rules\u0022]]\n[[The book of Rules is opened to the following:\nRULE social.b.99.1\nIf friends spend more than 60 minutes unable to decide what to do, they must default to sexual experimentation.]]\n[[First Guy is standing, holding the book. Second Guy is in the process of standing up.]]\nFirst Guy: Huh.\nSecond Guy: I did not know that rule.\nFirst Guy: Me neither.\nSecond Guy: I\u0027ll go get the Crisco.\n{{alt-text: Hey, I don\u0027t make the rules. It\u0027s in the book.}}",
+  "alt": "Hey, I don\u0027t make the rules.  It\u0027s in the book.",
+  "img": "330/indecision.png",
+  "title": "Indecision",
+  "day": "17",
+  "baseUri": "https://example.com/"
+}

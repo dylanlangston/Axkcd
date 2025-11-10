@@ -1,0 +1,14 @@
+{
+  "month": "11",
+  "num": 1132,
+  "link": "",
+  "year": "2012",
+  "news": "",
+  "safeTitle": "Frequentists vs. Bayesians",
+  "transcript": "Did the sun just explode? (It\u0027s night, so we\u0027re not sure)\n\n[[Two statisticians stand alongside an adorable little computer that is suspiciously similar to K-9 that speaks in Westminster typeface]]\nFrequentist Statistician: This neutrino detector measures whether the sun has gone nova.\nBayesian Statistician: Then, it rolls two dice. If they both come up as six, it lies to us.  Otherwise, it tells the truth.\nFS: Let\u0027s try. [[to the detector]] Detector! Has the sun gone nova?\nDetector: \u003C\u003Croll\u003E\u003E YES.\n\nFrequentist Statistician:\nFS: The probability of this result happening by chance is 1\n36=0.027.  Since p\u003C 0.05, I conclude that the sun has exploded.\n\nBayesian Statistician:\nBS: Bet you $50 it hasn\u0027t.\n\n{{Title text: \u0027Detector! What would the Bayesian statistician say if I asked him whether the--\u0027 [roll] \u0027I AM A NEUTRINO DETECTOR, NOT A LABYRINTH GUARD. SERIOUSLY, DID YOUR BRAIN FALL OUT?\u0027 [roll] \u0027... yes.\u0027}}",
+  "alt": "\u0027Detector! What would the Bayesian statistician say if I asked him whether the--\u0027 [roll] \u0027I AM A NEUTRINO DETECTOR, NOT A LABYRINTH GUARD. SERIOUSLY, DID YOUR BRAIN FALL OUT?\u0027 [roll] \u0027... yes.\u0027",
+  "img": "1132/frequentists_vs_bayesians.png",
+  "title": "Frequentists vs. Bayesians",
+  "day": "9",
+  "baseUri": "https://example.com/"
+}

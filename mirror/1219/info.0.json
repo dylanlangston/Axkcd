@@ -1,0 +1,14 @@
+{
+  "month": "5",
+  "num": 1219,
+  "link": "",
+  "year": "2013",
+  "news": "",
+  "safeTitle": "Reports",
+  "transcript": "How to make boring technical reports more fun to read: \nImagine they were written and sent in, unsolicited, by the estranged spouse of the head of the project.\n[[A person sits crouched in the middle of the floor of an empty room, typing on a laptop. There are books and papers scattered around him.]]\nLaptop: Six guard rails have erratic reflector placement, and one even lacks reflectors entirely, despite rule G31.02(b) clearly mandating consistent usage.\nPerson: ...\nSHARON!\n\n\n{{Title text: If that fails, just multiply every number by a thousand. \u0027The 2nd St speed limit should be set at 25,000 mph, which would likely have prevented 1,000 of the intersection\u0027s 3,000 serious accidents last month.\u0027}}",
+  "alt": "If that fails, just multiply every number by a thousand. \u0027The 2nd St speed limit should be set at 25,000 mph, which would likely have prevented 1,000 of the intersection\u0027s 3,000 serious accidents last month.\u0027",
+  "img": "1219/reports.png",
+  "title": "Reports",
+  "day": "31",
+  "baseUri": "https://example.com/"
+}

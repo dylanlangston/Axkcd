@@ -1,0 +1,14 @@
+{
+  "month": "6",
+  "num": 1700,
+  "link": "",
+  "year": "2016",
+  "news": "",
+  "safeTitle": "New Bug",
+  "transcript": "",
+  "alt": "There\u0027s also a unicode-handling bug in the URL request library, and we\u0027re storing the passwords unsalted ... so if we salt them with emoji, we can close three issues at once!",
+  "img": "1700/new_bug.png",
+  "title": "New Bug",
+  "day": "29",
+  "baseUri": "https://example.com/"
+}

@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 1439,
+  "link": "",
+  "year": "2014",
+  "news": "",
+  "safeTitle": "Rack Unit",
+  "transcript": "[[Black hat guy walks up to a woman sitting at a computer desk.]]\nBlack hat guy: I\u0027ve discovered something.\nWoman: Oh?\n\n[[We see a close-up of black hat guy\u0027s face.]]\nBlack hat guy: Standard server rack units and standard beehive honeycomb frames are compatible. They\u0027re both 19 inches, with similar pitches.\nWoman: Uh oh.\n\n[[The woman has turned round in her chair to look at black hat guy.]]\nBlack hat guy: I\u0027m pleased to announce that today, for a few hours, Google led the world in datacenter honey production. Until their security people kicked me out.\n\n[[The woman turns back to her computer, while black hat guy walks off.]]\nWoman: I\u0027m sorry your beekeeping career ended so quickly.\nBlack hat guy: I\u0027ll find a new datacentre. Turns out most colocation TOSes don\u0027t mention beehives.\nWoman: I suspect that will soon change.\n\n{{Title text: There\u0027s also nothing in the TOSes that says you can\u0027t let a dog play baseball in the server room!}}",
+  "alt": "There\u0027s also nothing in the TOSes that says you can\u0027t let a dog play baseball in the server room!",
+  "img": "1439/rack_unit.png",
+  "title": "Rack Unit",
+  "day": "27",
+  "baseUri": "https://example.com/"
+}

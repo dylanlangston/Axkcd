@@ -1,0 +1,14 @@
+{
+  "month": "11",
+  "num": 827,
+  "link": "",
+  "year": "2010",
+  "news": "",
+  "safeTitle": "My Business Idea",
+  "transcript": "[[A man is sitting at his desk, pointing at his laptop.]]\nMan: Dude! I had this idea like five years ago, and some company just got rich doing it! -- I want my cut.\n\n[[The man starts typing.]]\nPerson off-screen: That\u0027s not how it works.\nMan: Sure it is. I\u0027m applying for my share now.\nPerson: Wait, what?\n\n[[A browser window with the title \u0027Department of Ideas\u0027. It has a series of text boxes:\nDate you had the idea:\n\u0022Like five years ago.\u0022\nProof you had it:\n\u0022I told my friend Mike -- you can ask him! I was all \u0022you know what would make a great business idea? and he...\u0022\nTheir profit so far:\n$20,000,000\nShare you deserve (be fair!): ((drop-down))\n 25%\n*30%*\n 35%\nMailing address:\n\u0022137 Ash Tree Ln\u0022\n\n[[Man still at the laptop, above him is a SUBMIT button, and it shows a pointing hand cursor.]]\nCLICK\n\n((Last panel set slightly lower than the rest.))\n[[The man is in front of an open box, with cash in his hand. A FedEx delivery guy is on the other side of the box with his little electronic signing thing.]]\n\n{{Title text: We didn\u0027t believe you at first, but we asked like three people who were at that party. They not only corroborated your story, but even said you totally mentioned wanting to start a company someday. Sorry! If this isn\u0027t enough money, let us know.}}",
+  "alt": "We didn\u0027t believe you at first, but we asked like three people who were at that party. They not only corroborated your story, but even said you totally mentioned wanting to start a company someday. Sorry! If this isn\u0027t enough money, let us know.",
+  "img": "827/my_business_idea.png",
+  "title": "My Business Idea",
+  "day": "29",
+  "baseUri": "https://example.com/"
+}

@@ -1,0 +1,14 @@
+{
+  "month": "8",
+  "num": 303,
+  "link": "",
+  "year": "2007",
+  "news": "",
+  "safeTitle": "Compiling",
+  "transcript": "{{ Title: The #1 Programmer Excuse for Legitimately Slacking Off: \u00E2\u0080\u009CMy code\u0027s compiling.\u00E2\u0080\u009D }}\n[[Two programmers are sword-fighting on office chairs in a hallway. An unseen manager calls them back to work through an open office door.]]\nManager: Hey! Get back to work!\nProgrammer 1: Compiling!\nManager: Oh. Carry on.\n{{ Alt: \u00E2\u0080\u0098Are you stealing those LCDs?\u00E2\u0080\u0099 \u00E2\u0080\u0098Yeah, but I\u0027m doing it while my code compiles.\u00E2\u0080\u0099 }}",
+  "alt": "\u0027Are you stealing those LCDs?\u0027 \u0027Yeah, but I\u0027m doing it while my code compiles.\u0027",
+  "img": "303/compiling.png",
+  "title": "Compiling",
+  "day": "15",
+  "baseUri": "https://example.com/"
+}

@@ -1,0 +1,14 @@
+{
+  "month": "6",
+  "num": 1537,
+  "link": "",
+  "year": "2015",
+  "news": "",
+  "safeTitle": "Types",
+  "transcript": "My new language is great, but it has a few quirks regarding type:\n[[Gray and white type on a black background.]]\n [1]\u003E 2 \u002B \u00222\u0022\n  =\u003E  \u00224\u0022\n [2]\u003E \u00222\u0022 \u002B [ ]\n  =\u003E  \u0022[2]}\n [3]   (2\n0)\n  =\u003E  NaN\n [4]\u003E (2\n0)\u002B2\n  =\u003E  NaP\n [5]\u003E \u0022\u0022\u002B\u0022\u0022\n  =\u003E  \u0027\u0022\u002B\u0022\u0027\n [6]\u003E [1,2,3] \u002B 2\n  =\u003E  FALSE\n [7]\u003E [1,2,3] \u002B4\n  =\u003E  TRUE\n [8] 2\n(2-(3\n2 \u002B 1\n2))\n  =\u003E  NaN.00000000000000013\n [9]\u003E RANGE(\u0022 \u0022)\n  =\u003E  (\u0027 \u0022 \u0027,  \u0022!\u0022, \u0022  \u0022, \u0027\u0022\u0027)\n[10]\u003E \u002B2\n  =\u003E  12\n[11]\u003E 2\u002B2\n   =\u003E DONE\n[14]\u003E RANGE (1,5)\n   =\u003E  (1,4,3,4,5)\n[13]\u003E FLOOR(10.5)\n   =\u003E  |\n   =\u003E  |\n   =\u003E  |\n   =\u003E  |___10.5___ \n\n{{Title text: colors.rgb(\u0022blue\u0022) yields \u0022#0000FF\u0022. colors.rgb(\u0022yellowish blue\u0022) yields NaN. colors.sort() yields \u0022rainbow\u0022}}",
+  "alt": "colors.rgb(\u0022blue\u0022) yields \u0022#0000FF\u0022. colors.rgb(\u0022yellowish blue\u0022) yields NaN. colors.sort() yields \u0022rainbow\u0022",
+  "img": "1537/types.png",
+  "title": "Types",
+  "day": "12",
+  "baseUri": "https://example.com/"
+}

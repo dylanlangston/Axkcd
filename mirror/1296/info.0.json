@@ -1,0 +1,14 @@
+{
+  "month": "11",
+  "num": 1296,
+  "link": "",
+  "year": "2013",
+  "news": "",
+  "safeTitle": "Git Commit",
+  "transcript": "[[A commit log is shown, each commit having a comment and a relative date.]]\n\nCreated main loop \u0026 timing control - 14 hours ago\nEnabled config file parsing - 9 hours ago\nMisc bugfixes - 5 hours ago\nCode additions\nedits - 4 hours ago\nMore code - 4 hours ago\n((in a branch))\nHere have code - 4 hours ago\nAaaaaaaa - 3 hours ago\n((branch merged))\nAdkfjslkdfjsdklfj - 3 hours ago\nMy hands are typing words - 2 hours ago\nHaaaaaaaaands - 2 hours ago\n\n{{Title text: Merge branch \u0027asdfasjkfdlas\nalkdjf\u0027 into sdkjfls-final}}",
+  "alt": "Merge branch \u0027asdfasjkfdlas/alkdjf\u0027 into sdkjfls-final",
+  "img": "1296/git_commit.png",
+  "title": "Git Commit",
+  "day": "27",
+  "baseUri": "https://example.com/"
+}

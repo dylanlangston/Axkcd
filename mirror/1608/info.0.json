@@ -1,0 +1,14 @@
+{
+  "month": "11",
+  "num": 1608,
+  "link": "",
+  "year": "2015",
+  "news": "",
+  "safeTitle": "Hoverboard",
+  "transcript": "My new book, Thing Explainer, comes out today! To celebrate, here\u0027s a small game.\n\n[[A stick figure on a hoverboard can navigate around a field with platforms and barriers, reminiscent of a pinball machine, from top to bottom and left to right. Along the way it can collect coins, and then deposit them in a little terminal down at the center of the bottom. When you do, a message reads, \u0022You got X coins in Y seconds!\u0022 and a secondary message depending on how well you did. \nX=0 \u0022You successfully avoided all the coins!\u0022\nX=1 \u0022It\u0027s a start.\u0022\nX=2-4 \u0022Not bad.\u0022\nX=5-9 \u0022Terrific!\u0022\nX=10-16 (No message.)\nX=17 \u0022You found all the coins! Great job!\u0022\n\nHowever, if you leave the bounds of the playing field in either direction, a message in large red letters will flash:\nRETURN TO THE PLAY AREA\n\nWhen you keep going, you discover a vast world with grassy fields, caverns, mountains, volcanoes, and buildings. There are many little vignettes hidden everywhere, along with more coins.]]\n{{Title text: Return to the play area}}",
+  "alt": "Return to the play area",
+  "img": "1608/screenshot_1608.png",
+  "title": "Hoverboard",
+  "day": "24",
+  "baseUri": "https://example.com/"
+}

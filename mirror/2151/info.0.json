@@ -1,0 +1,14 @@
+{
+  "month": "5",
+  "num": 2151,
+  "link": "",
+  "year": "2019",
+  "news": "",
+  "safeTitle": "A/B",
+  "transcript": "",
+  "alt": "We wrote our site in Linear A rather than Aksara Kawi because browser testing showed that Crete script rendered faster than Java script.",
+  "img": "2151/a_b.png",
+  "title": "A/B",
+  "day": "17",
+  "baseUri": "https://example.com/"
+}

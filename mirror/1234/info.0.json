@@ -1,0 +1,14 @@
+{
+  "month": "7",
+  "num": 1234,
+  "link": "",
+  "year": "2013",
+  "news": "",
+  "safeTitle": "Douglas Engelbart (1925-2013)",
+  "transcript": "San Francisco, December 9th, 1968: \n[[We see a figure talking into a headset. It\u0027s a fair assumption that it\u0027s Douglas Engelbart.]]\nDouglas: ... We generated video signals with a cathode ray tube... We have a pointing device we call a \u0022mouse\u0022... I can \u0022copy\u0022 text... ... and we have powerful join file editing... underneath the file here we can exchange \u0022direct messages\u0022...\n\n[[Douglas continues to narrate. Some music is playing.]]\nDouglas: ... Users can share files... ... files which can encode audio samples, using our \u0022masking codecs\u0022... The file you\u0027re hearing now is one of my own compositions...\nMusic: I heard there was a secret chord\n\n[[Douglas continues to narrate.]]\nDouglas: ... And you can superimpose text on the picture of the cat, like so... This cat is saying \u0022YOLO\u0022, which stands for \u0022You Only Live Once\u0022... ...Just a little acronym we thought up...\n\n{{Title text: Actual quote from The Demo: \u0027... an advantage of being online is that it keeps track of who you are and what you\u00E2\u0080\u0099re doing all the time ...\u0027}}",
+  "alt": "Actual quote from The Demo: \u0027... an advantage of being online is that it keeps track of who you are and what you\u2019re doing all the time ...\u0027",
+  "img": "1234/douglas_engelbart_1925_2013.png",
+  "title": "Douglas Engelbart (1925-2013)",
+  "day": "5",
+  "baseUri": "https://example.com/"
+}

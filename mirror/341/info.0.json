@@ -1,0 +1,14 @@
+{
+  "month": "11",
+  "num": 341,
+  "link": "",
+  "year": "2007",
+  "news": "",
+  "safeTitle": "1337: Part 1",
+  "transcript": "[[Man 1 talks to man 2 who is lying down on the floor, using his laptop.]]\nMan 1: You\u0027re not on the neighbour\u0027s WiFi, are you?\nMan 2: Yeah, why?\nMan 1: The admin... plays games.\nMan 2: No problem. I\u0027ll just hop on a secure VPN.\nMan 2: Whoa, my connections are dying as soon as I start to tunnel anything!\nMessage on laptop: A VPN? How cute! And stop trying to SSH.\nMan 2: Holy shit! Someone\u0027s inserting notes into the pages I request! Editing the TCP stream live!\nMan 2: Nobody\u0027s that fast. Who is this admin?\n[[Neighbour (Mrs. Roberts) with bun tray in one hand, with oven mitts on both hands typing on a desktop computer.]]\nMrs. Roberts: My goodness. Neighbourhood scamps on the wireless.\n\u003C\u003Ctaptaptaptap\u003E\u003E\nMan 1: I should have warned you about Mrs. Roberts.\nMan 2: How does she type with oven mitts!?\nMan 1: You\u0027ve been pwned pretty hard, man. You might want to sit down.\n{{ If you\u0027re not cool enough to do it manually, you can look up tools like Upside-Down-Ternet for playing games with people on your wifi. }}",
+  "alt": "If you\u0027re not cool enough to do it manually, you can look up tools like Upside-Down-Ternet for playing games with people on your wifi.",
+  "img": "341/1337_part_1.png",
+  "title": "1337: Part 1",
+  "day": "12",
+  "baseUri": "https://example.com/"
+}

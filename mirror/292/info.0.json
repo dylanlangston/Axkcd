@@ -1,0 +1,14 @@
+{
+  "month": "7",
+  "num": 292,
+  "link": "",
+  "year": "2007",
+  "news": "",
+  "safeTitle": "goto",
+  "transcript": "[[Man sits at computer, thinking]]\nMan: I could restructure the program\u0027s flow - or use one little \u0027GOTO\u0027 instead.\nMan: Eh, screw good practice. How bad can it be?\nText on computer: goto main_sub3;\n\u003C\u003CCompile\u003E\u003E\n[[Panel passes in which man simply looks at the computer]]\n[[A raptor jumps into the panel and attacks the man at the computer]]\n{{title text: Neal Stephenson thinks it\u0027s cute to name his labels \u0027dengo\u0027}}",
+  "alt": "Neal Stephenson thinks it\u0027s cute to name his labels \u0027dengo\u0027",
+  "img": "292/goto.png",
+  "title": "goto",
+  "day": "20",
+  "baseUri": "https://example.com/"
+}
