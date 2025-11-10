@@ -119,9 +119,9 @@ endif
 DOCKER_PUBLISH_WINDOWS_TARGETS = windows windows-zip
 DOCKER_PUBLISH_OTHER_TARGETS   = linux linux-zip linux-appimage linux-deb linux-rpm linux-flatpak browser
 DOCKER_PUBLISH_ALL_TARGETS   = $(DOCKER_PUBLISH_WINDOWS_TARGETS) $(DOCKER_PUBLISH_OTHER_TARGETS)
-DOCKER_OTHER_PUBLISH_CMD = @docker build --rm --network=host --progress=plain -t avaloniaxkcd-builder . --target publish-linux --build-arg TARGET=$* --build-arg VERSION=$(VERSION) --output type=local,dest=$(OUTPUT_DIR)
+DOCKER_OTHER_PUBLISH_CMD = @docker build --rm --network=host --progress=plain -t avaloniaxkcd-builder . --target publish --build-arg TARGET=$* --build-arg VERSION=$(VERSION) --output type=local,dest=$(OUTPUT_DIR)
 define DOCKER_WINDOWS_PUBLISH_CMDS
-	@docker build --rm -t avaloniaxkcd-builder . --target publish-windows --build-arg TARGET=$* --build-arg VERSION=$(VERSION) --file windows.Dockerfile
+	@docker build --rm -t avaloniaxkcd-builder . --target publish --build-arg TARGET=$* --build-arg VERSION=$(VERSION) --file windows.Dockerfile
 	@docker create --name avaloniaxkcd-tmp-container avaloniaxkcd-builder
 	@docker cp avaloniaxkcd-tmp-container:C:/app/publish/. $(OUTPUT_DIR)
 	@docker rm avaloniaxkcd-tmp-container
@@ -148,14 +148,19 @@ docker-publish-%: check-docker # Publish any platform of type % via Docker.
 test: ## Run all tests in the solution.
 	@cd src; dotnet test
 
-docker-test: ## Run all test in the solution via Docker.
-	@docker build --rm --network=host --progress=plain -t avaloniaxkcd-builder . --target test
-
 restore: ## Restore the nuget packages for the solution.
 	@cd src; dotnet restore
 
 sync: ## Run the XKCD sync tool to mirror comics.
 	@dotnet run ./src/XKCDSyncTool.cs -- -o ./mirror -b $(HOST_URL)
+
+DOCKER_KINDS = test sync
+sync_output = --output type=local,dest=./mirror
+docker-test: ## Run all test in the solution via Docker.
+docker-sync: ## Run the XKCD sync tool to mirror comics via docker
+docker-%: # % via docker
+	$(call VALIDATE_TARGET,$(DOCKER_KINDS),$*)
+	@docker build --rm --network=host --progress=plain -t avaloniaxkcd-builder . --target $* $(if $(filter $*,sync),$(sync_output),)
 
 verify-review: ## Review and approve any changes detected by snapshot tests.
 	@cd src; dotnet verify review
@@ -174,6 +179,7 @@ endif
 	@dotnet tool install --global dotnet-outdated-tool
 	@dotnet tool install --global KuiperZone.PupNet
 	@cd src; dotnet workload restore
+	@cd src/AvaloniaXKCD.Site; bun ci
 
 setup-playwright: ## Setup playwright browsers for testing.
 	@cd src; dotnet build; dnx -y Microsoft.Playwright.CLI -p ./AvaloniaXKCD.Tests install --with-deps
