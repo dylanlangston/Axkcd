@@ -29,6 +29,7 @@ jobs:
     needs: test
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         include:
           - target: windows-zip
@@ -45,6 +46,7 @@ jobs:
             os: ubuntu-latest
           - target: browser
             os: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Check out code
         uses: actions/checkout@v4
