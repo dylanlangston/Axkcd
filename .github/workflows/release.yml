@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
+        with:
+          lfs: true
       - name: Run tests
         run: make docker-test
 
@@ -46,6 +48,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
+        with:
+          lfs: true
       - name: Install Make on Windows (using winget)
         if: runner.os == 'Windows'
         run: winget install --source winget --exact GnuWin32.Make --accept-source-agreements --accept-package-agreements
@@ -73,17 +77,16 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
-
+        with:
+          lfs: true
       - name: Download all build artifacts
         uses: actions/download-artifact@v4
         with:
           path: ./artifacts
-
       - name: Prepare Browser Artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./artifacts/output-browser
-
       - name: Create GitHub Release and Upload Assets
         uses: softprops/action-gh-release@v2
         with:
