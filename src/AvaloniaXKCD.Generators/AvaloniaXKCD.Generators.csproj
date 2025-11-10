@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <Configuration>Release</Configuration>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Roslyn SDK + analyzers -->
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+
+    <!-- Scriban templating engine -->
+    <PackageReference Include="Scriban" GeneratePathProperty="true" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- This packs the generator assembly into the analyzers folder -->
+    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+
+    <!-- This packs the Scriban dependency alongside the generator -->
+    <None Include="$(PkgScriban)\lib\netstandard2.0\Scriban.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="*.scriban-cs" />
+    <EmbeddedResource Include="Resources\*.cs" />
+    <ProjectReference Include="..\AvaloniaXKCD.Exports\AvaloniaXKCD.Exports.csproj" />
+  </ItemGroup>
+
+  <!-- Copy Scriban dependency for local builds -->
+  <PropertyGroup>
+    <GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
+  </PropertyGroup>
+
+  <Target Name="GetDependencyTargetPaths" AfterTargets="ResolvePackageAssets">
+    <ItemGroup>
+      <TargetPathWithTargetPlatformMoniker Include="$(PkgScriban)\lib\netstandard2.0\Scriban.dll" IncludeRuntimeDependency="false" />
+    </ItemGroup>
+  </Target>
+
+</Project>
