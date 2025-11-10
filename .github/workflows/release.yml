@@ -1,0 +1,111 @@
+name: Test, Build, and Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'The version to build and release (e.g., v1.0.0)'
+        required: true
+
+permissions:
+  contents: write # Needed to create releases
+  pages: write    # Needed to deploy to GitHub Pages
+  id-token: write # Needed for authentication for GitHub Pages deployment
+
+jobs:
+  test:
+    name: Run All Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: Run tests
+        run: make docker-test
+
+  build:
+    name: Build Binaries
+    needs: test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - target: windows-zip
+            os: windows-latest
+          - target: linux-zip
+            os: ubuntu-latest
+          - target: linux-appimage
+            os: ubuntu-latest
+          - target: linux-deb
+            os: ubuntu-latest
+          - target: linux-rpm
+            os: ubuntu-latest
+          - target: linux-flatpak
+            os: ubuntu-latest
+          - target: browser
+            os: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: Install Make on Windows (using winget)
+        if: runner.os == 'Windows'
+        run: winget install --source winget --exact GnuWin32.Make --accept-source-agreements --accept-package-agreements
+      - name: Run Build Process
+        shell: pwsh
+        run: |
+          if ($env:RUNNER_OS -eq 'Windows') {
+            $env:PATH = "C:\Program Files (x86)\GnuWin32\bin;" + $env:PATH
+          }
+          # Assuming 'make' creates the ./out directory
+          make docker-publish-${{ matrix.target }} VERSION=${{ github.event.inputs.version }}
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: output-${{ matrix.target }}
+          path: ./out
+
+  release:
+    name: Create GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.event.inputs.version }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Download all build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./artifacts
+
+      - name: Prepare Browser Artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./artifacts/output-browser
+
+      - name: Create GitHub Release and Upload Assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          draft: true
+          generate_release_notes: true
+          files: |
+            ./artifacts/output-windows-zip/*
+            ./artifacts/output-linux-zip/*
+            ./artifacts/output-linux-appimage/*
+            ./artifacts/output-linux-deb/*
+            ./artifacts/output-linux-rpm/*
+            ./artifacts/output-linux-flatpak/*
+
+  deploy-pages:
+    name: Deploy to GitHub Pages
+    needs: release
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
