@@ -19,7 +19,7 @@ jobs:
   Sync:
     name: "Sync"
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - name: Checkout
         id: checkout
@@ -30,7 +30,7 @@ jobs:
         id: sync
         run: make docker-sync
       - name: Commit Changes to Repository
-        if: github.ref == 'refs/heads/main' && github.repository == 'dylanlangston/resume'
+        if: github.ref == 'refs/heads/master' && github.repository == 'dylanlangston/Axkcd'
         id: commit
         run: |
           git config --global user.name "github-actions[bot]"
