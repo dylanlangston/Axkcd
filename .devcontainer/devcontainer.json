@@ -1,0 +1,52 @@
+{
+	"name": "AXKCD",
+	"build": { 
+		"dockerfile": "devcontainer.Dockerfile",
+		"target": "base",
+		"context": ".."
+	},
+	"containerUser": "vscode",
+	"postCreateCommand": "sudo make setup",
+	"runArgs": [
+		"--volume=/var/lib/docker",
+		"--privileged",
+		"--env", "DISPLAY",
+    	"--volume", "/tmp/.X11-unix:/tmp/.X11-unix"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-dotnettools.csdevkit",
+				"ms-dotnettools.vscodeintellicode-csharp",
+				"AvaloniaTeam.vscode-avalonia",
+				"ms-vscode.makefile-tools",
+				"ms-azuretools.vscode-docker",
+				"ms-vscode-remote.remote-containers",
+				"github.vscode-github-actions",
+				"GitHub.codespaces",
+				"bierner.markdown-preview-github-styles",
+				"bierner.markdown-mermaid",
+				"redhat.vscode-yaml",
+				"xoofx.scriban",
+				"runem.lit-plugin",
+				"redhat.vscode-xml",
+				"dabbinavo.xamlstyler"
+			],
+			"settings": {
+				"dotnetAcquisitionExtension.existingDotnetPath": [
+					{
+						"extensionId": "AvaloniaTeam.vscode-avalonia",
+						"path": "/usr/bin/dotnet"
+					}
+				]
+			}
+		}
+	},
+	"containerEnv": {
+		"AndroidSdkDirectory": "/opt/android-sdk",
+		"DOTNET_CLI_TELEMETRY_OPTOUT": "1",
+		"DOTNET_GENERATE_ASPNET_CERTIFICATE": "0",
+		"DOTNET_NOLOGO": "1",
+		"DOTNET_USE_POLLING_FILE_WATCHER": "1"
+	}
+}
