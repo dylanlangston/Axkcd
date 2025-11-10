@@ -45,18 +45,40 @@ SHELL ["/bin/bash", "-lc"]
 RUN curl -L --proto '=https' --tlsv1.3 -sSf https://bun.sh/install | bash
 
 FROM base AS setup
-COPY . /root/
+COPY src/AvaloniaXKCD/AvaloniaXKCD.csproj /root/src/AvaloniaXKCD/AvaloniaXKCD.csproj
+COPY src/AvaloniaXKCD.Browser/AvaloniaXKCD.Browser.csproj /root/src/AvaloniaXKCD.Browser/AvaloniaXKCD.Browser.csproj
+COPY src/AvaloniaXKCD.Browser/BuildSite.targets /root/src/AvaloniaXKCD.Browser/BuildSite.targets
+COPY src/AvaloniaXKCD.Desktop/AvaloniaXKCD.Desktop.csproj /root/src/AvaloniaXKCD.Desktop/AvaloniaXKCD.Desktop.csproj
+COPY src/AvaloniaXKCD.Exports/AvaloniaXKCD.Exports.csproj /root/src/AvaloniaXKCD.Exports/AvaloniaXKCD.Exports.csproj
+COPY src/AvaloniaXKCD.Generators/AvaloniaXKCD.Generators.csproj /root/src/AvaloniaXKCD.Generators/AvaloniaXKCD.Generators.csproj
+COPY src/AvaloniaXKCD.Site/package.json /root/src/AvaloniaXKCD.Site/package.json
+COPY src/AvaloniaXKCD.Site/bun.lock /root/src/AvaloniaXKCD.Site/bun.lock
+COPY src/AvaloniaXKCD.Site/AvaloniaXKCD.Site.esproj /root/src/AvaloniaXKCD.Site/AvaloniaXKCD.Site.esproj
+COPY src/AvaloniaXKCD.Tests/AvaloniaXKCD.Tests.csproj /root/src/AvaloniaXKCD.Tests/AvaloniaXKCD.Tests.csproj
+COPY src/XKCDCore/XKCDCore.csproj /root/src/XKCDCore/XKCDCore.csproj
+COPY src/Directory.Build.props /root/src/Directory.Build.props
+COPY src/Directory.Packages.props /root/src/Directory.Packages.props
+COPY src/nuget.config /root/src/nuget.config
+COPY src/AvaloniaXKCD.slnx /root/src/AvaloniaXKCD.slnx
+COPY makefile /root/makefile
 RUN make setup
 
-FROM base AS test
+FROM setup AS test
 COPY . /root/
-RUN make test
+RUN make setup-playwright test
 
-FROM setup AS build-linux
+FROM setup AS run-sync
+COPY . /root/
+RUN make sync
+
+FROM scratch AS sync
+COPY --from=run-sync /root/mirror /
+
+FROM setup AS build
 ARG TARGET=linux
 ARG VERSION
-RUN echo vars target=${TARGET} version=${VERSION}
+COPY . /root/
 RUN make publish-${TARGET} VERSION=${VERSION}
 
-FROM scratch AS publish-linux
-COPY --from=build-linux /root/out /
+FROM scratch AS publish
+COPY --from=build /root/out /
