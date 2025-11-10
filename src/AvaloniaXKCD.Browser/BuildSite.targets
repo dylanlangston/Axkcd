@@ -1,0 +1,20 @@
+<Project>
+  <PropertyGroup>
+    <FrontendProjectPath>../AvaloniaXKCD.Site</FrontendProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrontendSourceFiles Include="$(FrontendProjectPath)/public/**/*.svg;$(FrontendProjectPath)/src/**/*.ts;$(FrontendProjectPath)/src/**/*.tsx;$(FrontendProjectPath)/src/**/*.jsx;$(FrontendProjectPath)/src/**/*.js;$(FrontendProjectPath)/src/**/*.css;$(FrontendProjectPath)/*.html;$(FrontendProjectPath)/src/**/*.json" />
+    <FrontendConfigFiles Include="$(FrontendProjectPath)/vite.config.*;$(FrontendProjectPath)/package*.json" />
+
+    <Watch Include="@(FrontendSourceFiles);@(FrontendConfigFiles)" />
+  </ItemGroup>
+
+  <Target Name="BuildSite" BeforeTargets="AssignTargetPaths">
+    <Message Text="Building frontend via Vite..." Importance="high" />
+    <Exec WorkingDirectory="$(FrontendProjectPath)"
+          Command="bun install --prefer-offline --no-audit" IgnoreExitCode="true" />
+    <Exec WorkingDirectory="$(FrontendProjectPath)" Command="bun run version $(Version)" IgnoreExitCode="true" />
+    <Exec WorkingDirectory="$(FrontendProjectPath)" Command="bun run build" IgnoreExitCode="true" />
+  </Target>
+</Project>

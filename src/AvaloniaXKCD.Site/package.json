@@ -1,0 +1,33 @@
+{
+  "name": "avaloniaxkcd-site",
+  "private": true,
+  "version": "1.0.0+0",
+  "type": "module",
+  "scripts": {
+    "generate-pwa-assets": "pwa-assets-generator",
+    "version": "bun scripts/version.ts",
+    "build": "tsc && vite build",
+    "dev": "tsc && vite build --watch"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/glob": "^9.0.0",
+    "@types/node": "^24.10.0",
+    "@vite-pwa/assets-generator": "^1.0.2",
+    "fs-extra": "^11.3.2",
+    "glob": "^11.0.3",
+    "html-minifier-terser": "^7.2.0",
+    "rollup-plugin-minify-html-literals": "^1.2.6",
+    "typescript": "~5.9.3",
+    "vite": "npm:rolldown-vite@7.1.14",
+    "vite-plugin-pwa": "^1.1.0",
+    "vite-plugin-singlefile": "^2.3.0"
+  },
+  "overrides": {
+    "vite": "npm:rolldown-vite@7.1.14"
+  },
+  "dependencies": {
+    "@types/html-minifier-terser": "^7.0.2",
+    "lit": "^3.3.1"
+  }
+}

@@ -1,0 +1,144 @@
+:root {
+    --background-color: #96A8C8;
+    --text-color: #1b2a4e;
+    --border-color: black;
+    --content-background: white;
+    --link-color: #2020FF;
+    --link-visited-color: #000077;
+    --nav-background-color: #6E7B91;
+    --nav-text-color: white;
+    --nav-border-color: #333;
+    --nav-hover-background-color: white;
+    --nav-hover-text-color: #6E7B91;
+}
+
+* {
+    font-family: 'xkcd-script', sans-serif;
+}
+
+a:link {
+    color: var(--link-color);
+}
+
+a:visited,
+a:active {
+    color: var(--link-visited-color);
+}
+
+html {
+    height: 100%;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+p {
+    font-size: 1rem;
+}
+
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+footer {
+    background: var(--nav-background-color);
+    color: var(--nav-text-color);
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    border-bottom: none;
+}
+
+footer > p {
+    font-size: .8em;
+}
+
+.dev-banner {
+    position: absolute;
+    top: 25px;
+    right: -60px;
+    background-color: #c0392baa;
+    color: white;
+    padding: 8px 60px;
+    transform: rotate(330deg);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    user-select: none;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.logo {
+    height: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+    cursor: pointer;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 1em #fff);
+}
+
+.logo.lit:hover {
+    filter: drop-shadow(0 0 1em #00ffff);
+}
+
+.logo.dotnet:hover {
+    filter: drop-shadow(0 0 1em #512bd4aa);
+}
+
+.logo.vite:hover {
+    filter: drop-shadow(0 0 1em #ffc921);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background: var(--content-background);
+    border: 1px solid var(--border-color);
+    padding: 4px;
+    border-radius: 7px;
+}
+
+#out {
+    position: relative;
+    flex: 1;
+    outline: none;
+}
+
+#out > canvas {
+    border-radius: 7px;
+}

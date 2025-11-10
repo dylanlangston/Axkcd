@@ -1,0 +1,14 @@
+<Project>
+    <Sdk Name="Microsoft.VisualStudio.JavaScript.SDK" Version="1.0.4110890" />
+    <PropertyGroup>
+        <ShouldRunBuildScript>false</ShouldRunBuildScript>
+        <ShouldRunNpmInstall>false</ShouldRunNpmInstall>
+        <ShouldRunNpmAudit>false</ShouldRunNpmAudit>
+        <BuildCommand>bun run build</BuildCommand>
+        <StartupCommand>bun run build</StartupCommand>
+        <TestCommand>bun run build</TestCommand>
+        <CleanCommand>bun run build</CleanCommand>
+        <PublishCommand>bun run build</PublishCommand>
+        <BuildOutputFolder>$(MSBuildProjectDirectory)\..\AvaloniaXKCD.Browser\wwwroot</BuildOutputFolder>
+    </PropertyGroup>
+</Project>
