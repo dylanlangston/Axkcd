@@ -17,10 +17,13 @@
     <VersionMajor>1</VersionMajor>
     <VersionMinor>0</VersionMinor>
 
-    <VersionPatch>$([System.DateTime]::Now.ToString("yyMMdd"))</VersionPatch>
-    <VersionBuild>$([System.DateTime]::Now.ToString("HHmm"))</VersionBuild>
+    <!-- Build: Days since November 9th, 2025 -->
+    <VersionBuild>$([System.Convert]::ToInt32($([System.DateTime]::UtcNow.Subtract($([System.DateTime]::new(2025, 11, 9))).TotalDays)))</VersionBuild>
 
-    <Version>$(VersionMajor).$(VersionMinor).0.0</Version>
+    <!-- Revision: Seconds since midnight (UTC) divided by 2 -->
+    <VersionRevision>$([System.Convert]::ToInt32($([MSBuild]::Divide($([System.DateTime]::UtcNow.TimeOfDay.TotalSeconds), 2))))</VersionRevision>
+
+    <Version>$(VersionMajor).$(VersionMinor).$(VersionBuild).$(VersionRevision)</Version>
 
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>
