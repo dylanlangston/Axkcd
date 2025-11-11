@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1.4
+
 FROM debian:stable-slim AS base
 USER root
 
@@ -5,16 +7,20 @@ WORKDIR /root/
 
 # Install General Dependencies
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-     && apt-get -y install --no-install-recommends ca-certificates bash curl unzip xz-utils git make zip python3 default-jdk clang \
+     && apt-get -y install --no-install-recommends ca-certificates bash curl unzip xz-utils git make zip python3 default-jdk clang fuse libfuse2 file \
      flatpak flatpak-builder dpkg rpm
 
 # Flatpak platform SDK and runtime
-RUN flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo \
+RUN flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo \
      && flatpak --user install flathub org.freedesktop.Platform//23.08 org.freedesktop.Sdk//23.08 -y
 
 # AppImageTool
-RUN curl -fsSLo /usr/local/bin/appimagetool "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage" \
-    && chmod +x /usr/local/bin/appimagetool
+RUN curl -fsSLo appimagetool-x86_64.AppImage "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage" \
+    && chmod +x appimagetool-x86_64.AppImage \
+    && ./appimagetool-x86_64.AppImage --appimage-extract \
+    && mv squashfs-root /opt/appimagetool \
+    && ln -s /opt/appimagetool/AppRun /usr/local/bin/appimagetool-x86_64.AppImage \
+    && rm appimagetool-x86_64.AppImage
 
 # Add Microsoft package signing key & insiders-slow list
 RUN curl -fsSLo packages-microsoft-prod.deb https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb \
