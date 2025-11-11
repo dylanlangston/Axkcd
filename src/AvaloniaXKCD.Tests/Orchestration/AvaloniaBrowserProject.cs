@@ -81,7 +81,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
     private static async Task PingUntilSuccess(string url)
     {
         var attempts = 0;
-        const int maxAttempts = 5;
+        const int maxAttempts = 6;
 
         while (attempts < maxAttempts && (TestContext.Current?.Execution.CancellationToken.IsCancellationRequested != true))
         {
@@ -99,7 +99,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
             }
 
             attempts++;
-            await Task.Delay(TimeSpan.FromSeconds(2));
+            await Task.Delay(TimeSpan.FromSeconds(5));
         }
 
         throw new TimeoutException($"Failed to connect to the Avalonia application at {url} after {maxAttempts} attempts.");
