@@ -121,6 +121,11 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v5
+      - name: Download all build artifacts
+        uses: actions/download-artifact@v6
+        with:
+          path: ./artifacts
+          pattern: output-*
       - name: Create or Update Release
         uses: ./.github/actions/create-release
         with:
