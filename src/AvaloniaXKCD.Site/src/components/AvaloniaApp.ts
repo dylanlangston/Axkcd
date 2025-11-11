@@ -1,14 +1,14 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
-import { dotnet } from '/_framework/dotnet.js';
-import './LoadingIndicator';
-import './ErrorMessage';
+import { dotnet } from '@framework/dotnet.js';
+import '@/components/LoadingIndicator';
+import '@/components/ErrorMessage';
 
-import * as interop from '../interop';
+import * as interop from '@/interop';
 
-import fullscreenIcon from '../assets/fullscreen.svg'
-import fullscreenExitIcon from '../assets/fullscreen-exit.svg'
-import type { AvaloniaXKCDBrowser } from '/_framework/AvaloniaXKCD.Browser';
+import fullscreenIcon from '@/assets/fullscreen.svg'
+import fullscreenExitIcon from '@/assets/fullscreen-exit.svg'
+import type { AvaloniaXKCDBrowser } from '@framework/AvaloniaXKCD.Browser';
 
 @customElement('avalonia-app')
 export class AvaloniaApp extends LitElement {
@@ -204,7 +204,7 @@ slot {
 
             const config = dotnetRuntime.getConfig();
 
-            const match = window.location.href.match(this.comicRegex);
+            const match = window.location.pathname.match(this.comicRegex);
             const comicNumber = match ? match[1] : null;
             await dotnetRuntime.runMain(config.mainAssemblyName, comicNumber ? [comicNumber] : []);
 
@@ -214,15 +214,31 @@ slot {
 
             this.avaloniaApp = await dotnetRuntime.getAssemblyExports("AvaloniaXKCD.Browser");
             this.uriChangeSubscription = this.avaloniaApp?.AvaloniaXKCD.Browser.BrowserSystemActions.AddOnUriChangeCallback((newUri: string) => {
-                const match = window.location.href.match(this.comicRegex);
-                const currentComicNumber = match ? match[1] : null;
-                if (currentComicNumber == newUri) return;
-                history.pushState({ uri: newUri }, '', `${window.location.origin}/${newUri}`);
+                this.setLastSlugToComic(Number(newUri));
             });
 
         } catch (error) {
             console.error("Failed to start Avalonia application:", error);
             this.fatalError = `${error instanceof Error ? error.message : String(error)}`;
+        }
+    }
+
+    setLastSlugToComic(comic: number) {
+        const currentPath = window.location.pathname;
+        const segments = currentPath.split('/').filter(Boolean);
+        const comicMatch = currentPath.match(this.comicRegex);
+        const currentComicNumber = comicMatch ? Number(comicMatch[1]) : null;
+        if (currentComicNumber == comic) return;
+
+        if (currentPath.endsWith('/')) {
+            const newPath = currentPath + comic;
+            history.replaceState({ uri: comic }, '', newPath);
+        }
+        else {
+            segments[segments.length - 1] = String(comic);
+            const newPath = `/${segments.join('/')}`;
+
+            history.pushState({ uri: comic }, '', newPath);
         }
     }
 
@@ -241,7 +257,7 @@ slot {
 
     private handlePopState(event: PopStateEvent) {
         if (event.state && event.state.uri && this.avaloniaApp) {
-            this.avaloniaApp.AvaloniaXKCD.Browser.BrowserSystemActions.InvokeOnUriChangeCallback(event.state.uri);
+            this.avaloniaApp.AvaloniaXKCD.Browser.BrowserSystemActions.InvokeOnUriChangeCallback(String(event.state.uri));
         }
     }
 }

@@ -9,7 +9,8 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "/_framework/*": ["src/types/*"]
+      "@/*": ["src/*"],
+      "@framework/*": ["src/types/*"]
     },
 
     /* Bundler mode */

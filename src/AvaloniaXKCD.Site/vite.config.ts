@@ -9,6 +9,7 @@ import { viteSingleFile } from "vite-plugin-singlefile"
 import minifyHTML from 'rollup-plugin-minify-html-literals';
 import { VitePWA } from 'vite-plugin-pwa'
 import pkg from './package.json'
+import { mapExternalImports } from './plugins/MapExternalImports'
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), '')
@@ -18,9 +19,18 @@ export default defineConfig(({ mode }) => {
             __APP_ENV__: JSON.stringify(env.APP_ENV),
             __VERSION__: pkg.version
         },
+        base: './',
         server: undefined,
         appType: 'spa',
+        resolve: {
+            alias: [
+                { find: '@', replacement: resolve(__dirname, 'src') }
+            ]
+        },
         plugins: [
+            mapExternalImports({imports: {
+                '@framework/dotnet.js': './_framework/dotnet.js'
+            }}),
             injectVersionHeader(),
             minifyHTML(),
             copyIndexTo404AndMinify(),
@@ -72,7 +82,7 @@ export default defineConfig(({ mode }) => {
                     runtimeCaching: [
                         {
                             urlPattern: ({ url }) => url.pathname.startsWith('/_framework'),
-                            handler: 'CacheFirst',
+                            handler: 'NetworkFirst',
                             options: {
                                 cacheName: 'dotnet-cache',
                                 cacheableResponse: {
@@ -100,7 +110,7 @@ export default defineConfig(({ mode }) => {
                         },
                         {
                             urlPattern: ({ url }) => url.pathname.endsWith('info.0.json'),
-                            handler: 'CacheFirst',
+                            handler: 'NetworkFirst',
                             options: {
                                 cacheName: 'info-cache',
                                 cacheableResponse: {
@@ -125,7 +135,6 @@ export default defineConfig(({ mode }) => {
             target: 'esnext',
             rollupOptions: {
                 external: [
-                    '/_framework/dotnet.js'
                 ],
                 output: {
                 }

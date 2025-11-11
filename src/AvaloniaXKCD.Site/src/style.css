@@ -79,7 +79,6 @@ footer > p {
     top: 25px;
     right: -60px;
     background-color: #c0392baa;
-    color: white;
     padding: 8px 60px;
     transform: rotate(330deg);
     font-size: 0.9rem;
@@ -87,6 +86,10 @@ footer > p {
     letter-spacing: 1px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     user-select: none;
+}
+
+.dev-banner a {
+    color: white;
 }
 
 .logo-container {
