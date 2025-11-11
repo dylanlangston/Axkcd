@@ -61,8 +61,10 @@ jobs:
         uses: ./.github/actions/cached-lfs-checkout
       - name: Setup Environment
         uses: ./.github/actions/setup-environment
+      - name: Prerequisites for tests
+        run: make setup-playwright
       - name: Run tests
-        run: make setup-playwright test
+        run: make test
 
   build:
     name: Build Binaries
