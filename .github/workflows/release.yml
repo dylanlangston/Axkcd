@@ -197,7 +197,7 @@ jobs:
 
             for (let prefix of ["output-"]) {
               const matchingArtifacts = allArtifacts.data.artifacts.filter((artifact) => {
-                return artifact.name == prefix + "${{ needs.prepare.outputs.version }}"
+                return artifact.name.startsWith(prefix);
               });
               if (matchingArtifacts.length < 0) continue;
 
