@@ -4,7 +4,7 @@
 
 # AvaloniaXKCD
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/dylanlangston/axkcd/build.yml?style=flat-square&logo=github)](https://github.com/dylanlangston/axkcd/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/dylanlangston/axkcd/release.yml?style=flat-square&logo=github)](https://github.com/dylanlangston/axkcd/actions)
 ![.NET](https://img.shields.io/badge/.NET-10-512BD4?style=flat-square&logo=dotnet)
 ![Avalonia UI](https://img.shields.io/badge/Avalonia_UI-12.x-blue?style=flat-square)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
