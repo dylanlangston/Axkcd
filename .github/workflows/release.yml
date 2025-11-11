@@ -5,7 +5,17 @@ on:
     inputs:
       version:
         description: 'The version to build and release (e.g., 1.0.0.0)'
-        required: true
+        required: false
+  push:
+    branches:
+      - master
+    paths:
+      - './mirror/**'
+      - './src/**'
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
 
 permissions:
   contents: write # Needed to create releases
@@ -13,12 +23,39 @@ permissions:
   id-token: write # Needed for authentication for GitHub Pages deployment
 
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.versioing.outputs.VERSION }}
+    steps:
+      - name: Set Version
+        id: versioning
+        run: |
+          if [[ -n "${{ github.event.inputs.version }}" ]]; then
+            echo "VERSION=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            VERSION_MAJOR=1
+            VERSION_MINOR=0
+
+            current_seconds=$(date -u +%s)
+            start_seconds=$(date -u -d "2025-11-09" +%s)
+            VERSION_BUILD=$(( (current_seconds - start_seconds) / 86400 ))
+
+            seconds_today=$(( current_seconds % 86400 ))
+            VERSION_REVISION=$(( seconds_today / 2 ))
+
+            VERSION="$VERSION_MAJOR.$VERSION_MINOR.$VERSION_BUILD.$VERSION_REVISION"
+            echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          fi
+          echo "Generated version: ${{ steps.versioning.outputs.VERSION }}"
+
   test:
     name: Run All Tests
+    needs: prepare
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           lfs: true
       - name: Run tests
@@ -26,7 +63,7 @@ jobs:
 
   build:
     name: Build Binaries
-    needs: test
+    needs: [prepare, test]
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -49,46 +86,43 @@ jobs:
     continue-on-error: true
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           lfs: true
       - name: Install Make on Windows (using winget)
         if: runner.os == 'Windows'
-        run: winget install --source winget --exact GnuWin32.Make --accept-source-agreements --accept-package-agreements
+        run: choco install make
       - name: Run Build Process
         shell: pwsh
-        run: |
-          if ($env:RUNNER_OS -eq 'Windows') {
-            $env:PATH = "C:\Program Files (x86)\GnuWin32\bin;" + $env:PATH
-          }
-          # Assuming 'make' creates the ./out directory
-          make docker-publish-${{ matrix.target }} VERSION=${{ github.event.inputs.version }}
+        run: make docker-publish-${{ matrix.target }} VERSION=${{ needs.prepare.outputs.version }}
       - name: Upload Build Artifact
+        if: ${{ matrix.target }} != 'browser'
         uses: actions/upload-artifact@v4
         with:
           name: output-${{ matrix.target }}
           path: ./out
+      - name: Upload Browser Artifact for GitHub Pages
+        if: ${{ matrix.target }} == 'browser'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out/wwwroot
 
   release:
     name: Create GitHub Release
-    needs: build
+    needs: [prepare, build]
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.event.inputs.version }}
+      url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ needs.prepare.outputs.version }}
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           lfs: true
       - name: Download all build artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           path: ./artifacts
-      - name: Prepare Browser Artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./artifacts/output-browser
       - name: Create GitHub Release and Upload Assets
         uses: softprops/action-gh-release@v2
         with:
