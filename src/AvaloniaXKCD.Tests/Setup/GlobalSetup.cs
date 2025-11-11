@@ -4,6 +4,8 @@ using AvaloniaXKCD.Tests.VerifyPlugins;
 
 [assembly: System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 
+[assembly: Timeout(30_000)]
+
 namespace AvaloniaXKCD.Tests.Setup;
 
 public class GlobalHooks

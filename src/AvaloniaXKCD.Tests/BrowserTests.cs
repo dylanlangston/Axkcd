@@ -1,11 +1,12 @@
 namespace AvaloniaXKCD.Tests;
 
+[Timeout(90_000)]
 [Arguments("chromium")]
 [Arguments("firefox")]
 public class BrowserTests(string browser) : BrowserBaseTest(browser)
 {
     [Test]
-    public async Task LoadsInitialPage()
+    public async Task LoadsInitialPage(CancellationToken cancellation)
     {
         await Page.GotoAsync("/");
         await Verify(Page)

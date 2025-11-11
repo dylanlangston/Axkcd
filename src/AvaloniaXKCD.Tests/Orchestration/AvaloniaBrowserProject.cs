@@ -2,11 +2,14 @@ namespace AvaloniaXKCD.Tests.Orchestration;
 
 public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposable
 {
-    string pathRelativeToSolution = "AvaloniaXKCD.Browser";
+    const string pathRelativeToSolution = "AvaloniaXKCD.Browser";
+    static TimeSpan buildTimeout = TimeSpan.FromMinutes(3);
 
     private Process? _avaloniaProcess;
     private static readonly HttpClient HttpClient = new();
     private readonly TaskCompletionSource<string> _appUrlCompletionSource = new();
+    private readonly List<string> _standardOutput = new();
+    private readonly List<string> _standardError = new();
 
     string? _url;
     public string Url
@@ -31,28 +34,36 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
             UseShellExecute = false,
             CreateNoWindow = true
         };
-        startInfo.EnvironmentVariables["ASPNETCORE_ENVIRONMENT"] = "true";
+        startInfo.EnvironmentVariables["ASPNETCORE_URLS"] = "http://localhost:5000";
+        startInfo.EnvironmentVariables["ASPNETCORE_ENVIRONMENT"] = "Development";
 
         _avaloniaProcess = new Process { StartInfo = startInfo };
 
         _avaloniaProcess.OutputDataReceived += OnOutputDataReceived;
-        _avaloniaProcess.ErrorDataReceived += OnOutputDataReceived;
+        _avaloniaProcess.ErrorDataReceived += OnErrorDataReceived;
 
         try
-
         {
             _avaloniaProcess.Start();
             _avaloniaProcess.BeginOutputReadLine();
             _avaloniaProcess.BeginErrorReadLine();
 
-            // Wait for the App url to be logged, with a decent timeout to allow for the build process.
-            Url = await _appUrlCompletionSource.Task.WaitAsync(TimeSpan.FromSeconds(60));
+            Url = await _appUrlCompletionSource.Task.WaitAsync(buildTimeout);
             await PingUntilSuccess(Url);
         }
-        catch
+        catch (Exception ex)
         {
-            _avaloniaProcess.Kill(true);
-            throw;
+            TestContext.Current?.ErrorOutputWriter.WriteLine("--- Avalonia App startup failed. Captured output: ---");
+            TestContext.Current?.ErrorOutputWriter.WriteLine("--- Standard Output: ---");
+            if (TestContext.Current != null) _standardOutput.ForEach(TestContext.Current.ErrorOutputWriter.WriteLine);
+            TestContext.Current?.ErrorOutputWriter.WriteLine("--- Standard Error: ---");
+            if (TestContext.Current != null) _standardError.ForEach(TestContext.Current.ErrorOutputWriter.WriteLine);
+
+            if (_avaloniaProcess is not null && !_avaloniaProcess.HasExited)
+            {
+                _avaloniaProcess.Kill(true);
+            }
+            throw new InvalidOperationException("Failed to initialize the Avalonia application.", ex);
         }
         finally
         {
@@ -64,6 +75,14 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
     [GeneratedRegex(@"(http|https)://localhost:\d+", RegexOptions.Compiled)]
     private static partial Regex UrlRegex();
 
+    private void OnErrorDataReceived(object sender, DataReceivedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(e.Data))
+        {
+            _standardError.Add(e.Data);
+        }
+    }
+
     private void OnOutputDataReceived(object sender, DataReceivedEventArgs e)
     {
         if (string.IsNullOrEmpty(e.Data))
@@ -71,6 +90,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
             return;
         }
 
+        _standardOutput.Add(e.Data);
         var match = UrlRegex().Match(e.Data);
         if (match.Success)
         {
@@ -81,7 +101,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
     private static async Task PingUntilSuccess(string url)
     {
         var attempts = 0;
-        const int maxAttempts = 6;
+        const int maxAttempts = 12;
 
         while (attempts < maxAttempts && (TestContext.Current?.Execution.CancellationToken.IsCancellationRequested != true))
         {
@@ -107,12 +127,21 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
 
     public async ValueTask DisposeAsync()
     {
-        if (_avaloniaProcess is not null && !_avaloniaProcess.HasExited)
+        try
         {
-            _avaloniaProcess.Kill(entireProcessTree: true); // Ensure child processes are also terminated
-            await _avaloniaProcess.WaitForExitAsync();
+            if (_avaloniaProcess is not null && !_avaloniaProcess.HasExited)
+            {
+                _avaloniaProcess.Kill(entireProcessTree: true); // Ensure child processes are also terminated
+                await _avaloniaProcess.WaitForExitAsync();
+            }
         }
+        catch
+        {
 
-        _avaloniaProcess?.Dispose();
+        }
+        finally
+        {
+            _avaloniaProcess?.Dispose();
+        }
     }
 }
