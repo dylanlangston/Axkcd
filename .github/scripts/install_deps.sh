@@ -16,7 +16,6 @@ apt-get -y install --no-install-recommends \
     python3 \
     default-jdk \
     clang \
-    fuse \
     libfuse2 \
     file \
     flatpak \
