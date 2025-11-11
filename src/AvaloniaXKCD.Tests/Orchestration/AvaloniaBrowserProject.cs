@@ -108,7 +108,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
     private static async Task PingUntilSuccess(string url)
     {
         var attempts = 0;
-        const int maxAttempts = 12;
+        const int maxAttempts = 36;
 
         while (attempts < maxAttempts && (TestContext.Current?.Execution.CancellationToken.IsCancellationRequested != true))
         {
