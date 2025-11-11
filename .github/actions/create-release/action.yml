@@ -5,7 +5,7 @@ inputs:
   version:
     description: 'The version for the release tag (e.g., 1.2.3.4)'
     required: true
-  github-token:
+  github_token:
     description: 'The GITHUB_TOKEN secret'
     required: true
   files:
@@ -23,5 +23,5 @@ runs:
       shell: bash
       env:
         INPUT_VERSION: ${{ inputs.version }}
-        INPUT_GITHUB-TOKEN: ${{ inputs.github-token }}
+        INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
         INPUT_FILES: ${{ inputs.files }}

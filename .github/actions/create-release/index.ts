@@ -206,7 +206,7 @@ export class FileManager {
 export async function run(): Promise<void> {
   try {
     const version = core.getInput('version', { required: true });
-    const token = core.getInput('github-token', { required: true });
+    const token = core.getInput('github_token', { required: true });
     const files = core.getInput('files', { required: false });
 
     if (!files) {

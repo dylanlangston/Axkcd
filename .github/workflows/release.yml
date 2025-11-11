@@ -130,7 +130,7 @@ jobs:
         uses: ./.github/actions/create-release
         with:
           version: ${{ needs.prepare.outputs.version }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           files: |
             ./artifacts/output-windows-zip/*.zip
             ./artifacts/output-linux-zip/*.zip
