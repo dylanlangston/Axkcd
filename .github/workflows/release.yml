@@ -10,8 +10,8 @@ on:
     branches:
       - master
     paths:
-      - './mirror/**'
-      - './src/**'
+      - 'mirror/**'
+      - 'src/**'
 
 concurrency:
   group: ${{ github.workflow }}
@@ -24,9 +24,10 @@ permissions:
 
 jobs:
   prepare:
+    name: Prepare
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.versioing.outputs.VERSION }}
+      version: ${{ steps.versioning.outputs.VERSION }}
     steps:
       - name: Set Version
         id: versioning
@@ -47,7 +48,7 @@ jobs:
             VERSION="$VERSION_MAJOR.$VERSION_MINOR.$VERSION_BUILD.$VERSION_REVISION"
             echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
           fi
-          echo "Generated version: ${{ steps.versioning.outputs.VERSION }}"
+          echo "Generated version: $VERSION"
 
   test:
     name: Run All Tests
