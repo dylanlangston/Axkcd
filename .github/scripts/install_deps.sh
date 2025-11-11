@@ -37,4 +37,6 @@ dotnet workload install android wasm-tools
 
 curl -L --proto '=https' --tlsv1.3 -sSf https://bun.sh/install | bash
 
+dotnet tool install --global KuiperZone.PupNet
+
 apt-get clean
