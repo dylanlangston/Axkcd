@@ -114,7 +114,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
         {
             try
             {
-                var response = await HttpClient.GetAsync(url);
+                var response = await HttpClient.GetAsync($"{url.TrimEnd('/')}/index.html");
                 if (response.IsSuccessStatusCode)
                 {
                     return;
