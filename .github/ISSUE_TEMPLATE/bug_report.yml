@@ -1,0 +1,80 @@
+name: Bug Report
+description: Create a report to help us improve
+title: "[NEW] [BUG] - "
+labels: ["bug"]
+assignees:
+  - dylanlangston
+body:
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: "A clear and concise description of what the bug is."
+    validations:
+      required: true
+  - type: textarea
+    id: to-reproduce
+    attributes:
+      label: To Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: "A clear and concise description of what you expected to happen."
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem.
+  - type: input
+    id: os-desktop
+    attributes:
+      label: Desktop OS
+      placeholder: "[e.g. iOS]"
+  - type: input
+    id: browser-desktop
+    attributes:
+      label: Desktop Browser
+      placeholder: "[e.g. chrome, safari]"
+  - type: input
+    id: version-desktop
+    attributes:
+      label: Desktop Browser Version
+      placeholder: "[e.g. 22]"
+  - type: input
+    id: device-smartphone
+    attributes:
+      label: Smartphone Device
+      placeholder: "[e.g. iPhone6]"
+  - type: input
+    id: os-smartphone
+    attributes:
+      label: Smartphone OS
+      placeholder: "[e.g. iOS8.1]"
+  - type: input
+    id: browser-smartphone
+    attributes:
+      label: Smartphone Browser
+      placeholder: "[e.g. stock browser, safari]"
+  - type: input
+    id: version-smartphone
+    attributes:
+      label: Smartphone Browser Version
+      placeholder: "[e.g. 22]"
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here.
