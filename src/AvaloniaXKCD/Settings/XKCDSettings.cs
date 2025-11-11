@@ -2,13 +2,27 @@ namespace AvaloniaXKCD.Settings;
 
 public class XKCDSettings
 {
+    static Uri GetMirrorUri(Uri uri)
+    {
+        var segments = uri.AbsolutePath.Trim('/').Split('/');
+        if (segments.Length > 0)
+        {
+            var firstSegment = segments[0];
+            var baseUrl = $"{uri.Scheme}://{uri.Host}{(uri.IsDefaultPort ? "" : $":{uri.Port}")}/{firstSegment}/";
+            return new Uri($"{baseUrl}mirror/");
+        }
+
+        var rootUrl = $"{uri.Scheme}://{uri.Host}{(uri.IsDefaultPort ? "" : $":{uri.Port}")}/";
+        return new Uri($"{rootUrl}mirror/");
+    }
+
     public XKCDSettings()
     {
         // Set default values
         if (OperatingSystem.IsBrowser())
         {
 
-            BaseURL = new Uri(App.SystemActions.GetBaseUri(), "/mirror/");
+            BaseURL = GetMirrorUri(App.SystemActions.GetBaseUri());
         }
         else BaseURL = new Uri("https://xkcd.com/", UriKind.Absolute);
     }
