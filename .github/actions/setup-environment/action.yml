@@ -9,7 +9,7 @@ runs:
       if: runner.os == 'Linux'
       run: |
         chmod +x ${{ github.action_path }}/../../scripts/install_deps.sh
-        ${{ github.action_path }}/../../scripts/install_deps.sh
+        sudo ${{ github.action_path }}/../../scripts/install_deps.sh
       shell: bash
 
     - name: Run Windows setup script
