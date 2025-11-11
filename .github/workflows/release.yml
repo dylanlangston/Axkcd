@@ -61,6 +61,10 @@ jobs:
         uses: ./.github/actions/cached-lfs-checkout
       - name: Setup Environment
         uses: ./.github/actions/setup-environment
+      - name: Debug LFS files
+        run: |
+          file src/AvaloniaXKCD.Tests/Verify/Outputs/*.png
+          head -n 5 src/AvaloniaXKCD.Tests/Verify/Outputs/*.png
       - name: Prerequisites for tests
         run: make setup-playwright
       - name: Run tests
