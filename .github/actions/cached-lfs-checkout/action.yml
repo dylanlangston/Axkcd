@@ -13,7 +13,7 @@ runs:
       uses: actions/cache/restore@v4
       with:
         path: .git/lfs
-        key: ${{ steps.lfs-key.outputs.key }}
+        key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-files.txt') }}
         restore-keys: |
           ${{ runner.os }}-lfs-
     - name: Pull LFS files
@@ -24,4 +24,4 @@ runs:
       uses: actions/cache/save@v4
       with:
         path: .git/lfs
-        key: ${{ steps.lfs-key.outputs.key }}
+        key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-files.txt') }}
