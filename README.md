@@ -26,7 +26,7 @@ AvaloniaXKCD is an XKCD comic viewer for desktop and browser. It provides a nati
 > [!NOTE]
 > This project is an unofficial XKCD viewer and is not affiliated with XKCD.com.
 
-## Installation
+## Getting Started
 
 ### Prerequisites
 
