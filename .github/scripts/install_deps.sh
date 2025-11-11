@@ -23,14 +23,14 @@ apt-get -y install --no-install-recommends \
     dpkg \
     rpm
 
-flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak --user install flathub org.freedesktop.Platform//23.08 org.freedesktop.Sdk//23.08 -y
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub org.freedesktop.Platform//23.08 org.freedesktop.Sdk//23.08 -y
 
 curl -fsSLo appimagetool-x86_64.AppImage "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
 chmod +x appimagetool-x86_64.AppImage
 ./appimagetool-x86_64.AppImage --appimage-extract
 mv squashfs-root /opt/appimagetool
-ln -s /opt/appimagetool/AppRun /usr/local/bin/appimagetool
+ln -s /opt/appimagetool/AppRun /usr/local/bin/appimagetool-x86_64.AppImage
 rm appimagetool-x86_64.AppImage
 
 dotnet workload install android wasm-tools
