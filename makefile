@@ -76,7 +76,7 @@ publish-windows-zip: ## Publish Windows package of type zip.
 	$(call VALIDATE_VAR,VERSION)
 	@$(ECHO) "--- Publishing Windows package: zip ---"
 	@$(call CLEAN_DIR,$(OUTPUT_DIR))
-	@cd src; pupnet --runtime win-x64 --kind zip -y -v $(VERSION)
+	@cd src; dotnet dnx -y KuiperZone.PupNet -- --runtime win-x64 --kind zip -y -v $(VERSION)
 
 LINUX_PUBLISH_KINDS = zip appimage deb rpm flatpak
 publish-linux-zip: ## Publish Linux package of type zip.
@@ -89,7 +89,7 @@ publish-linux-%: # Publish Linux package of type %.
 	$(call VALIDATE_VAR,VERSION)
 	@$(ECHO) "--- Publishing Linux package: $* ---"
 	@$(call CLEAN_DIR,$(OUTPUT_DIR))
-	@cd src; pupnet --runtime linux-x64 --kind $* -y -v $(VERSION)
+	@cd src; dotnet dnx -y KuiperZone.PupNet -- --runtime linux-x64 --kind $* -y -v $(VERSION)
 
 publish-browser: ## Publish the browser version of the application.
 	$(call VALIDATE_VAR,VERSION)
