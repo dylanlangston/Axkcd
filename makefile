@@ -191,4 +191,4 @@ clean: ## Clean local environment (bin/obj folders).
 	@cd src; dotnet clean
 
 update: ## Update nuget packages to the latest pre-release.
-	@cd src; dotnet9 outdated --upgrade --pre-release Always
+	@cd src; dotnet outdated --upgrade

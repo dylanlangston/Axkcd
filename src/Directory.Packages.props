@@ -23,25 +23,25 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageVersion>
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="5.0.0-2.final" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="Microsoft.Extensions.Http" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="Microsoft.Extensions.Logging" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="10.0.0-rc.2.25502.107" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Http" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="10.0.0" />
     <PackageVersion Include="Scriban" Version="6.5.0" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="Spectre.Console" Version="0.53.0" />
-    <PackageVersion Include="System.CommandLine" Version="2.0.0-rc.2.25502.107" />
-    <PackageVersion Include="System.Diagnostics.EventLog" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="System.Text.Json" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="TUnit" Version="1.0.30" />
-    <PackageVersion Include="TUnit.Playwright" Version="1.0.30" />
+    <PackageVersion Include="System.CommandLine" Version="2.0.0" />
+    <PackageVersion Include="System.Diagnostics.EventLog" Version="10.0.0" />
+    <PackageVersion Include="System.Text.Json" Version="10.0.0" />
+    <PackageVersion Include="TUnit" Version="1.0.48" />
+    <PackageVersion Include="TUnit.Playwright" Version="1.0.48" />
     <PackageVersion Include="Verify.Avalonia" Version="1.4.0" />
     <PackageVersion Include="Verify.CommunityToolkit.Mvvm" Version="1.1.0" />
     <PackageVersion Include="Verify.Http" Version="7.4.0" />
     <PackageVersion Include="Verify.ImageMagick" Version="3.8.0" />
     <PackageVersion Include="Verify.Playwright" Version="3.1.0" />
     <PackageVersion Include="Verify.SourceGenerators" Version="2.5.0" />
-    <PackageVersion Include="Verify.TUnit" Version="31.4.3" />
+    <PackageVersion Include="Verify.TUnit" Version="31.5.3" />
     <!-- <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.15" /> -->
   </ItemGroup>
 </Project>
