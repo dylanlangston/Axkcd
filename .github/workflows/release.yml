@@ -62,7 +62,7 @@ jobs:
       - name: Setup Environment
         uses: ./.github/actions/setup-environment
       - name: Run tests
-        run: make test
+        run: make setup-playwright test
 
   build:
     name: Build Binaries
