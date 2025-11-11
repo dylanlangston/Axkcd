@@ -97,13 +97,13 @@ jobs:
         run: make docker-publish-${{ matrix.target }} VERSION=${{ needs.prepare.outputs.version }}
       - name: Upload Build Artifact
         if: ${{ matrix.target }} != 'browser'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: output-${{ matrix.target }}
           path: ./out
       - name: Upload Browser Artifact for GitHub Pages
         if: ${{ matrix.target }} == 'browser'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./out/wwwroot
 
