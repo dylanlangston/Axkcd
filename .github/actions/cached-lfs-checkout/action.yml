@@ -9,13 +9,19 @@ runs:
       shell: bash
       run: git lfs ls-files --long > .lfs-files.txt || true
     - name: Restore LFS cache
-      id: lfs-cache
-      uses: actions/cache@v4
+      id: restore-lfs
+      uses: actions/cache/restore@v4
       with:
         path: .git/lfs
-        key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-files.txt') }}
+        key: ${{ steps.lfs-key.outputs.key }}
         restore-keys: |
           ${{ runner.os }}-lfs-
     - name: Pull LFS files
       shell: bash
       run: git lfs pull
+    - name: Save LFS cache
+      if: always()
+      uses: actions/cache/save@v4
+      with:
+        path: .git/lfs
+        key: ${{ steps.lfs-key.outputs.key }}
