@@ -27,15 +27,15 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
         var startInfo = new ProcessStartInfo
         {
             FileName = "dotnet",
-            Arguments = "run",
+            Arguments = "run --no-launch-profile",
             WorkingDirectory = @$"{Path.GetDirectoryName(TestContext.Current?.Metadata.TestDetails.TestFilePath)}/../{pathRelativeToSolution}",
             RedirectStandardOutput = true,
             RedirectStandardError = true,
             UseShellExecute = false,
             CreateNoWindow = true
         };
-        startInfo.EnvironmentVariables["ASPNETCORE_URLS"] = "http://localhost:5000";
         startInfo.EnvironmentVariables["ASPNETCORE_ENVIRONMENT"] = "Development";
+        startInfo.EnvironmentVariables["ASPNETCORE_URLS"] = "http://localhost:5000";
 
         _avaloniaProcess = new Process { StartInfo = startInfo };
 
@@ -49,15 +49,21 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
             _avaloniaProcess.BeginErrorReadLine();
 
             Url = await _appUrlCompletionSource.Task.WaitAsync(buildTimeout);
+
+            if (_avaloniaProcess.HasExited) throw new Exception("Exited prematurely!");
+
             await PingUntilSuccess(Url);
         }
         catch (Exception ex)
         {
-            TestContext.Current?.ErrorOutputWriter.WriteLine("--- Avalonia App startup failed. Captured output: ---");
-            TestContext.Current?.ErrorOutputWriter.WriteLine("--- Standard Output: ---");
-            if (TestContext.Current != null) _standardOutput.ForEach(TestContext.Current.ErrorOutputWriter.WriteLine);
-            TestContext.Current?.ErrorOutputWriter.WriteLine("--- Standard Error: ---");
-            if (TestContext.Current != null) _standardError.ForEach(TestContext.Current.ErrorOutputWriter.WriteLine);
+            Action<string?> writeAction = TestContext.Current != null ?
+                (string? value) => TestContext.Current.OutputWriter.WriteLine(value) : 
+                (string? value) => Console.WriteLine(value);
+            writeAction("--- Avalonia App startup failed. Captured output: ---");
+            writeAction("--- Standard Output: ---");
+            _standardOutput.ForEach(writeAction);
+            writeAction("--- Standard Error: ---");
+            _standardError.ForEach(writeAction);
 
             if (_avaloniaProcess is not null && !_avaloniaProcess.HasExited)
             {
@@ -80,6 +86,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
         if (!string.IsNullOrEmpty(e.Data))
         {
             _standardError.Add(e.Data);
+            _appUrlCompletionSource.TrySetException(new Exception(e.Data));
         }
     }
 
