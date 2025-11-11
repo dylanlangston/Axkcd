@@ -44,9 +44,11 @@ RUN dotnet tool install --global KuiperZone.PupNet
 FROM base AS build
 ARG BUILD_TARGET=windows
 ARG BUILD_VERSION
+ENV BUILD_TARGET=$BUILD_TARGET
+ENV BUILD_VERSION=$BUILD_VERSION
 COPY . C:/root/
 WORKDIR C:/root/
-RUN make publish-${BUILD_TARGET} VERSION=${BUILD_VERSION}
+RUN powershell -NoProfile -Command "make publish-$env:BUILD_TARGET VERSION=$env:BUILD_VERSION"
 
 FROM scratch AS publish
 COPY --from=build /root/out /
