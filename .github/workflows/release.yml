@@ -59,10 +59,6 @@ jobs:
         uses: actions/checkout@v5
       - name: Checkout LFS (Cached)
         uses: ./.github/actions/cached-lfs-checkout
-      - name: Debug LFS files
-        run: |
-          file src/AvaloniaXKCD.Tests/Verify/Outputs/*.png
-          head -n 5 src/AvaloniaXKCD.Tests/Verify/Outputs/*.png
       - name: Setup Environment
         uses: ./.github/actions/setup-environment
       - name: Prerequisites for tests
