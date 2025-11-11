@@ -38,7 +38,7 @@ updates:
     open-pull-requests-limit: 1
     commit-message:
       prefix: "Dev Container - "
-    directory: ./.devcontainer
+    directory: ./
     schedule:
       interval: "monthly"
     groups:
