@@ -126,7 +126,13 @@ jobs:
         with:
           version: ${{ needs.prepare.outputs.version }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          asset-prefix: 'output-'
+          files: |
+            ./artifacts/output-windows-zip/*.zip
+            ./artifacts/output-linux-zip/*.zip
+            ./artifacts/output-linux-appimage/*.AppImage
+            ./artifacts/output-linux-deb/*.deb
+            ./artifacts/output-linux-rpm/*.rpm
+            ./artifacts/output-linux-flatpak/*.flatpak
 
   deploy-pages:
     name: Deploy to GitHub Pages

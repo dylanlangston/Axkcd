@@ -1,6 +1,9 @@
 import * as core from '@actions/core';
 import { getOctokit, context } from '@actions/github';
 import { Buffer } from 'node:buffer';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
+import { glob } from 'glob';
 
 type GitHub = ReturnType<typeof getOctokit>;
 
@@ -58,23 +61,6 @@ export class GitHubService {
       ...params
     });
     return response.data as Release;
-  }
-
-  async listArtifacts(): Promise<any[]> {
-    const response = await this.octokit.rest.actions.listArtifactsForRepo({
-      ...this.ctx.repo,
-      per_page: 100
-    });
-    return response.data.artifacts;
-  }
-
-  async downloadArtifact(artifactId: number): Promise<ArrayBuffer> {
-    const response = await this.octokit.rest.actions.downloadArtifact({
-      ...this.ctx.repo,
-      artifact_id: artifactId,
-      archive_format: 'zip'
-    });
-    return response.data as ArrayBuffer;
   }
 
   async uploadAsset(
@@ -137,57 +123,80 @@ export class ReleaseManager {
   }
 }
 
-export class ArtifactManager {
+export class FileManager {
   constructor(private githubService: GitHubService) {}
 
-  async downloadAndUpload(
-    releaseId: number,
-    version: string,
-    assetPrefix: string
-  ): Promise<void> {
-    const artifacts = await this.githubService.listArtifacts();
-    const matchingArtifacts = artifacts.filter(artifact =>
-      artifact.name.startsWith(assetPrefix)
-    );
+  private parseFilePatterns(filesInput: string): string[] {
+    return filesInput
+      .split('\n')
+      .map(line => line.trim())
+      .filter(line => line.length > 0 && !line.startsWith('#'));
+  }
 
-    if (matchingArtifacts.length === 0) {
-      core.warning(`No artifacts found with prefix "${assetPrefix}"`);
+  async uploadFiles(
+    releaseId: number,
+    filesInput: string
+  ): Promise<void> {
+    const patterns = this.parseFilePatterns(filesInput);
+    
+    if (patterns.length === 0) {
+      core.warning('No file patterns provided');
       return;
     }
 
-    core.info(`Found ${matchingArtifacts.length} matching artifacts`);
+    core.info(`Processing ${patterns.length} file patterns...`);
+
+    const allFiles: string[] = [];
+    for (const pattern of patterns) {
+      const matches = await glob(pattern, { nodir: true });
+      if (matches.length === 0) {
+        core.warning(`No files found for pattern: ${pattern}`);
+      } else {
+        core.info(`Found ${matches.length} files for pattern: ${pattern}`);
+        allFiles.push(...matches);
+      }
+    }
+
+    if (allFiles.length === 0) {
+      core.warning('No files found matching any patterns');
+      return;
+    }
+
+    core.info(`Total files to upload: ${allFiles.length}`);
 
     // Get existing assets to avoid duplicates
     const existingAssets = await this.githubService.listReleaseAssets(releaseId);
 
-    for (const artifact of matchingArtifacts) {
+    for (const filePath of allFiles) {
       try {
-        core.info(`Processing artifact: ${artifact.name}`);
+        const fileName = path.basename(filePath);
+        core.info(`Processing file: ${fileName}`);
 
         // Check if asset already exists
         const existingAsset = existingAssets.find(
-          asset => asset.name === artifact.name
+          asset => asset.name === fileName
         );
 
         if (existingAsset) {
-          core.info(`Asset ${artifact.name} already exists. Deleting old version...`);
+          core.info(`Asset ${fileName} already exists. Deleting old version...`);
           await this.githubService.deleteReleaseAsset(existingAsset.id);
         }
 
-        // Download artifact
-        const artifactData = await this.githubService.downloadArtifact(artifact.id);
-        const buffer = Buffer.from(artifactData);
+        // Read file
+        const fileBuffer = fs.readFileSync(filePath);
+        const fileSize = (fileBuffer.length / (1024 * 1024)).toFixed(2);
+        core.info(`Uploading ${fileName} (${fileSize} MB)...`);
 
         // Upload to release
         await this.githubService.uploadAsset(
           releaseId,
-          artifact.name,
-          buffer
+          fileName,
+          fileBuffer
         );
 
-        core.info(`Uploaded ${artifact.name} to release`);
+        core.info(`✓ Uploaded ${fileName}`);
       } catch (error) {
-        core.error(`Failed to process artifact ${artifact.name}: ${error}`);
+        core.error(`Failed to process file ${filePath}: ${error}`);
         throw error;
       }
     }
@@ -198,20 +207,24 @@ export async function run(): Promise<void> {
   try {
     const version = core.getInput('version', { required: true });
     const token = core.getInput('github-token', { required: true });
-    const assetPrefix = core.getInput('asset-prefix');
+    const files = core.getInput('files', { required: false });
+
+    if (!files) {
+      core.setFailed('No files input provided');
+      return;
+    }
 
     core.info(`Creating/updating release for version ${version}`);
-    core.info(`Asset prefix: ${assetPrefix}`);
 
     const octokit = getOctokit(token);
     const githubService = new GitHubService(octokit, context);
     const releaseManager = new ReleaseManager(githubService);
-    const artifactManager = new ArtifactManager(githubService);
+    const fileManager = new FileManager(githubService);
 
     const release = await releaseManager.createOrUpdate(version, context.sha);
     core.info(`Release ID: ${release.id}`);
 
-    await artifactManager.downloadAndUpload(release.id, version, assetPrefix);
+    await fileManager.uploadFiles(release.id, files);
 
     core.info('Release process completed successfully.');
   } catch (error) {

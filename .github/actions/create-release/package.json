@@ -9,9 +9,11 @@
   "dependencies": {
     "@actions/core": "^1.11.1",
     "@actions/github": "^6.0.1",
-    "@actions/io": "^2.0.0"
+    "@actions/io": "^2.0.0",
+    "glob": "^11.0.3"
   },
   "devDependencies": {
+    "@types/glob": "^9.0.0",
     "@types/node": "^24.10.0",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3"
