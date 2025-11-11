@@ -5,6 +5,14 @@ runs:
   using: "composite"
 
   steps:
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v5
+      with:
+        dotnet-version: | 
+          8.0.x
+          9.0.x
+          10.0.x
+
     - name: Run Linux setup script
       if: runner.os == 'Linux'
       run: |
