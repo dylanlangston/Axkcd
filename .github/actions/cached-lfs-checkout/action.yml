@@ -6,31 +6,16 @@ runs:
 
   steps:
     - name: Generate LFS hash key
-      id: lfs-key
       shell: bash
-      run: |
-        git lfs ls-files -l > .lfs-hashlist || true
-        echo "key=${{ runner.os }}-lfs-$(sha256sum .lfs-hashlist | cut -d ' ' -f1)" >> $GITHUB_OUTPUT
-
+      run: git lfs ls-files --long > .lfs-files.txt || true
     - name: Restore LFS cache
-      id: restore-lfs
-      uses: actions/cache/restore@v4
+      id: lfs-cache
+      uses: actions/cache@v4
       with:
         path: .git/lfs
-        key: ${{ steps.lfs-key.outputs.key }}
+        key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-files.txt') }}
         restore-keys: |
           ${{ runner.os }}-lfs-
-
-    - name: Checkout code
-      uses: actions/checkout@v5
-      with:
-        lfs: true
-        clean: false
-        fetch-depth: 0
-
-    - name: Save LFS cache
-      if: always()
-      uses: actions/cache/save@v4
-      with:
-        path: .git/lfs
-        key: ${{ steps.lfs-key.outputs.key }}
+    - name: Pull LFS files
+      shell: bash
+      run: git lfs pull
