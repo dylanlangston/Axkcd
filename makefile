@@ -95,7 +95,7 @@ publish-browser: ## Publish the browser version of the application.
 	$(call VALIDATE_VAR,VERSION)
 	@$(ECHO) "--- Publishing for Browser (WASM) ---"
 	@$(call CLEAN_DIR,$(OUTPUT_DIR))
-	@cd src/AvaloniaXKCD.Browser; dotnet publish -p:Version=$(VERSION) -p:UseNativeAotLllvm=true -p:NativeDebugSymbols=false -p:StackTraceSupport=false -r browser-wasm -o "$(abspath $(OUTPUT_DIR))"
+	cd src/AvaloniaXKCD.Browser; TMPDIR="/tmp" dotnet publish -p:Version=$(VERSION) -p:UseNativeAotLllvm=true -p:NativeDebugSymbols=false -p:StackTraceSupport=false -r browser-wasm -o "$(abspath $(OUTPUT_DIR))"
 
 check-docker: ## Ensure Docker is running before using Docker-based targets
 ifeq ($(OS),Windows_NT)
