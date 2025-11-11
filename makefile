@@ -1,7 +1,7 @@
 # --- Configuration ---
-VERSION = 
-OUTPUT_DIR = ./out
-HOST_URL = https://example.com/
+VERSION := 
+OUTPUT_DIR := ./out
+HOST_URL := https://example.com/
 
 # --- Cross-Platform Setup ---
 
@@ -121,7 +121,7 @@ DOCKER_PUBLISH_OTHER_TARGETS   = linux linux-zip linux-appimage linux-deb linux-
 DOCKER_PUBLISH_ALL_TARGETS   = $(DOCKER_PUBLISH_WINDOWS_TARGETS) $(DOCKER_PUBLISH_OTHER_TARGETS)
 DOCKER_OTHER_PUBLISH_CMD = @docker build --rm --network=host --progress=plain -t avaloniaxkcd-builder . --target publish --build-arg TARGET=$* --build-arg VERSION=$(VERSION) --output type=local,dest=$(OUTPUT_DIR)
 define DOCKER_WINDOWS_PUBLISH_CMDS
-	@docker build --rm -t avaloniaxkcd-builder . --target publish --build-arg TARGET=$* --build-arg VERSION=$(VERSION) --file windows.Dockerfile
+	@docker build --rm -t avaloniaxkcd-builder . --target publish --build-arg BUILD_TARGET=$* --build-arg BUILD_VERSION=$(VERSION) --file windows.Dockerfile
 	@docker create --name avaloniaxkcd-tmp-container avaloniaxkcd-builder
 	@docker cp avaloniaxkcd-tmp-container:C:/app/publish/. $(OUTPUT_DIR)
 	@docker rm avaloniaxkcd-tmp-container

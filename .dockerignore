@@ -1,5 +1,6 @@
 # Dockerfile and Docker-related files
 Dockerfile
+windows.Dockerfile
 .dockerignore
 
 # Git folder
