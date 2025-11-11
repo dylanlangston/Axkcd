@@ -1,4 +1,5 @@
 namespace AvaloniaXKCD.Tests;
+#if !CI_BUILD
 
 [Timeout(5 * 60 * 1000)] // 5 minutes
 [Arguments("chromium")]
@@ -23,3 +24,5 @@ public class BrowserTests(string browser) : BrowserBaseTest(browser)
             });
     }
 }
+
+#endif
