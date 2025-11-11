@@ -1,0 +1,30 @@
+name: 'Create or Update Release'
+description: 'Create or Update Release'
+
+inputs:
+  version:
+    description: 'The version for the release tag (e.g., 1.2.3.4)'
+    required: true
+  github-token:
+    description: 'The GITHUB_TOKEN secret'
+    required: true
+  asset-prefix:
+    description: 'The prefix of artifacts to upload (e.g., "output-")'
+    required: false
+    default: 'output-'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install Dependencies
+      run: npm install
+      shell: bash
+      working-directory: ${{ github.action_path }}
+
+    - name: Run Release Script
+      run: npx tsx ${{ github.action_path }}/index.ts
+      shell: bash
+      env:
+        INPUT_VERSION: ${{ inputs.version }}
+        INPUT_GITHUB-TOKEN: ${{ inputs.github-token }}
+        INPUT_ASSET-PREFIX: ${{ inputs.asset-prefix }}
