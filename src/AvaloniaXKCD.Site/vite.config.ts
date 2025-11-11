@@ -81,7 +81,7 @@ export default defineConfig(({ mode }) => {
                 workbox: {
                     runtimeCaching: [
                         {
-                            urlPattern: ({ url }) => url.pathname.startsWith('/_framework'),
+                            urlPattern: ({ url }) => url.pathname.includes('/_framework/'),
                             handler: 'NetworkFirst',
                             options: {
                                 cacheName: 'dotnet-cache',
