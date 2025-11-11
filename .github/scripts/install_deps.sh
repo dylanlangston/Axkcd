@@ -21,7 +21,10 @@ apt-get -y install --no-install-recommends \
     flatpak \
     flatpak-builder \
     dpkg \
-    rpm
+    rpm \
+    dotnet-sdk-8.0 \
+    dotnet-sdk-9.0 \
+    dotnet-sdk-10.0
 
 flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak --user install flathub org.freedesktop.Platform//23.08 org.freedesktop.Sdk//23.08 -y
@@ -32,17 +35,6 @@ chmod +x appimagetool-x86_64.AppImage
 mv squashfs-root /opt/appimagetool
 ln -s /opt/appimagetool/AppRun /usr/local/bin/appimagetool
 rm appimagetool-x86_64.AppImage
-
-curl -fsSLo packages-microsoft-prod.deb https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb
-dpkg -i packages-microsoft-prod.deb
-rm packages-microsoft-prod.deb
-curl -fsSL https://packages.microsoft.com/config/debian/12/insiders-slow.list | tee /etc/apt/sources.list.d/microsoft-insiders-slow.list
-
-apt-get update
-apt-get -y install --no-install-recommends \
-    dotnet-sdk-8.0 \
-    dotnet-sdk-9.0 \
-    dotnet-sdk-10.0
 
 dotnet workload install android wasm-tools
 
