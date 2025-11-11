@@ -18,6 +18,8 @@ runs:
       with:
         path: .git/lfs
         key: ${{ steps.lfs-key.outputs.key }}
+        restore-keys: |
+          ${{ runner.os }}-lfs-
 
     - name: Checkout code
       uses: actions/checkout@v5
