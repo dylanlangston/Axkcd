@@ -14,7 +14,7 @@
     <Message Text="Building frontend via Vite..." Importance="high" />
     <Exec WorkingDirectory="$(FrontendProjectPath)"
           Command="bun install --prefer-offline --no-audit" IgnoreExitCode="true" />
-    <Exec WorkingDirectory="$(FrontendProjectPath)" Command="bun run version $(Version)" IgnoreExitCode="true" />
+    <Exec WorkingDirectory="$(FrontendProjectPath)" Condition="'$(CI)' != ''" Command="bun run version $(Version)" IgnoreExitCode="true" />
     <Exec WorkingDirectory="$(FrontendProjectPath)" Command="bun run build" IgnoreExitCode="true" />
   </Target>
 </Project>
