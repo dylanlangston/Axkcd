@@ -57,8 +57,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v5
-        with:
-          lfs: true
+      - name: Checkout LFS (Cached)
+        uses: ./.github/actions/cached-lfs-checkout
       - name: Setup Environment
         uses: ./.github/actions/setup-environment
       - name: Run tests
@@ -90,8 +90,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v5
-        with:
-          lfs: true
+      - name: Checkout LFS (Cached)
+        uses: ./.github/actions/cached-lfs-checkout
       - name: Setup Environment
         uses: ./.github/actions/setup-environment
       - name: Run Build Process

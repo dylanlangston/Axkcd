@@ -1,0 +1,34 @@
+name: 'Cached LFS Checkout'
+description: 'Checkout code from GitHub using LFS in tandem with caching to reduce bandwidth usage.'
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Generate LFS hash key
+      id: lfs-key
+      shell: bash
+      run: |
+        git lfs ls-files -l > .lfs-hashlist || true
+        echo "key=${{ runner.os }}-lfs-$(sha256sum .lfs-hashlist | cut -d ' ' -f1)" >> $GITHUB_OUTPUT
+
+    - name: Restore LFS cache
+      id: restore-lfs
+      uses: actions/cache/restore@v4
+      with:
+        path: .git/lfs
+        key: ${{ steps.lfs-key.outputs.key }}
+
+    - name: Checkout code
+      uses: actions/checkout@v5
+      with:
+        lfs: true
+        clean: false
+        fetch-depth: 0
+
+    - name: Save LFS cache
+      if: always()
+      uses: actions/cache/save@v4
+      with:
+        path: .git/lfs
+        key: ${{ steps.lfs-key.outputs.key }}
