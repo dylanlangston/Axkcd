@@ -3,7 +3,7 @@ description: 'Installs all required dependencies for Linux and Windows runners.'
 
 inputs:
   install-build-tools:
-    description: 'Specifies whether the build tools should be installed.'
+    description: 'Whether to install Linux build tools like flatpak and AppImageTool.'
     required: true
 
 runs:
@@ -28,7 +28,7 @@ runs:
       if: runner.os == 'Linux'
       run: |
         chmod +x ${{ github.action_path }}/../../scripts/install_deps.sh
-        sudo ${{ github.action_path }}/../../scripts/install_deps.sh
+        sudo INSTALL_BUILD_TOOLS="${{ inputs.install-build-tools }}" ${{ github.action_path }}/../../scripts/install_deps.sh
       shell: bash
 
     - name: Run Windows setup script
