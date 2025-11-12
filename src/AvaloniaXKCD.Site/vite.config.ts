@@ -6,7 +6,7 @@ import { selectiveCopy } from './plugins/SelectiveCopy'
 import { injectLatestComic } from './plugins/InjectLatestComic'
 import { copyIndexTo404AndMinify } from './plugins/CopyIndexTo404AndMinify'
 import { viteSingleFile } from "vite-plugin-singlefile"
-import minifyHTML from 'rollup-plugin-minify-html-literals';
+import { minifyTemplateLiterals } from 'rollup-plugin-minify-template-literals';
 import { VitePWA } from 'vite-plugin-pwa'
 import pkg from './package.json'
 import { mapExternalImports } from './plugins/MapExternalImports'
@@ -32,7 +32,7 @@ export default defineConfig(({ mode }) => {
                 '@framework/dotnet.js': './_framework/dotnet.js'
             }}),
             injectVersionHeader(),
-            minifyHTML(),
+            minifyTemplateLiterals(),
             copyIndexTo404AndMinify(),
             autoImportComponents(),
             selectiveCopy({

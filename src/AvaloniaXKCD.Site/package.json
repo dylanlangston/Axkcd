@@ -12,12 +12,13 @@
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/glob": "^9.0.0",
+    "@types/html-minifier-terser": "^7.0.2",
     "@types/node": "^24.10.0",
     "@vite-pwa/assets-generator": "^1.0.2",
     "fs-extra": "^11.3.2",
     "glob": "^11.0.3",
     "html-minifier-terser": "^7.2.0",
-    "rollup-plugin-minify-html-literals": "^1.2.6",
+    "rollup-plugin-minify-template-literals": "^1.1.7",
     "typescript": "~5.9.3",
     "vite": "npm:rolldown-vite@7.1.14",
     "vite-plugin-pwa": "^1.1.0",
@@ -27,7 +28,6 @@
     "vite": "npm:rolldown-vite@7.1.14"
   },
   "dependencies": {
-    "@types/html-minifier-terser": "^7.0.2",
     "lit": "^3.3.1"
   }
 }
