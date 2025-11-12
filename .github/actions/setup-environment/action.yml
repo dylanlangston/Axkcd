@@ -1,6 +1,11 @@
 name: 'Setup Build Environment'
 description: 'Installs all required dependencies for Linux and Windows runners.'
 
+inputs:
+  install-build-tools:
+    description: 'Specifies whether the build tools should be installed.'
+    required: true
+
 runs:
   using: "composite"
 
@@ -12,6 +17,12 @@ runs:
           8.0.x
           9.0.x
           10.0.x
+
+    - name: Setup Bun
+      if: runner.os == 'Linux'
+      uses: oven-sh/setup-bun@v2
+      with:
+        bun-version: latest
 
     - name: Run Linux setup script
       if: runner.os == 'Linux'
