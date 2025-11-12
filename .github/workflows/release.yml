@@ -117,7 +117,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ needs.prepare.outputs.version }}
+      url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/v${{ needs.prepare.outputs.version }}
     steps:
       - name: Check out code
         uses: actions/checkout@v5
