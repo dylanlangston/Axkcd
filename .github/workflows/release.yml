@@ -62,7 +62,7 @@ jobs:
       - name: Setup Environment
         uses: ./.github/actions/setup-environment
         with:
-          install-build-tools: false
+          install-build-tools: "false"
       - name: Prerequisites for tests
         run: make setup-playwright
       - name: Run tests
@@ -99,7 +99,7 @@ jobs:
       - name: Setup Environment
         uses: ./.github/actions/setup-environment
         with:
-          install-build-tools: true
+          install-build-tools: "true"
       - name: Run Build Process
         shell: pwsh
         run: make publish-${{ matrix.target }} VERSION=${{ needs.prepare.outputs.version }}
