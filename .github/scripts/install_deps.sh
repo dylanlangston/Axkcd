@@ -23,13 +23,15 @@ PACKAGES="
     rpm
 "
 
-if [ "$INSTALL_BUILD_TOOLS" = "true" ]; then
+echo "DEBUG: Received INSTALL_BUILD_TOOLS as '${INSTALL_BUILD_TOOLS}'"
+
+if [ "${INSTALL_BUILD_TOOLS,,}" = "true" ]; then
     PACKAGES="$PACKAGES flatpak flatpak-builder"
 fi
 
 apt-get -y install --no-install-recommends $PACKAGES
 
-if [ "$INSTALL_BUILD_TOOLS" = "true" ]; then
+if [ "${INSTALL_BUILD_TOOLS,,}" = "true" ]; then
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak install flathub org.freedesktop.Platform//23.08 org.freedesktop.Sdk//23.08 -y
 
