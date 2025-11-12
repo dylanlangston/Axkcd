@@ -20,7 +20,7 @@ runs:
       shell: bash
       run: git lfs pull
     - name: Save LFS cache
-      if: always()
+      if: steps.restore-lfs.outputs.cache-hit != 'true'
       uses: actions/cache/save@v4
       with:
         path: .git/lfs
