@@ -14,7 +14,25 @@
 AvaloniaXKCD is an XKCD comic viewer for desktop and browser. It provides a native experience on Windows and Linux, with a browser-based version using WebAssembly.
 
 <div align="center">
-  <img src="docs/screenshot.png" alt="AvaloniaXKCD Screenshot"/>
+  <table>
+    <tr>
+      <td>
+        <a href="docs/screenshot_linux.png">
+          <img width="300" src="docs/screenshot_linux.png" alt="AvaloniaXKCD Screenshot on Linux"/>
+        </a>
+      </td>
+      <td>
+        <a href="docs/screenshot_windows.png">
+          <img width="300" src="docs/screenshot_windows.png" alt="AvaloniaXKCD Screenshot on Windows"/>
+        </a>
+      </td>
+      <td>
+        <a href="docs/screenshot_browser.png">
+          <img width="300" src="docs/screenshot_browser.png" alt="AvaloniaXKCD Screenshot in Browser"/>
+        </a>
+      </td>
+    </tr>
+  </table>
 </div>
 
 ## Features
