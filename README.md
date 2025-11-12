@@ -2,7 +2,7 @@
   <img src="src/AvaloniaXKCD.Site/public/919f27.svg" alt="AvaloniaXKCD Logo" width="128" height="128"/>
 </div>
 
-# AvaloniaXKCD
+# A(valonia)XKCD
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/dylanlangston/axkcd/release.yml?style=flat-square&logo=github)](https://github.com/dylanlangston/axkcd/actions)
 ![.NET](https://img.shields.io/badge/.NET-10-512BD4?style=flat-square&logo=dotnet)
