@@ -208,7 +208,7 @@ slot {
             const comicNumber = match ? match[1] : null;
             await dotnetRuntime.runMain(config.mainAssemblyName, comicNumber ? [comicNumber] : []);
 
-            requestIdleCallback(() => {
+            requestAnimationFrame(() => {
                 this.isLoading = false;
             });
 
