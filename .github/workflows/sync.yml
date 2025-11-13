@@ -20,6 +20,8 @@ jobs:
     name: "Sync"
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    outputs:
+      committed: ${{ steps.commit.outcome == 'success' }}
     steps:
       - name: Checkout
         id: checkout
@@ -44,3 +46,47 @@ jobs:
           git add .
           git commit -m "Update: $(date -u +"%Y-%m-%d %H:%M:%S UTC")" || echo "No changes to commit"
           git push origin master
+
+  deploy-browser:
+    name: Deploy Browser
+    needs: Sync
+    if: needs.Sync.outputs.committed == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Set Version
+        id: versioning
+        run: |
+          VERSION_MAJOR=1
+          VERSION_MINOR=0
+
+          current_seconds=$(date -u +%s)
+          start_seconds=$(date -u -d "2025-11-09" +%s)
+          VERSION_BUILD=$(( (current_seconds - start_seconds) / 86400 ))
+
+          seconds_today=$(( current_seconds % 86400 ))
+          VERSION_REVISION=$(( seconds_today / 2 ))
+
+          VERSION="$VERSION_MAJOR.$VERSION_MINOR.$VERSION_BUILD.$VERSION_REVISION"
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "Generated version: $VERSION"
+      - name: Check out code
+        uses: actions/checkout@v5
+      - name: Checkout LFS (Cached)
+        uses: ./.github/actions/cached-lfs-checkout
+      - name: Setup Environment
+        uses: ./.github/actions/setup-environment
+        with:
+          install-build-tools: "true"
+      - name: Build Browser
+        shell: pwsh
+        run: make publish-browser VERSION=${{ steps.versioning.outputs.VERSION }}
+      - name: Upload Browser Artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./out/wwwroot
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
