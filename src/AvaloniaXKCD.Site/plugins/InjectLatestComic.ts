@@ -13,8 +13,8 @@ export function injectLatestComic(): Plugin {
 
                 // Get the image path without the extension to construct 2x path
                 const imgPathWithoutExt = comicInfo.img.replace(/\.[^/.]+$/, '');
-                const comicImgPath = `/mirror/${comicInfo.img}`;
-                const comic2xImgPath = `/mirror/${imgPathWithoutExt}_2x.png`;
+                const comicImgPath = `https://dylanlangston.github.io/Axkcd/mirror/${comicInfo.img}`;
+                const comic2xImgPath = `https://dylanlangston.github.io/Axkcd/mirror/${imgPathWithoutExt}_2x.png`;
                 const wittyMessage = `It appears you've disabled JavaScript, likely because you're wary of running arbitrary code from a stranger's server. This suggests a healthy level of paranoia, which, coincidentally, is a prerequisite for appreciating the subtle humor in debugging logs and the existential dread of a poorly timed git push. You'll fit right in here.
 
 However, this site, in its ongoing battle against the forces of static HTML, relies on the very scripting you've forsaken. To unlock the full experience&#8212;and to prevent the stick figures from unionizing over unfair rendering conditions&#8212;you'll need to re-enable it.
