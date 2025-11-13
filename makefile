@@ -1,7 +1,7 @@
 # --- Configuration ---
 VERSION := 
 OUTPUT_DIR := ./out
-HOST_URL := https://example.com/
+HOST_URL := https://dylanlangston.github.io/Axkcd/
 
 # --- Cross-Platform Setup ---
 
