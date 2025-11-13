@@ -1,7 +1,5 @@
 namespace AvaloniaXKCD.Tests;
-#if CI_BUILD
-[Skip("Skipping all browser tests in CI Pipeline due to an error")]
-#endif
+
 [Timeout(5 * 60 * 1000)] // 5 minutes
 [Arguments("chromium")]
 [Arguments("firefox")]
