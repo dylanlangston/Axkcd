@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     outputs:
-      committed: ${{ steps.commit.outcome == 'success' }}
+      committed: ${{ steps.commit.outputs.committed }}
     steps:
       - name: Checkout
         id: checkout
@@ -36,16 +36,23 @@ jobs:
       - name: Sync
         id: sync
         run: make sync
-      - name: Commit Changes to Repository
-        if: github.ref == 'refs/heads/master' && github.repository == 'dylanlangston/Axkcd'
+      - name: Commit and Push Changes
         id: commit
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout master
           git add .
-          git commit -m "Update: $(date -u +"%Y-%m-%d %H:%M:%S UTC")" || echo "No changes to commit"
-          git push origin master
+          
+          # Check for changes before committing
+          if ! git diff-index --quiet HEAD --; then
+            echo "Changes found. Committing and pushing..."
+            git commit -m "Update: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+            git push origin master
+            echo "committed=true" >> $GITHUB_OUTPUT
+          else
+            echo "No changes to commit."
+            echo "committed=false" >> $GITHUB_OUTPUT
+          fi
 
   deploy-browser:
     name: Deploy Browser
