@@ -1,0 +1,35 @@
+name: Test
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'mirror/**'
+      - 'src/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Run All Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v5
+
+      - name: Checkout LFS (Cached)
+        uses: ./.github/actions/cached-lfs-checkout
+
+      - name: Setup Environment
+        uses: ./.github/actions/setup-environment
+        with:
+          install-build-tools: "false"
+
+      - name: Prerequisites for tests
+        run: make setup-playwright
+
+      - name: Run tests
+        run: make test
