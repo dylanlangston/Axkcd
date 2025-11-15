@@ -20,7 +20,9 @@ public partial class XKCDViewModel : ViewModelBase
     {
         if (value != null)
         {
-            App.SystemActions.SetTitle($"AXKCD: {value.Title}");
+            var localization = ExportContainer.Get<ILocalizationService>();
+            var titleFormat = localization?.GetString("Window_TitleFormat") ?? "AXKCD: {0}";
+            App.SystemActions.SetTitle(string.Format(titleFormat, value.Title));
             App.SystemActions.InvokeOnUriChange($"{value.Num}");
             ImageSource = $"{App.Settings.Get(XKCDSettingsContext.Default.XKCDSettings)!.BaseURL}{value.Img2x}?comic={value.Num}";
         }

@@ -1,40 +1,42 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
+import { msg, updateWhenLocaleChanges } from '@lit/localize';
 
-const loadingWords: string[] = [
-  "Reticulating splines",
-  "Generating witty dialog",
-  "Swapping time and space",
-  "Spinning violently around the y-axis",
-  "Tokenizing real life",
-  "Bending the spoon",
-  "Filtering moral fiber",
-  "Don't think of a blue elephant",
-  "Buffering Please wait.",
-  "Calculating the meaning of life",
-  "Compressing humor",
-  "Debugging the universe",
-  "Synthesizing sarcasm",
-  "Calibrating flux capacitors",
-  "Loading the loading message",
-  "Cogitating",
-  "Deliberating",
-  "Pondering",
-  "Contemplating",
-  "Assembling bits",
-  "Brewing coffee",
-  "Fetching pixels",
-  "Warming up the hamsters",
-  "Charging the lasers",
-  "Aligning the planets",
-  "Counting to infinity",
-  "Twiddling thumbs",
-  "Herding cats",
-  "Shoveling coal into the server",
-  "Teaching the AI to love"
+const getLoadingWords = (): string[] => [
+  msg("Reticulating splines"),
+  msg("Generating witty dialog"),
+  msg("Swapping time and space"),
+  msg("Spinning violently around the y-axis"),
+  msg("Tokenizing real life"),
+  msg("Bending the spoon"),
+  msg("Filtering moral fiber"),
+  msg("Don't think of a blue elephant"),
+  msg("Buffering Please wait."),
+  msg("Calculating the meaning of life"),
+  msg("Compressing humor"),
+  msg("Debugging the universe"),
+  msg("Synthesizing sarcasm"),
+  msg("Calibrating flux capacitors"),
+  msg("Loading the loading message"),
+  msg("Cogitating"),
+  msg("Deliberating"),
+  msg("Pondering"),
+  msg("Contemplating"),
+  msg("Assembling bits"),
+  msg("Brewing coffee"),
+  msg("Fetching pixels"),
+  msg("Warming up the hamsters"),
+  msg("Charging the lasers"),
+  msg("Aligning the planets"),
+  msg("Counting to infinity"),
+  msg("Twiddling thumbs"),
+  msg("Herding cats"),
+  msg("Shoveling coal into the server"),
+  msg("Teaching the AI to love")
 ];
 
 export const getFunnyLoadingMessage = (): string => {
+  const loadingWords = getLoadingWords();
   const randomIndex = Math.floor(Math.random() * loadingWords.length);
   return loadingWords[randomIndex];
 };
@@ -126,6 +128,11 @@ export class LoadingIndicator extends LitElement {
         }
     }
   `];
+
+  constructor() {
+    super();
+    updateWhenLocaleChanges(this);
+  }
 
   @property({ type: Number })
   progress = 0;

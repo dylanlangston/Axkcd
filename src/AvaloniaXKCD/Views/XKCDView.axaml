@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dialogHost="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
     xmlns:ext="using:AvaloniaXKCD.MarkupExtensions"
+    xmlns:l10n="clr-namespace:AvaloniaXKCD.MarkupExtensions"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:svc="using:AvaloniaXKCD.Services"
     xmlns:views="clr-namespace:AvaloniaXKCD.Views"
@@ -54,7 +55,7 @@
             <Panel VerticalAlignment="Stretch" Background="White">
                 <Panel.ContextMenu>
                     <ContextMenu Name="WindowContextMenu">
-                        <MenuItem Command="{Binding CopyURICommand}" Header="Copy URL" />
+                        <MenuItem Command="{Binding CopyURICommand}" Header="{l10n:Localize Key=ContextMenu_CopyURL}" />
                     </ContextMenu>
                 </Panel.ContextMenu>
                 <StackPanel>
