@@ -4,6 +4,25 @@ namespace AvaloniaXKCD.Tests.Orchestration;
 
 public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposable
 {
+    private static readonly List<AvaloniaBrowserProject> ActiveInstances = new();
+    static AvaloniaBrowserProject()
+    {
+        // Ensure we try and cleanup any remaining processes when the test runner process exits
+        AppDomain.CurrentDomain.ProcessExit += (_, _) =>
+        {
+            lock (ActiveInstances)
+            {
+                foreach (var instance in ActiveInstances.ToArray())
+                {
+                    try
+                    {
+                        instance.ForceCleanup();
+                    }
+                    catch { }
+                }
+            }
+        };
+    }
     const string pathRelativeToSolution = "AvaloniaXKCD.Browser";
     static TimeSpan buildTimeout = TimeSpan.FromMinutes(3);
 
@@ -78,6 +97,10 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
             HttpClient.Dispose();
         }
 
+        lock (ActiveInstances)
+        {
+            ActiveInstances.Add(this);
+        }
     }
 
     [GeneratedRegex(@"(http|https)://localhost:\d+", RegexOptions.Compiled)]
@@ -136,6 +159,12 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
 
     public async ValueTask DisposeAsync()
     {
+        // Remove from active list so the static ProcessExit handler doesn't attempt to kill it again
+        lock (ActiveInstances)
+        {
+            ActiveInstances.Remove(this);
+        }
+
         try
         {
             if (_avaloniaProcess is not null && !_avaloniaProcess.HasExited)
@@ -151,6 +180,29 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
         finally
         {
             _avaloniaProcess?.Dispose();
+        }
+    }
+
+    private void ForceCleanup()
+    {
+        try
+        {
+            if (_avaloniaProcess is not null && !_avaloniaProcess.HasExited)
+            {
+                try
+                {
+                    _avaloniaProcess.Kill(entireProcessTree: true);
+                }
+                catch { }
+            }
+        }
+        finally
+        {
+            try
+            {
+                _avaloniaProcess?.Dispose();
+            }
+            catch { }
         }
     }
 }
