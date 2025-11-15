@@ -19,10 +19,6 @@ public partial class ExportContainer
     
     public static void Add<T, C>() where T : IExport where C : T, new() => Add<T>(() => new C());
 
-    /// <summary>
-    /// Adds an implementation to the multi-registration list for an interface.
-    /// This allows multiple implementations of the same interface to be registered.
-    /// </summary>
     public static void AddMulti<T>(string name, Func<T> factory) where T : IExport
     {
         if (!_multiFactories.ContainsKey(name))
@@ -46,10 +42,6 @@ public partial class ExportContainer
     
     public static T? Get<T>() where T : IExport => Get<T>(typeof(T).FullName);
 
-    /// <summary>
-    /// Gets all registered implementations for the specified interface type.
-    /// Returns an empty array if no implementations are registered.
-    /// </summary>
     public static T[] GetAll<T>(string name) where T : IExport
     {
         if (!_multiFactories.ContainsKey(name))
