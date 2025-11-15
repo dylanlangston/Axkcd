@@ -28,7 +28,14 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.versioning.outputs.VERSION }}
+      sync: ${{ steps.detect_sync.outputs.sync }}
+
     steps:
+      - name: Detect Sync Commit
+        id: detect_sync
+        run: |
+          echo "sync=true" >> $GITHUB_OUTPUT
+
       - name: Set Version
         id: versioning
         run: |
@@ -72,6 +79,7 @@ jobs:
     name: Build Binaries
     needs: [prepare, test]
     runs-on: ${{ matrix.os }}
+    if: needs.prepare.outputs.sync == 'false'
     strategy:
       fail-fast: false
       matrix:
@@ -132,6 +140,7 @@ jobs:
     name: Create GitHub Release
     needs: [prepare, build]
     runs-on: ubuntu-latest
+    if: needs.prepare.outputs.sync == 'false'
     environment:
       name: production
       url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/v${{ needs.prepare.outputs.version }}
@@ -159,6 +168,7 @@ jobs:
   deploy-pages:
     name: Deploy to GitHub Pages
     needs: [release, build-browser]
+    if: always() && needs.build-browser.result
     runs-on: ubuntu-latest
     environment:
       name: github-pages
