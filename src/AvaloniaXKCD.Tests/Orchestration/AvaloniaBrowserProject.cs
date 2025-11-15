@@ -29,7 +29,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
         var startInfo = new ProcessStartInfo
         {
             FileName = "dotnet",
-            Arguments = "run --no-launch-profile",
+            Arguments = "run --no-launch-profile --no-restore",
             WorkingDirectory = @$"{Path.GetDirectoryName(TestContext.Current?.Metadata.TestDetails.TestFilePath)}/../{pathRelativeToSolution}",
             RedirectStandardOutput = true,
             RedirectStandardError = true,

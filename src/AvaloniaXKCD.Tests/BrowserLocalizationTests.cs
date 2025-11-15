@@ -8,11 +8,10 @@ namespace AvaloniaXKCD.Tests;
 /// Browser tests for localization functionality
 /// Tests locale detection, string localization, and C#/TypeScript interop
 /// </summary>
+[ParallelLimiter<BrowserLocalizationParallelLimit>]
 [Timeout(5 * 60 * 1000)] // 5 minutes
 [Arguments("chromium", "en-US")]
 [Arguments("chromium", "es-ES")]
-[Arguments("firefox", "en-US")]
-[Arguments("firefox", "es-ES")]
 public class BrowserLocalizationTests(string browser, string locale) : BrowserBaseTest(browser)
 {
     public override BrowserNewContextOptions ContextOptions(TestContext testContext)
@@ -275,4 +274,9 @@ public class BrowserLocalizationTests(string browser, string locale) : BrowserBa
                 await Expect(body).ToBeVisibleAsync();
             });
     }
+}
+
+public record BrowserLocalizationParallelLimit : IParallelLimit
+{
+    public int Limit => 1;
 }

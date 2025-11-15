@@ -1,0 +1,4 @@
+﻿{
+  Locale: en-US,
+  LoadingMessage: Deliberating
+}
