@@ -1,0 +1,4 @@
+﻿{
+  CurrentCulture: es,
+  CurrentUICulture: es
+}

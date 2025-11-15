@@ -1,0 +1,4 @@
+﻿{
+  Title: Axkcd,
+  TitleFormat: AXKCD: {0}
+}

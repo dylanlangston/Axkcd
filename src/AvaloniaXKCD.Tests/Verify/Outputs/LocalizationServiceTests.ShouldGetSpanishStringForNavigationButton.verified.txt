@@ -1,0 +1,6 @@
+﻿{
+  RandomButton: Aleatorio,
+  ExplainButton: Explicar,
+  PreviousButton: < Anterior,
+  NextButton: Siguiente >
+}

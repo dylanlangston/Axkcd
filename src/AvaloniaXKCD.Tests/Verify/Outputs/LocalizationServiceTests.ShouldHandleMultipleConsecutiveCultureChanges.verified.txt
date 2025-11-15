@@ -1,0 +1,4 @@
+﻿{
+  CultureChangeCount: 3,
+  FinalTranslation: Aleatorio
+}

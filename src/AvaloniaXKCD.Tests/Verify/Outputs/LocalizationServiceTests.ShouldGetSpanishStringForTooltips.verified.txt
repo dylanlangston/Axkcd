@@ -1,0 +1,4 @@
+﻿{
+  ErrorTitle: Título,
+  ErrorMessage: Error
+}
