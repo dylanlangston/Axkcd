@@ -23,11 +23,11 @@ internal partial class ViewLocator : IDataTemplate
 
         try
         {
-            if (!_viewModelViewMap.Value.TryGetValue(viewModelType, out var viewType))
-                throw new InvalidOperationException($"No view was registered for ViewModel '{viewModelType.FullName}'.");
+            InvalidOperationException.ThrowIf(!_viewModelViewMap.Value.TryGetValue(viewModelType, out var viewType),
+                $"No view was registered for ViewModel '{viewModelType.FullName}'.");
 
             var control = (Control?)App.ServiceProvider.Services?.GetService(viewType);
-            if (control == null) throw new NullReferenceException($"Failed to find Service '{viewType.FullName}'");
+            NullReferenceException.ThrowIf(control == null, $"Failed to find Service '{viewType.FullName}'");
 
             control.DataContext = data;
 

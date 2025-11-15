@@ -17,6 +17,7 @@
   <Project Path="AvaloniaXKCD.Exports/AvaloniaXKCD.Exports.csproj" />
   <Project Path="AvaloniaXKCD.Generators/AvaloniaXKCD.Generators.csproj" />
   <Project Path="AvaloniaXKCD.Tests/AvaloniaXKCD.Tests.csproj" />
+  <Project Path="AvaloniaXKCD.Utilities/AvaloniaXKCD.Utilities.csproj" />
   <Project Path="AvaloniaXKCD/AvaloniaXKCD.csproj" />
   <Project Path="XKCDCore/XKCDCore.csproj" />
 </Solution>

@@ -1,3 +1,5 @@
+using AvaloniaXKCD.Utilities;
+
 namespace AvaloniaXKCD.Tests.Orchestration;
 
 public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposable
@@ -16,7 +18,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
     {
         get
         {
-            if (string.IsNullOrWhiteSpace(_url)) throw new NullReferenceException();
+            _url.ThrowIfNull();
             return _url;
         }
         set => _url = value;

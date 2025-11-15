@@ -11,6 +11,7 @@ This directory contains AvaloniaXKCD source code.
 -   **`/src/AvaloniaXKCD.Generators/`**: Project for build-time code generation: performance optimizations.
 -   **`/src/AvaloniaXKCD.Site/`**: Web frontend assets and static site generation for browser version.
 -   **`/src/AvaloniaXKCD.Tests/`**: Test suite: snapshot and integration tests.
+-   **`/src/AvaloniaXKCD.Utilities/`**: Generic Utilities: Contains C# helpers.
 -   **`/src/XKCDCore/`**: .NET library: type-safe access to XKCD and ExplainXKCD APIs.
 
 ## Development

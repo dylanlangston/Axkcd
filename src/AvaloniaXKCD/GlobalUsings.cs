@@ -14,6 +14,7 @@ global using AvaloniaXKCD.Exports;
 global using AvaloniaXKCD.Views;
 global using AvaloniaXKCD.Settings;
 global using AvaloniaXKCD.Generators;
+global using AvaloniaXKCD.Utilities;
 global using AvaloniaXKCD.Models;
 global using DialogHostAvalonia;
 global using System.Collections.Generic;

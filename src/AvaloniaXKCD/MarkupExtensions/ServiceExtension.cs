@@ -13,17 +13,9 @@ public class ServiceExtension : MarkupExtension
 
     public override object ProvideValue(IServiceProvider serviceProvider)
     {
-        if (ServiceType is null)
-        {
-            throw new InvalidOperationException("The ServiceType must be specified.");
-        }
-
+        ServiceType.ThrowIfNull();
         var service = App.ServiceProvider.Services?.GetService(ServiceType);
-
-        if (service is null)
-        {
-            throw new InvalidOperationException($"Service of type {ServiceType.FullName} not found.");
-        }
+        service.ThrowIfNull();
 
         return service;
     }

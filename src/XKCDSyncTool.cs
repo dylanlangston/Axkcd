@@ -18,7 +18,9 @@
 // Example:
 //   dotnet run -- --output ./comics
 
+#nullable enable
 #:project ./XKCDCore
+#:project ./AvaloniaXKCD.Utilities
 #:package System.CommandLine
 #:package Spectre.Console
 
@@ -28,6 +30,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Spectre.Console;
 using XKCDCore;
+using AvaloniaXKCD.Utilities;
 
 #region Handel Ctrl-C
 var cts = new CancellationTokenSource();
@@ -114,8 +117,8 @@ public class ComicSyncStateMachine : IAsyncDisposable
 
     public ComicSyncStateMachine(DirectoryInfo? outputDirectory, Uri? baseUrl, int degreeOfParallelism)
     {
-        if (outputDirectory == null) throw new NullReferenceException(nameof(outputDirectory));
-        if (baseUrl == null) throw new NullReferenceException(nameof(baseUrl));
+        outputDirectory.ThrowIfNull();
+        baseUrl.ThrowIfNull();
 
         _outputDirectory = outputDirectory;
         _baseUrl = baseUrl;
@@ -409,3 +412,4 @@ internal partial class XKCDComicJsonSerializerContext : JsonSerializerContext
 {
 }
 #endregion
+#nullable disable
