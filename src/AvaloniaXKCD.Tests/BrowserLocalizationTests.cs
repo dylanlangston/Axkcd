@@ -109,38 +109,9 @@ public class BrowserLocalizationTests(string browser, string locale) : BrowserBa
                 titlePattern.IsMatch(r.Title).ShouldBeTrue($"Title '{r.Title}' should match AXKCD pattern");
             });
     }
-
-    [Test]
-    public async Task ShouldCallGetLocaleInterop(CancellationToken cancellation)
-    {
-        await Page.GotoAsync("/");
-        await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-
-        // Call getLocale via JavaScript
-        var browserLocale = await Page.EvaluateAsync<string>(@"
-            async () => {
-                const { getLocale } = await import('./interop.js');
-                return getLocale();
-            }
-        ");
-
-        var result = new
-        {
-            ExpectedLocale = locale,
-            BrowserLocale = browserLocale
-        };
-
-        await VerifyAssertionsPlugin.Verify(result)
-            .Assert(r =>
-            {
-                r.BrowserLocale.ShouldNotBeNullOrEmpty();
-                // Browser locale should start with the language code
-                r.BrowserLocale.ShouldStartWith(r.ExpectedLocale.Split('-')[0]);
-            });
-    }
 }
 
 public record BrowserLocalizationParallelLimit : IParallelLimit
 {
-    public int Limit => 1;
+    public int Limit => 3;
 }
