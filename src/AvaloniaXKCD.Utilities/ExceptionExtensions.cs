@@ -11,7 +11,7 @@ namespace AvaloniaXKCD.Utilities;
 public static class ExceptionExtensions
 {
     [StackTraceHidden]
-    private class ThrowException<T> where T : Exception
+    private static class ThrowException<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] T> where T : Exception
     {
         [DebuggerHidden]
         [StackTraceHidden]
@@ -32,7 +32,7 @@ public static class ExceptionExtensions
     /// Provides extension methods for a given exception type.
     /// </summary>
     /// <typeparam name="T">The type of exception to be thrown.</typeparam>
-    extension<T>(T) where T : Exception
+    extension<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] T>(T) where T : Exception
     {
         /// <summary>
         /// Throws an exception of type T if the specified condition is true.
@@ -81,13 +81,13 @@ public static class ExceptionExtensions
     /// </example>
     [DebuggerHidden]
     [StackTraceHidden]
-    public static TReturn ThrowIfNull<TReturn>([NotNull] this TReturn? argument, 
-		[CallerArgumentExpression("argument")] string? paramName = null)
-	{
-		if (argument == null)
-		{
-			throw new ArgumentNullException(paramName);
-		}
+    public static TReturn ThrowIfNull<TReturn>([NotNull] this TReturn? argument,
+        [CallerArgumentExpression("argument")] string? paramName = null)
+    {
+        if (argument == null)
+        {
+            throw new ArgumentNullException(paramName);
+        }
         return argument;
-	}
+    }
 }

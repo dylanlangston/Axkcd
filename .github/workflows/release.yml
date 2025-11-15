@@ -4,14 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'The version to build and release (e.g., 1.0.0.0)'
+        description: "The version to build and release (e.g., 1.0.0.0)"
         required: false
   push:
     branches:
       - master
     paths:
-      - 'mirror/**'
-      - 'src/**'
+      - "mirror/**"
+      - "src/**"
 
 concurrency:
   group: ${{ github.workflow }}
@@ -28,7 +28,17 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.versioning.outputs.VERSION }}
+      sync: ${{ steps.detect_sync.outputs.sync }}
+
     steps:
+      - name: Detect Sync Commit
+        id: detect_sync
+        run: |
+          if [[ "${{ github.event.head_commit.author.username }}" == "github-actions[bot]" ]]; then
+            echo "sync=true" >> $GITHUB_OUTPUT
+          else
+            echo "sync=false" >> $GITHUB_OUTPUT
+          fi
       - name: Set Version
         id: versioning
         run: |
@@ -72,6 +82,7 @@ jobs:
     name: Build Binaries
     needs: [prepare, test]
     runs-on: ${{ matrix.os }}
+    if: needs.prepare.outputs.sync == 'false'
     strategy:
       fail-fast: false
       matrix:
@@ -88,8 +99,6 @@ jobs:
             os: ubuntu-latest
           - target: linux-flatpak
             os: ubuntu-latest
-          - target: browser
-            os: ubuntu-latest
     continue-on-error: true
     steps:
       - name: Check out code
@@ -100,17 +109,32 @@ jobs:
         uses: ./.github/actions/setup-environment
         with:
           install-build-tools: "true"
-      - name: Run Build Process
+      - name: Run Build (${{ matrix.target }})
         shell: pwsh
         run: make publish-${{ matrix.target }} VERSION=${{ needs.prepare.outputs.version }}
       - name: Upload Build Artifact
-        if: ${{ matrix.target != 'browser' }}
         uses: actions/upload-artifact@v5
         with:
           name: output-${{ matrix.target }}
           path: ./out
-      - name: Upload Browser Artifact for GitHub Pages
-        if: ${{ matrix.target == 'browser' }}
+
+  build-browser:
+    name: Build Browser for Pages
+    needs: [prepare, test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v5
+      - name: Checkout LFS (Cached)
+        uses: ./.github/actions/cached-lfs-checkout
+      - name: Setup Environment
+        uses: ./.github/actions/setup-environment
+        with:
+          install-build-tools: "true"
+      - name: Run Build (browser)
+        shell: pwsh
+        run: make publish-browser VERSION=${{ needs.prepare.outputs.version }}
+      - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: ./out/wwwroot
@@ -119,6 +143,7 @@ jobs:
     name: Create GitHub Release
     needs: [prepare, build]
     runs-on: ubuntu-latest
+    if: needs.prepare.outputs.sync == 'false'
     environment:
       name: production
       url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/v${{ needs.prepare.outputs.version }}
@@ -145,7 +170,8 @@ jobs:
 
   deploy-pages:
     name: Deploy to GitHub Pages
-    needs: release
+    needs: [release, build-browser]
+    if: always() && needs.build-browser.result
     runs-on: ubuntu-latest
     environment:
       name: github-pages
