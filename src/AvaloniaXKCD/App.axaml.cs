@@ -2,11 +2,11 @@ namespace AvaloniaXKCD;
 
 public partial class App : Application
 {
-    public static readonly IConfig Config = ExportContainer.Get<IConfig>() ?? throw new NullReferenceException(nameof(Config));
+    public static readonly IConfig Config = ExportContainer.Get<IConfig>().ThrowIfNull();
 
-    public static readonly ISettingsRepo Settings = ExportContainer.Get<ISettingsRepo>() ?? throw new NullReferenceException(nameof(Settings));
-    public static readonly ILogger Logger = ExportContainer.Get<ILogger>() ?? throw new NullReferenceException(nameof(Logger));
-    public static readonly ISystemActions SystemActions = ExportContainer.Get<ISystemActions>() ?? throw new NullReferenceException(nameof(SystemActions));
+    public static readonly ISettingsRepo Settings = ExportContainer.Get<ISettingsRepo>().ThrowIfNull();
+    public static readonly ILogger Logger = ExportContainer.Get<ILogger>().ThrowIfNull();
+    public static readonly ISystemActions SystemActions = ExportContainer.Get<ISystemActions>().ThrowIfNull();
 
     internal static readonly ServiceProvider ServiceProvider = new();
 

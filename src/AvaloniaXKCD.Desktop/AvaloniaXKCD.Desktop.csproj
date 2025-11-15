@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AvaloniaXKCD\AvaloniaXKCD.csproj" />
+    <ProjectReference Include="..\AvaloniaXKCD.Utilities\AvaloniaXKCD.Utilities.csproj" />
     <ProjectReference Include="..\AvaloniaXKCD.Generators\AvaloniaXKCD.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
 

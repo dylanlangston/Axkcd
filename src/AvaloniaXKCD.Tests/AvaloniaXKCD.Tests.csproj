@@ -33,6 +33,7 @@
     <ProjectReference Include="..\AvaloniaXKCD.Generators\AvaloniaXKCD.Generators.csproj" />
     <ProjectReference Include="..\AvaloniaXKCD.Generators\AvaloniaXKCD.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     <ProjectReference Include="..\AvaloniaXKCD.Exports\AvaloniaXKCD.Exports.csproj" />
+    <ProjectReference Include="..\AvaloniaXKCD.Utilities\AvaloniaXKCD.Utilities.csproj" />
   </ItemGroup>
 
 
