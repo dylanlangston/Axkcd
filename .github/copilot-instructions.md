@@ -5,11 +5,18 @@
 AvaloniaXKCD is a cross-platform XKCD comic viewer built with Avalonia UI and .NET 10. The application runs natively on Windows and Linux desktops, as well as in web browsers using WebAssembly.
 
 **Key Information:**
-- **Primary Language:** C# with .NET 10
+- **Primary Language:** C# with .NET 10 (latest C# 14 features)
 - **UI Framework:** Avalonia UI 12.x
 - **Architecture:** MVVM (Model-View-ViewModel)
 - **License:** MIT
 - **Maintainer:** Dylan Langston
+
+**Ubiquitous Language:**
+- **Comic**: An XKCD comic strip with metadata (title, alt text, image URL)
+- **Mirror**: Local cache of XKCD comics for offline viewing
+- **View**: AXAML-based UI component
+- **ViewModel**: Business logic and state management for Views
+- **Service**: Application-level functionality (API calls, caching, etc.)
 
 ## Project Structure
 
@@ -42,26 +49,78 @@ Axkcd/
 
 ### C# Style Guidelines
 
-- **Language Version:** Latest C#
+- **Language Version:** Always use latest C# features, currently C# 14
 - **Nullable Reference Types:** Enabled (`<Nullable>enable</Nullable>`)
+  - Declare variables non-nullable by default
+  - Always use `is null` or `is not null` instead of `== null` or `!= null`
+  - Trust the C# null annotations and don't add unnecessary null checks
 - **Implicit Usings:** Enabled
 - **Warnings as Errors:** Enabled (`<TreatWarningsAsErrors>true</TreatWarningsAsErrors>`)
 - **Indentation:** Follow existing file conventions (typically 4 spaces)
+- **Modern C# Features:**
+  - Use pattern matching and switch expressions wherever possible
+  - Use `nameof` instead of string literals when referring to member names
+  - Prefer file-scoped namespace declarations
+  - Use single-line using directives
 - **Naming Conventions:**
   - PascalCase for public members, types, and namespaces
-  - camelCase for private fields
+  - camelCase for private fields and local variables
+  - Prefix interfaces with "I" (e.g., `IComicService`)
   - Prefix private fields with underscore if that's the existing convention in the file
-- **MVVM Patterns:**
+- **Documentation:**
+  - Write clear and concise comments explaining why, not what
+  - Write code with good maintainability practices
+  - Document design decisions and trade-offs
+  - Ensure XML doc comments for public APIs where applicable
+- **Error Handling:**
+  - Handle edge cases gracefully
+  - Write clear exception handling with appropriate exception types
+  - Implement a consistent error handling strategy
+
+### MVVM Patterns
+
+- **ViewModels:**
   - Keep ViewModels in `ViewModels/` directory
+  - Implement `INotifyPropertyChanged` for data binding
+  - ViewModels should not reference Views directly
+  - Keep presentation logic in ViewModels, not in Views
+- **Views:**
   - Keep Views in `Views/` directory
+  - Views should be thin, containing only UI-related code
+  - Use data binding to connect to ViewModels
+- **Models:**
   - Models should be immutable when possible
-  - Use `INotifyPropertyChanged` for ViewModels
+  - Use record types for simple data transfer objects
+  - Place business logic in services, not models
 
 ### AXAML Guidelines
 
 - Use Avalonia's AXAML (Avalonia XAML) for UI definitions
 - Follow existing styling patterns in `Styles.axaml` and `ColorResources.axaml`
 - Keep views focused and reusable
+- Use proper data binding syntax
+- Leverage Avalonia's styling system for consistent UI
+
+### Formatting
+
+- Apply code-formatting style defined in `.editorconfig`
+- Insert a newline before the opening curly brace of code blocks
+- Ensure final return statement of a method is on its own line
+- Run `make format` before committing
+
+### Asynchronous Programming
+
+- Use `async` and `await` for I/O-bound operations
+- Never block on async code (no `.Result` or `.Wait()`)
+- Use `ConfigureAwait(false)` when possible in library code
+- Name async methods with `Async` suffix (e.g., `LoadComicAsync`)
+
+### Dependency Injection
+
+- Use constructor injection to acquire dependencies
+- Register services in `ServiceProvider.cs`
+- Keep dependencies explicit and minimal
+- Prefer interfaces over concrete implementations
 
 ### File Organization
 
@@ -133,11 +192,58 @@ VERSION=1.0.0 make docker-publish-browser
 
 ## Testing Guidelines
 
-- All tests use TUnit testing framework
+### Test Framework
+
+- All tests use **TUnit** testing framework
 - Tests must pass before submitting a PR
 - Include tests for new functionality
 - Snapshot tests can be reviewed with `make verify-review`
 - Test files should mirror the structure of source files
+
+### Test Structure
+
+```csharp
+[Test]
+public async Task LoadComic_ValidId_ReturnsComic()
+{
+    // Arrange - Set up test data and dependencies
+    var service = new ComicService();
+    var comicId = 123;
+
+    // Act - Execute the method being tested
+    var result = await service.LoadComicAsync(comicId);
+
+    // Assert - Verify the expected outcome
+    Assert.NotNull(result);
+    Assert.Equal(comicId, result.Id);
+}
+```
+
+### Test Categories
+
+- **Unit Tests:** Test individual components in isolation
+  - Focus on ViewModels, Services, and business logic
+  - Mock external dependencies
+  - Fast and deterministic
+- **Integration Tests:** Test component interactions
+  - Test API integrations
+  - Test persistence and caching
+  - Validate data flow between layers
+- **UI Tests:** Test user interface behavior
+  - Use Playwright for browser testing
+  - Test user workflows and interactions
+  - Validate visual elements
+
+### Test Best Practices
+
+- **DO NOT** emit "Arrange", "Act", or "Assert" comments in production code
+- Copy existing test style for method names and capitalization
+- Test critical paths and edge cases
+- Test error scenarios and validation
+- Use descriptive test names that explain what is being tested
+- Keep tests isolated and independent
+- Ensure tests are repeatable and deterministic
+- Mock external dependencies appropriately
 
 ## Contribution Process
 
@@ -181,36 +287,126 @@ VERSION=1.0.0 make docker-publish-browser
 
 ### Adding a New View
 
-1. Create the View AXAML file in `src/AvaloniaXKCD/Views/`
-2. Create the ViewModel in `src/AvaloniaXKCD/ViewModels/`
-3. Register in `ViewLocator.cs` if needed
-4. Add navigation logic in appropriate ViewModels
+1. **Create View AXAML** in `src/AvaloniaXKCD/Views/`
+   - Follow existing naming conventions (e.g., `ComicView.axaml`)
+   - Define UI structure using Avalonia AXAML
+   - Apply consistent styling from `Styles.axaml`
+2. **Create ViewModel** in `src/AvaloniaXKCD/ViewModels/`
+   - Implement `INotifyPropertyChanged` for data binding
+   - Add properties for data binding
+   - Implement commands for user interactions
+3. **Register in ViewLocator** if using convention-based view resolution
+   - Update `ViewLocator.cs` to map ViewModel to View
+4. **Add Navigation Logic**
+   - Update relevant ViewModels with navigation commands
+   - Ensure proper state management during navigation
+5. **Write Tests**
+   - Create unit tests for ViewModel logic
+   - Add UI tests for user interactions if appropriate
 
 ### Adding a New Service
 
-1. Define the interface in `src/AvaloniaXKCD/Services/`
-2. Implement the service
-3. Register in `ServiceProvider.cs` or use dependency injection
+1. **Define Interface** in `src/AvaloniaXKCD/Services/`
+   - Create interface with clear method signatures
+   - Use async methods for I/O operations
+   - Document expected behavior and exceptions
+2. **Implement Service**
+   - Create concrete implementation
+   - Follow single responsibility principle
+   - Handle errors appropriately
+3. **Register Service**
+   - Register in `ServiceProvider.cs`
+   - Use appropriate lifetime (Singleton, Transient, Scoped)
+4. **Write Tests**
+   - Test service logic with unit tests
+   - Mock dependencies as needed
+   - Test error scenarios
 
 ### Modifying XKCD API Interaction
 
-- Work in the `XKCDCore` project
-- This is a library for interacting with the XKCD API
-- Keep it independent from Avalonia-specific code
+- **Location:** Work in the `XKCDCore` project
+- **Purpose:** Library for interacting with the XKCD API
+- **Guidelines:**
+  - Keep it independent from Avalonia-specific code
+  - Use standard .NET HTTP patterns
+  - Implement proper error handling for network issues
+  - Cache responses appropriately
+  - Follow XKCD API rate limiting guidelines
 
 ### Working with Tests
 
-- Tests are in `AvaloniaXKCD.Tests/`
-- Use TUnit for unit tests
-- Playwright tests available for UI testing
-- Use `make verify-review` to review snapshot test changes
+- **Location:** Tests are in `AvaloniaXKCD.Tests/`
+- **Framework:** Use TUnit for unit tests
+- **UI Testing:** Playwright tests available for browser version
+- **Snapshot Testing:** Use `make verify-review` to review snapshot test changes
+- **Structure:** Mirror source code structure in test project
+- **Naming:** Use descriptive test method names
+
+### Performance Optimization
+
+- **WASM Considerations:**
+  - Minimize bundle size by tree-shaking unused code
+  - Use lazy loading for heavy components
+  - Optimize image loading and caching
+  - Profile WASM performance regularly
+- **Desktop Performance:**
+  - Use async operations to keep UI responsive
+  - Implement efficient data binding patterns
+  - Cache frequently accessed data
+  - Optimize rendering with virtualization when needed
+- **General:**
+  - Use appropriate collection types
+  - Avoid unnecessary allocations
+  - Profile and benchmark critical paths
 
 ## Important Notes
 
-- **Cross-Platform Considerations:** Code should work on Windows, Linux, and Browser (WASM)
-- **Performance:** Be mindful of WASM performance constraints
-- **Unofficial Project:** This is an unofficial XKCD viewer, not affiliated with xkcd.com
-- **Dev Container:** Recommended development environment available in `.devcontainer/`
+- **Cross-Platform Considerations:** 
+  - Code must work on Windows, Linux, and Browser (WASM)
+  - Test on multiple platforms when possible
+  - Be aware of platform-specific limitations
+  - Use Avalonia's cross-platform APIs
+- **Performance:** 
+  - Be especially mindful of WASM performance constraints
+  - Minimize JavaScript interop calls
+  - Optimize bundle size for browser version
+  - Use async operations to maintain responsiveness
+- **Security:**
+  - Validate all user inputs
+  - Handle API errors gracefully
+  - Don't expose sensitive information in error messages
+  - Follow security best practices for web deployment
+- **Unofficial Project:** 
+  - This is an unofficial XKCD viewer, not affiliated with xkcd.com
+  - Respect XKCD's API usage guidelines
+  - Include proper attribution
+- **Dev Container:** 
+  - Recommended development environment available in `.devcontainer/`
+  - Ensures consistent tooling across team members
+  - Pre-configured with all necessary dependencies
+
+## Code Review Guidelines
+
+When reviewing code changes:
+- **Verify** adherence to coding standards and MVVM patterns
+- **Check** for proper error handling and edge cases
+- **Ensure** tests are included for new functionality
+- **Validate** performance implications, especially for WASM
+- **Confirm** cross-platform compatibility considerations
+- **Review** for security vulnerabilities
+- **Assess** maintainability and code clarity
+- **Verify** documentation and comments are appropriate
+
+## Anti-Patterns to Avoid
+
+- **DON'T** put business logic in Views or code-behind
+- **DON'T** block async code with `.Result` or `.Wait()`
+- **DON'T** ignore null reference handling
+- **DON'T** use magic strings or numbers (use constants)
+- **DON'T** create tight coupling between components
+- **DON'T** skip writing tests for new features
+- **DON'T** ignore existing code patterns and conventions
+- **DON'T** make sweeping changes without discussion
 
 ## Additional Resources
 
