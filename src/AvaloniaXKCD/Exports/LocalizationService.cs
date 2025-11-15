@@ -14,7 +14,9 @@ public abstract class LocalizationService : ILocalizationService
 
     protected LocalizationService()
     {
-        _resourceManager = new ResourceManager("AvaloniaXKCD.Resources.Strings", typeof(LocalizationService).Assembly);
+        // Load resources from AvaloniaXKCD.Core assembly where the .resx files are embedded
+        var resourceAssembly = System.Reflection.Assembly.Load("AvaloniaXKCD.Core");
+        _resourceManager = new ResourceManager("AvaloniaXKCD.Resources.Strings", resourceAssembly);
         
         // Initialize with system culture or fallback to English
         _currentCulture = GetSystemCulture();
