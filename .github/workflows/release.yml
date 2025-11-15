@@ -34,8 +34,11 @@ jobs:
       - name: Detect Sync Commit
         id: detect_sync
         run: |
-          echo "sync=true" >> $GITHUB_OUTPUT
-
+          if [[ "${{ github.event.head_commit.author.username }}" == "github-actions[bot]" ]]; then
+            echo "sync=true" >> $GITHUB_OUTPUT
+          else
+            echo "sync=false" >> $GITHUB_OUTPUT
+          fi
       - name: Set Version
         id: versioning
         run: |
