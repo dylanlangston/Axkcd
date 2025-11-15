@@ -4,14 +4,9 @@ namespace AvaloniaXKCD.Exports;
 
 public partial class ExportContainer
 {
-    private static readonly Dictionary<string, Lazy<IExport>> _factories = new();
     private static readonly Dictionary<string, List<Lazy<IExport>>> _multiFactories = new();
 
-    public static void Add<T>(string name, Func<T> factory) where T : IExport
-    {
-        if (_factories.ContainsKey(name)) throw new DuplicateNameException(name);
-        _factories[name] = new Lazy<IExport>(() => factory());
-    }
+    public static void Add<T>(string name, Func<T> factory) where T : IExport => AddMulti<T>(name, factory);
     
     public static void Add<T>(Func<T> factory) where T : IExport => Add<T>(typeof(T).FullName, factory);
     
@@ -34,21 +29,18 @@ public partial class ExportContainer
     
     public static void AddMulti<T, C>() where T : IExport where C : T, new() => AddMulti<T>(() => new C());
 
-    public static T? Get<T>(string name) where T : IExport
-    {
-        if (!_factories.ContainsKey(name)) return default;
-        return (T)_factories[name].Value;
-    }
+    public static T? Get<T>(string name) where T : IExport => GetAllEnumerable<T>(name).SingleOrDefault();
     
     public static T? Get<T>() where T : IExport => Get<T>(typeof(T).FullName);
 
-    public static T[] GetAll<T>(string name) where T : IExport
+    public static T[] GetAll<T>(string name) where T : IExport => GetAllEnumerable<T>(name).ToArray();
+    static IEnumerable<T> GetAllEnumerable<T>(string name) where T : IExport
     {
         if (!_multiFactories.ContainsKey(name))
         {
             return Array.Empty<T>();
         }
-        return _multiFactories[name].Select(lazy => (T)lazy.Value).ToArray();
+        return _multiFactories[name].Select(lazy => (T)lazy.Value);
     }
     
     public static T[] GetAll<T>() where T : IExport => GetAll<T>(typeof(T).FullName);
