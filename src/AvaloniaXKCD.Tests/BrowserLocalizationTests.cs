@@ -5,13 +5,16 @@ using AvaloniaXKCD.Tests.VerifyPlugins;
 namespace AvaloniaXKCD.Tests;
 
 /// <summary>
-/// Browser tests for localization functionality
-/// Tests locale detection, string localization, and C#/TypeScript interop
+/// Browser tests for localization functionality using screenshot-based validation.
+/// Due to Avalonia browser implementation (https://github.com/AvaloniaUI/Avalonia/issues/15453),
+/// we validate localized UI by taking screenshots of the Avalonia canvas rather than querying DOM.
 /// </summary>
 [ParallelLimiter<BrowserLocalizationParallelLimit>]
 [Timeout(5 * 60 * 1000)] // 5 minutes
 [Arguments("chromium", "en-US")]
 [Arguments("chromium", "es-ES")]
+[Arguments("firefox", "en-US")]
+[Arguments("firefox", "es-ES")]
 public class BrowserLocalizationTests(string browser, string locale) : BrowserBaseTest(browser)
 {
     public override BrowserNewContextOptions ContextOptions(TestContext testContext)
@@ -25,11 +28,43 @@ public class BrowserLocalizationTests(string browser, string locale) : BrowserBa
     }
 
     [Test]
+    public async Task ShouldRenderLocalizedUIInCanvas(CancellationToken cancellation)
+    {
+        await Page.GotoAsync("/");
+        
+        // Wait for the Avalonia canvas to load and render
+        await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
+        
+        // Wait for the canvas element to be present
+        var canvas = Page.Locator("canvas");
+        await Expect(canvas).ToBeVisibleAsync(new() { Timeout = 30000 });
+        
+        // Give the Avalonia app time to initialize and render localized content
+        await Page.WaitForTimeoutAsync(3000);
+        
+        // Take a screenshot of the canvas showing localized UI controls
+        await Verify(Page)
+            .UpdateSettings(_ =>
+                _.PageScreenshotOptions(
+                new()
+                {
+                    Quality = 50,
+                    Type = ScreenshotType.Jpeg
+                }, screenshotOnly: true))
+            .Assert<IPage>(async _ =>
+            {
+                // Verify page loaded successfully
+                await Expect(Page).ToHaveTitleAsync(new Regex(@"^(A\(valonia\)XKCD|AXKCD: .*)$"));
+                
+                // Verify canvas is visible and has content
+                await Expect(canvas).ToBeVisibleAsync();
+            });
+    }
+
+    [Test]
     public async Task ShouldDetectBrowserLocale(CancellationToken cancellation)
     {
         await Page.GotoAsync("/");
-
-        // Wait for the app to initialize
         await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
 
         // Get the detected locale from the browser via JavaScript
@@ -46,158 +81,13 @@ public class BrowserLocalizationTests(string browser, string locale) : BrowserBa
     }
 
     [Test]
-    public async Task ShouldDisplayLocalizedLoadingMessages(CancellationToken cancellation)
-    {
-        await Page.GotoAsync("/");
-
-        // Wait for loading indicator to appear
-        var loadingText = Page.Locator("#loadingText");
-        
-        // Wait for the loading text to be visible
-        await loadingText.WaitForAsync(new LocatorWaitForOptions { State = WaitForSelectorState.Visible, Timeout = 10000 });
-
-        // Get the loading message text
-        var messageText = await loadingText.TextContentAsync();
-
-        var result = new
-        {
-            Locale = locale,
-            LoadingMessage = messageText
-        };
-
-        // Verify loading message is present
-        await VerifyAssertionsPlugin.Verify(result)
-            .Assert(r =>
-            {
-                r.LoadingMessage.ShouldNotBeNullOrEmpty();
-                // The message should be one of the localized loading messages
-                // For English, check for some English words
-                // For Spanish, if we had translations, we'd check for Spanish words
-                if (r.Locale.StartsWith("en"))
-                {
-                    // English messages should contain English words
-                    // At least verify it's not empty and contains letters
-                    r.LoadingMessage.Length.ShouldBeGreaterThan(0);
-                }
-            });
-    }
-
-    [Test]
-    public async Task ShouldSyncLocaleViaInterop(CancellationToken cancellation)
-    {
-        await Page.GotoAsync("/");
-        await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-
-        // Call setLocale via interop to change locale
-        var targetLocale = locale.StartsWith("en") ? "es" : "en";
-        
-        // Execute JavaScript to call the interop setLocale function
-        await Page.EvaluateAsync($@"
-            async () => {{
-                // Import and call setLocale
-                const {{ setLocale }} = await import('./interop.js');
-                setLocale('{targetLocale}');
-            }}
-        ");
-
-        // Give it a moment to update
-        await Page.WaitForTimeoutAsync(500);
-
-        // Verify locale was set
-        var result = new
-        {
-            OriginalLocale = locale,
-            TargetLocale = targetLocale
-        };
-
-        await VerifyAssertionsPlugin.Verify(result)
-            .Assert(r =>
-            {
-                r.TargetLocale.ShouldNotBe(r.OriginalLocale.Split('-')[0]);
-            });
-    }
-
-    [Test]
-    public async Task ShouldHaveLocalizedNavigationButtons(CancellationToken cancellation)
-    {
-        await Page.GotoAsync("/");
-        
-        // Wait for the page to fully load
-        await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-        
-        // Give the app time to initialize and render
-        await Page.WaitForTimeoutAsync(2000);
-
-        // Try to find navigation buttons by their aria-labels or text content
-        // The buttons should be localized based on the browser locale
-        var buttons = new List<string>();
-        
-        // Try to find any buttons - the navigation controls should be present
-        var allButtons = await Page.Locator("button").AllAsync();
-        
-        foreach (var button in allButtons)
-        {
-            var text = await button.TextContentAsync();
-            if (!string.IsNullOrWhiteSpace(text))
-            {
-                buttons.Add(text.Trim());
-            }
-        }
-
-        var result = new
-        {
-            Locale = locale,
-            ButtonCount = buttons.Count,
-            Buttons = buttons
-        };
-
-        await VerifyAssertionsPlugin.Verify(result)
-            .Assert(r =>
-            {
-                // Should have some buttons rendered
-                r.ButtonCount.ShouldBeGreaterThan(0, "Should have navigation buttons");
-                
-                // If locale is Spanish, check for Spanish button text
-                if (r.Locale.StartsWith("es"))
-                {
-                    // Check if any Spanish navigation terms are present
-                    var hasSpanishText = r.Buttons.Any(b => 
-                        b.Contains("Aleatorio", StringComparison.OrdinalIgnoreCase) ||
-                        b.Contains("Explicar", StringComparison.OrdinalIgnoreCase) ||
-                        b.Contains("Anterior", StringComparison.OrdinalIgnoreCase) ||
-                        b.Contains("Siguiente", StringComparison.OrdinalIgnoreCase) ||
-                        b.Contains("Salir", StringComparison.OrdinalIgnoreCase) ||
-                        b.Contains("Continuar", StringComparison.OrdinalIgnoreCase) ||
-                        b.Contains("Cancelar", StringComparison.OrdinalIgnoreCase));
-                    
-                    // Note: This might not work if UI hasn't fully loaded
-                    // The test validates the structure is present
-                }
-                else if (r.Locale.StartsWith("en"))
-                {
-                    // Check if any English navigation terms are present
-                    var hasEnglishText = r.Buttons.Any(b => 
-                        b.Contains("Random", StringComparison.OrdinalIgnoreCase) ||
-                        b.Contains("Explain", StringComparison.OrdinalIgnoreCase) ||
-                        b.Contains("Previous", StringComparison.OrdinalIgnoreCase) ||
-                        b.Contains("Next", StringComparison.OrdinalIgnoreCase) ||
-                        b.Contains("Quit", StringComparison.OrdinalIgnoreCase) ||
-                        b.Contains("Continue", StringComparison.OrdinalIgnoreCase) ||
-                        b.Contains("Cancel", StringComparison.OrdinalIgnoreCase));
-                    
-                    // Note: This might not work if UI hasn't fully loaded
-                    // The test validates the structure is present
-                }
-            });
-    }
-
-    [Test]
     public async Task ShouldHaveLocalizedWindowTitle(CancellationToken cancellation)
     {
         await Page.GotoAsync("/");
-        
-        // Wait for the page to load
         await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
+        
+        // Wait for app to initialize
+        await Page.WaitForTimeoutAsync(2000);
         
         // Get the page title
         var title = await Page.TitleAsync();
@@ -246,32 +136,6 @@ public class BrowserLocalizationTests(string browser, string locale) : BrowserBa
                 r.BrowserLocale.ShouldNotBeNullOrEmpty();
                 // Browser locale should start with the language code
                 r.BrowserLocale.ShouldStartWith(r.ExpectedLocale.Split('-')[0]);
-            });
-    }
-
-    [Test]
-    public async Task ShouldRenderPageWithLocale(CancellationToken cancellation)
-    {
-        await Page.GotoAsync("/");
-        await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-        
-        // Take a screenshot to verify the page renders correctly with the locale
-        await Verify(Page)
-            .UpdateSettings(_ =>
-                _.PageScreenshotOptions(
-                new()
-                {
-                    Quality = 50,
-                    Type = ScreenshotType.Jpeg
-                }, screenshotOnly: true))
-            .Assert<IPage>(async _ =>
-            {
-                // Verify page loaded successfully
-                await Expect(Page).ToHaveTitleAsync(new Regex(@"^(A\(valonia\)XKCD|AXKCD: .*)$"));
-                
-                // Verify page has content
-                var body = Page.Locator("body");
-                await Expect(body).ToBeVisibleAsync();
             });
     }
 }
