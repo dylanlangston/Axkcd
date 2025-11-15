@@ -2,14 +2,13 @@ using System;
 using System.Globalization;
 using System.Runtime.InteropServices.JavaScript;
 using AvaloniaXKCD.Exports;
-using AvaloniaXKCD.Services;
 
 namespace AvaloniaXKCD.Browser;
 
 /// <summary>
 /// Browser implementation of localization service with JavaScript interop
 /// </summary>
-public partial class BrowserLocalizationService : LocalizationService, IExport
+public partial class BrowserLocalizationService : LocalizationService
 {
     [JSImport("getLocale", "interop")]
     internal static partial string GetBrowserLocale();

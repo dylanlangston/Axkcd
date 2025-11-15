@@ -2,17 +2,17 @@ using System.Globalization;
 using System.Resources;
 using AvaloniaXKCD.Exports;
 
-namespace AvaloniaXKCD.Services;
+namespace AvaloniaXKCD.Exports;
 
 /// <summary>
-/// Service for handling application localization using .resx files
+/// Abstract base service for handling application localization using .resx files
 /// </summary>
-public class LocalizationService : ILocalizationService
+public abstract class LocalizationService : ILocalizationService
 {
     private readonly ResourceManager _resourceManager;
     private CultureInfo _currentCulture;
 
-    public LocalizationService()
+    protected LocalizationService()
     {
         _resourceManager = new ResourceManager("AvaloniaXKCD.Resources.Strings", typeof(LocalizationService).Assembly);
         

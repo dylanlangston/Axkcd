@@ -16,11 +16,11 @@
             HorizontalAlignment="Stretch"
             TextWrapping="WrapWithOverflow"
             Text="{l10n:Localize Key=Dialog_Error}"
-            ToolTip.Tip="Title" />
+            ToolTip.Tip="{l10n:Localize Key=Dialog_ErrorTitle}" />
         <TextBlock
             HorizontalAlignment="Stretch"
             TextWrapping="WrapWithOverflow"
-            ToolTip.Tip="Error"
+            ToolTip.Tip="{l10n:Localize Key=Dialog_ErrorMessage}"
             Text="{Binding ErrorText}" />
         <WrapPanel HorizontalAlignment="Right">
             <Button Command="{Binding Quit}" Content="{l10n:Localize Key=Dialog_Quit}" />

@@ -94,6 +94,14 @@
     <value>Error</value>
     <comment>Error dialog title</comment>
   </data>
+  <data name="Dialog_ErrorTitle" xml:space="preserve">
+    <value>Title</value>
+    <comment>Error dialog title tooltip</comment>
+  </data>
+  <data name="Dialog_ErrorMessage" xml:space="preserve">
+    <value>Error</value>
+    <comment>Error dialog message tooltip</comment>
+  </data>
   <data name="Dialog_Quit" xml:space="preserve">
     <value>Quit</value>
     <comment>Quit button</comment>

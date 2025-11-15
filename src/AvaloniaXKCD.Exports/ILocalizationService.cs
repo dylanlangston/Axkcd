@@ -5,7 +5,7 @@ namespace AvaloniaXKCD.Exports;
 /// <summary>
 /// Service for handling application localization
 /// </summary>
-public interface ILocalizationService
+public interface ILocalizationService : IExport
 {
     /// <summary>
     /// Gets the current culture
