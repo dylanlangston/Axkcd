@@ -172,7 +172,6 @@ jobs:
   deploy-pages:
     name: Deploy to GitHub Pages
     needs: [release, build-browser]
-    if: always() && needs.build-browser.result
     runs-on: ubuntu-latest
     environment:
       name: github-pages
