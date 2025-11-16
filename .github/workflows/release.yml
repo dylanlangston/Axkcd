@@ -60,6 +60,23 @@ jobs:
           fi
           echo "Generated version: $VERSION"
 
+  lint-and-format:
+    name: Lint and Format Check
+    needs: prepare
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v5
+      - name: Setup Environment
+        uses: ./.github/actions/setup-environment
+        with:
+          install-build-tools: "false"
+      - name: Check C# formatting
+        run: make format-check-csharp
+      - name: Check TypeScript/JavaScript formatting and linting
+        run: make format-check-typescript lint-typescript
+
   test:
     name: Run All Tests
     needs: prepare
@@ -81,7 +98,7 @@ jobs:
 
   build:
     name: Build Binaries
-    needs: [prepare, test]
+    needs: [prepare, lint-and-format, test]
     runs-on: ${{ matrix.os }}
     if: needs.prepare.outputs.sync == 'false'
     strategy:
@@ -121,7 +138,7 @@ jobs:
 
   build-browser:
     name: Build Browser for Pages
-    needs: [prepare, test]
+    needs: [prepare, lint-and-format, test]
     runs-on: ubuntu-latest
     steps:
       - name: Check out code

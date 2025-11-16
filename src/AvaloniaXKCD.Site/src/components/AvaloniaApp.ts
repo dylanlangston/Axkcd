@@ -146,7 +146,7 @@ export class AvaloniaApp extends LitElement {
     window.removeEventListener('popstate', this.handlePopState);
 
     if (this.uriChangeSubscription && this.avaloniaApp) {
-      const systemActions = this.avaloniaApp?.AvaloniaXKCD.Browser.BrowserSystemActions
+      const systemActions = this.avaloniaApp?.AvaloniaXKCD.Browser.BrowserSystemActions;
       systemActions?.RemoveOnUriChangeCallback(this.uriChangeSubscription);
     }
   }
@@ -233,11 +233,12 @@ export class AvaloniaApp extends LitElement {
         'AvaloniaXKCD.Browser'
       )) as AvaloniaXKCDBrowser | null;
 
-      const systemActions = this.avaloniaApp?.AvaloniaXKCD.Browser.BrowserSystemActions
+      const systemActions = this.avaloniaApp?.AvaloniaXKCD.Browser.BrowserSystemActions;
 
-      this.uriChangeSubscription = systemActions?.AddOnUriChangeCallback((newUri: string) => {
-        this.setLastSlugToComic(Number(newUri));
-      }) ?? null;
+      this.uriChangeSubscription =
+        systemActions?.AddOnUriChangeCallback((newUri: string) => {
+          this.setLastSlugToComic(Number(newUri));
+        }) ?? null;
     } catch (err: unknown) {
       console.error('Failed to start Avalonia application:', String(err));
       this.fatalError = err instanceof Error ? err.message : String(err);

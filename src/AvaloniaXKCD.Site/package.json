@@ -1,7 +1,7 @@
 {
   "name": "avaloniaxkcd-site",
   "private": true,
-  "version": "1.0.7+10205",
+  "version": "1.0.7+14489",
   "type": "module",
   "scripts": {
     "generate-pwa-assets": "pwa-assets-generator",

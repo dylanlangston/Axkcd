@@ -183,8 +183,8 @@ endif
 	@dotnet tool install --global verify.tool
 	@dotnet tool install --global dotnet-outdated-tool
 	@dotnet tool install --global KuiperZone.PupNet
-	@dotnet tool install --global csharpier
-	@cd src/AvaloniaXKCD.Site; bun ci
+	@dotnet tool restore
+	@cd src/AvaloniaXKCD.Site; npm ci
 	@cd src; sudo dotnet workload restore
 
 setup-playwright: ## Setup playwright browsers for testing.
@@ -192,29 +192,29 @@ setup-playwright: ## Setup playwright browsers for testing.
 
 format-csharp: ## Format C# source code with CSharpier and dotnet format.
 	@$(ECHO) "--- Formatting C# code ---"
-	@cd src; csharpier format .
+	@dotnet csharpier format .
 	@cd src; dotnet format
 
 format-typescript: ## Format TypeScript/JavaScript source code with Prettier.
 	@$(ECHO) "--- Formatting TypeScript/JavaScript code with Prettier ---"
-	@cd src/AvaloniaXKCD.Site; bun run format
+	@cd src/AvaloniaXKCD.Site; npm run format
 
 format: format-csharp format-typescript ## Format all source code (C# and TypeScript).
 
 format-check-csharp: ## Check C# formatting without making changes.
 	@$(ECHO) "--- Checking C# formatting ---"
-	@cd src; csharpier check .
+	@dotnet csharpier check .
 	@cd src; dotnet format --verify-no-changes
 
 format-check-typescript: ## Check TypeScript/JavaScript formatting without making changes.
 	@$(ECHO) "--- Checking TypeScript/JavaScript formatting ---"
-	@cd src/AvaloniaXKCD.Site; bun run format:check
+	@cd src/AvaloniaXKCD.Site; npm run format:check
 
 format-check: format-check-csharp format-check-typescript ## Check all code formatting (C# and TypeScript).
 
 lint-typescript: ## Lint TypeScript/JavaScript source code.
 	@$(ECHO) "--- Linting TypeScript/JavaScript code ---"
-	@cd src/AvaloniaXKCD.Site; bun run lint
+	@cd src/AvaloniaXKCD.Site; npm run lint
 
 lint: lint-typescript ## Lint all source code.
 
