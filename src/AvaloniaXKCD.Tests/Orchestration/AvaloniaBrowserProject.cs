@@ -14,17 +14,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
             {
                 foreach (var instance in ActiveInstances.ToArray())
                 {
-                    try
-                    {
-                        instance.ForceCleanup();
-                    }
-                    catch (Exception ex)
-                    {
-                        var writeAction = TestContext.Current is not null
-                            ? (string? value) => TestContext.Current.OutputWriter.WriteLine(value)
-                            : (string? value) => Console.WriteLine(value);
-                        writeAction($"Exception during ForceCleanup for instance: {ex}");
-                    }
+                    instance.ForceCleanup();
                 }
             }
         };
@@ -84,7 +74,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
         catch (Exception ex)
         {
             Action<string?> writeAction = TestContext.Current != null ?
-                (string? value) => TestContext.Current.OutputWriter.WriteLine(value) : 
+                (string? value) => TestContext.Current.OutputWriter.WriteLine(value) :
                 (string? value) => Console.WriteLine(value);
             writeAction("--- Avalonia App startup failed. Captured output: ---");
             writeAction("--- Standard Output: ---");
@@ -201,9 +191,9 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
                 }
                 catch (Exception ex)
                 {
-                    var writeAction = TestContext.Current is not null
-                        ? (string? value) => TestContext.Current.OutputWriter.WriteLine(value)
-                        : (string? value) => Console.WriteLine(value);
+                    Action<string> writeAction = TestContext.Current is not null
+                        ? TestContext.Current.OutputWriter.WriteLine
+                        : Console.WriteLine;
                     writeAction($"Failed to kill Avalonia process: {ex}");
                 }
             }
@@ -216,9 +206,9 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
             }
             catch (Exception ex)
             {
-                var writeAction = TestContext.Current is not null
-                    ? (string? value) => TestContext.Current.OutputWriter.WriteLine(value)
-                    : (string? value) => Console.WriteLine(value);
+                Action<string> writeAction = TestContext.Current is not null
+                    ? TestContext.Current.OutputWriter.WriteLine
+                    : Console.WriteLine;
                 writeAction($"Error disposing process: {ex}");
             }
         }
