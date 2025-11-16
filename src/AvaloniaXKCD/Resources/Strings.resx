@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <!-- Navigation Controls -->
+  <data name="NavButton_First" xml:space="preserve">
+    <value>|&lt;</value>
+    <comment>First comic button</comment>
+  </data>
+  <data name="NavButton_Previous" xml:space="preserve">
+    <value>&lt; Prev</value>
+    <comment>Previous comic button</comment>
+  </data>
+  <data name="NavButton_Random" xml:space="preserve">
+    <value>Random</value>
+    <comment>Random comic button</comment>
+  </data>
+  <data name="NavButton_Explain" xml:space="preserve">
+    <value>Explain</value>
+    <comment>Explain comic button</comment>
+  </data>
+  <data name="NavButton_GoTo" xml:space="preserve">
+    <value>Go To</value>
+    <comment>Go to comic dialog button</comment>
+  </data>
+  <data name="NavButton_Next" xml:space="preserve">
+    <value>Next &gt;</value>
+    <comment>Next comic button</comment>
+  </data>
+  <data name="NavButton_Last" xml:space="preserve">
+    <value>&gt;|</value>
+    <comment>Last comic button</comment>
+  </data>
+  
+  <!-- Dialog Labels -->
+  <data name="Dialog_Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>Error dialog title</comment>
+  </data>
+  <data name="Dialog_ErrorTitle" xml:space="preserve">
+    <value>Title</value>
+    <comment>Error dialog title tooltip</comment>
+  </data>
+  <data name="Dialog_ErrorMessage" xml:space="preserve">
+    <value>Error</value>
+    <comment>Error dialog message tooltip</comment>
+  </data>
+  <data name="Dialog_Quit" xml:space="preserve">
+    <value>Quit</value>
+    <comment>Quit button</comment>
+  </data>
+  <data name="Dialog_Continue" xml:space="preserve">
+    <value>Continue</value>
+    <comment>Continue button</comment>
+  </data>
+  <data name="Dialog_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Cancel button</comment>
+  </data>
+  
+  <!-- Context Menu -->
+  <data name="ContextMenu_CopyURL" xml:space="preserve">
+    <value>Copy URL</value>
+    <comment>Context menu item to copy URL</comment>
+  </data>
+  
+  <!-- Window Title -->
+  <data name="Window_Title" xml:space="preserve">
+    <value>Axkcd</value>
+    <comment>Application window title</comment>
+  </data>
+  <data name="Window_TitleFormat" xml:space="preserve">
+    <value>AXKCD: {0}</value>
+    <comment>Window title format with comic title</comment>
+  </data>
+</root>

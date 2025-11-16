@@ -177,7 +177,8 @@ slot {
                         // Mono AOT-related logs
                         "MONO_LOG_LEVEL": "debug",
                         "MONO_LOG_MASK": "aot"
-                    }
+                    },
+                    applicationCulture: interop.getLocale(),
                 })
                 .withModuleConfig({
                     onAbort: (_: any) => {

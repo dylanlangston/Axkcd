@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<file target-language="es" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="LoadingMsg_1">
+  <source>Reticulating splines</source>
+  <target>Calculando curvas improbables</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_2">
+  <source>Generating witty dialog</source>
+  <target>Forjando diálogos ingeniosos</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_3">
+  <source>Swapping time and space</source>
+  <target>Cambiando tiempo por siestas</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_4">
+  <source>Spinning violently around the y-axis</source>
+  <target>Girando como trompo alrededor del eje Y</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_5">
+  <source>Tokenizing real life</source>
+  <target>Tokenizando la vida real (aceptamos memes)</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_6">
+  <source>Bending the spoon</source>
+  <target>Torciendo cucharas con la mente</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_7">
+  <source>Filtering moral fiber</source>
+  <target>Tamizándonos la fibra moral</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_8">
+  <source>Don't think of a blue elephant</source>
+  <target>No pienses en un elefante azul</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_9">
+  <source>Buffering Please wait.</source>
+  <target>Amasando bytes... por favor, espera</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_10">
+  <source>Calculating the meaning of life</source>
+  <target>Calculando el sentido de la vida</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_11">
+  <source>Compressing humor</source>
+  <target>Comprimiendo risas</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_12">
+  <source>Debugging the universe</source>
+  <target>Depurando el universo</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_13">
+  <source>Synthesizing sarcasm</source>
+  <target>Sintetizando sarcasmo</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_14">
+  <source>Calibrating flux capacitors</source>
+  <target>Calibrando condensadores de flujo</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_15">
+  <source>Loading the loading message</source>
+  <target>Cargando el mensaje de carga... sí, de verdad</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_16">
+  <source>Cogitating</source>
+  <target>Reflexionando</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_17">
+  <source>Deliberating</source>
+  <target>Deliberando</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_18">
+  <source>Pondering</source>
+  <target>Cavilando</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_19">
+  <source>Contemplating</source>
+  <target>Contemplando</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_20">
+  <source>Assembling bits</source>
+  <target>Montando bits como LEGOs</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_21">
+  <source>Brewing coffee</source>
+  <target>Preparando café para el equipo</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_22">
+  <source>Fetching pixels</source>
+  <target>Buscando píxeles perdidos</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_23">
+  <source>Warming up the hamsters</source>
+  <target>Calentando a los hámsters de la rueda</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_24">
+  <source>Charging the lasers</source>
+  <target>Cargando los láseres</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_25">
+  <source>Aligning the planets</source>
+  <target>Alineando los planetas (por poco magia)</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_26">
+  <source>Counting to infinity</source>
+  <target>Contando hasta el infinito (un momento)</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_27">
+  <source>Twiddling thumbs</source>
+  <target>Moviendo los pulgares con estilo</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_28">
+  <source>Herding cats</source>
+  <target>Pastoreando gatos (mala idea)</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_29">
+  <source>Shoveling coal into the server</source>
+  <target>Echando carbón al servidor (sube la temperatura)</target>
+</trans-unit>
+<trans-unit id="LoadingMsg_30">
+  <source>Teaching the AI to love</source>
+  <target>Enseñando a la IA a amar (con cuidado)</target>
+</trans-unit>
+<trans-unit id="NavButton_First">
+  <source>|&lt;</source>
+  <target>|&lt;</target>
+</trans-unit>
+<trans-unit id="NavButton_Previous">
+  <source>&lt; Prev</source>
+  <target>&lt; Anterior</target>
+</trans-unit>
+<trans-unit id="NavButton_Random">
+  <source>Random</source>
+  <target>Aleatorio</target>
+</trans-unit>
+<trans-unit id="NavButton_Explain">
+  <source>Explain</source>
+  <target>Explicar</target>
+</trans-unit>
+<trans-unit id="NavButton_GoTo">
+  <source>Go To</source>
+  <target>Ir a</target>
+</trans-unit>
+<trans-unit id="NavButton_Next">
+  <source>Next &gt;</source>
+  <target>Siguiente &gt;</target>
+</trans-unit>
+<trans-unit id="NavButton_Last">
+  <source>&gt;|</source>
+  <target>&gt;|</target>
+</trans-unit>
+<trans-unit id="Dialog_Error">
+  <source>Error</source>
+  <target>Error</target>
+</trans-unit>
+<trans-unit id="Dialog_ErrorTitle">
+  <source>Title</source>
+  <target>Título</target>
+</trans-unit>
+<trans-unit id="Dialog_ErrorMessage">
+  <source>Error</source>
+  <target>Mensaje de error</target>
+</trans-unit>
+<trans-unit id="Dialog_Quit">
+  <source>Quit</source>
+  <target>Salir</target>
+</trans-unit>
+<trans-unit id="Dialog_Continue">
+  <source>Continue</source>
+  <target>Continuar</target>
+</trans-unit>
+<trans-unit id="Dialog_Cancel">
+  <source>Cancel</source>
+  <target>Cancelar</target>
+</trans-unit>
+<trans-unit id="ContextMenu_CopyURL">
+  <source>Copy URL</source>
+  <target>Copiar URL</target>
+</trans-unit>
+<trans-unit id="Window_Title">
+  <source>Axkcd</source>
+  <target>Axkcd</target>
+</trans-unit>
+<trans-unit id="Window_TitleFormat">
+  <source>AXKCD: {0}</source>
+  <target>AXKCD: {0}</target>
+</trans-unit>
+<trans-unit id="Page_Title">
+  <source>A(valonia)XKCD</source>
+  <target>A(valonia)XKCD</target>
+</trans-unit>
+<trans-unit id="Page_Subtitle">
+  <source>Because laughing in C# is still (technically) laughing.</source>
+  <target>Porque reírse en C# sigue siendo (técnicamente) reírse.</target>
+</trans-unit>
+<trans-unit id="DevBanner_Text">
+  <source>In Development</source>
+  <target>En Desarrollo</target>
+</trans-unit>
+<trans-unit id="DevBanner_Title">
+  <source>Click to view source</source>
+  <target>Clic para ver el código fuente</target>
+</trans-unit>
+<trans-unit id="Footer_MadeWith">
+  <source>Made with an amalgamation of technologies that probably shouldn't work together, but somehow does:</source>
+  <target>Hecho con una amalgama de tecnologías que probablemente no deberían funcionar juntas, pero de alguna manera lo hacen:</target>
+</trans-unit>
+<trans-unit id="Footer_Avalonia_Title">
+  <source>Built with Avalonia UI Framework</source>
+  <target>Construido con Avalonia UI Framework</target>
+</trans-unit>
+<trans-unit id="Footer_Dotnet_Title">
+  <source>Powered by .NET and C#</source>
+  <target>Impulsado por .NET y C#</target>
+</trans-unit>
+<trans-unit id="Footer_Lit_Title">
+  <source>Enhanced with Lit Web Components</source>
+  <target>Mejorado con Lit Web Components</target>
+</trans-unit>
+<trans-unit id="Footer_Vite_Title">
+  <source>Bundled with Vite</source>
+  <target>Empaquetado con Vite</target>
+</trans-unit>
+</body>
+</file>
+</xliff>

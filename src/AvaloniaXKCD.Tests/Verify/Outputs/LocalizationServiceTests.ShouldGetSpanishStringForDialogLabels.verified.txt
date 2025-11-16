@@ -1,0 +1,6 @@
+﻿{
+  Error: Error,
+  Quit: Salir,
+  Continue: Continuar,
+  Cancel: Cancelar
+}

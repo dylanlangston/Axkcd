@@ -12,12 +12,11 @@ namespace AvaloniaXKCD.Generated
         [ModuleInitializer]
         internal static void RegisterExports()
         {
-            // Register implementation for TestNamespace.IService
-            Debug.WriteLine("Registering export: TestNamespace.IService -> TestNamespace.ServiceImpl1");
-            ExportContainer.Add<TestNamespace.IService, TestNamespace.ServiceImpl1>();
-            // Register implementation for TestNamespace.IService
-            Debug.WriteLine("Registering export: TestNamespace.IService -> TestNamespace.ServiceImpl2");
-            ExportContainer.Add<TestNamespace.IService, TestNamespace.ServiceImpl2>();
+            // Register 2 implementations for TestNamespace.IService (multi-registration)
+            Debug.WriteLine("Registering multi-export: TestNamespace.IService -> TestNamespace.ServiceImpl1");
+            ExportContainer.AddMulti<TestNamespace.IService, TestNamespace.ServiceImpl1>();
+            Debug.WriteLine("Registering multi-export: TestNamespace.IService -> TestNamespace.ServiceImpl2");
+            ExportContainer.AddMulti<TestNamespace.IService, TestNamespace.ServiceImpl2>();
         }
     }
 }

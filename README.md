@@ -38,6 +38,7 @@ AvaloniaXKCD is an XKCD comic viewer for desktop and browser. It provides a nati
 ## Features
 
 -   **Cross-Platform:** Native desktop applications for Windows and Linux, plus a browser-based viewer.
+-   **Localization:** Supports multiple languages (English and Spanish) with runtime locale detection.
 -   **Modern UI:** Responsive interface.
 -   **Developer-Friendly:** Structured codebase.
 
@@ -129,6 +130,7 @@ Contributions welcome. See [Contributing Guide](CONTRIBUTING.md).
 
 -   [Source Code](https://github.com/dylanlangston/axkcd)
 -   [Issue Tracker](https://github.com/dylanlangston/axkcd/issues)
+-   [Localization Guide](LOCALIZATION.md)
 -   [XKCD](https://xkcd.com/)
 -   [Explain XKCD](https://www.explainxkcd.com/)
 

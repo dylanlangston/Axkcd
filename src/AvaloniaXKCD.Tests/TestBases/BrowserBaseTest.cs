@@ -1,6 +1,6 @@
 namespace AvaloniaXKCD.Tests.TestBases;
 
-public abstract class BrowserBaseTest(string browser) : PageTest, IAsyncDisposable
+public abstract class BrowserBaseTest(string browser) : PageTest
 {
     public override string BrowserName => browser;
 
@@ -15,10 +15,5 @@ public abstract class BrowserBaseTest(string browser) : PageTest, IAsyncDisposab
             ColorScheme = ColorScheme.Dark,
             BaseURL = AvaloniaManager.Url
         };
-    }
-
-    public async ValueTask DisposeAsync()
-    {
-        await AvaloniaManager.DisposeAsync();
     }
 }

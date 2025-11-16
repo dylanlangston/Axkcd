@@ -408,10 +408,118 @@ When reviewing code changes:
 - **DON'T** ignore existing code patterns and conventions
 - **DON'T** make sweeping changes without discussion
 
+## Localization Architecture (Key Details)
+
+### Export System
+
+The project uses a custom Export/Import system (`AvaloniaXKCD.Exports`) for dependency injection:
+
+- **Interfaces**: Define contracts in `AvaloniaXKCD.Exports` (must implement `IExport`)
+- **Abstract base classes**: Can live in `AvaloniaXKCD/Exports/` namespace
+- **Platform implementations**: In `AvaloniaXKCD.Desktop/Exports/` or `AvaloniaXKCD.Browser/Exports/`
+- **Registration**: Automatic via source generators
+- **Retrieval**: `ExportContainer.Get<IInterface>()`
+- **Multi-registration**: Use `AddMulti<T>()` and `GetAll<T>()` for multiple implementations
+
+### Localization Implementation Patterns
+
+**Critical Insight**: Browser and Desktop have fundamentally different localization approaches:
+
+#### Desktop Implementation
+- Uses .NET `ResourceManager` to load `.resx` files directly
+- Resources embedded in `AvaloniaXKCD.Core` assembly
+- `LocalizationService` is abstract base class with virtual `GetString()`
+- Desktop implementation inherits and uses base `GetString()` method
+
+#### Browser Implementation  
+- **Does NOT use .resx files** - uses JavaScript interop instead
+- `BrowserLocalizationService` overrides `GetString()` to call `GetBrowserString()`
+- `GetBrowserString()` uses JSImport to call TypeScript `getString(key)`
+- TypeScript layer (`localized-string.ts`) manages all browser strings
+- This avoids resource loading issues in WebAssembly environment
+
+#### TypeScript/Lit Localization
+- `@lit/localize` with runtime mode for dynamic locale switching
+- `localized-string.ts`: Custom element with static `getString()` for interop
+- `dom-translator.ts`: Translates static HTML with `data-i18n` attributes
+- `locale.ts`: Configures Lit localization and auto-detects browser locale
+- `@localized()` decorator for automatic component re-rendering
+- XLIFF files in `/xliff/` for translations
+
+### Common Localization Mistakes to Avoid
+
+1. **Assembly Loading**: Don't assume `typeof(Class).Assembly` has resources - verify which assembly!
+2. **Browser Implementation**: Don't try to use ResourceManager in browser - use interop
+3. **Resource Files**: Don't create resources in `AvaloniaXKCD.Exports` - they go in `AvaloniaXKCD`
+4. **Lit Components**: Don't use `updateWhenLocaleChanges()` - use `@localized()` decorator
+5. **String IDs**: Don't forget to add `id` parameter to `msg()` calls: `msg('Text', { id: 'Key_Name' })`
+6. **DOM Querying**: Don't query Avalonia DOM in browser tests - use canvas screenshots
+7. **Locale Detection**: Don't hardcode locales - use detection and fallback
+
+### Localization Testing
+
+1. **Snapshot Testing**: Use Verify for regression protection
+2. **Test Methods**: Use descriptive names like `ShouldDetectBrowserLocale`
+3. **Assertions in Snapshots**: Nest assertions within `Verify()` calls
+4. **Browser Tests**: Use canvas screenshots for Avalonia browser tests (DOM querying doesn't work due to Avalonia issue #15453)
+5. **Test Both Platforms**: Desktop and Browser need separate validation
+
+## Reflection on Past Implementation Issues
+
+### Lessons Learned from Localization Work
+
+1. **Assembly Reference Error**: Initially used `typeof(LocalizationService).Assembly` which pointed to wrong assembly
+   - **Fix**: Explicitly load correct assembly or use platform-specific approaches
+
+2. **Browser Resource Loading**: Tried to use ResourceManager in browser which failed
+   - **Fix**: Use JavaScript interop to retrieve strings from TypeScript layer
+
+3. **Lit Component Updates**: Used `updateWhenLocaleChanges()` instead of `@localized()` decorator
+   - **Fix**: Follow Lit's recommended patterns for localization
+
+4. **DOM Testing**: Tried to query Avalonia DOM elements in browser tests
+   - **Fix**: Use canvas screenshots for visual validation
+
+5. **Message IDs**: Forgot to include `id` parameter in some `msg()` calls
+   - **Fix**: Always use `msg('Text', { id: 'Key_Name' })` format
+
+6. **Static HTML**: Didn't initially implement localization for static HTML content
+   - **Fix**: Created `dom-translator.ts` for `data-i18n` attribute translation
+
+### Best Practices Going Forward
+
+1. **Verify Architecture**: Before implementing, understand Desktop vs Browser differences
+2. **Test Both Targets**: Changes affecting both platforms need testing in both
+3. **Follow Existing Patterns**: The codebase has established patterns - use them
+4. **Read Documentation**: Check official docs (Avalonia, Lit) for recommended approaches
+5. **Ask for Clarification**: If unsure about architecture decisions, seek feedback early
+6. **Incremental Testing**: Test after each meaningful change, not just at the end
+7. **Review Corrections**: When user corrects implementation, study the changes carefully
+
+## Security and Review Process
+
+### Before Finalizing Changes
+
+1. **Run Tests**: Execute `make test` to catch regressions
+2. **Code Review**: Use `code_review` tool before final commit
+3. **Security Scan**: Use `codeql_checker` tool after code review
+4. **Verify Changes**: Manually test changed functionality
+5. **Check Scope**: Review committed files - use `.gitignore` for artifacts
+6. **Documentation**: Update relevant documentation files
+
+### Security Considerations
+
+1. **Dependency Scanning**: Use `gh-advisory-database` tool before adding dependencies
+2. **CodeQL**: Run `codeql_checker` before finalizing changes
+3. **No Secrets**: Never commit secrets or sensitive data
+4. **Input Validation**: Validate user input and external data
+5. **Resource Access**: Be cautious with assembly loading and reflection
+
 ## Additional Resources
 
 - [Source Code](https://github.com/dylanlangston/axkcd)
 - [Issue Tracker](https://github.com/dylanlangston/axkcd/issues)
+- [Localization Guide](LOCALIZATION.md)
 - [Avalonia UI Documentation](https://docs.avaloniaui.net/)
 - [.NET Documentation](https://docs.microsoft.com/dotnet/)
 - [XKCD API](https://xkcd.com/json.html)

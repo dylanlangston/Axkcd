@@ -63,6 +63,7 @@ jobs:
   test:
     name: Run All Tests
     needs: prepare
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
       - name: Check out code

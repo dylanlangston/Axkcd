@@ -12,14 +12,27 @@ namespace AvaloniaXKCD.Generated
         internal static void RegisterExports()
         {
             {{~ for iface in Interfaces ~}}
+            {{~ if iface.Implementations.size > 1 ~}}
+            // Register {{ iface.Implementations.size }} implementations for {{ iface.Name }} (multi-registration)
             {{~ for impl in iface.Implementations ~}}
-            // Register implementation for {{ iface.Name }}
+            {{~ if impl.ConstructorDependencies.size > 0 ~}}
+            Debug.WriteLine("Registering multi-export with factory: {{ iface.Name }} -> {{ impl.FullTypeName }}");
+            ExportContainer.AddMulti<{{ iface.Name }}, {{ impl.FullTypeName }}>(() => new {{ impl.FullTypeName }}({{~ for dep in impl.ConstructorDependencies ~}}new {{ dep.Type }}(){{ if for.last == false }}, {{ end }}{{~ end ~}}));
+            {{~ else ~}}
+            Debug.WriteLine("Registering multi-export: {{ iface.Name }} -> {{ impl.FullTypeName }}");
+            ExportContainer.AddMulti<{{ iface.Name }}, {{ impl.FullTypeName }}>();
+            {{~ end ~}}
+            {{~ end ~}}
+            {{~ else ~}}
+            {{~ for impl in iface.Implementations ~}}
+            // Register single implementation for {{ iface.Name }}
             {{~ if impl.ConstructorDependencies.size > 0 ~}}
             Debug.WriteLine("Registering export with factory: {{ iface.Name }} -> {{ impl.FullTypeName }}");
             ExportContainer.Add<{{ iface.Name }}, {{ impl.FullTypeName }}>(() => new {{ impl.FullTypeName }}({{~ for dep in impl.ConstructorDependencies ~}}new {{ dep.Type }}(){{ if for.last == false }}, {{ end }}{{~ end ~}}));
             {{~ else ~}}
             Debug.WriteLine("Registering export: {{ iface.Name }} -> {{ impl.FullTypeName }}");
             ExportContainer.Add<{{ iface.Name }}, {{ impl.FullTypeName }}>();
+            {{~ end ~}}
             {{~ end ~}}
             {{~ end ~}}
             {{~ end ~}}

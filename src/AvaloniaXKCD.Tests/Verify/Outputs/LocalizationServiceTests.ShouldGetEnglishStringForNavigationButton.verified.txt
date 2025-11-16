@@ -1,0 +1,6 @@
+﻿{
+  RandomButton: Random,
+  ExplainButton: Explain,
+  FirstButton: |<,
+  LastButton: >|
+}

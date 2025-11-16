@@ -1,0 +1,18 @@
+﻿{
+  English: {
+    Dialog_Cancel: Cancel,
+    Dialog_Continue: Continue,
+    Dialog_Error: Error,
+    Dialog_ErrorMessage: Error,
+    Dialog_ErrorTitle: Title,
+    Dialog_Quit: Quit
+  },
+  Spanish: {
+    Dialog_Cancel: Cancelar,
+    Dialog_Continue: Continuar,
+    Dialog_Error: Error,
+    Dialog_ErrorMessage: Error,
+    Dialog_ErrorTitle: Título,
+    Dialog_Quit: Salir
+  }
+}

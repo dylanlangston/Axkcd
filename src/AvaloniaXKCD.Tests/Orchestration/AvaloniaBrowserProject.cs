@@ -4,6 +4,21 @@ namespace AvaloniaXKCD.Tests.Orchestration;
 
 public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposable
 {
+    private static readonly List<AvaloniaBrowserProject> ActiveInstances = new();
+    static AvaloniaBrowserProject()
+    {
+        // Ensure we try and cleanup any remaining processes when the test runner process exits
+        AppDomain.CurrentDomain.ProcessExit += (_, _) =>
+        {
+            lock (ActiveInstances)
+            {
+                foreach (var instance in ActiveInstances.ToArray())
+                {
+                    instance.ForceCleanup();
+                }
+            }
+        };
+    }
     const string pathRelativeToSolution = "AvaloniaXKCD.Browser";
     static TimeSpan buildTimeout = TimeSpan.FromMinutes(3);
 
@@ -29,7 +44,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
         var startInfo = new ProcessStartInfo
         {
             FileName = "dotnet",
-            Arguments = "run --no-launch-profile",
+            Arguments = "run --no-launch-profile --no-restore",
             WorkingDirectory = @$"{Path.GetDirectoryName(TestContext.Current?.Metadata.TestDetails.TestFilePath)}/../{pathRelativeToSolution}",
             RedirectStandardOutput = true,
             RedirectStandardError = true,
@@ -59,7 +74,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
         catch (Exception ex)
         {
             Action<string?> writeAction = TestContext.Current != null ?
-                (string? value) => TestContext.Current.OutputWriter.WriteLine(value) : 
+                (string? value) => TestContext.Current.OutputWriter.WriteLine(value) :
                 (string? value) => Console.WriteLine(value);
             writeAction("--- Avalonia App startup failed. Captured output: ---");
             writeAction("--- Standard Output: ---");
@@ -78,6 +93,10 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
             HttpClient.Dispose();
         }
 
+        lock (ActiveInstances)
+        {
+            ActiveInstances.Add(this);
+        }
     }
 
     [GeneratedRegex(@"(http|https)://localhost:\d+", RegexOptions.Compiled)]
@@ -136,6 +155,12 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
 
     public async ValueTask DisposeAsync()
     {
+        // Remove from active list so the static ProcessExit handler doesn't attempt to kill it again
+        lock (ActiveInstances)
+        {
+            ActiveInstances.Remove(this);
+        }
+
         try
         {
             if (_avaloniaProcess is not null && !_avaloniaProcess.HasExited)
@@ -151,6 +176,41 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
         finally
         {
             _avaloniaProcess?.Dispose();
+        }
+    }
+
+    private void ForceCleanup()
+    {
+        try
+        {
+            if (_avaloniaProcess is not null && !_avaloniaProcess.HasExited)
+            {
+                try
+                {
+                    _avaloniaProcess.Kill(entireProcessTree: true);
+                }
+                catch (Exception ex)
+                {
+                    Action<string> writeAction = TestContext.Current is not null
+                        ? TestContext.Current.OutputWriter.WriteLine
+                        : Console.WriteLine;
+                    writeAction($"Failed to kill Avalonia process: {ex}");
+                }
+            }
+        }
+        finally
+        {
+            try
+            {
+                _avaloniaProcess?.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Action<string> writeAction = TestContext.Current is not null
+                    ? TestContext.Current.OutputWriter.WriteLine
+                    : Console.WriteLine;
+                writeAction($"Error disposing process: {ex}");
+            }
         }
     }
 }

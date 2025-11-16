@@ -154,6 +154,11 @@ restore: ## Restore the nuget packages for the solution.
 sync: ## Run the XKCD sync tool to mirror comics.
 	@dotnet run ./src/XKCDSyncTool.cs -- -o ./mirror -b $(HOST_URL)
 
+localize-frontend: ## Extract and build localization files for the frontend.
+	@$(ECHO) "--- Extracting and building frontend localization ---"
+	@cd src/AvaloniaXKCD.Site; bun run lit-localize:extract
+	@cd src/AvaloniaXKCD.Site; bun run lit-localize:build
+
 DOCKER_KINDS = test sync
 sync_output = --output type=local,dest=./mirror
 docker-test: ## Run all test in the solution via Docker.

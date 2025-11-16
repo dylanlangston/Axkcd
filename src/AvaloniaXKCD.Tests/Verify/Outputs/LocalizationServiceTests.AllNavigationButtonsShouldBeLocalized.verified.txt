@@ -1,0 +1,20 @@
+﻿{
+  English: {
+    NavButton_Explain: Explain,
+    NavButton_First: |<,
+    NavButton_GoTo: Go To,
+    NavButton_Last: >|,
+    NavButton_Next: Next >,
+    NavButton_Previous: < Prev,
+    NavButton_Random: Random
+  },
+  Spanish: {
+    NavButton_Explain: Explicar,
+    NavButton_First: |<,
+    NavButton_GoTo: Ir a,
+    NavButton_Last: >|,
+    NavButton_Next: Siguiente >,
+    NavButton_Previous: < Anterior,
+    NavButton_Random: Aleatorio
+  }
+}

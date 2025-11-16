@@ -12,7 +12,7 @@ namespace AvaloniaXKCD.Generated
         [ModuleInitializer]
         internal static void RegisterExports()
         {
-            // Register implementation for TestNamespace.IService
+            // Register single implementation for TestNamespace.IService
             Debug.WriteLine("Registering export with factory: TestNamespace.IService -> TestNamespace.MyService");
             ExportContainer.Add<TestNamespace.IService, TestNamespace.MyService>(() => new TestNamespace.MyService(new TestNamespace.Repo(), new TestNamespace.Logger()));
         }

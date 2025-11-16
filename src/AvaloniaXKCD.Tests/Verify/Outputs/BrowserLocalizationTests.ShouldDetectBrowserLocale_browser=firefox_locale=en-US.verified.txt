@@ -1,0 +1,4 @@
+﻿{
+  DetectedLocale: en-US,
+  ExpectedLocale: en-US
+}
