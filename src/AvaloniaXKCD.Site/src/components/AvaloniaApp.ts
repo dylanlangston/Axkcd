@@ -131,8 +131,6 @@ export class AvaloniaApp extends LitElement {
 
   constructor() {
     super();
-    this.handleFullscreenChange = this.handleFullscreenChange.bind(this);
-    this.handlePopState = this.handlePopState.bind(this);
   }
 
   connectedCallback() {
@@ -148,9 +146,8 @@ export class AvaloniaApp extends LitElement {
     window.removeEventListener('popstate', this.handlePopState);
 
     if (this.uriChangeSubscription && this.avaloniaApp) {
-      this.avaloniaApp.AvaloniaXKCD.Browser.BrowserSystemActions.RemoveOnUriChangeCallback(
-        this.uriChangeSubscription
-      );
+      const systemActions = this.avaloniaApp?.AvaloniaXKCD.Browser.BrowserSystemActions
+      systemActions?.RemoveOnUriChangeCallback(this.uriChangeSubscription);
     }
   }
 
@@ -186,7 +183,7 @@ export class AvaloniaApp extends LitElement {
 
   private comicRegex = /\/(\d+)$/;
 
-  async startAvalonia() {
+  async startAvalonia(): Promise<void> {
     try {
       const dotnetRuntime = await dotnet
         .withDiagnosticTracing(true)
@@ -199,7 +196,7 @@ export class AvaloniaApp extends LitElement {
           applicationCulture: interop.getLocale(),
         })
         .withModuleConfig({
-          onAbort: (_: any) => {
+          onAbort: (_: unknown) => {
             console.error('Fatal error in .NET runtime.');
             this.fatalError =
               'A fatal error has occurred in the .NET runtime. Please reload the page.';
@@ -232,16 +229,18 @@ export class AvaloniaApp extends LitElement {
         this.isLoading = false;
       });
 
-      this.avaloniaApp = await dotnetRuntime.getAssemblyExports('AvaloniaXKCD.Browser');
-      this.uriChangeSubscription =
-        this.avaloniaApp?.AvaloniaXKCD.Browser.BrowserSystemActions.AddOnUriChangeCallback(
-          (newUri: string) => {
-            this.setLastSlugToComic(Number(newUri));
-          }
-        );
-    } catch (error) {
-      console.error('Failed to start Avalonia application:', error);
-      this.fatalError = `${error instanceof Error ? error.message : String(error)}`;
+      this.avaloniaApp = (await dotnetRuntime.getAssemblyExports(
+        'AvaloniaXKCD.Browser'
+      )) as AvaloniaXKCDBrowser | null;
+
+      const systemActions = this.avaloniaApp?.AvaloniaXKCD.Browser.BrowserSystemActions
+
+      this.uriChangeSubscription = systemActions?.AddOnUriChangeCallback((newUri: string) => {
+        this.setLastSlugToComic(Number(newUri));
+      }) ?? null;
+    } catch (err: unknown) {
+      console.error('Failed to start Avalonia application:', String(err));
+      this.fatalError = err instanceof Error ? err.message : String(err);
     }
   }
 
@@ -263,24 +262,26 @@ export class AvaloniaApp extends LitElement {
     }
   }
 
-  async toggleFullscreen() {
+  private toggleFullscreen = async (): Promise<void> => {
     if (!document.fullscreenElement) {
       await this.requestFullscreen();
     } else {
       await document.exitFullscreen();
     }
-  }
+  };
 
-  handleFullscreenChange() {
+  private handleFullscreenChange = (): void => {
     this.isFullscreen = !!document.fullscreenElement;
     this.toggleAttribute('fullscreen', this.isFullscreen);
-  }
+  };
 
-  private handlePopState(event: PopStateEvent) {
-    if (event.state && event.state.uri && this.avaloniaApp) {
-      this.avaloniaApp.AvaloniaXKCD.Browser.BrowserSystemActions.InvokeOnUriChangeCallback(
-        String(event.state.uri)
-      );
+  private handlePopState = (event: PopStateEvent): void => {
+    const state = event.state as Record<string, unknown> | null;
+    if (state && 'uri' in state && this.avaloniaApp) {
+      const uriValue = state.uri as string | number;
+      const systemActions = this.avaloniaApp.AvaloniaXKCD.Browser
+        .BrowserSystemActions as unknown as { InvokeOnUriChangeCallback?: (uri: string) => void };
+      systemActions.InvokeOnUriChangeCallback?.(String(uriValue));
     }
-  }
+  };
 }

@@ -53,7 +53,7 @@ export class ErrorMessage extends LitElement {
     `;
   }
 
-  private _reloadPage(): void {
+  private _reloadPage = (): void => {
     window.location.reload();
-  }
+  };
 }

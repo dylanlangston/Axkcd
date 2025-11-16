@@ -67,7 +67,7 @@ class LocalizedString extends LitElement {
     if (this.localizedText === undefined) {
       this.render();
     }
-    return this.localizedText!;
+    return this.localizedText ?? this.key;
   }
 }
 

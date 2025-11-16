@@ -1,10 +1,10 @@
-import { configureLocalization, msg as litMsg } from '@lit/localize';
+import { configureLocalization, msg as litMsg, type LocaleModule } from '@lit/localize';
 import { sourceLocale, targetLocales } from './locale-codes';
 import { getLocalizedString } from './localized-string';
 // Import the custom element to ensure it's registered
 import './localized-string';
 
-export const msg = litMsg as typeof import('@lit/localize').msg;
+export const msg = litMsg;
 
 const localizedTemplates = new Map(
   targetLocales.map((locale) => [locale, import(`./locales/${locale}.ts`)])
@@ -18,7 +18,7 @@ export const { getLocale, setLocale } = configureLocalization({
     if (!modulePromise) {
       throw new Error(`No locale module found for: ${locale}`);
     }
-    return await modulePromise;
+    return (await modulePromise) as Promise<LocaleModule>;
   },
 });
 
@@ -33,8 +33,7 @@ if (matchedLocale) {
 
 export const addLocaleChangeListener = (callback: () => void) => {
   window.addEventListener('lit-localize-status', (ev) => {
-    const e: any = ev;
-    if (e?.detail?.status === 'ready') {
+    if (ev?.detail?.status === 'ready') {
       callback();
     }
   });

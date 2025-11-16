@@ -1,4 +1,4 @@
-﻿namespace AvaloniaXKCD.ViewModels;
+namespace AvaloniaXKCD.ViewModels;
 
 public partial class XKCDViewModel : ViewModelBase
 {

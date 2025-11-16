@@ -1,5 +1,4 @@
-import { addLocaleChangeListener } from './locale';
-import './localized-string';
+import { addLocaleChangeListener, getString } from './locale';
 
 /**
  * Translates static HTML content by finding elements with data-i18n attributes
@@ -8,20 +7,12 @@ import './localized-string';
 export function translateStaticContent(): void {
   // Wait for the custom element to be defined
   void customElements.whenDefined('localized-string').then(() => {
-    // Get the LocalizedString constructor from the custom elements registry
-    const LocalizedStringClass = customElements.get('localized-string') as any;
-
-    if (!LocalizedStringClass?.getString) {
-      console.warn('LocalizedString.getString method not available');
-      return;
-    }
-
     // Translate elements with data-i18n attribute for text content
-    const elementsToTranslate = document.querySelectorAll('[data-i18n]');
+    const elementsToTranslate = document.querySelectorAll<HTMLElement>('[data-i18n]');
     elementsToTranslate.forEach((element) => {
       const key = element.getAttribute('data-i18n');
       if (key) {
-        const translatedText = LocalizedStringClass.getString(key);
+        const translatedText = getString(key);
 
         // Handle different content types
         const contentType = element.getAttribute('data-i18n-attr');
@@ -37,11 +28,11 @@ export function translateStaticContent(): void {
     });
 
     // Handle elements with data-i18n-title attribute for title attributes
-    const elementsWithTitle = document.querySelectorAll('[data-i18n-title]');
+    const elementsWithTitle = document.querySelectorAll<HTMLElement>('[data-i18n-title]');
     elementsWithTitle.forEach((element) => {
       const key = element.getAttribute('data-i18n-title');
       if (key) {
-        const translatedText = LocalizedStringClass.getString(key);
+        const translatedText = getString(key);
         element.setAttribute('title', translatedText);
       }
     });
@@ -49,7 +40,7 @@ export function translateStaticContent(): void {
     // Also update the page title
     const titleElement = document.querySelector('title');
     if (titleElement) {
-      titleElement.textContent = LocalizedStringClass.getString('Page_Title');
+      titleElement.textContent = getString('Page_Title');
     }
   });
 }

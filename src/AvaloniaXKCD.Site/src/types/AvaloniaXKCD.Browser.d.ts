@@ -1,11 +1,7 @@
-declare function AddOnUriChangeCallback(cb: (string) => void): string;
-declare function RemoveOnUriChangeCallback(subscription: string): void;
-declare function InvokeOnUriChangeCallback(uri: string): void;
-
 type BrowserSystemActions = {
-  AddOnUriChangeCallback: AddOnUriChangeCallback;
-  RemoveOnUriChangeCallback: RemoveOnUriChangeCallback;
-  InvokeOnUriChangeCallback: InvokeOnUriChangeCallback;
+  AddOnUriChangeCallback: (cb: (string) => void) => string;
+  RemoveOnUriChangeCallback: (subscription: string) => void;
+  InvokeOnUriChangeCallback: (uri: string) => void;
 };
 
 type Browser = {
