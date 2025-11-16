@@ -1,3 +1,4 @@
+using System.Globalization;
 using AvaloniaXKCD.Exports;
 
 namespace AvaloniaXKCD.Tests.Exports;
@@ -8,5 +9,6 @@ namespace AvaloniaXKCD.Tests.Exports;
 /// </summary>
 public sealed class TestLocalizationService : LocalizationService
 {
-    // Empty - just provides a concrete implementation for testing
+    public override CultureInfo GetCulture()
+        => CultureInfo.CurrentUICulture;
 }

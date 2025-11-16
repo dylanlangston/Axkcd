@@ -1,4 +1,0 @@
-﻿{
-  Locale: es-ES,
-  Title: A(valonia)XKCD
-}

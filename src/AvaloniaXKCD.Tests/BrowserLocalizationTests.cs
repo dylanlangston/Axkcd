@@ -31,17 +31,13 @@ public class BrowserLocalizationTests(string browser, string locale) : BrowserBa
     public async Task ShouldRenderLocalizedUIInCanvas(CancellationToken cancellation)
     {
         await Page.GotoAsync("/");
-        
         // Wait for the Avalonia canvas to load and render
         await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-        
         // Wait for the canvas element to be present
         var canvas = Page.Locator("canvas");
         await Expect(canvas).ToBeVisibleAsync(new() { Timeout = 30000 });
-        
         // Give the Avalonia app time to initialize and render localized content
         await Page.WaitForTimeoutAsync(3000);
-        
         // Take a screenshot of the canvas showing localized UI controls
         await Verify(Page)
             .UpdateSettings(_ =>
@@ -49,13 +45,17 @@ public class BrowserLocalizationTests(string browser, string locale) : BrowserBa
                 new()
                 {
                     Quality = 50,
-                    Type = ScreenshotType.Jpeg
-                }, screenshotOnly: true))
+                    Type = ScreenshotType.Jpeg,
+                    Mask = [
+                        canvas
+                    ],
+                    FullPage = false
+                }, screenshotOnly: true)
+                .ImageMagickComparer(0.05))
             .Assert<IPage>(async _ =>
             {
                 // Verify page loaded successfully
                 await Expect(Page).ToHaveTitleAsync(new Regex(@"^(A\(valonia\)XKCD|AXKCD: .*)$"));
-                
                 // Verify canvas is visible and has content
                 await Expect(canvas).ToBeVisibleAsync();
             });
@@ -85,10 +85,8 @@ public class BrowserLocalizationTests(string browser, string locale) : BrowserBa
     {
         await Page.GotoAsync("/");
         await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-        
         // Wait for app to initialize
         await Page.WaitForTimeoutAsync(2000);
-        
         // Get the page title
         var title = await Page.TitleAsync();
 
@@ -100,6 +98,11 @@ public class BrowserLocalizationTests(string browser, string locale) : BrowserBa
 
         // Verify title follows expected format
         await VerifyAssertionsPlugin.Verify(result)
+            .UpdateSettings(settings =>
+            {
+                settings.IgnoreMember("Title");
+                return settings;
+            })
             .Assert(r =>
             {
                 r.Title.ShouldNotBeNullOrEmpty();

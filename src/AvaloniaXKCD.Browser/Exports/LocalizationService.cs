@@ -14,37 +14,34 @@ public partial class BrowserLocalizationService : LocalizationService
     internal static partial string GetBrowserLocale();
 
     [JSImport("setLocale", "interop")]
-    internal static partial void SetBrowserLocale(string locale);
+    internal static partial Task SetBrowserLocale(string locale);
 
-    public BrowserLocalizationService()
+    [JSImport("getString", "interop")]
+    internal static partial string GetBrowserString(string key);
+
+    public override CultureInfo GetCulture()
+        => GetBrowserLocale() switch
+        {
+            null or "" => CultureInfo.GetCultureInfo("en"),
+            var locale => CultureInfo.GetCultureInfo(locale)
+        };
+
+    public override string GetString(string key)
     {
-        // Try to get locale from browser
-        try
-        {
-            var browserLocale = GetBrowserLocale();
-            if (!string.IsNullOrEmpty(browserLocale))
-            {
-                SetCulture(browserLocale);
-            }
-        }
-        catch
-        {
-            // If browser locale detection fails, use system default
-        }
+        return GetBrowserString(key);
+    }
 
-        // Listen for culture changes and sync to browser
+    public BrowserLocalizationService() : base()
+    {
         CultureChanged += OnCultureChangedHandler;
     }
 
-    private void OnCultureChangedHandler(object? sender, CultureInfo culture)
+    private async void OnCultureChangedHandler(object? sender, CultureInfo culture)
     {
         try
         {
-            SetBrowserLocale(culture.TwoLetterISOLanguageName);
+            await SetBrowserLocale(culture.TwoLetterISOLanguageName);
         }
-        catch
-        {
-            // Ignore errors syncing to browser
-        }
+        catch { }
     }
 }

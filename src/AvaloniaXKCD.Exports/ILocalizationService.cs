@@ -18,6 +18,12 @@ public interface ILocalizationService : IExport
     event EventHandler<CultureInfo>? CultureChanged;
 
     /// <summary>
+    /// Gets the current culture
+    /// </summary>
+    /// <returns>The current culture</returns>
+    CultureInfo GetCulture();
+
+    /// <summary>
     /// Sets the current culture
     /// </summary>
     /// <param name="culture">The culture to set</param>

@@ -8,4 +8,6 @@ namespace AvaloniaXKCD.Desktop;
 /// </summary>
 public class DesktopLocalizationService : LocalizationService
 {
+    public override CultureInfo GetCulture()
+        => CultureInfo.CurrentUICulture;
 }

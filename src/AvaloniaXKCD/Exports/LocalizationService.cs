@@ -10,18 +10,17 @@ namespace AvaloniaXKCD.Exports;
 public abstract class LocalizationService : ILocalizationService
 {
     private readonly ResourceManager _resourceManager;
-    private CultureInfo _currentCulture;
+    private CultureInfo _currentCulture = CultureInfo.GetCultureInfo("es");
 
     protected LocalizationService()
     {
-        // Load resources from AvaloniaXKCD.Core assembly where the .resx files are embedded
-        var resourceAssembly = System.Reflection.Assembly.Load("AvaloniaXKCD.Core");
+        var resourceAssembly = typeof(LocalizationService).Assembly;
         _resourceManager = new ResourceManager("AvaloniaXKCD.Resources.Strings", resourceAssembly);
-        
-        // Initialize with system culture or fallback to English
-        _currentCulture = GetSystemCulture();
+
+        CurrentCulture = GetCulture();
     }
 
+    public static string[] supportedCultures = new[] { "en", "es" };
     public CultureInfo CurrentCulture
     {
         get => _currentCulture;
@@ -29,10 +28,35 @@ public abstract class LocalizationService : ILocalizationService
         {
             if (!Equals(_currentCulture, value))
             {
-                _currentCulture = value;
-                CultureInfo.CurrentCulture = value;
-                CultureInfo.CurrentUICulture = value;
-                CultureChanged?.Invoke(this, value);
+                void SetCultureInfo(CultureInfo culture)
+                {
+                    _currentCulture = culture;
+                    CultureInfo.CurrentCulture = culture;
+                    CultureInfo.CurrentUICulture = culture;
+                    CultureChanged?.Invoke(this, culture);
+                }
+
+                try
+                {
+                    if (supportedCultures.Contains(value.Name))
+                    {
+                        SetCultureInfo(value);
+                        return;
+                    }
+
+                    if (supportedCultures.Contains(value.TwoLetterISOLanguageName))
+                    {
+                        SetCultureInfo(CultureInfo.GetCultureInfo(value.TwoLetterISOLanguageName));
+                        return;
+                    }
+
+                    SetCultureInfo(CultureInfo.GetCultureInfo("en"));
+                }
+                catch
+                {
+                    SetCultureInfo(CultureInfo.GetCultureInfo("en"));
+                }
+
             }
         }
     }
@@ -53,16 +77,16 @@ public abstract class LocalizationService : ILocalizationService
         }
         catch (CultureNotFoundException)
         {
-            // Fallback to English if culture not found
             SetCulture(CultureInfo.GetCultureInfo("en"));
         }
     }
 
-    public string GetString(string key)
+    public virtual string GetString(string key)
     {
         try
         {
             var value = _resourceManager.GetString(key, _currentCulture);
+            App.Logger.LogInformation($"LocalizationService: Retrieved string for key '{key}' in culture '{_currentCulture}': '{value}'");
             return value ?? key;
         }
         catch
@@ -84,35 +108,6 @@ public abstract class LocalizationService : ILocalizationService
         }
     }
 
-    private static CultureInfo GetSystemCulture()
-    {
-        try
-        {
-            // Try to get the system's UI culture
-            var systemCulture = CultureInfo.CurrentUICulture;
-            
-            // Check if we have resources for this culture or its parent
-            var supportedCultures = new[] { "en", "es" };
-            
-            // Try the specific culture first (e.g., "es-MX")
-            if (supportedCultures.Contains(systemCulture.Name))
-            {
-                return systemCulture;
-            }
-            
-            // Try the neutral culture (e.g., "es" from "es-MX")
-            if (supportedCultures.Contains(systemCulture.TwoLetterISOLanguageName))
-            {
-                return CultureInfo.GetCultureInfo(systemCulture.TwoLetterISOLanguageName);
-            }
-            
-            // Fallback to English
-            return CultureInfo.GetCultureInfo("en");
-        }
-        catch
-        {
-            // If all else fails, use English
-            return CultureInfo.GetCultureInfo("en");
-        }
-    }
+
+    public abstract CultureInfo GetCulture();
 }
