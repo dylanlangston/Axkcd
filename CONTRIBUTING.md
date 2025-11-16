@@ -31,7 +31,7 @@ Use the [Dev Container](https://code.visualstudio.com/docs/remote/containers) fo
 
 This project uses automated linting and formatting tools to maintain code quality and consistency:
 
-- **C#**: Uses CSharpier for opinionated formatting and `dotnet format` for style analysis
+- **C#**: Uses CSharpier for opinionated formatting and `dotnet format` for style analysis. ReSharper is available for advanced local linting (optional, requires significant disk space).
 - **TypeScript/JavaScript**: Uses Prettier for formatting and ESLint for linting
 
 **Available Commands:**
@@ -39,8 +39,11 @@ This project uses automated linting and formatting tools to maintain code qualit
 - `make format` - Format all code (C# and TypeScript)
 - `make format-csharp` - Format only C# code
 - `make format-typescript` - Format only TypeScript code
-- `make lint` - Run all linters
+- `make lint` - Run all linters (TypeScript in CI)
 - `make lint-typescript` - Lint TypeScript code
+- `make lint-csharp-local` - Lint C# with ReSharper (local development only, resource-intensive)
 - `make format-check` - Check formatting without making changes (used in CI)
+
+**Note on C# Linting:** ReSharper linting (`make lint-csharp-local`) is available for local development but requires building the entire solution and significant disk space (~3GB+). It is not run in CI due to resource constraints. The CI pipeline focuses on formatting checks with CSharpier and dotnet format.
 
 The CI pipeline will automatically check formatting and linting on all pull requests.

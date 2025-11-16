@@ -8,6 +8,12 @@
         "csharpier"
       ],
       "rollForward": false
+    },
+    "jetbrains.resharper.globaltools": {
+      "version": "2025.2.4",
+      "commands": [
+        "jb"
+      ]
     }
   }
 }

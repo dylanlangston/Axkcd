@@ -212,11 +212,16 @@ format-check-typescript: ## Check TypeScript/JavaScript formatting without makin
 
 format-check: format-check-csharp format-check-typescript ## Check all code formatting (C# and TypeScript).
 
+lint-csharp-local: ## Lint C# source code with ReSharper (local development only - requires significant disk space).
+	@$(ECHO) "--- Linting C# code with ReSharper (this may take several minutes) ---"
+	@cd src; dotnet jb inspectcode AvaloniaXKCD.slnx --output=/tmp/resharper-report.xml --severity=WARNING --build
+	@$(ECHO) "ReSharper report generated at /tmp/resharper-report.xml"
+
 lint-typescript: ## Lint TypeScript/JavaScript source code.
 	@$(ECHO) "--- Linting TypeScript/JavaScript code ---"
 	@cd src/AvaloniaXKCD.Site; npm run lint
 
-lint: lint-typescript ## Lint all source code.
+lint: lint-typescript ## Lint all source code (TypeScript only in CI).
 
 clean: ## Clean local environment (bin/obj folders).
 	@cd src; dotnet clean
