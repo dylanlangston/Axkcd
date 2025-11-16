@@ -42,6 +42,9 @@ public partial class BrowserLocalizationService : LocalizationService
         {
             await SetBrowserLocale(culture.TwoLetterISOLanguageName);
         }
-        catch { }
+        catch (Exception ex)
+        {
+            App.Logger.LogError($"Failed to set browser locale: {ex}");
+        }
     }
 }

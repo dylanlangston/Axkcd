@@ -10,7 +10,7 @@ namespace AvaloniaXKCD.Exports;
 public abstract class LocalizationService : ILocalizationService
 {
     private readonly ResourceManager _resourceManager;
-    private CultureInfo _currentCulture = CultureInfo.GetCultureInfo("es");
+    private CultureInfo _currentCulture = CultureInfo.GetCultureInfo("en");
 
     protected LocalizationService()
     {
@@ -20,7 +20,7 @@ public abstract class LocalizationService : ILocalizationService
         CurrentCulture = GetCulture();
     }
 
-    public static string[] supportedCultures = new[] { "en", "es" };
+    public static readonly string[] supportedCultures = new[] { "en", "es" };
     public CultureInfo CurrentCulture
     {
         get => _currentCulture;
@@ -52,8 +52,9 @@ public abstract class LocalizationService : ILocalizationService
 
                     SetCultureInfo(CultureInfo.GetCultureInfo("en"));
                 }
-                catch
+                catch (Exception ex)
                 {
+                    App.Logger.LogWarning($"Failed to set culture: {ex.Message}");
                     SetCultureInfo(CultureInfo.GetCultureInfo("en"));
                 }
 
@@ -86,11 +87,12 @@ public abstract class LocalizationService : ILocalizationService
         try
         {
             var value = _resourceManager.GetString(key, _currentCulture);
-            App.Logger.LogInformation($"LocalizationService: Retrieved string for key '{key}' in culture '{_currentCulture}': '{value}'");
+            App.Logger.LogDebug($"LocalizationService: Retrieved string for key '{key}' in culture '{_currentCulture}': '{value}'");
             return value ?? key;
         }
-        catch
+        catch (Exception ex)
         {
+            App.Logger.LogWarning($"Failed to retrieve string for key '{key}': {ex.Message}");
             return key;
         }
     }
@@ -102,8 +104,9 @@ public abstract class LocalizationService : ILocalizationService
         {
             return string.Format(format, args);
         }
-        catch
+        catch (Exception ex)
         {
+            App.Logger.LogWarning($"Failed to format string '{format}' with args: {ex.Message}");
             return format;
         }
     }

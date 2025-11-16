@@ -36,11 +36,11 @@ public partial class ExportContainer
     public static T[] GetAll<T>(string name) where T : IExport => GetAllEnumerable<T>(name).ToArray();
     static IEnumerable<T> GetAllEnumerable<T>(string name) where T : IExport
     {
-        if (!_multiFactories.ContainsKey(name))
+        if (!_multiFactories.TryGetValue(name, out var lazyList))
         {
             return Array.Empty<T>();
         }
-        return _multiFactories[name].Select(lazy => (T)lazy.Value);
+        return lazyList.Select(lazy => (T)lazy.Value);
     }
     
     public static T[] GetAll<T>() where T : IExport => GetAll<T>(typeof(T).FullName);

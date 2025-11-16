@@ -18,7 +18,13 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
                     {
                         instance.ForceCleanup();
                     }
-                    catch { }
+                    catch (Exception ex)
+                    {
+                        var writeAction = TestContext.Current is not null
+                            ? (string? value) => TestContext.Current.OutputWriter.WriteLine(value)
+                            : (string? value) => Console.WriteLine(value);
+                        writeAction($"Exception during ForceCleanup for instance: {ex}");
+                    }
                 }
             }
         };
@@ -193,7 +199,13 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
                 {
                     _avaloniaProcess.Kill(entireProcessTree: true);
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    var writeAction = TestContext.Current is not null
+                        ? (string? value) => TestContext.Current.OutputWriter.WriteLine(value)
+                        : (string? value) => Console.WriteLine(value);
+                    writeAction($"Failed to kill Avalonia process: {ex}");
+                }
             }
         }
         finally
@@ -202,7 +214,13 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
             {
                 _avaloniaProcess?.Dispose();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                var writeAction = TestContext.Current is not null
+                    ? (string? value) => TestContext.Current.OutputWriter.WriteLine(value)
+                    : (string? value) => Console.WriteLine(value);
+                writeAction($"Error disposing process: {ex}");
+            }
         }
     }
 }
