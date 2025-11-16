@@ -14,7 +14,7 @@ export const { getLocale, setLocale } = configureLocalization({
   sourceLocale,
   targetLocales,
   loadLocale: async (locale) => {
-    const modulePromise = localizedTemplates.get(locale as typeof targetLocales[number]);
+    const modulePromise = localizedTemplates.get(locale as (typeof targetLocales)[number]);
     if (!modulePromise) {
       throw new Error(`No locale module found for: ${locale}`);
     }
@@ -24,9 +24,11 @@ export const { getLocale, setLocale } = configureLocalization({
 
 const navigatorLang = navigator.languages?.[0] ?? navigator.language ?? sourceLocale;
 const navigatorBaseLang = navigatorLang.split('-')[0];
-const matchedLocale = targetLocales.find((l) => l === navigatorLang || l.split('-')[0] === navigatorBaseLang);
+const matchedLocale = targetLocales.find(
+  (l) => l === navigatorLang || l.split('-')[0] === navigatorBaseLang
+);
 if (matchedLocale) {
-  setLocale(matchedLocale);
+  void setLocale(matchedLocale);
 }
 
 export const addLocaleChangeListener = (callback: () => void) => {
@@ -40,4 +42,4 @@ export const addLocaleChangeListener = (callback: () => void) => {
 
 export const getString = (key: string): string => {
   return getLocalizedString(key);
-}
+};

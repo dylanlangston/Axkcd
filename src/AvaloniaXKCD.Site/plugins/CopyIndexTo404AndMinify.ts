@@ -1,7 +1,7 @@
-import { readFile, writeFile } from "fs/promises";
-import { resolve } from "path";
-import { Plugin } from "vite";
-import { minify } from "html-minifier-terser";
+import { readFile, writeFile } from 'fs/promises';
+import { resolve } from 'path';
+import { Plugin } from 'vite';
+import { minify } from 'html-minifier-terser';
 
 export function copyIndexTo404AndMinify(): Plugin {
   return {
@@ -10,7 +10,9 @@ export function copyIndexTo404AndMinify(): Plugin {
     async writeBundle(options) {
       const outDir = options.dir;
       if (!outDir) {
-        console.warn('Could not determine output directory. Skipping 404.html copy and minification.');
+        console.warn(
+          'Could not determine output directory. Skipping 404.html copy and minification.'
+        );
         return;
       }
 
@@ -34,10 +36,9 @@ export function copyIndexTo404AndMinify(): Plugin {
 
         await writeFile(indexPath, minifiedHtml, 'utf-8');
         await writeFile(fourOhFourPath, minifiedHtml, 'utf-8');
-
       } catch (error) {
         console.error(`Could not copy and minify index.html to 404.html: ${error}`);
       }
-    }
+    },
   };
 }

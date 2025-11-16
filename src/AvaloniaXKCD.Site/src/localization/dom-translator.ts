@@ -7,22 +7,22 @@ import './localized-string';
  */
 export function translateStaticContent(): void {
   // Wait for the custom element to be defined
-  customElements.whenDefined('localized-string').then(() => {
+  void customElements.whenDefined('localized-string').then(() => {
     // Get the LocalizedString constructor from the custom elements registry
     const LocalizedStringClass = customElements.get('localized-string') as any;
-    
+
     if (!LocalizedStringClass?.getString) {
       console.warn('LocalizedString.getString method not available');
       return;
     }
-    
+
     // Translate elements with data-i18n attribute for text content
     const elementsToTranslate = document.querySelectorAll('[data-i18n]');
     elementsToTranslate.forEach((element) => {
       const key = element.getAttribute('data-i18n');
       if (key) {
         const translatedText = LocalizedStringClass.getString(key);
-        
+
         // Handle different content types
         const contentType = element.getAttribute('data-i18n-attr');
         if (contentType === 'title') {
@@ -35,7 +35,7 @@ export function translateStaticContent(): void {
         }
       }
     });
-    
+
     // Handle elements with data-i18n-title attribute for title attributes
     const elementsWithTitle = document.querySelectorAll('[data-i18n-title]');
     elementsWithTitle.forEach((element) => {
@@ -45,7 +45,7 @@ export function translateStaticContent(): void {
         element.setAttribute('title', translatedText);
       }
     });
-    
+
     // Also update the page title
     const titleElement = document.querySelector('title');
     if (titleElement) {

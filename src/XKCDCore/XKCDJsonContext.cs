@@ -7,6 +7,4 @@ namespace XKCDCore;
     PropertyNamingPolicy = JsonKnownNamingPolicy.SnakeCaseLower
 )]
 [JsonSerializable(typeof(XKCDComic))]
-internal partial class XKCDJsonContext : JsonSerializerContext
-{
-}
+internal partial class XKCDJsonContext : JsonSerializerContext { }

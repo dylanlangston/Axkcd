@@ -11,13 +11,16 @@ public partial class BrowserSystemActions : ISystemActions
 {
     #region Handle URI Change
     [JSExport]
-    public static string? AddOnUriChangeCallback([JSMarshalAs<JSType.Function<JSType.String>>()] Action<string> callback)
+    public static string? AddOnUriChangeCallback(
+        [JSMarshalAs<JSType.Function<JSType.String>>()] Action<string> callback
+    )
     {
         if (App.SystemActions is BrowserSystemActions self && self._uriChangeBridge != null)
         {
             return self._uriChangeBridge.Add(callback);
         }
-        else throw new NullReferenceException();
+        else
+            throw new NullReferenceException();
     }
 
     [JSExport]
@@ -27,7 +30,8 @@ public partial class BrowserSystemActions : ISystemActions
         {
             self._uriChangeBridge.Remove(subscription);
         }
-        else throw new NullReferenceException();
+        else
+            throw new NullReferenceException();
     }
 
     [JSExport]
@@ -37,21 +41,25 @@ public partial class BrowserSystemActions : ISystemActions
         {
             self._uriChangeBridge.Invoke(uri);
         }
-        else throw new NullReferenceException();
+        else
+            throw new NullReferenceException();
     }
 
-    private readonly CSharpGenericEventBridge<string>? _uriChangeBridge =
-        CSharpEventBridgeFactory.GetBridge<string>($"{nameof(BrowserSystemActions)}.${nameof(OnUriChange)}");
+    private readonly CSharpGenericEventBridge<string>? _uriChangeBridge = CSharpEventBridgeFactory.GetBridge<string>(
+        $"{nameof(BrowserSystemActions)}.${nameof(OnUriChange)}"
+    );
 
     public event EventHandler<string>? OnUriChange
     {
         add
         {
-            if (value != null) _uriChangeBridge?.Add(value);
+            if (value != null)
+                _uriChangeBridge?.Add(value);
         }
         remove
         {
-            if (value != null) _uriChangeBridge?.Remove(value);
+            if (value != null)
+                _uriChangeBridge?.Remove(value);
         }
     }
 

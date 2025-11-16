@@ -16,13 +16,14 @@ public class DesktopLogger : Exports.ILogger
     public DesktopLogger()
     {
         _innerFactory = LoggerFactory.Create(builder =>
-            builder.AddSimpleConsole(options =>
-            {
-                options.IncludeScopes = false;
-                options.SingleLine = true;
-                options.TimestampFormat = "HH:mm:ss ";
-            })
-            .SetMinimumLevel(MapLevel(App.Config.LogLevel))
+            builder
+                .AddSimpleConsole(options =>
+                {
+                    options.IncludeScopes = false;
+                    options.SingleLine = true;
+                    options.TimestampFormat = "HH:mm:ss ";
+                })
+                .SetMinimumLevel(MapLevel(App.Config.LogLevel))
         );
     }
 
@@ -35,20 +36,25 @@ public class DesktopLogger : Exports.ILogger
             Exports.LogLevel.Warning => Microsoft.Extensions.Logging.LogLevel.Warning,
             Exports.LogLevel.Error => Microsoft.Extensions.Logging.LogLevel.Error,
             Exports.LogLevel.Critical => Microsoft.Extensions.Logging.LogLevel.Critical,
-            _ => Microsoft.Extensions.Logging.LogLevel.None
+            _ => Microsoft.Extensions.Logging.LogLevel.None,
         };
 
     public bool ShouldLog(Exports.LogLevel level) => level.ShouldLog(App.Config.LogLevel);
 
-    public void Log(Exports.LogLevel level, string message,
-        [System.Runtime.CompilerServices.CallerFilePath] string? file = null)
+    public void Log(
+        Exports.LogLevel level,
+        string message,
+        [System.Runtime.CompilerServices.CallerFilePath] string? file = null
+    )
     {
         var category = Path.GetFileNameWithoutExtension(file);
         var logger = _innerFactory.CreateLogger(category ?? "Logger");
         logger.Log(MapLevel(level), message);
     }
 
-    public void Log(Exports.LogLevel level, Exception ex,
-        [System.Runtime.CompilerServices.CallerFilePath] string? file = null)
-        => Log(level, ex.Message, file);
+    public void Log(
+        Exports.LogLevel level,
+        Exception ex,
+        [System.Runtime.CompilerServices.CallerFilePath] string? file = null
+    ) => Log(level, ex.Message, file);
 }

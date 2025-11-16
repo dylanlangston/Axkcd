@@ -1,21 +1,21 @@
-declare function AddOnUriChangeCallback(cb: (string) => void): string
-declare function RemoveOnUriChangeCallback(subscription: string): void
-declare function InvokeOnUriChangeCallback(uri: string): void
+declare function AddOnUriChangeCallback(cb: (string) => void): string;
+declare function RemoveOnUriChangeCallback(subscription: string): void;
+declare function InvokeOnUriChangeCallback(uri: string): void;
 
 type BrowserSystemActions = {
-    AddOnUriChangeCallback: AddOnUriChangeCallback,
-    RemoveOnUriChangeCallback: RemoveOnUriChangeCallback,
-    InvokeOnUriChangeCallback: InvokeOnUriChangeCallback
-}
+  AddOnUriChangeCallback: AddOnUriChangeCallback;
+  RemoveOnUriChangeCallback: RemoveOnUriChangeCallback;
+  InvokeOnUriChangeCallback: InvokeOnUriChangeCallback;
+};
 
 type Browser = {
-    BrowserSystemActions: BrowserSystemActions
-}
+  BrowserSystemActions: BrowserSystemActions;
+};
 
 type AvaloniaXKCD = {
-    Browser: Browser
+  Browser: Browser;
 };
 
 export type AvaloniaXKCDBrowser = {
-    AvaloniaXKCD: AvaloniaXKCD
+  AvaloniaXKCD: AvaloniaXKCD;
 };

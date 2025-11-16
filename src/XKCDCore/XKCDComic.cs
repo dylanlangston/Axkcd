@@ -22,7 +22,9 @@ public partial interface IXKCDComic
     public Uri GetURI(Uri? baseUri = null)
     {
         baseUri ??= BaseUri;
-        return new Uri($"{baseUri.Scheme}://{baseUri.Host}:{baseUri.Port}{(string.IsNullOrEmpty(baseUri.AbsolutePath) ? string.Empty : $"{baseUri.AbsolutePath}".TrimEnd('/'))}/{Num}/");
+        return new Uri(
+            $"{baseUri.Scheme}://{baseUri.Host}:{baseUri.Port}{(string.IsNullOrEmpty(baseUri.AbsolutePath) ? string.Empty : $"{baseUri.AbsolutePath}".TrimEnd('/'))}/{Num}/"
+        );
     }
 
     public string Img2x => GetImg2x();
@@ -31,8 +33,10 @@ public partial interface IXKCDComic
 
     public static string GetImg2x(int num, string img)
     {
-        if (string.IsNullOrEmpty(img)) return img;
-        if (num < 1084) return img;
+        if (string.IsNullOrEmpty(img))
+            return img;
+        if (num < 1084)
+            return img;
 
         var extension = Path.GetExtension(img);
         return img[0..(img.Length - extension.Length)] + "_2x" + extension;
@@ -56,10 +60,7 @@ public partial interface IXKCDComic
         {
             if (OperatingSystem.IsWindows())
             {
-                Process.Start(new ProcessStartInfo(uri)
-                {
-                    UseShellExecute = true
-                });
+                Process.Start(new ProcessStartInfo(uri) { UseShellExecute = true });
                 return true;
             }
             else if (OperatingSystem.IsMacOS())
@@ -73,7 +74,7 @@ public partial interface IXKCDComic
                 {
                     RedirectStandardError = true,
                     RedirectStandardOutput = true,
-                    UseShellExecute = false
+                    UseShellExecute = false,
                 };
                 using var proc = Process.Start(psi);
                 if (proc?.WaitForExit(2000) == true && proc.ExitCode == 0)

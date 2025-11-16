@@ -25,7 +25,7 @@ public class LocalizeExtension : MarkupExtension
         {
             Source = new LocalizedStringProvider(localizationService, Key),
             Path = nameof(LocalizedStringProvider.Value),
-            Mode = BindingMode.OneWay
+            Mode = BindingMode.OneWay,
         };
 
         return binding;

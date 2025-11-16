@@ -1,6 +1,7 @@
 namespace TestNamespace
 {
     public class MainViewModel { }
+
     public class MainView { }
 }
 

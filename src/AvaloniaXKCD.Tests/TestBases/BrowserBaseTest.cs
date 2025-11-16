@@ -13,7 +13,7 @@ public abstract class BrowserBaseTest(string browser) : PageTest
         {
             Locale = "en-US",
             ColorScheme = ColorScheme.Dark,
-            BaseURL = AvaloniaManager.Url
+            BaseURL = AvaloniaManager.Url,
         };
     }
 }

@@ -1,10 +1,10 @@
 using System;
 using System.IO;
-using AvaloniaXKCD.Exports;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using System.Text.Json.Serialization.Metadata;
+using AvaloniaXKCD.Exports;
 
 namespace AvaloniaXKCD.Desktop;
 
@@ -23,6 +23,7 @@ public sealed class JsonSettingsRepo : BaseSettingsRepo
     }
 
     private bool _isDirty = false;
+
     public override void Save()
     {
         if (!_isDirty)

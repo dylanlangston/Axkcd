@@ -35,24 +35,24 @@ export class LoadingIndicator extends LitElement {
     msg('Twiddling thumbs', { id: 'LoadingMsg_27' }),
     msg('Herding cats', { id: 'LoadingMsg_28' }),
     msg('Shoveling coal into the server', { id: 'LoadingMsg_29' }),
-    msg('Teaching the AI to love', { id: 'LoadingMsg_30' })
+    msg('Teaching the AI to love', { id: 'LoadingMsg_30' }),
   ];
 
   static styles = [
     css`
-    :host {
+      :host {
         display: contents;
-    }
+      }
 
-    .splash {
+      .splash {
         margin: auto;
         justify-content: center;
         align-items: center;
         display: flex;
         pointer-events: none;
-    }
+      }
 
-    .splash h2 {
+      .splash h2 {
         color: var(--text-color);
         font-weight: 400;
         font-size: 2.5rem;
@@ -60,19 +60,19 @@ export class LoadingIndicator extends LitElement {
         padding: 20px 40px;
         border: 1px solid black;
         border-radius: 7px;
-    }
+      }
 
-    .center {
+      .center {
         text-align: center;
-    }
+      }
 
-    .progress {
+      .progress {
         width: 100%;
         max-width: 400px;
         margin: 0 auto;
-    }
+      }
 
-    .progress-bar {
+      .progress-bar {
         width: 100%;
         height: 12px;
         border: 1px solid black;
@@ -80,28 +80,28 @@ export class LoadingIndicator extends LitElement {
         background: white;
         overflow: hidden;
         position: relative;
-    }
+      }
 
-    progress::-webkit-progress-bar {
+      progress::-webkit-progress-bar {
         background: white;
         border-radius: 3px;
-    }
+      }
 
-    progress::-webkit-progress-value {
+      progress::-webkit-progress-value {
         background: var(--nav-background-color);
         border-radius: 2px;
-    }
+      }
 
-    progress::-moz-progress-bar {
+      progress::-moz-progress-bar {
         background: var(--nav-background-color);
         border-radius: 2px;
-    }
+      }
 
-    .progress-bar[indeterminate] {
+      .progress-bar[indeterminate] {
         background-color: #e0e0e0;
-    }
+      }
 
-    .progress-bar[indeterminate]::before {
+      .progress-bar[indeterminate]::before {
         content: '';
         position: absolute;
         top: 0;
@@ -109,9 +109,9 @@ export class LoadingIndicator extends LitElement {
         width: 30%;
         background-color: var(--nav-background-color, #333);
         animation: indeterminate-slide 2s infinite ease-out;
-    }
+      }
 
-    @keyframes indeterminate-slide {
+      @keyframes indeterminate-slide {
         0% {
           left: -30%;
         }
@@ -121,8 +121,9 @@ export class LoadingIndicator extends LitElement {
         100% {
           left: 100%;
         }
-    }
-  `];
+      }
+    `,
+  ];
 
   constructor() {
     super();
@@ -146,9 +147,12 @@ export class LoadingIndicator extends LitElement {
   private animationStartPercentage = 0;
   private animationFrameHandle: number | null = null;
 
-
   protected updated(changedProperties: Map<string | number | symbol, unknown>): void {
-    if (!this.indeterminate && changedProperties.has('progress') && this.progress > this.targetPercentage) {
+    if (
+      !this.indeterminate &&
+      changedProperties.has('progress') &&
+      this.progress > this.targetPercentage
+    ) {
       if (this.animationFrameHandle === null) {
         this.animationStartPercentage = this.currentPercentage;
         this.targetPercentage = this.progress;
@@ -165,15 +169,14 @@ export class LoadingIndicator extends LitElement {
         <div class="center">
           <div class="progress">
             ${this.indeterminate
-        ? html`<div class="progress-bar" role="progressbar" indeterminate></div>`
-        : html`<progress
+              ? html`<div class="progress-bar" role="progressbar" indeterminate></div>`
+              : html`<progress
                   id="progressBar"
                   class="progress-bar"
                   role="progressbar"
                   .value="${this.currentPercentage}"
                   max="100"
-                ></progress>`
-      }
+                ></progress>`}
           </div>
           <h2>
             <span id="loadingText">${this.getLoadingWords()[this.loadingIndex]}</span>
@@ -202,7 +205,7 @@ export class LoadingIndicator extends LitElement {
     const easedProgress = this._easeInOut(rawProgress);
 
     const range = this.targetPercentage - this.animationStartPercentage;
-    this.currentPercentage = this.animationStartPercentage + (range * easedProgress);
+    this.currentPercentage = this.animationStartPercentage + range * easedProgress;
 
     if (rawProgress < 1) {
       this.animationFrameHandle = requestAnimationFrame(this._animate.bind(this));

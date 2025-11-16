@@ -4,7 +4,7 @@
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <AssemblyName>AvaloniaXKCD.Core</AssemblyName>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
     <Watch Include="Views\*.axaml" />
@@ -46,6 +46,10 @@
     <ProjectReference Include="..\XKCDCore\XKCDCore.csproj" />
     <ProjectReference Include="..\AvaloniaXKCD.Exports\AvaloniaXKCD.Exports.csproj" />
     <ProjectReference Include="..\AvaloniaXKCD.Utilities\AvaloniaXKCD.Utilities.csproj" />
-    <ProjectReference Include="..\AvaloniaXKCD.Generators\AvaloniaXKCD.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference
+      Include="..\AvaloniaXKCD.Generators\AvaloniaXKCD.Generators.csproj"
+      OutputItemType="Analyzer"
+      ReferenceOutputAssembly="false"
+    />
   </ItemGroup>
 </Project>

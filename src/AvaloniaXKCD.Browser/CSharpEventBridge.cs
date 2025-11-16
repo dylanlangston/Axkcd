@@ -19,14 +19,13 @@ public readonly struct Handler<T>
         WrappedHandler = wrapped;
     }
 
-    public static implicit operator Handler<T>(Action<T> action)
-        => new(action, action);
+    public static implicit operator Handler<T>(Action<T> action) => new(action, action);
 
-    public static implicit operator Handler<T>(EventHandler<T> eventHandler)
-        => new(eventHandler, data => eventHandler(null, data));
+    public static implicit operator Handler<T>(EventHandler<T> eventHandler) =>
+        new(eventHandler, data => eventHandler(null, data));
 
-    public static implicit operator Handler<T>(CSharpGenericEventHandler<T> csharpGenericEventHandler)
-        => new(csharpGenericEventHandler, data => csharpGenericEventHandler(data));
+    public static implicit operator Handler<T>(CSharpGenericEventHandler<T> csharpGenericEventHandler) =>
+        new(csharpGenericEventHandler, data => csharpGenericEventHandler(data));
 }
 
 public abstract class EventBridge
@@ -112,12 +111,10 @@ public static partial class CSharpEventBridgeFactory
         }
     }
 
-    public static string? Add<T>(string handlerName, Action<T> callback)
-        => GetBridge<T>(handlerName)?.Add(callback);
+    public static string? Add<T>(string handlerName, Action<T> callback) => GetBridge<T>(handlerName)?.Add(callback);
 
-    public static void Remove<T>(string handlerName, string subscription)
-        => GetBridge<T>(handlerName)?.Remove(subscription);
+    public static void Remove<T>(string handlerName, string subscription) =>
+        GetBridge<T>(handlerName)?.Remove(subscription);
 
-    public static void Invoke<T>(string handlerName, T data)
-        => GetBridge<T>(handlerName)?.Invoke(data);
+    public static void Invoke<T>(string handlerName, T data) => GetBridge<T>(handlerName)?.Invoke(data);
 }

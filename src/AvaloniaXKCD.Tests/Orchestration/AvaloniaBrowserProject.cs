@@ -5,6 +5,7 @@ namespace AvaloniaXKCD.Tests.Orchestration;
 public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposable
 {
     private static readonly List<AvaloniaBrowserProject> ActiveInstances = new();
+
     static AvaloniaBrowserProject()
     {
         // Ensure we try and cleanup any remaining processes when the test runner process exits
@@ -19,6 +20,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
             }
         };
     }
+
     const string pathRelativeToSolution = "AvaloniaXKCD.Browser";
     static TimeSpan buildTimeout = TimeSpan.FromMinutes(3);
 
@@ -45,11 +47,12 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
         {
             FileName = "dotnet",
             Arguments = "run --no-launch-profile --no-restore",
-            WorkingDirectory = @$"{Path.GetDirectoryName(TestContext.Current?.Metadata.TestDetails.TestFilePath)}/../{pathRelativeToSolution}",
+            WorkingDirectory =
+                @$"{Path.GetDirectoryName(TestContext.Current?.Metadata.TestDetails.TestFilePath)}/../{pathRelativeToSolution}",
             RedirectStandardOutput = true,
             RedirectStandardError = true,
             UseShellExecute = false,
-            CreateNoWindow = true
+            CreateNoWindow = true,
         };
         startInfo.EnvironmentVariables["ASPNETCORE_ENVIRONMENT"] = "Development";
         startInfo.EnvironmentVariables["ASPNETCORE_URLS"] = "http://localhost:5000";
@@ -67,15 +70,17 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
 
             Url = await _appUrlCompletionSource.Task.WaitAsync(buildTimeout);
 
-            if (_avaloniaProcess.HasExited) throw new Exception("Exited prematurely!");
+            if (_avaloniaProcess.HasExited)
+                throw new Exception("Exited prematurely!");
 
             await PingUntilSuccess(Url);
         }
         catch (Exception ex)
         {
-            Action<string?> writeAction = TestContext.Current != null ?
-                (string? value) => TestContext.Current.OutputWriter.WriteLine(value) :
-                (string? value) => Console.WriteLine(value);
+            Action<string?> writeAction =
+                TestContext.Current != null
+                    ? (string? value) => TestContext.Current.OutputWriter.WriteLine(value)
+                    : (string? value) => Console.WriteLine(value);
             writeAction("--- Avalonia App startup failed. Captured output: ---");
             writeAction("--- Standard Output: ---");
             _standardOutput.ForEach(writeAction);
@@ -131,7 +136,9 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
         var attempts = 0;
         const int maxAttempts = 36;
 
-        while (attempts < maxAttempts && (TestContext.Current?.Execution.CancellationToken.IsCancellationRequested != true))
+        while (
+            attempts < maxAttempts && (TestContext.Current?.Execution.CancellationToken.IsCancellationRequested != true)
+        )
         {
             try
             {
@@ -150,7 +157,9 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
             await Task.Delay(TimeSpan.FromSeconds(5));
         }
 
-        throw new TimeoutException($"Failed to connect to the Avalonia application at {url} after {maxAttempts} attempts.");
+        throw new TimeoutException(
+            $"Failed to connect to the Avalonia application at {url} after {maxAttempts} attempts."
+        );
     }
 
     public async ValueTask DisposeAsync()
@@ -169,10 +178,7 @@ public partial class AvaloniaBrowserProject() : IAsyncInitializer, IAsyncDisposa
                 await _avaloniaProcess.WaitForExitAsync();
             }
         }
-        catch
-        {
-
-        }
+        catch { }
         finally
         {
             _avaloniaProcess?.Dispose();
