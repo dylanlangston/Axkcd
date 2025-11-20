@@ -16,7 +16,13 @@ namespace AvaloniaXKCD.Generators
 
         // Models for the Scriban template
         public record ConstructorDependency(string Type);
-        public record ExportedType(string FullTypeName, List<string> Interfaces, List<ConstructorDependency> ConstructorDependencies);
+
+        public record ExportedType(
+            string FullTypeName,
+            List<string> Interfaces,
+            List<ConstructorDependency> ConstructorDependencies
+        );
+
         public record ExportedInterface(string Name, List<ExportedType> Implementations);
 
         public void Initialize(IncrementalGeneratorInitializationContext context)
@@ -27,10 +33,11 @@ namespace AvaloniaXKCD.Generators
                 Debugger.Launch();
             }
 #endif
-            var exportsProvider = context.SyntaxProvider
-                .CreateSyntaxProvider(
+            var exportsProvider = context
+                .SyntaxProvider.CreateSyntaxProvider(
                     static (syntax, _) => syntax is ClassDeclarationSyntax { BaseList: not null },
-                    static (ctx, _) => TransformClass(ctx))
+                    static (ctx, _) => TransformClass(ctx)
+                )
                 .Where(static model => model is not null);
 
             context.RegisterSourceOutput(exportsProvider.Collect(), GenerateSource);
@@ -41,7 +48,10 @@ namespace AvaloniaXKCD.Generators
             if (ctx.Node is not ClassDeclarationSyntax classDecl)
                 return null;
 
-            if (ctx.SemanticModel.GetDeclaredSymbol(classDecl) is not INamedTypeSymbol typeSymbol || typeSymbol.IsAbstract)
+            if (
+                ctx.SemanticModel.GetDeclaredSymbol(classDecl) is not INamedTypeSymbol typeSymbol
+                || typeSymbol.IsAbstract
+            )
                 return null;
 
             var iExportInterface = ctx.SemanticModel.Compilation.GetTypeByMetadataName(IExportFullName);
@@ -55,12 +65,15 @@ namespace AvaloniaXKCD.Generators
                 return null;
 
             // Find interfaces that derive from IExport (but are not IExport itself)
-            var exportInterfaces = typeSymbol.AllInterfaces
-                .Where(i =>
-                    !SymbolEqualityComparer.Default.Equals(i, iExportInterface) &&
-                    (i.AllInterfaces.Any(x => SymbolEqualityComparer.Default.Equals(x, iExportInterface)) ||
-                     i.AllInterfaces.Any(x => x.ToDisplayString() == IExportFullName) ||
-                     i.ToDisplayString() == IExportFullName))
+            var exportInterfaces = typeSymbol
+                .AllInterfaces.Where(i =>
+                    !SymbolEqualityComparer.Default.Equals(i, iExportInterface)
+                    && (
+                        i.AllInterfaces.Any(x => SymbolEqualityComparer.Default.Equals(x, iExportInterface))
+                        || i.AllInterfaces.Any(x => x.ToDisplayString() == IExportFullName)
+                        || i.ToDisplayString() == IExportFullName
+                    )
+                )
                 .Select(i => i.ToDisplayString())
                 .Distinct()
                 .ToList();
@@ -68,13 +81,13 @@ namespace AvaloniaXKCD.Generators
             if (exportInterfaces.Count == 0)
                 return null;
 
-            var constructor = typeSymbol.InstanceConstructors
-                .OrderByDescending(c => c.Parameters.Length)
+            var constructor = typeSymbol
+                .InstanceConstructors.OrderByDescending(c => c.Parameters.Length)
                 .FirstOrDefault();
 
-            var deps = constructor?.Parameters
-                .Select(p => new ConstructorDependency(p.Type.ToDisplayString()))
-                .ToList() ?? new();
+            var deps =
+                constructor?.Parameters.Select(p => new ConstructorDependency(p.Type.ToDisplayString())).ToList()
+                ?? new();
 
             return new ExportedType(typeSymbol.ToDisplayString(), exportInterfaces, deps);
         }
@@ -83,24 +96,38 @@ namespace AvaloniaXKCD.Generators
         {
             if (exports.IsDefaultOrEmpty)
             {
-                Report(spc, "XKC001", "No exportable classes found",
-                    "The ExportRegistrarGenerator did not find any classes implementing IExport.", DiagnosticSeverity.Info);
+                Report(
+                    spc,
+                    "XKC001",
+                    "No exportable classes found",
+                    "The ExportRegistrarGenerator did not find any classes implementing IExport.",
+                    DiagnosticSeverity.Info
+                );
                 return;
             }
 
             if (exports.Any(e => e?.FullTypeName == "IEXPORT_NOT_FOUND"))
             {
-                Report(spc, "XKC002", "IExport interface not found",
-                    $"The required interface '{IExportFullName}' was not found in the compilation.", DiagnosticSeverity.Warning);
+                Report(
+                    spc,
+                    "XKC002",
+                    "IExport interface not found",
+                    $"The required interface '{IExportFullName}' was not found in the compilation.",
+                    DiagnosticSeverity.Warning
+                );
                 return;
             }
 
             var validExports = exports.Where(e => e is not null).ToList();
             if (validExports.Count == 0)
             {
-                Report(spc, "XKC003", "No valid exports found",
+                Report(
+                    spc,
+                    "XKC003",
+                    "No valid exports found",
                     "The ExportRegistrarGenerator found IExport but no concrete classes implementing it with service interfaces.",
-                    DiagnosticSeverity.Info);
+                    DiagnosticSeverity.Info
+                );
                 return;
             }
 
@@ -125,8 +152,13 @@ namespace AvaloniaXKCD.Generators
             if (template.HasErrors)
             {
                 var errors = string.Join("\n", template.Messages.Select(m => m.Message));
-                Report(spc, "XKC005", "Scriban template parsing error",
-                    $"The Scriban template has errors:\n{errors}", DiagnosticSeverity.Error);
+                Report(
+                    spc,
+                    "XKC005",
+                    "Scriban template parsing error",
+                    $"The Scriban template has errors:\n{errors}",
+                    DiagnosticSeverity.Error
+                );
                 return;
             }
 
@@ -142,18 +174,27 @@ namespace AvaloniaXKCD.Generators
             var assembly = typeof(ExportRegistrarGenerator).Assembly;
             var fullName = $"AvaloniaXKCD.Generators.{resourceName}";
 
-            using var stream = assembly.GetManifestResourceStream(fullName)
+            using var stream =
+                assembly.GetManifestResourceStream(fullName)
                 ?? throw new FileNotFoundException(
-                    $"Embedded resource '{fullName}' not found. Available: {string.Join(", ", assembly.GetManifestResourceNames())}");
+                    $"Embedded resource '{fullName}' not found. Available: {string.Join(", ", assembly.GetManifestResourceNames())}"
+                );
 
             using var reader = new StreamReader(stream);
             return reader.ReadToEnd();
         }
 
-        private static void Report(SourceProductionContext spc, string id, string title, string message, DiagnosticSeverity severity)
+        private static void Report(
+            SourceProductionContext spc,
+            string id,
+            string title,
+            string message,
+            DiagnosticSeverity severity
+        )
         {
-            spc.ReportDiagnostic(Diagnostic.Create(
-                new DiagnosticDescriptor(id, title, message, "Generator", severity, true), null));
+            spc.ReportDiagnostic(
+                Diagnostic.Create(new DiagnosticDescriptor(id, title, message, "Generator", severity, true), null)
+            );
         }
     }
 }

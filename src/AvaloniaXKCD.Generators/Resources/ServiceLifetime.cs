@@ -4,6 +4,6 @@ namespace AvaloniaXKCD.Generators
     {
         Singleton,
         Scoped,
-        Transient
+        Transient,
     }
 }

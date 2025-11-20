@@ -57,7 +57,6 @@ public abstract class LocalizationService : ILocalizationService
                     App.Logger.LogWarning($"Failed to set culture: {ex.Message}");
                     SetCultureInfo(CultureInfo.GetCultureInfo("en"));
                 }
-
             }
         }
     }
@@ -87,7 +86,9 @@ public abstract class LocalizationService : ILocalizationService
         try
         {
             var value = _resourceManager.GetString(key, _currentCulture);
-            App.Logger.LogDebug($"LocalizationService: Retrieved string for key '{key}' in culture '{_currentCulture}': '{value}'");
+            App.Logger.LogDebug(
+                $"LocalizationService: Retrieved string for key '{key}' in culture '{_currentCulture}': '{value}'"
+            );
             return value ?? key;
         }
         catch (Exception ex)
@@ -110,7 +111,6 @@ public abstract class LocalizationService : ILocalizationService
             return format;
         }
     }
-
 
     public abstract CultureInfo GetCulture();
 }

@@ -3,11 +3,11 @@ using System.Collections.Immutable;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Scriban;
-using System.Text;
 using Microsoft.CodeAnalysis.Text;
+using Scriban;
 
 namespace AvaloniaXKCD.Generators
 {
@@ -18,6 +18,7 @@ namespace AvaloniaXKCD.Generators
         private const string ServiceProviderAttributeName = "AvaloniaXKCD.Generators.ServiceProviderAttribute";
 
         public record ServiceInfo(string ImplementationType, string? ServiceType, string Lifetime);
+
         public record TargetClassInfo(string Namespace, string ClassName);
 
         public void Initialize(IncrementalGeneratorInitializationContext context)
@@ -38,18 +39,22 @@ namespace AvaloniaXKCD.Generators
                 ctx.AddSource("ServiceAttribute.g.cs", SourceText.From(attributeSource, Encoding.UTF8));
 
                 var serviceProviderAttributeSource = GetEmbeddedResource("Resources.ServiceProviderAttribute.cs");
-                ctx.AddSource("ServiceProviderAttribute.g.cs", SourceText.From(serviceProviderAttributeSource, Encoding.UTF8));
+                ctx.AddSource(
+                    "ServiceProviderAttribute.g.cs",
+                    SourceText.From(serviceProviderAttributeSource, Encoding.UTF8)
+                );
             });
 
-            var servicesProvider = context.SyntaxProvider
-                .CreateSyntaxProvider(
+            var servicesProvider = context
+                .SyntaxProvider.CreateSyntaxProvider(
                     static (syntax, _) => syntax is ClassDeclarationSyntax { AttributeLists.Count: > 0 },
-                    static (ctx, _) => TransformService(ctx))
+                    static (ctx, _) => TransformService(ctx)
+                )
                 .Where(static model => model is not null)
                 .Collect();
 
-            var targetClassProvider = context.SyntaxProvider
-                .CreateSyntaxProvider(
+            var targetClassProvider = context
+                .SyntaxProvider.CreateSyntaxProvider(
                     static (node, _) => node is ClassDeclarationSyntax { AttributeLists.Count: > 0 },
                     static (ctx, _) =>
                     {
@@ -59,34 +64,44 @@ namespace AvaloniaXKCD.Generators
                             return null;
                         }
 
-                        var hasAttribute = typeSymbol.GetAttributes()
+                        var hasAttribute = typeSymbol
+                            .GetAttributes()
                             .Any(attr => attr.AttributeClass?.ToDisplayString() == ServiceProviderAttributeName);
 
                         if (hasAttribute)
                         {
-                            return new TargetClassInfo(typeSymbol.ContainingNamespace.ToDisplayString(), typeSymbol.Name);
+                            return new TargetClassInfo(
+                                typeSymbol.ContainingNamespace.ToDisplayString(),
+                                typeSymbol.Name
+                            );
                         }
 
                         return null;
-                    })
+                    }
+                )
                 .Where(static model => model is not null);
 
             var combinedProvider = servicesProvider.Combine(targetClassProvider.Collect());
 
-            context.RegisterSourceOutput(combinedProvider, (spc, source) =>
-                GenerateSource(spc, source.Left, source.Right!));
+            context.RegisterSourceOutput(
+                combinedProvider,
+                (spc, source) => GenerateSource(spc, source.Left, source.Right!)
+            );
         }
 
         private static ServiceInfo? TransformService(GeneratorSyntaxContext ctx)
         {
-            if (ctx.Node is not ClassDeclarationSyntax classDecl ||
-                ctx.SemanticModel.GetDeclaredSymbol(classDecl) is not INamedTypeSymbol typeSymbol ||
-                typeSymbol.IsAbstract)
+            if (
+                ctx.Node is not ClassDeclarationSyntax classDecl
+                || ctx.SemanticModel.GetDeclaredSymbol(classDecl) is not INamedTypeSymbol typeSymbol
+                || typeSymbol.IsAbstract
+            )
             {
                 return null;
             }
 
-            var serviceAttribute = typeSymbol.GetAttributes()
+            var serviceAttribute = typeSymbol
+                .GetAttributes()
                 .FirstOrDefault(attr => attr.AttributeClass?.ToDisplayString() == ServiceAttributeName);
 
             if (serviceAttribute == null)
@@ -106,13 +121,17 @@ namespace AvaloniaXKCD.Generators
                 0 => "Singleton",
                 1 => "Scoped",
                 2 => "Transient",
-                _ => "Transient"
+                _ => "Transient",
             };
 
             return new ServiceInfo(typeSymbol.ToDisplayString(), null, lifetimeString);
         }
 
-        private static void GenerateSource(SourceProductionContext spc, ImmutableArray<ServiceInfo?> services, ImmutableArray<TargetClassInfo?> targets)
+        private static void GenerateSource(
+            SourceProductionContext spc,
+            ImmutableArray<ServiceInfo?> services,
+            ImmutableArray<TargetClassInfo?> targets
+        )
         {
             if (targets.IsDefaultOrEmpty || targets.Length == 0)
             {
@@ -122,9 +141,13 @@ namespace AvaloniaXKCD.Generators
 
             if (targets.Length > 1)
             {
-                Report(spc, "SPG001", "Multiple ServiceProvider classes",
-                       $"Only one class can be decorated with the [ServiceProvider] attribute.",
-                       DiagnosticSeverity.Error);
+                Report(
+                    spc,
+                    "SPG001",
+                    "Multiple ServiceProvider classes",
+                    $"Only one class can be decorated with the [ServiceProvider] attribute.",
+                    DiagnosticSeverity.Error
+                );
                 return;
             }
 
@@ -145,7 +168,13 @@ namespace AvaloniaXKCD.Generators
             if (template.HasErrors)
             {
                 var errors = string.Join("\n", template.Messages.Select(m => m.Message));
-                Report(spc, "SPG103", "Scriban template parsing error", $"The Scriban template has errors:\n{errors}", DiagnosticSeverity.Error);
+                Report(
+                    spc,
+                    "SPG103",
+                    "Scriban template parsing error",
+                    $"The Scriban template has errors:\n{errors}",
+                    DiagnosticSeverity.Error
+                );
                 return;
             }
 
@@ -153,7 +182,7 @@ namespace AvaloniaXKCD.Generators
             {
                 Namespace = target.Namespace,
                 ClassName = target.ClassName,
-                Services = services.Where(s => s is not null).ToList()
+                Services = services.Where(s => s is not null).ToList(),
             };
 
             var result = template.Render(model, member => member.Name);
@@ -174,10 +203,17 @@ namespace AvaloniaXKCD.Generators
             return reader.ReadToEnd();
         }
 
-        private static void Report(SourceProductionContext spc, string id, string title, string message, DiagnosticSeverity severity)
+        private static void Report(
+            SourceProductionContext spc,
+            string id,
+            string title,
+            string message,
+            DiagnosticSeverity severity
+        )
         {
-            spc.ReportDiagnostic(Diagnostic.Create(
-                new DiagnosticDescriptor(id, title, message, "Generator", severity, true), null));
+            spc.ReportDiagnostic(
+                Diagnostic.Create(new DiagnosticDescriptor(id, title, message, "Generator", severity, true), null)
+            );
         }
     }
 }

@@ -8,7 +8,8 @@ public class HeadlessAvalonia() : IAsyncInitializer, IAsyncDisposable
     {
         get
         {
-            if (_session == null) throw new NullReferenceException();
+            if (_session == null)
+                throw new NullReferenceException();
             return _session;
         }
         set => _session = value;
@@ -19,7 +20,6 @@ public class HeadlessAvalonia() : IAsyncInitializer, IAsyncDisposable
         _session = HeadlessUnitTestSession.StartNew(typeof(HeadlessAvaloniaApp));
         await Task.CompletedTask;
     }
-
 
     public async ValueTask DisposeAsync()
     {
@@ -35,19 +35,19 @@ public class HeadlessAvaloniaTestExecutor : ITestExecutor
 {
     public async ValueTask ExecuteTest(TestContext context, Func<ValueTask> action)
     {
-        var headlessAvalonia = context
-            .Metadata
-            .TestDetails
-            .TestClassInjectedPropertyArguments
-            .Single((a) => a.Key == nameof(HeadlessAvalonia)).Value as HeadlessAvalonia;
+        var headlessAvalonia =
+            context
+                .Metadata.TestDetails.TestClassInjectedPropertyArguments.Single(
+                    (a) => a.Key == nameof(HeadlessAvalonia)
+                )
+                .Value as HeadlessAvalonia;
 
-        if (headlessAvalonia == null) throw new NullReferenceException();
+        if (headlessAvalonia == null)
+            throw new NullReferenceException();
 
-        var execution = await headlessAvalonia
-            .Session
-            .Dispatch(
-                async () => await action(),
-                context.Execution.CancellationToken
+        var execution = await headlessAvalonia.Session.Dispatch(
+            async () => await action(),
+            context.Execution.CancellationToken
         );
 
         await execution;

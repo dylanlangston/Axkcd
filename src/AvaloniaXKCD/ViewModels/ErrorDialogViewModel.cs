@@ -2,7 +2,8 @@ using static AvaloniaXKCD.ViewModels.ErrorDialogViewModel;
 
 namespace AvaloniaXKCD.ViewModels
 {
-    public partial class ErrorDialogViewModel : ViewModelDialogBase<ErrorDialogViewModel, ErrorDialogViewModelEventType, ErrorDialogViewModelEventArgs>
+    public partial class ErrorDialogViewModel
+        : ViewModelDialogBase<ErrorDialogViewModel, ErrorDialogViewModelEventType, ErrorDialogViewModelEventArgs>
     {
         readonly MainViewModel Parent;
 
@@ -26,6 +27,7 @@ namespace AvaloniaXKCD.ViewModels
 
             CanContinue = canContinue;
         }
+
         internal ErrorDialogViewModel(MainViewModel parent, ErrorDialogViewModel viewModel, bool canContinue = false)
         {
             Parent = parent;
@@ -54,12 +56,13 @@ namespace AvaloniaXKCD.ViewModels
         public enum ErrorDialogViewModelEventType
         {
             Quit,
-            Continue
+            Continue,
         }
 
         public class ErrorDialogViewModelEventArgs : ViewModelDialogBaseEventArgs
         {
-            public ErrorDialogViewModelEventArgs(ErrorDialogViewModelEventType type, ErrorDialogViewModel self) : base(type, self) { }
+            public ErrorDialogViewModelEventArgs(ErrorDialogViewModelEventType type, ErrorDialogViewModel self)
+                : base(type, self) { }
         }
 
         public override event EventHandler<ErrorDialogViewModelEventArgs>? OnSubmit;

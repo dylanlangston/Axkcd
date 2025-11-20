@@ -9,6 +9,5 @@ namespace AvaloniaXKCD.Tests.Exports;
 /// </summary>
 public sealed class TestLocalizationService : LocalizationService
 {
-    public override CultureInfo GetCulture()
-        => CultureInfo.CurrentUICulture;
+    public override CultureInfo GetCulture() => CultureInfo.CurrentUICulture;
 }

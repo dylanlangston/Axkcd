@@ -15,7 +15,8 @@ public class XKCDImageLoader : RamCachedWebImageLoader
 
     protected override async Task<Bitmap?> LoadAsync(string url)
     {
-        if (string.IsNullOrEmpty(url)) return null;
+        if (string.IsNullOrEmpty(url))
+            return null;
 
         var queryParams = System.Web.HttpUtility.ParseQueryString(new Uri(url).Query);
         var comicNumber = int.Parse(queryParams["comic"]!);

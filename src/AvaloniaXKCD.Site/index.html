@@ -1,63 +1,132 @@
 <!--! AvaloniaXKCD by [dylanlangston](dylanlangston.com) -->
-<!DOCTYPE html>
+<!doctype html>
 <html>
+  <head>
+    <title>A(valonia)XKCD</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/919f27.svg" sizes="any" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
+  </head>
 
-<head>
-  <title>A(valonia)XKCD</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/919f27.svg" sizes="any" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
-</head>
-
-<body>
-  <header>
-    <h1 data-i18n="Page_Title">A(valonia)XKCD</h1>
-    <p data-i18n="Page_Subtitle">Because laughing in C# is still (technically) laughing.</p>
-    <div class="dev-banner"><a target="_blank" rel="noopener noreferrer" data-i18n="DevBanner_Text" data-i18n-title="DevBanner_Title" title="Click to view source" href="https://github.com/dylanlangston/Axkcd">In Development</a></div>
-  </header>
-  <main>
-    <avalonia-app>
-      <div id="out">
-        <noscript>
-          <div class="card">
-            <p>This page requires JavaScript to function properly.</p>
-            <p>Please enable JavaScript in your browser settings and refresh the page.</p>
-          </div>
-        </noscript>
+  <body>
+    <header>
+      <h1 data-i18n="Page_Title">A(valonia)XKCD</h1>
+      <p data-i18n="Page_Subtitle">Because laughing in C# is still (technically) laughing.</p>
+      <div class="dev-banner">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          data-i18n="DevBanner_Text"
+          data-i18n-title="DevBanner_Title"
+          title="Click to view source"
+          href="https://github.com/dylanlangston/Axkcd"
+          >In Development</a
+        >
       </div>
-    </avalonia-app>
-  </main>
-  <footer>
-    <p data-i18n="Footer_MadeWith">
-      Made with an amalgamation of technologies that probably shouldn't work together, but somehow does:
-    </p>
-    <div class="logo-container">
-      <a data-i18n="Footer_Avalonia_Title" data-i18n-attr="title" title="Built with Avalonia UI Framework" target="_blank" rel="noopener noreferrer"
-        href="https://avaloniaui.net/"><img src="src/assets/avalonia.svg" alt="Avalonia Logo" class="logo avalonia"
-          data-i18n="Footer_Avalonia_Title" data-i18n-attr="aria-label" aria-label="Built with Avalonia UI Framework" /></a>
-      <a data-i18n="Footer_Dotnet_Title" data-i18n-attr="title" title="Powered by .NET and C#" target="_blank" rel="noopener noreferrer"
-        href="https://dotnet.microsoft.com/"><img src="src/assets/dotnet.svg" alt=".NET Logo" class="logo dotnet"
-          data-i18n="Footer_Dotnet_Title" data-i18n-attr="aria-label" aria-label="Powered by .NET and C#" /></a>
-      <a data-i18n="Footer_Lit_Title" data-i18n-attr="title" title="Enhanced with Lit Web Components" target="_blank" rel="noopener noreferrer" href="https://lit.dev/"><img
-          src="src/assets/lit.svg" alt="Lit Logo" class="logo lit" data-i18n="Footer_Lit_Title" data-i18n-attr="aria-label" aria-label="Enhanced with Lit Web Components" /></a>
-      <a data-i18n="Footer_Vite_Title" data-i18n-attr="title" title="Bundled with Vite" target="_blank" rel="noopener noreferrer" href="https://vite.dev/"><img
-          src="src/assets/vite.svg" alt="Vite Logo" class="logo vite" data-i18n="Footer_Vite_Title" data-i18n-attr="aria-label" aria-label="Bundled with Vite" /></a>
-    </div>
-    <p>
-      <small>
-        Comics © <a target="_blank" rel="noopener noreferrer" href="https://xkcd.com/">xkcd.com</a> (CC-BY-NC) •
-        Explanations © <a target="_blank" rel="noopener noreferrer" href="https://explainxkcd.com/">explainxkcd.com</a>
-        (CC-BY-SA)<br>
-        XKCD Font © <a target="_blank" rel="noopener noreferrer" href="https://github.com/ipython/xkcd-font">ipython</a>
-        (CC-BY-NC) • Website © <a target="_blank" rel="noopener noreferrer"
-          href="https://dylanlangston.com/">dylanlangston.com</a> (MIT)
-      </small>
-    </p>
-  </footer>
+    </header>
+    <main>
+      <avalonia-app>
+        <div id="out">
+          <noscript>
+            <div class="card">
+              <p>This page requires JavaScript to function properly.</p>
+              <p>Please enable JavaScript in your browser settings and refresh the page.</p>
+            </div>
+          </noscript>
+        </div>
+      </avalonia-app>
+    </main>
+    <footer>
+      <p data-i18n="Footer_MadeWith">
+        Made with an amalgamation of technologies that probably shouldn't work together, but somehow
+        does:
+      </p>
+      <div class="logo-container">
+        <a
+          data-i18n="Footer_Avalonia_Title"
+          data-i18n-attr="title"
+          title="Built with Avalonia UI Framework"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://avaloniaui.net/"
+          ><img
+            src="src/assets/avalonia.svg"
+            alt="Avalonia Logo"
+            class="logo avalonia"
+            data-i18n="Footer_Avalonia_Title"
+            data-i18n-attr="aria-label"
+            aria-label="Built with Avalonia UI Framework"
+        /></a>
+        <a
+          data-i18n="Footer_Dotnet_Title"
+          data-i18n-attr="title"
+          title="Powered by .NET and C#"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://dotnet.microsoft.com/"
+          ><img
+            src="src/assets/dotnet.svg"
+            alt=".NET Logo"
+            class="logo dotnet"
+            data-i18n="Footer_Dotnet_Title"
+            data-i18n-attr="aria-label"
+            aria-label="Powered by .NET and C#"
+        /></a>
+        <a
+          data-i18n="Footer_Lit_Title"
+          data-i18n-attr="title"
+          title="Enhanced with Lit Web Components"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://lit.dev/"
+          ><img
+            src="src/assets/lit.svg"
+            alt="Lit Logo"
+            class="logo lit"
+            data-i18n="Footer_Lit_Title"
+            data-i18n-attr="aria-label"
+            aria-label="Enhanced with Lit Web Components"
+        /></a>
+        <a
+          data-i18n="Footer_Vite_Title"
+          data-i18n-attr="title"
+          title="Bundled with Vite"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://vite.dev/"
+          ><img
+            src="src/assets/vite.svg"
+            alt="Vite Logo"
+            class="logo vite"
+            data-i18n="Footer_Vite_Title"
+            data-i18n-attr="aria-label"
+            aria-label="Bundled with Vite"
+        /></a>
+      </div>
+      <p>
+        <small>
+          Comics ©
+          <a target="_blank" rel="noopener noreferrer" href="https://xkcd.com/">xkcd.com</a>
+          (CC-BY-NC) • Explanations ©
+          <a target="_blank" rel="noopener noreferrer" href="https://explainxkcd.com/"
+            >explainxkcd.com</a
+          >
+          (CC-BY-SA)<br />
+          XKCD Font ©
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/ipython/xkcd-font"
+            >ipython</a
+          >
+          (CC-BY-NC) • Website ©
+          <a target="_blank" rel="noopener noreferrer" href="https://dylanlangston.com/"
+            >dylanlangston.com</a
+          >
+          (MIT)
+        </small>
+      </p>
+    </footer>
 
-  <script type="module" src="src/main.ts"></script>
-</body>
-
+    <script type="module" src="src/main.ts"></script>
+  </body>
 </html>

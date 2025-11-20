@@ -11,16 +11,19 @@ public partial class GoToComicDialogView : UserControl
         this.gotoComicNumber.AttachedToVisualTree += async (s, e) =>
         {
             await Task.Delay(100);
-            await Dispatcher.UIThread.InvokeAsync(() =>
-            {
-                var descendants = gotoComicNumber.GetVisualDescendants();
-                var textbox = descendants.SingleOrDefault(d => d.Name == "PART_TextBox");
-                if (textbox is TextBox ctrl)
+            await Dispatcher.UIThread.InvokeAsync(
+                () =>
                 {
-                    ctrl.Focus();
-                    ctrl.SelectAll();
-                }
-            }, DispatcherPriority.ContextIdle);
+                    var descendants = gotoComicNumber.GetVisualDescendants();
+                    var textbox = descendants.SingleOrDefault(d => d.Name == "PART_TextBox");
+                    if (textbox is TextBox ctrl)
+                    {
+                        ctrl.Focus();
+                        ctrl.SelectAll();
+                    }
+                },
+                DispatcherPriority.ContextIdle
+            );
         };
     }
 

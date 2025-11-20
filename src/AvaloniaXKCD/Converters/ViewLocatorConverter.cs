@@ -5,11 +5,7 @@ namespace AvaloniaXKCD.Converters;
 
 public class ViewLocatorConverter : IValueConverter
 {
-    public object? Convert(
-        object? value,
-        Type targetType,
-        object? parameter,
-        CultureInfo culture)
+    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is IViewModelBase viewModel)
         {
@@ -18,11 +14,7 @@ public class ViewLocatorConverter : IValueConverter
         return null;
     }
 
-    public object? ConvertBack(
-        object? value,
-        Type targetType,
-        object? parameter,
-        CultureInfo culture)
+    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is Control control && control.DataContext is IViewModelBase viewModel)
         {

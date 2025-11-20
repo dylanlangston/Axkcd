@@ -8,7 +8,10 @@ namespace AvaloniaXKCD.Tests.VerifyPlugins;
 /// </summary>
 public static class VerifySourceGeneratorsPlugin
 {
-    public static AssertionVerificationTask<GeneratorDriverRunResult> Verify<TGenerator>(string sourceFile, VerifySettings? settings = null)
+    public static AssertionVerificationTask<GeneratorDriverRunResult> Verify<TGenerator>(
+        string sourceFile,
+        VerifySettings? settings = null
+    )
         where TGenerator : IIncrementalGenerator, new()
     {
         var (runResult, _) = RunGenerator<TGenerator>(sourceFile);
@@ -18,10 +21,7 @@ public static class VerifySourceGeneratorsPlugin
         return new AssertionVerificationTask<GeneratorDriverRunResult>(runResult, verifier);
     }
 
-    private record VerifySourceGeneratorOutput(
-        GeneratorDriverRunResult Result,
-        Compilation Output
-    );
+    private record VerifySourceGeneratorOutput(GeneratorDriverRunResult Result, Compilation Output);
 
     private static VerifySourceGeneratorOutput RunGenerator<TGenerator>(string sourceFile)
         where TGenerator : IIncrementalGenerator, new()
@@ -39,13 +39,14 @@ public static class VerifySourceGeneratorsPlugin
         var references = new[]
         {
             MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
-            MetadataReference.CreateFromFile(typeof(IExport).Assembly.Location)
+            MetadataReference.CreateFromFile(typeof(IExport).Assembly.Location),
         };
 
         CSharpCompilation compilation = CSharpCompilation.Create(
             assemblyName: "Tests",
             syntaxTrees: new[] { syntaxTree },
-            references: references);
+            references: references
+        );
 
         // Create and run the generator
         var generator = new TGenerator();

@@ -23,8 +23,10 @@ internal partial class ViewLocator : IDataTemplate
 
         try
         {
-            InvalidOperationException.ThrowIf(!_viewModelViewMap.Value.TryGetValue(viewModelType, out var viewType),
-                $"No view was registered for ViewModel '{viewModelType.FullName}'.");
+            InvalidOperationException.ThrowIf(
+                !_viewModelViewMap.Value.TryGetValue(viewModelType, out var viewType),
+                $"No view was registered for ViewModel '{viewModelType.FullName}'."
+            );
 
             var control = (Control?)App.ServiceProvider.Services?.GetService(viewType);
             NullReferenceException.ThrowIf(control == null, $"Failed to find Service '{viewType.FullName}'");
@@ -33,17 +35,19 @@ internal partial class ViewLocator : IDataTemplate
 
             if (data is IViewModelBase viewModel)
             {
-                Dispatcher.UIThread.InvokeAsync(async () =>
-                {
-                    try
+                Dispatcher
+                    .UIThread.InvokeAsync(async () =>
                     {
-                        await viewModel.OnLoad();
-                    }
-                    catch (Exception e)
-                    {
-                        OnError(e, false);
-                    }
-                }).ConfigureAwait(false);
+                        try
+                        {
+                            await viewModel.OnLoad();
+                        }
+                        catch (Exception e)
+                        {
+                            OnError(e, false);
+                        }
+                    })
+                    .ConfigureAwait(false);
             }
 
             return control;
@@ -63,11 +67,13 @@ internal partial class ViewLocator : IDataTemplate
     {
         App.Logger.LogCritical(e);
         App.Current?.OnError((e, fatal));
-        return fatal ? new TextBlock()
-        {
-            Text = "A Fatal Error Occured!",
-            Background = Brushes.White,
-            Foreground = Brushes.Red
-        } : null;
+        return fatal
+            ? new TextBlock()
+            {
+                Text = "A Fatal Error Occured!",
+                Background = Brushes.White,
+                Foreground = Brushes.Red,
+            }
+            : null;
     }
 }

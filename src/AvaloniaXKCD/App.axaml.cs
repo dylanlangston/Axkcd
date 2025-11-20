@@ -10,7 +10,7 @@ public partial class App : Application
 
     internal static readonly ServiceProvider ServiceProvider = new();
 
-    public new static App? Current
+    public static new App? Current
     {
         get => (App?)Application.Current;
     }
@@ -18,7 +18,8 @@ public partial class App : Application
     private readonly CancellationToken? _cancellation;
     private readonly ParsedArguments? _args;
 
-    public App() : base()
+    public App()
+        : base()
     {
         _args = null;
         _cancellation = null;
@@ -26,7 +27,8 @@ public partial class App : Application
         TaskScheduler.UnobservedTaskException += OnUnobservedTaskException;
     }
 
-    public App(ParsedArguments parsedArguments, CancellationToken cancellationToken = default) : base()
+    public App(ParsedArguments parsedArguments, CancellationToken cancellationToken = default)
+        : base()
     {
         _args = parsedArguments;
         _cancellation = cancellationToken;
@@ -54,7 +56,6 @@ public partial class App : Application
     {
         Logger.LogInformation("App Framework Initialization Started");
 
-
         Logger.IfShouldLogInformation(() =>
         {
             var xkcdSettings = Settings.Get(XKCDSettingsContext.Default.XKCDSettings);
@@ -78,13 +79,13 @@ public partial class App : Application
         Logger.LogInformation("App Framework Initialization Completed");
     }
 
-
     public IViewModelBase GetVM()
     {
         var VM = new MainViewModel(_args?.ComicNumber);
         ErrorOccured += (s, e) =>
         {
-            if (e.Fatal) SystemActions.HandleError(e.Exception);
+            if (e.Fatal)
+                SystemActions.HandleError(e.Exception);
             VM.OpenErrorDialog(e.Exception, e.Fatal);
         };
         return VM;
@@ -95,24 +96,19 @@ public partial class App : Application
         // DisableAvaloniaDataAnnotationValidation();
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new MainWindow
-            {
-                DataContext = viewModel,
-            };
+            desktop.MainWindow = new MainWindow { DataContext = viewModel };
 
             _cancellation?.Register(() =>
             {
-                if (!desktop.TryShutdown(0)) Environment.Exit(1);
+                if (!desktop.TryShutdown(0))
+                    Environment.Exit(1);
             });
 
             desktop.Exit += (s, e) => Shutdown(viewModel);
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {
-            singleViewPlatform.MainView = new MainView
-            {
-                DataContext = viewModel
-            };
+            singleViewPlatform.MainView = new MainView { DataContext = viewModel };
             singleViewPlatform.MainView.Unloaded += (s, e) => Shutdown(viewModel);
         }
     }

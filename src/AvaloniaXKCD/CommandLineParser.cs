@@ -16,22 +16,22 @@ public class CommandLineParser
 
     private CommandLineParser()
     {
-        _comicNumberArgument = new Argument<int?>(
-            name: "comic-number"
-        )
+        _comicNumberArgument = new Argument<int?>(name: "comic-number")
         {
             Description = "The specific comic number to load on startup.",
-            DefaultValueFactory = (_) => null
+            DefaultValueFactory = (_) => null,
         };
 
-        _rootCommand = new RootCommand("Avalonia XKCD Viewer")
-        {
-            _comicNumberArgument
-        };
+        _rootCommand = new RootCommand("Avalonia XKCD Viewer") { _comicNumberArgument };
     }
+
     public static CommandLineParser Instance { get; } = new();
 
-    public async Task<int> Invoke(string[] args, Func<ParsedArguments, int> action, CancellationToken cancellation = default)
+    public async Task<int> Invoke(
+        string[] args,
+        Func<ParsedArguments, int> action,
+        CancellationToken cancellation = default
+    )
     {
         _rootCommand.SetAction(parseResult =>
         {
@@ -43,7 +43,11 @@ public class CommandLineParser
         return await parseResult.InvokeAsync(cancellationToken: cancellation);
     }
 
-    public async Task<int> Invoke(string[] args, Func<ParsedArguments, Task> action, CancellationToken cancellation = default)
+    public async Task<int> Invoke(
+        string[] args,
+        Func<ParsedArguments, Task> action,
+        CancellationToken cancellation = default
+    )
     {
         _rootCommand.SetAction(parseResult =>
         {
@@ -55,7 +59,11 @@ public class CommandLineParser
         return await parseResult.InvokeAsync(cancellationToken: cancellation);
     }
 
-    public async Task<int> Invoke(string[] args, Func<ParsedArguments, Task<int>> action, CancellationToken cancellation = default)
+    public async Task<int> Invoke(
+        string[] args,
+        Func<ParsedArguments, Task<int>> action,
+        CancellationToken cancellation = default
+    )
     {
         _rootCommand.SetAction(parseResult =>
         {

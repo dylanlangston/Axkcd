@@ -4,6 +4,7 @@ namespace TestNamespace
     public class OrphanView { }
 
     public class ProfileViewModel { }
+
     public class ProfileView { }
 }
 

@@ -28,7 +28,11 @@
   <ItemGroup>
     <ProjectReference Include="..\AvaloniaXKCD\AvaloniaXKCD.csproj" />
     <ProjectReference Include="..\AvaloniaXKCD.Utilities\AvaloniaXKCD.Utilities.csproj" />
-    <ProjectReference Include="..\AvaloniaXKCD.Generators\AvaloniaXKCD.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference
+      Include="..\AvaloniaXKCD.Generators\AvaloniaXKCD.Generators.csproj"
+      OutputItemType="Analyzer"
+      ReferenceOutputAssembly="false"
+    />
   </ItemGroup>
 
   <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
@@ -36,9 +40,9 @@
     <NoWarn>$(NoWarn);CA1416</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
-      <DefineConstants>MACOS</DefineConstants>
+    <DefineConstants>MACOS</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Linux'))">
-      <DefineConstants>LINUX</DefineConstants>
+    <DefineConstants>LINUX</DefineConstants>
   </PropertyGroup>
 </Project>

@@ -1,6 +1,6 @@
-using Microsoft.Playwright;
 using System.Text.RegularExpressions;
 using AvaloniaXKCD.Tests.VerifyPlugins;
+using Microsoft.Playwright;
 
 namespace AvaloniaXKCD.Tests;
 
@@ -23,7 +23,7 @@ public class BrowserLocalizationTests(string browser, string locale) : BrowserBa
         {
             Locale = locale,
             ColorScheme = ColorScheme.Dark,
-            BaseURL = AvaloniaManager.Url
+            BaseURL = AvaloniaManager.Url,
         };
     }
 
@@ -42,16 +42,17 @@ public class BrowserLocalizationTests(string browser, string locale) : BrowserBa
         await Verify(Page)
             .UpdateSettings(_ =>
                 _.PageScreenshotOptions(
-                new()
-                {
-                    Quality = 50,
-                    Type = ScreenshotType.Jpeg,
-                    Mask = [
-                        canvas
-                    ],
-                    FullPage = false
-                }, screenshotOnly: true)
-                .ImageMagickComparer(0.05))
+                        new()
+                        {
+                            Quality = 50,
+                            Type = ScreenshotType.Jpeg,
+                            Mask = [canvas],
+                            FullPage = false,
+                        },
+                        screenshotOnly: true
+                    )
+                    .ImageMagickComparer(0.05)
+            )
             .Assert<IPage>(async _ =>
             {
                 // Verify page loaded successfully
@@ -71,7 +72,8 @@ public class BrowserLocalizationTests(string browser, string locale) : BrowserBa
         var detectedLocale = await Page.EvaluateAsync<string>("() => navigator.language");
 
         // Verify the detected locale matches what we set
-        await VerifyAssertionsPlugin.Verify(new { DetectedLocale = detectedLocale, ExpectedLocale = locale })
+        await VerifyAssertionsPlugin
+            .Verify(new { DetectedLocale = detectedLocale, ExpectedLocale = locale })
             .Assert(result =>
             {
                 result.DetectedLocale.ShouldNotBeNullOrEmpty();
@@ -90,14 +92,11 @@ public class BrowserLocalizationTests(string browser, string locale) : BrowserBa
         // Get the page title
         var title = await Page.TitleAsync();
 
-        var result = new
-        {
-            Locale = locale,
-            Title = title
-        };
+        var result = new { Locale = locale, Title = title };
 
         // Verify title follows expected format
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .UpdateSettings(settings =>
             {
                 settings.IgnoreMember("Title");

@@ -1,10 +1,11 @@
-﻿namespace AvaloniaXKCD.ViewModels;
+namespace AvaloniaXKCD.ViewModels;
 
 public abstract class ViewModelBase : ObservableObject, IViewModelBase, IDisposable
 {
     public virtual Task OnLoad() => Task.CompletedTask;
 
     private bool _disposedValue;
+
     public void Dispose()
     {
         Dispose(!_disposedValue);
@@ -18,5 +19,8 @@ public abstract class ViewModelBase : ObservableObject, IViewModelBase, IDisposa
 
 public abstract class ViewModelBaseWithDialog : ViewModelBase, IViewModelBaseWithDialog
 {
-    public virtual IViewModelDialogBase? DialogViewModel { get => null; }
+    public virtual IViewModelDialogBase? DialogViewModel
+    {
+        get => null;
+    }
 }

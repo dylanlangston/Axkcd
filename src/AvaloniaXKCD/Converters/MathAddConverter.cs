@@ -4,13 +4,10 @@ using Avalonia.Data.Converters;
 
 namespace AvaloniaXKCD.Converters;
 
-public class MathAddConverter<T> : IValueConverter where T : INumber<T>
+public class MathAddConverter<T> : IValueConverter
+    where T : INumber<T>
 {
-    public object? Convert(
-        object? value,
-        Type targetType,
-        object? parameter,
-        CultureInfo culture)
+    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is null)
             return default(T);
@@ -22,11 +19,7 @@ public class MathAddConverter<T> : IValueConverter where T : INumber<T>
         return x + y;
     }
 
-    public object? ConvertBack(
-        object? value,
-        Type targetType,
-        object? parameter,
-        CultureInfo culture)
+    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is null)
             return default(T);
@@ -44,7 +37,7 @@ public class MathAddConverter<T> : IValueConverter where T : INumber<T>
         {
             T t => t,
             IConvertible c => T.CreateChecked(c.ToDouble(CultureInfo.InvariantCulture)),
-            _ => throw new InvalidCastException($"Cannot convert {obj.GetType()} to {typeof(T)}")
+            _ => throw new InvalidCastException($"Cannot convert {obj.GetType()} to {typeof(T)}"),
         };
     }
 }

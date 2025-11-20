@@ -11,5 +11,5 @@ public enum PlatformType
 {
     Headless,
     Browser,
-    Desktop
+    Desktop,
 };

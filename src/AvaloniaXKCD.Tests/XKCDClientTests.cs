@@ -9,46 +9,45 @@ public class XKCDClientTests
 
     // Mock JSON response for the latest comic.
     private const string LatestComicJson = """
-    {
-        "month": "10",
-        "num": 2999,
-        "link": "",
-        "year": "2025",
-        "news": "",
-        "safe_title": "Fake Latest Comic",
-        "transcript": "[[A fake comic for testing purposes.]]",
-        "alt": "This is a test.",
-        "img": "https://imgs.xkcd.com/comics/fake_latest.png",
-        "title": "Fake Latest Comic",
-        "day": "18"
-    }
-    """;
+        {
+            "month": "10",
+            "num": 2999,
+            "link": "",
+            "year": "2025",
+            "news": "",
+            "safe_title": "Fake Latest Comic",
+            "transcript": "[[A fake comic for testing purposes.]]",
+            "alt": "This is a test.",
+            "img": "https://imgs.xkcd.com/comics/fake_latest.png",
+            "title": "Fake Latest Comic",
+            "day": "18"
+        }
+        """;
 
     // Mock JSON response for a specific, older comic.
     private const string SpecificComicJson = """
-    {
-        "month": "4",
-        "num": 614,
-        "link": "",
-        "year": "2009",
-        "news": "",
-        "safe_title": "Woodpecker",
-        "transcript": "[[A comic about a woodpecker.]]",
-        "alt": "There's no wood, but it sounds like he's found a metal stud.",
-        "img": "https://imgs.xkcd.com/comics/woodpecker.png",
-        "title": "Woodpecker",
-        "day": "22"
-    }
-    """;
+        {
+            "month": "4",
+            "num": 614,
+            "link": "",
+            "year": "2009",
+            "news": "",
+            "safe_title": "Woodpecker",
+            "transcript": "[[A comic about a woodpecker.]]",
+            "alt": "There's no wood, but it sounds like he's found a metal stud.",
+            "img": "https://imgs.xkcd.com/comics/woodpecker.png",
+            "title": "Woodpecker",
+            "day": "22"
+        }
+        """;
 
     [Test]
     public async Task LatestShouldReturnTheLatestComic()
     {
-        Handler?.AddMockedResponse(new(HttpMethod.Get, "/info.0.json"), new HttpResponseMessage
-        {
-            StatusCode = HttpStatusCode.OK,
-            Content = new StringContent(LatestComicJson)
-        });
+        Handler?.AddMockedResponse(
+            new(HttpMethod.Get, "/info.0.json"),
+            new HttpResponseMessage { StatusCode = HttpStatusCode.OK, Content = new StringContent(LatestComicJson) }
+        );
 
         var options = new XKCDClientOptions(Handler: Handler);
         using var client = new XKCDClient(options);
@@ -67,11 +66,10 @@ public class XKCDClientTests
     [Test]
     public async Task GetComicShouldReturnTheCorrectComicWhenFound()
     {
-        Handler?.AddMockedResponse(new(HttpMethod.Get, "/614/info.0.json"), new HttpResponseMessage
-        {
-            StatusCode = HttpStatusCode.OK,
-            Content = new StringContent(SpecificComicJson)
-        });
+        Handler?.AddMockedResponse(
+            new(HttpMethod.Get, "/614/info.0.json"),
+            new HttpResponseMessage { StatusCode = HttpStatusCode.OK, Content = new StringContent(SpecificComicJson) }
+        );
 
         var options = new XKCDClientOptions(Handler: Handler);
         using var client = new XKCDClient(options);
@@ -90,13 +88,15 @@ public class XKCDClientTests
     [Test]
     public async Task GetComicShouldReturnLatestComicWhenComicIsNotFound()
     {
-        Handler?.AddMockedResponse(new(HttpMethod.Get, "/9999/info.0.json"), new HttpResponseMessage(HttpStatusCode.NotFound));
+        Handler?.AddMockedResponse(
+            new(HttpMethod.Get, "/9999/info.0.json"),
+            new HttpResponseMessage(HttpStatusCode.NotFound)
+        );
 
-        Handler?.AddMockedResponse(new(HttpMethod.Get, "/info.0.json"), new HttpResponseMessage
-        {
-            StatusCode = HttpStatusCode.OK,
-            Content = new StringContent(LatestComicJson)
-        });
+        Handler?.AddMockedResponse(
+            new(HttpMethod.Get, "/info.0.json"),
+            new HttpResponseMessage { StatusCode = HttpStatusCode.OK, Content = new StringContent(LatestComicJson) }
+        );
 
         var options = new XKCDClientOptions(Handler: Handler);
         using var client = new XKCDClient(options);
@@ -115,11 +115,10 @@ public class XKCDClientTests
     [Test]
     public async Task ConstructorShouldUseCustomBaseUriIfProvided()
     {
-        Handler?.AddMockedResponse(new(HttpMethod.Get, "/info.0.json"), new HttpResponseMessage
-        {
-            StatusCode = HttpStatusCode.OK,
-            Content = new StringContent(LatestComicJson)
-        });
+        Handler?.AddMockedResponse(
+            new(HttpMethod.Get, "/info.0.json"),
+            new HttpResponseMessage { StatusCode = HttpStatusCode.OK, Content = new StringContent(LatestComicJson) }
+        );
 
         var customUri = new Uri("http://test.local/");
         var options = new XKCDClientOptions(BaseUri: customUri, Handler: Handler);
@@ -158,13 +157,19 @@ public class XKCDClientTests
             .UpdateSettings(_ => _.DisableRequireUniquePrefix());
 
         await Verify(handler?.LastRequest!)
-            .UpdateSettings(settings => settings.UseFileName($"{nameof(XKCDClientTests)}.{nameof(ShouldUseAlternativeMirrorBaseUri)}.LastRequest"))
+            .UpdateSettings(settings =>
+                settings.UseFileName(
+                    $"{nameof(XKCDClientTests)}.{nameof(ShouldUseAlternativeMirrorBaseUri)}.LastRequest"
+                )
+            )
             .Assert(request =>
             {
                 request.ShouldNotBeNull();
                 request.RequestUri.ShouldNotBeNull();
                 request.RequestUri!.Host.ShouldBe("raw.githubusercontent.com");
-                request.RequestUri.AbsoluteUri.ShouldStartWith("https://raw.githubusercontent.com/aghontpi/mirror-xkcd-api/main/api/");
+                request.RequestUri.AbsoluteUri.ShouldStartWith(
+                    "https://raw.githubusercontent.com/aghontpi/mirror-xkcd-api/main/api/"
+                );
             })
             .UpdateSettings(_ => _.DisableRequireUniquePrefix());
     }

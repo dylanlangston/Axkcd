@@ -4,6 +4,7 @@ namespace TestNamespace
     public class OrphanViewModel { }
 
     public class LoginViewModel { }
+
     public class LoginView { }
 }
 

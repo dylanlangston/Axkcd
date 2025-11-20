@@ -10,7 +10,8 @@ public interface ISettingsRepo : IExport, IDisposable
     void Load();
     void Save();
 
-    T? Get<T>(JsonTypeInfo<T> typeInfo) where T : class, new();
+    T? Get<T>(JsonTypeInfo<T> typeInfo)
+        where T : class, new();
     void Set<T>(T obj, JsonTypeInfo<T> typeInfo);
 }
 
@@ -20,7 +21,8 @@ public abstract class BaseSettingsRepo : ISettingsRepo
 
     public abstract void Load();
 
-    public abstract T? Get<T>(JsonTypeInfo<T> typeInfo) where T : class, new();
+    public abstract T? Get<T>(JsonTypeInfo<T> typeInfo)
+        where T : class, new();
     public abstract void Set<T>(T obj, JsonTypeInfo<T> typeInfo);
 
     void IDisposable.Dispose()

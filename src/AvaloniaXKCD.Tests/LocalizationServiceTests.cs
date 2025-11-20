@@ -17,7 +17,8 @@ public class LocalizationServiceTests
         var service = new TestLocalizationService();
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(new { Culture = service.CurrentCulture.TwoLetterISOLanguageName })
+        await VerifyAssertionsPlugin
+            .Verify(new { Culture = service.CurrentCulture.TwoLetterISOLanguageName })
             .Assert(result =>
             {
                 result.Culture.ShouldNotBeNull();
@@ -37,7 +38,8 @@ public class LocalizationServiceTests
         service.SetCulture("es");
 
         // Assert
-        await Verifier.Verify(service.CurrentCulture.TwoLetterISOLanguageName)
+        await Verifier
+            .Verify(service.CurrentCulture.TwoLetterISOLanguageName)
             .Assert<string>(culture => culture.ShouldBe("es"));
     }
 
@@ -52,7 +54,8 @@ public class LocalizationServiceTests
         service.SetCulture(spanishCulture);
 
         // Assert
-        await Verifier.Verify(service.CurrentCulture.TwoLetterISOLanguageName)
+        await Verifier
+            .Verify(service.CurrentCulture.TwoLetterISOLanguageName)
             .Assert<string>(culture => culture.ShouldBe("es"));
     }
 
@@ -66,7 +69,8 @@ public class LocalizationServiceTests
         service.SetCulture("zh"); // Chinese is not supported
 
         // Assert - Should fallback to English
-        await Verifier.Verify(service.CurrentCulture.TwoLetterISOLanguageName)
+        await Verifier
+            .Verify(service.CurrentCulture.TwoLetterISOLanguageName)
             .Assert<string>(culture => culture.ShouldBe("en"));
     }
 
@@ -82,7 +86,8 @@ public class LocalizationServiceTests
         service.SetCulture("es");
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(new { CapturedCulture = capturedCulture?.TwoLetterISOLanguageName })
+        await VerifyAssertionsPlugin
+            .Verify(new { CapturedCulture = capturedCulture?.TwoLetterISOLanguageName })
             .Assert(result =>
             {
                 result.CapturedCulture.ShouldNotBeNull();
@@ -103,7 +108,8 @@ public class LocalizationServiceTests
         service.SetCulture("en");
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(new { EventRaised = eventRaised })
+        await VerifyAssertionsPlugin
+            .Verify(new { EventRaised = eventRaised })
             .Assert(result => result.EventRaised.ShouldBeFalse());
     }
 
@@ -120,11 +126,12 @@ public class LocalizationServiceTests
             RandomButton = service.GetString("NavButton_Random"),
             ExplainButton = service.GetString("NavButton_Explain"),
             FirstButton = service.GetString("NavButton_First"),
-            LastButton = service.GetString("NavButton_Last")
+            LastButton = service.GetString("NavButton_Last"),
         };
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(translations)
+        await VerifyAssertionsPlugin
+            .Verify(translations)
             .Assert(t =>
             {
                 t.RandomButton.ShouldBe("Random");
@@ -147,11 +154,12 @@ public class LocalizationServiceTests
             RandomButton = service.GetString("NavButton_Random"),
             ExplainButton = service.GetString("NavButton_Explain"),
             PreviousButton = service.GetString("NavButton_Previous"),
-            NextButton = service.GetString("NavButton_Next")
+            NextButton = service.GetString("NavButton_Next"),
         };
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(translations)
+        await VerifyAssertionsPlugin
+            .Verify(translations)
             .Assert(t =>
             {
                 t.RandomButton.ShouldBe("Aleatorio");
@@ -174,11 +182,12 @@ public class LocalizationServiceTests
             Error = service.GetString("Dialog_Error"),
             Quit = service.GetString("Dialog_Quit"),
             Continue = service.GetString("Dialog_Continue"),
-            Cancel = service.GetString("Dialog_Cancel")
+            Cancel = service.GetString("Dialog_Cancel"),
         };
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(translations)
+        await VerifyAssertionsPlugin
+            .Verify(translations)
             .Assert(t =>
             {
                 t.Error.ShouldBe("Error");
@@ -201,11 +210,12 @@ public class LocalizationServiceTests
             Error = service.GetString("Dialog_Error"),
             Quit = service.GetString("Dialog_Quit"),
             Continue = service.GetString("Dialog_Continue"),
-            Cancel = service.GetString("Dialog_Cancel")
+            Cancel = service.GetString("Dialog_Cancel"),
         };
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(translations)
+        await VerifyAssertionsPlugin
+            .Verify(translations)
             .Assert(t =>
             {
                 t.Error.ShouldBe("Error");
@@ -226,11 +236,12 @@ public class LocalizationServiceTests
         var translations = new
         {
             ErrorTitle = service.GetString("Dialog_ErrorTitle"),
-            ErrorMessage = service.GetString("Dialog_ErrorMessage")
+            ErrorMessage = service.GetString("Dialog_ErrorMessage"),
         };
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(translations)
+        await VerifyAssertionsPlugin
+            .Verify(translations)
             .Assert(t =>
             {
                 t.ErrorTitle.ShouldBe("Title");
@@ -249,11 +260,12 @@ public class LocalizationServiceTests
         var translations = new
         {
             ErrorTitle = service.GetString("Dialog_ErrorTitle"),
-            ErrorMessage = service.GetString("Dialog_ErrorMessage")
+            ErrorMessage = service.GetString("Dialog_ErrorMessage"),
         };
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(translations)
+        await VerifyAssertionsPlugin
+            .Verify(translations)
             .Assert(t =>
             {
                 t.ErrorTitle.ShouldBe("Título");
@@ -272,8 +284,7 @@ public class LocalizationServiceTests
         var copyUrl = service.GetString("ContextMenu_CopyURL");
 
         // Assert
-        await Verifier.Verify(copyUrl)
-            .Assert<string>(url => url.ShouldBe("Copy URL"));
+        await Verifier.Verify(copyUrl).Assert<string>(url => url.ShouldBe("Copy URL"));
     }
 
     [Test]
@@ -287,8 +298,7 @@ public class LocalizationServiceTests
         var copyUrl = service.GetString("ContextMenu_CopyURL");
 
         // Assert
-        await Verifier.Verify(copyUrl)
-            .Assert<string>(url => url.ShouldBe("Copiar URL"));
+        await Verifier.Verify(copyUrl).Assert<string>(url => url.ShouldBe("Copiar URL"));
     }
 
     [Test]
@@ -302,11 +312,12 @@ public class LocalizationServiceTests
         var titles = new
         {
             Title = service.GetString("Window_Title"),
-            TitleFormat = service.GetString("Window_TitleFormat")
+            TitleFormat = service.GetString("Window_TitleFormat"),
         };
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(titles)
+        await VerifyAssertionsPlugin
+            .Verify(titles)
             .Assert(t =>
             {
                 t.Title.ShouldBe("Axkcd");
@@ -325,8 +336,7 @@ public class LocalizationServiceTests
         var formattedTitle = service.GetString("Window_TitleFormat", "Test Comic");
 
         // Assert
-        await Verifier.Verify(formattedTitle)
-            .Assert<string>(title => title.ShouldBe("AXKCD: Test Comic"));
+        await Verifier.Verify(formattedTitle).Assert<string>(title => title.ShouldBe("AXKCD: Test Comic"));
     }
 
     [Test]
@@ -339,8 +349,7 @@ public class LocalizationServiceTests
         var missing = service.GetString("NonExistent_Key");
 
         // Assert
-        await Verifier.Verify(missing)
-            .Assert<string>(key => key.ShouldBe("NonExistent_Key"));
+        await Verifier.Verify(missing).Assert<string>(key => key.ShouldBe("NonExistent_Key"));
     }
 
     [Test]
@@ -361,10 +370,11 @@ public class LocalizationServiceTests
         var result = new
         {
             CultureChangeCount = cultures.Count,
-            FinalTranslation = service.GetString("NavButton_Random")
+            FinalTranslation = service.GetString("NavButton_Random"),
         };
 
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(r =>
             {
                 r.CultureChangeCount.ShouldBeGreaterThanOrEqualTo(2);
@@ -385,31 +395,22 @@ public class LocalizationServiceTests
             "NavButton_Explain",
             "NavButton_GoTo",
             "NavButton_Next",
-            "NavButton_Last"
+            "NavButton_Last",
         };
 
         // Act - Get English translations
         service.SetCulture("en");
-        var englishTranslations = buttonKeys.ToDictionary(
-            key => key,
-            key => service.GetString(key)
-        );
+        var englishTranslations = buttonKeys.ToDictionary(key => key, key => service.GetString(key));
 
         // Get Spanish translations
         service.SetCulture("es");
-        var spanishTranslations = buttonKeys.ToDictionary(
-            key => key,
-            key => service.GetString(key)
-        );
+        var spanishTranslations = buttonKeys.ToDictionary(key => key, key => service.GetString(key));
 
-        var result = new
-        {
-            English = englishTranslations,
-            Spanish = spanishTranslations
-        };
+        var result = new { English = englishTranslations, Spanish = spanishTranslations };
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(r =>
             {
                 foreach (var key in buttonKeys)
@@ -434,31 +435,22 @@ public class LocalizationServiceTests
             "Dialog_ErrorMessage",
             "Dialog_Quit",
             "Dialog_Continue",
-            "Dialog_Cancel"
+            "Dialog_Cancel",
         };
 
         // Act - Get English translations
         service.SetCulture("en");
-        var englishTranslations = dialogKeys.ToDictionary(
-            key => key,
-            key => service.GetString(key)
-        );
+        var englishTranslations = dialogKeys.ToDictionary(key => key, key => service.GetString(key));
 
         // Get Spanish translations
         service.SetCulture("es");
-        var spanishTranslations = dialogKeys.ToDictionary(
-            key => key,
-            key => service.GetString(key)
-        );
+        var spanishTranslations = dialogKeys.ToDictionary(key => key, key => service.GetString(key));
 
-        var result = new
-        {
-            English = englishTranslations,
-            Spanish = spanishTranslations
-        };
+        var result = new { English = englishTranslations, Spanish = spanishTranslations };
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(r =>
             {
                 foreach (var key in dialogKeys)
@@ -484,10 +476,11 @@ public class LocalizationServiceTests
         var result = new
         {
             CurrentCulture = CultureInfo.CurrentCulture.TwoLetterISOLanguageName,
-            CurrentUICulture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName
+            CurrentUICulture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName,
         };
 
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(r =>
             {
                 r.CurrentCulture.ShouldBe("es");
@@ -502,7 +495,8 @@ public class LocalizationServiceTests
         var services = ExportContainer.GetAll<ILocalizationService>();
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(new { ServiceCount = services.Length })
+        await VerifyAssertionsPlugin
+            .Verify(new { ServiceCount = services.Length })
             .Assert(result =>
             {
                 result.ServiceCount.ShouldBeGreaterThanOrEqualTo(1);

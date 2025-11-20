@@ -1,34 +1,50 @@
+using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
-using System.Windows.Input;
 
 namespace AvaloniaXKCD.Views;
 
 public partial class NavigationControlsView : UserControl
 {
-    public static readonly StyledProperty<bool?> EnabledProperty =
-        AvaloniaProperty.Register<NavigationControlsView, bool?>(nameof(Enabled));
+    public static readonly StyledProperty<bool?> EnabledProperty = AvaloniaProperty.Register<
+        NavigationControlsView,
+        bool?
+    >(nameof(Enabled));
 
-    public static readonly StyledProperty<ICommand?> GetFirstCommandProperty =
-        AvaloniaProperty.Register<NavigationControlsView, ICommand?>(nameof(GetFirstCommand));
+    public static readonly StyledProperty<ICommand?> GetFirstCommandProperty = AvaloniaProperty.Register<
+        NavigationControlsView,
+        ICommand?
+    >(nameof(GetFirstCommand));
 
-    public static readonly StyledProperty<ICommand?> GetPreviousCommandProperty =
-        AvaloniaProperty.Register<NavigationControlsView, ICommand?>(nameof(GetPreviousCommand));
+    public static readonly StyledProperty<ICommand?> GetPreviousCommandProperty = AvaloniaProperty.Register<
+        NavigationControlsView,
+        ICommand?
+    >(nameof(GetPreviousCommand));
 
-    public static readonly StyledProperty<ICommand?> GetRandomCommandProperty =
-        AvaloniaProperty.Register<NavigationControlsView, ICommand?>(nameof(GetRandomCommand));
+    public static readonly StyledProperty<ICommand?> GetRandomCommandProperty = AvaloniaProperty.Register<
+        NavigationControlsView,
+        ICommand?
+    >(nameof(GetRandomCommand));
 
-    public static readonly StyledProperty<ICommand?> ExplainCommandProperty =
-        AvaloniaProperty.Register<NavigationControlsView, ICommand?>(nameof(ExplainCommand));
+    public static readonly StyledProperty<ICommand?> ExplainCommandProperty = AvaloniaProperty.Register<
+        NavigationControlsView,
+        ICommand?
+    >(nameof(ExplainCommand));
 
-    public static readonly StyledProperty<ICommand?> OpenDialogCommandProperty =
-        AvaloniaProperty.Register<NavigationControlsView, ICommand?>(nameof(OpenDialogCommand));
+    public static readonly StyledProperty<ICommand?> OpenDialogCommandProperty = AvaloniaProperty.Register<
+        NavigationControlsView,
+        ICommand?
+    >(nameof(OpenDialogCommand));
 
-    public static readonly StyledProperty<ICommand?> GetNextCommandProperty =
-        AvaloniaProperty.Register<NavigationControlsView, ICommand?>(nameof(GetNextCommand));
+    public static readonly StyledProperty<ICommand?> GetNextCommandProperty = AvaloniaProperty.Register<
+        NavigationControlsView,
+        ICommand?
+    >(nameof(GetNextCommand));
 
-    public static readonly StyledProperty<ICommand?> GetLastCommandProperty =
-        AvaloniaProperty.Register<NavigationControlsView, ICommand?>(nameof(GetLastCommand));
+    public static readonly StyledProperty<ICommand?> GetLastCommandProperty = AvaloniaProperty.Register<
+        NavigationControlsView,
+        ICommand?
+    >(nameof(GetLastCommand));
 
     public bool? Enabled
     {

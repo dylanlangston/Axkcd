@@ -12,21 +12,29 @@ public partial class BrowserLogger : ILogger
 {
     [JSImport("globalThis.console.log")]
     internal static partial Task Log([JSMarshalAs<JSType.String>] string message);
+
     [JSImport("globalThis.console.info")]
     internal static partial Task Info([JSMarshalAs<JSType.String>] string message);
+
     [JSImport("globalThis.console.warn")]
     internal static partial Task Warn([JSMarshalAs<JSType.String>] string message);
+
     [JSImport("globalThis.console.debug")]
     internal static partial Task Debug([JSMarshalAs<JSType.String>] string message);
+
     [JSImport("globalThis.console.error")]
     internal static partial Task Error([JSMarshalAs<JSType.String>] string message);
+
     [JSImport("globalThis.console.trace")]
     internal static partial Task Trace([JSMarshalAs<JSType.String>] string message);
 
-
     public bool ShouldLog(LogLevel level) => level.ShouldLog(App.Config.LogLevel);
-    public void Log(LogLevel level, string message,
-        [System.Runtime.CompilerServices.CallerFilePath] string? file = null)
+
+    public void Log(
+        LogLevel level,
+        string message,
+        [System.Runtime.CompilerServices.CallerFilePath] string? file = null
+    )
     {
         var messageTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
         var category = Path.GetFileNameWithoutExtension(file);
@@ -54,7 +62,10 @@ public partial class BrowserLogger : ILogger
                 break;
         }
     }
-    public void Log(LogLevel level, Exception err,
-        [System.Runtime.CompilerServices.CallerFilePath] string? file = null)
-        => Log(level, err.ToString(), file);
+
+    public void Log(
+        LogLevel level,
+        Exception err,
+        [System.Runtime.CompilerServices.CallerFilePath] string? file = null
+    ) => Log(level, err.ToString(), file);
 }

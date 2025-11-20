@@ -12,57 +12,60 @@ public class ExplainXKCDTests
 
     // Mock JSON response for a successful API call to get an explanation.
     private const string ExplanationApiResponseJson = """
-    {
-        "batchcomplete": "",
-        "query": {
-            "redirects": [
-                {
-                    "from": "74",
-                    "to": "74: Hell"
-                }
-            ],
-            "pages": {
-                "661": {
-                    "pageid": 661,
-                    "ns": 0,
-                    "title": "74: Hell",
-                    "revisions": [
-                        {
-                            "*": "'''[[74: Hell]]''' is a comic about a fictional depiction of hell.\n\n== Explanation ==\nThis comic plays on the tropes of eternal damnation.\n\n* The first panel shows a classic fire-and-brimstone scene.\n* The second introduces a twist: boring meetings.\n\nThis references [[Category:Christianity]] and the concept of [[Sin|sin]].\n\nA link to Wikipedia about {{w|Dante's Inferno}}.\n\nHere is a reference to another comic: [[614: Woodpecker]].\n\n== Transcript =="
-                        }
-                    ]
+        {
+            "batchcomplete": "",
+            "query": {
+                "redirects": [
+                    {
+                        "from": "74",
+                        "to": "74: Hell"
+                    }
+                ],
+                "pages": {
+                    "661": {
+                        "pageid": 661,
+                        "ns": 0,
+                        "title": "74: Hell",
+                        "revisions": [
+                            {
+                                "*": "'''[[74: Hell]]''' is a comic about a fictional depiction of hell.\n\n== Explanation ==\nThis comic plays on the tropes of eternal damnation.\n\n* The first panel shows a classic fire-and-brimstone scene.\n* The second introduces a twist: boring meetings.\n\nThis references [[Category:Christianity]] and the concept of [[Sin|sin]].\n\nA link to Wikipedia about {{w|Dante's Inferno}}.\n\nHere is a reference to another comic: [[614: Woodpecker]].\n\n== Transcript =="
+                            }
+                        ]
+                    }
                 }
             }
         }
-    }
-    """;
+        """;
 
     // Mock JSON response for an API call where the page is empty or not found.
     private const string EmptyApiResponseJson = """
-    {
-        "batchcomplete": "",
-        "query": {
-            "pages": {
-                "-1": {
-                    "ns": 0,
-                    "title": "9999",
-                    "missing": ""
+        {
+            "batchcomplete": "",
+            "query": {
+                "pages": {
+                    "-1": {
+                        "ns": 0,
+                        "title": "9999",
+                        "missing": ""
+                    }
                 }
             }
         }
-    }
-    """;
+        """;
 
     [Test]
     public async Task GetExplanation_ShouldReturnCorrectlyParsedHtml_WhenComicIsFound()
     {
         // Arrange
         var requestUri = "/wiki/api.php?action=query&prop=revisions&rvprop=content&format=json&redirects=1&titles=74";
-        Handler.AddMockedResponse(new(HttpMethod.Get, requestUri), new HttpResponseMessage
-        {
-            StatusCode = HttpStatusCode.OK,
-            Content = new StringContent(ExplanationApiResponseJson)
-        });
+        Handler.AddMockedResponse(
+            new(HttpMethod.Get, requestUri),
+            new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.OK,
+                Content = new StringContent(ExplanationApiResponseJson),
+            }
+        );
 
         var options = new ExplainXKCDClientOptions(Handler: Handler);
         using var client = new ExplainXKCDClient(options);
@@ -71,13 +74,16 @@ public class ExplainXKCDTests
         var explanationHtml = await client.GetExplanation(74);
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(explanationHtml)
+        await VerifyAssertionsPlugin
+            .Verify(explanationHtml)
             .Assert(html =>
             {
                 html.ShouldNotBeNullOrEmpty();
                 html.ShouldStartWith("<p>This comic plays on the tropes of eternal damnation.</p>");
                 html.ShouldContain("<li>The first panel shows a classic fire-and-brimstone scene.</li>");
-                html.ShouldContain("<a href=\"https://en.wikipedia.org/wiki/Dante%27s%20Inferno\" title=\"wikipedia:Dante&#39;s Inferno\">Dante&#39;s Inferno</a>");
+                html.ShouldContain(
+                    "<a href=\"https://en.wikipedia.org/wiki/Dante%27s%20Inferno\" title=\"wikipedia:Dante&#39;s Inferno\">Dante&#39;s Inferno</a>"
+                );
                 html.ShouldContain("<a href=\"https://xkcd.com/614\">614: Woodpecker</a>");
             });
     }
@@ -87,11 +93,14 @@ public class ExplainXKCDTests
     {
         // Arrange
         var requestUri = "/wiki/api.php?action=query&prop=revisions&rvprop=content&format=json&redirects=1&titles=9999";
-        Handler.AddMockedResponse(new(HttpMethod.Get, requestUri), new HttpResponseMessage
-        {
-            StatusCode = HttpStatusCode.OK,
-            Content = new StringContent(EmptyApiResponseJson)
-        });
+        Handler.AddMockedResponse(
+            new(HttpMethod.Get, requestUri),
+            new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.OK,
+                Content = new StringContent(EmptyApiResponseJson),
+            }
+        );
 
         var options = new ExplainXKCDClientOptions(Handler: Handler);
         using var client = new ExplainXKCDClient(options);
@@ -100,7 +109,8 @@ public class ExplainXKCDTests
         var result = await client.GetExplanation(9999);
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(text =>
             {
                 text.ShouldBe("Could not find an explanation for this comic.");
@@ -112,7 +122,10 @@ public class ExplainXKCDTests
     {
         // Arrange
         var requestUri = "/wiki/api.php?action=query&prop=revisions&rvprop=content&format=json&redirects=1&titles=123";
-        Handler.AddMockedResponse(new(HttpMethod.Get, requestUri), new HttpResponseMessage(HttpStatusCode.InternalServerError));
+        Handler.AddMockedResponse(
+            new(HttpMethod.Get, requestUri),
+            new HttpResponseMessage(HttpStatusCode.InternalServerError)
+        );
 
         var options = new ExplainXKCDClientOptions(Handler: Handler);
         using var client = new ExplainXKCDClient(options);
@@ -121,7 +134,8 @@ public class ExplainXKCDTests
         var result = await client.GetExplanation(123);
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(text =>
             {
                 text.ShouldBe("Could not find an explanation for this comic (network error).");
@@ -133,11 +147,14 @@ public class ExplainXKCDTests
     {
         // Arrange
         var requestUri = "/wiki/api.php?action=query&prop=revisions&rvprop=content&format=json&redirects=1&titles=1";
-        Handler.AddMockedResponse(new(HttpMethod.Get, requestUri), new HttpResponseMessage
-        {
-            StatusCode = HttpStatusCode.OK,
-            Content = new StringContent(ExplanationApiResponseJson)
-        });
+        Handler.AddMockedResponse(
+            new(HttpMethod.Get, requestUri),
+            new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.OK,
+                Content = new StringContent(ExplanationApiResponseJson),
+            }
+        );
 
         var customUri = new Uri("http://test.local/");
         var options = new ExplainXKCDClientOptions(BaseUri: customUri, Handler: Handler);
@@ -167,7 +184,8 @@ public class ExplainXKCDTests
         var explanationHtml = await client.GetExplanation(614);
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(explanationHtml)
+        await VerifyAssertionsPlugin
+            .Verify(explanationHtml)
             .Assert(html =>
             {
                 html.ShouldNotBeNullOrEmpty();
