@@ -9,7 +9,6 @@ namespace AvaloniaXKCD.Browser;
 /// <summary>
 /// Browser implementation of localization service with JavaScript interop
 /// </summary>
-[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]
 public partial class BrowserLocalizationService : LocalizationService
 {
     [JSImport("getLocale", "interop")]
