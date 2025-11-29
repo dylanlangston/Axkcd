@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using Avalonia.Data;
 using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.MarkupExtensions;
@@ -13,6 +14,8 @@ public class LocalizeExtension : MarkupExtension
 {
     public string Key { get; set; } = string.Empty;
 
+    [UnconditionalSuppressMessage("Trimming", "IL2026:RequiresUnreferencedCode", 
+        Justification = "The Binding source is a local private class (LocalizedStringProvider) where the property 'Value' is preserved via code structure or annotation.")]
     public override object ProvideValue(IServiceProvider serviceProvider)
     {
         var localizationService = ExportContainer.Get<ILocalizationService>();
