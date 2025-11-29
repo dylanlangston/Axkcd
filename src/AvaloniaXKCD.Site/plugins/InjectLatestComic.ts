@@ -2,6 +2,15 @@ import type { Plugin } from 'vite';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
+const escapeHtml = (unsafe: string) => {
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+ }
+
 export function injectLatestComic(): Plugin {
     return {
         name: 'inject-latest-comic',
@@ -41,7 +50,7 @@ However, this site, in its ongoing battle against the forces of static HTML, rel
 <meta property="og:type" content="article" />
 <meta property="og:url" content="${comicUrl}" />
 <meta property="og:image" content="${comicImgPath}" />
-<meta property="og:description" content="${comicInfo.alt}" />
+<meta property="og:description" content="${escapeHtml(comicInfo.alt)}" />
 `;
 
                 let updatedHtml = html.replace(
