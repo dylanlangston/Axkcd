@@ -20,7 +20,7 @@
     "@types/node": "^24.10.0",
     "@vite-pwa/assets-generator": "^1.0.2",
     "fs-extra": "^11.3.2",
-    "glob": "^11.0.3",
+    "glob": "^11.1.0",
     "html-minifier-terser": "^7.2.0",
     "rollup-plugin-minify-template-literals": "^1.1.7",
     "typescript": "~5.9.3",
