@@ -8,7 +8,6 @@ namespace AvaloniaXKCD.Exports;
 /// <summary>
 /// Abstract base service for handling application localization using .resx files
 /// </summary>
-[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]
 public abstract class LocalizationService : ILocalizationService
 {
     private readonly ResourceManager _resourceManager;
