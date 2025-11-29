@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
@@ -25,7 +24,12 @@
     <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
 
     <!-- This packs the Scriban dependency alongside the generator -->
-    <None Include="$(PkgScriban)\lib\netstandard2.0\Scriban.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    <None
+      Include="$(PkgScriban)\lib\netstandard2.0\Scriban.dll"
+      Pack="true"
+      PackagePath="analyzers/dotnet/cs"
+      Visible="false"
+    />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,8 +45,10 @@
 
   <Target Name="GetDependencyTargetPaths" AfterTargets="ResolvePackageAssets">
     <ItemGroup>
-      <TargetPathWithTargetPlatformMoniker Include="$(PkgScriban)\lib\netstandard2.0\Scriban.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker
+        Include="$(PkgScriban)\lib\netstandard2.0\Scriban.dll"
+        IncludeRuntimeDependency="false"
+      />
     </ItemGroup>
   </Target>
-
 </Project>

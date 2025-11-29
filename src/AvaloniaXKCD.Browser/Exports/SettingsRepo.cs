@@ -1,11 +1,11 @@
 using System;
-using AvaloniaXKCD.Exports;
+using System.Runtime.InteropServices.JavaScript;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using System.Text.Json.Serialization.Metadata;
-using System.Runtime.InteropServices.JavaScript;
 using System.Threading.Tasks;
+using AvaloniaXKCD.Exports;
 
 namespace AvaloniaXKCD.Browser;
 
@@ -20,7 +20,6 @@ public sealed partial class LocalStorageSettingsRepo : BaseSettingsRepo
     {
         Load();
     }
-
 
     // JS-imported localStorage
     [JSImport("globalThis.localStorage.getItem")]

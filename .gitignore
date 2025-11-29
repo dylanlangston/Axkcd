@@ -492,3 +492,5 @@ src/AvaloniaXKCD.Browser/wwwroot
 
 # Build output
 out/
+
+.lfs-files.txt

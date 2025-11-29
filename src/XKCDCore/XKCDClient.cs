@@ -1,13 +1,10 @@
-﻿using System.Net.Http.Json;
+using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace XKCDCore;
 
-public record XKCDClientOptions(
-    Uri? BaseUri = null,
-    HttpMessageHandler? Handler = null
-);
+public record XKCDClientOptions(Uri? BaseUri = null, HttpMessageHandler? Handler = null);
 
 public class XKCDClient : IDisposable
 {
@@ -16,16 +13,15 @@ public class XKCDClient : IDisposable
     public XKCDClient(XKCDClientOptions? options = null)
     {
         var baseUri = options?.BaseUri ?? new Uri("https://xkcd.com/");
-        client = options?.Handler != null
-            ? new(options.Handler) { BaseAddress = baseUri }
-            : new() { BaseAddress = baseUri };
+        client =
+            options?.Handler != null ? new(options.Handler) { BaseAddress = baseUri } : new() { BaseAddress = baseUri };
 
         client.DefaultRequestHeaders.UserAgent.ParseAdd("XKCDCore/1.0");
     }
 
     private static readonly JsonSerializerOptions SerializerOptions = new()
     {
-        TypeInfoResolver = XKCDJsonContext.Default
+        TypeInfoResolver = XKCDJsonContext.Default,
     };
 
     public async Task<IXKCDComic> Latest()

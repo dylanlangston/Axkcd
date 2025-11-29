@@ -28,8 +28,7 @@ public class XKCDComicTests
 
         var result = IXKCDComic.GetImg2x(comicNumber, originalUrl);
 
-        await Verifier.Verify(result)
-            .Assert<string>(_ => _.ShouldBe(originalUrl));
+        await Verifier.Verify(result).Assert<string>(_ => _.ShouldBe(originalUrl));
     }
 
     [Test]
@@ -37,36 +36,51 @@ public class XKCDComicTests
     {
         var result = IXKCDComic.GetImg2x(2000, string.Empty);
 
-        await Verifier.Verify(result)
-            .Assert<string>(_ => _.ShouldBeEmpty());
+        await Verifier.Verify(result).Assert<string>(_ => _.ShouldBeEmpty());
     }
 
     [Test]
     public async Task GetURIShouldReturnCorrectComicLinkWithDefaultBaseUri()
     {
         IXKCDComic comic = new XKCDComic(
-            Month: "10", Num: 404, Link: "", Year: "2025", News: "",
-            SafeTitle: "Test", Transcript: "", Alt: "", Img: "", Title: "Test", Day: "18"
+            Month: "10",
+            Num: 404,
+            Link: "",
+            Year: "2025",
+            News: "",
+            SafeTitle: "Test",
+            Transcript: "",
+            Alt: "",
+            Img: "",
+            Title: "Test",
+            Day: "18"
         );
 
         var uri = comic.GetURI();
 
-        await Verify(uri)
-            .Assert(_ => _.AbsoluteUri.ShouldBe("https://xkcd.com/404/"));
+        await Verify(uri).Assert(_ => _.AbsoluteUri.ShouldBe("https://xkcd.com/404/"));
     }
 
     [Test]
     public async Task GetURIShouldUseProvidedBaseUriOverride()
     {
         IXKCDComic comic = new XKCDComic(
-            Month: "10", Num: 123, Link: "", Year: "2025", News: "",
-            SafeTitle: "Test", Transcript: "", Alt: "", Img: "", Title: "Test", Day: "18"
+            Month: "10",
+            Num: 123,
+            Link: "",
+            Year: "2025",
+            News: "",
+            SafeTitle: "Test",
+            Transcript: "",
+            Alt: "",
+            Img: "",
+            Title: "Test",
+            Day: "18"
         );
         var overrideUri = new Uri("http://localhost:8080/");
 
         var uri = comic.GetURI(overrideUri);
 
-        await Verify(uri)
-            .Assert(_ => _.AbsoluteUri.ShouldBe("http://localhost:8080/123/"));
+        await Verify(uri).Assert(_ => _.AbsoluteUri.ShouldBe("http://localhost:8080/123/"));
     }
 }

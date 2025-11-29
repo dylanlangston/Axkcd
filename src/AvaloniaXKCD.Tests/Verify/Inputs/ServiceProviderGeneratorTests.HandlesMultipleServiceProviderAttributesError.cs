@@ -4,6 +4,7 @@ namespace TestNamespace
     internal partial class FirstServiceProvider
     {
         public partial IServiceProvider Services { get; }
+
         public partial void ConfigureServices(ServiceCollection services);
     }
 
@@ -11,6 +12,7 @@ namespace TestNamespace
     internal partial class SecondServiceProvider
     {
         public partial IServiceProvider Services { get; }
+
         public partial void ConfigureServices(ServiceCollection services);
     }
 }

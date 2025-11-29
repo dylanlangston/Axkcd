@@ -1,9 +1,9 @@
-using XKCDCore;
 using System.Threading.Tasks;
-using Shouldly;
 using AvaloniaXKCD.Tests.VerifyPlugins;
-using VerifyTests;
 using NUnit.Framework;
+using Shouldly;
+using VerifyTests;
+using XKCDCore;
 
 namespace AvaloniaXKCD.Tests;
 
@@ -27,7 +27,8 @@ public class WikiTextParserTests
         var result = WikiTextParser.Instance.Parse(wikitext, 1);
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(html =>
             {
                 html.ShouldContain("<h1>Level 1</h1>");
@@ -56,7 +57,8 @@ public class WikiTextParserTests
         var result = WikiTextParser.Instance.Parse(wikitext, 1);
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(html =>
             {
                 html.ShouldContain("<ul><li>Level 1");
@@ -85,19 +87,28 @@ public class WikiTextParserTests
         var result = WikiTextParser.Instance.Parse(wikitext, 1);
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(html =>
             {
                 // Internal wiki links
-                html.ShouldContain("<a href=\"https://www.explainxkcd.com/wiki/index.php/Internal%20Link\" title=\"Internal Link\">Internal Link</a>");
-                html.ShouldContain("<a href=\"https://www.explainxkcd.com/wiki/index.php/Internal%20Link\" title=\"Internal Link\">Display Text</a>");
+                html.ShouldContain(
+                    "<a href=\"https://www.explainxkcd.com/wiki/index.php/Internal%20Link\" title=\"Internal Link\">Internal Link</a>"
+                );
+                html.ShouldContain(
+                    "<a href=\"https://www.explainxkcd.com/wiki/index.php/Internal%20Link\" title=\"Internal Link\">Display Text</a>"
+                );
 
                 // XKCD comic link
                 html.ShouldContain("<a href=\"https://xkcd.com/123\">123: Comic Title</a>");
 
                 // Wikipedia links
-                html.ShouldContain("<a href=\"https://en.wikipedia.org/wiki/Wikipedia%20Article\" title=\"wikipedia:Wikipedia Article\">Wikipedia Article</a>");
-                html.ShouldContain("<a href=\"https://en.wikipedia.org/wiki/Wikipedia\" title=\"wikipedia:Wikipedia\">Display Text</a>");
+                html.ShouldContain(
+                    "<a href=\"https://en.wikipedia.org/wiki/Wikipedia%20Article\" title=\"wikipedia:Wikipedia Article\">Wikipedia Article</a>"
+                );
+                html.ShouldContain(
+                    "<a href=\"https://en.wikipedia.org/wiki/Wikipedia\" title=\"wikipedia:Wikipedia\">Display Text</a>"
+                );
 
                 // External links
                 html.ShouldContain("<a rel=\"nofollow\" href=\"https://example.com\">External Link</a>");
@@ -120,7 +131,8 @@ public class WikiTextParserTests
         var result = WikiTextParser.Instance.Parse(wikitext, 1);
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(html =>
             {
                 html.ShouldContain("<b>bold text</b>");
@@ -142,7 +154,8 @@ public class WikiTextParserTests
         var result = WikiTextParser.Instance.Parse(wikitext, 1);
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(html =>
             {
                 // Reference markers in text
@@ -151,7 +164,9 @@ public class WikiTextParserTests
 
                 // References section
                 html.ShouldContain("<div class='references'><ol>");
-                html.ShouldContain("<li id='note-0'><a href='#ref-0'>↑</a><span>This is the reference text</span></li>");
+                html.ShouldContain(
+                    "<li id='note-0'><a href='#ref-0'>↑</a><span>This is the reference text</span></li>"
+                );
                 html.ShouldContain("<li id='note-1'><a href='#ref-1'>↑</a><span>Second reference</span></li>");
                 html.ShouldContain("</ol></div>");
             });
@@ -175,7 +190,8 @@ public class WikiTextParserTests
         var result = WikiTextParser.Instance.Parse(wikitext, 1);
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(html =>
             {
                 html.ShouldContain("<table class=\"wikitable\">");
@@ -201,7 +217,8 @@ public class WikiTextParserTests
         var result = WikiTextParser.Instance.Parse(wikitext, 1);
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(html =>
             {
                 html.ShouldContain("<dl><dd>This is a quote</dd>");
@@ -219,7 +236,8 @@ public class WikiTextParserTests
         var result = WikiTextParser.Instance.Parse(wikitext, 1);
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(html =>
             {
                 html.ShouldContain("&lt;angle brackets&gt; &amp; ampersand");
@@ -236,7 +254,8 @@ public class WikiTextParserTests
         var result = WikiTextParser.Instance.Parse(wikitext, 1);
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(html =>
             {
                 html.ShouldBeEmpty();
@@ -257,11 +276,16 @@ public class WikiTextParserTests
         var result = WikiTextParser.Instance.Parse(wikitext, 1);
 
         // Assert
-        await VerifyAssertionsPlugin.Verify(result)
+        await VerifyAssertionsPlugin
+            .Verify(result)
             .Assert(html =>
             {
-                html.ShouldContain("<b>Bold <a href=\"https://www.explainxkcd.com/wiki/index.php/with%20link\" title=\"with link\">Link</a></b>");
-                html.ShouldContain("<i>Italic with <a href=\"https://en.wikipedia.org/wiki/Wikipedia\" title=\"wikipedia:Wikipedia\">link</a></i>");
+                html.ShouldContain(
+                    "<b>Bold <a href=\"https://www.explainxkcd.com/wiki/index.php/with%20link\" title=\"with link\">Link</a></b>"
+                );
+                html.ShouldContain(
+                    "<i>Italic with <a href=\"https://en.wikipedia.org/wiki/Wikipedia\" title=\"wikipedia:Wikipedia\">link</a></i>"
+                );
                 html.ShouldContain("<b>Bold with <sup id='ref-0'><a href='#note-0'>[1]</a></sup></b>");
             });
     }

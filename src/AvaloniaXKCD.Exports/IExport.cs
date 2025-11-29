@@ -1,3 +1,3 @@
-﻿namespace AvaloniaXKCD.Exports;
+namespace AvaloniaXKCD.Exports;
 
 public interface IExport { }

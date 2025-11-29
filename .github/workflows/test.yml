@@ -13,6 +13,25 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  lint-and-format:
+    name: Lint and Format Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v5
+
+      - name: Setup Environment
+        uses: ./.github/actions/setup-environment
+        with:
+          install-build-tools: "false"
+
+      - name: Check C# formatting
+        run: make format-check-csharp
+
+      - name: Check TypeScript/JavaScript formatting and linting
+        run: make format-check-typescript lint-typescript
+
   test:
     name: Run All Tests
     runs-on: ubuntu-latest

@@ -1,0 +1,10 @@
+node_modules
+dist
+out
+build
+.vite
+xliff
+bun.lock
+package-lock.json
+*.config.js
+*.config.ts

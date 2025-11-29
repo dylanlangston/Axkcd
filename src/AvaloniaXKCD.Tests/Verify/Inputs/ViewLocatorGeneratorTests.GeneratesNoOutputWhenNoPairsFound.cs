@@ -2,6 +2,7 @@ namespace TestNamespace
 {
     // No classes that end with ""View"" or ""ViewModel""
     public class MyService { }
+
     public interface IRepository { }
 }
 

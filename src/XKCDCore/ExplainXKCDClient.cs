@@ -5,10 +5,7 @@ using System.Web;
 
 namespace XKCDCore;
 
-public record ExplainXKCDClientOptions(
-    Uri? BaseUri = null,
-    HttpMessageHandler? Handler = null
-);
+public record ExplainXKCDClientOptions(Uri? BaseUri = null, HttpMessageHandler? Handler = null);
 
 public class ExplainXKCDClient : IDisposable
 {
@@ -17,17 +14,13 @@ public class ExplainXKCDClient : IDisposable
     public ExplainXKCDClient(ExplainXKCDClientOptions? options = null)
     {
         var baseUri = options?.BaseUri ?? new Uri("https://www.explainxkcd.com/");
-        client = options?.Handler != null
-            ? new(options.Handler) { BaseAddress = baseUri }
-            : new() { BaseAddress = baseUri };
+        client =
+            options?.Handler != null ? new(options.Handler) { BaseAddress = baseUri } : new() { BaseAddress = baseUri };
 
         client.DefaultRequestHeaders.UserAgent.ParseAdd("XKCDCore/1.0");
     }
 
-    private static readonly JsonSerializerOptions SerializerOptions = new()
-    {
-        PropertyNameCaseInsensitive = true
-    };
+    private static readonly JsonSerializerOptions SerializerOptions = new() { PropertyNameCaseInsensitive = true };
 
     public async Task<string> GetExplanation(IXKCDComic comic)
     {
@@ -38,7 +31,8 @@ public class ExplainXKCDClient : IDisposable
     {
         try
         {
-            var requestUri = $"wiki/api.php?action=query&prop=revisions&rvprop=content&format=json&redirects=1&titles={comicNumber}";
+            var requestUri =
+                $"wiki/api.php?action=query&prop=revisions&rvprop=content&format=json&redirects=1&titles={comicNumber}";
             var response = await client.GetAsync(requestUri);
 
             if (!response.IsSuccessStatusCode)
@@ -63,17 +57,20 @@ public class ExplainXKCDClient : IDisposable
             if (startMarker != -1)
             {
                 start = wikiContent.IndexOf('\n', startMarker);
-                if (start != -1) start++;
+                if (start != -1)
+                    start++;
             }
             else
             {
                 startMarker = wikiContent.IndexOf("== Explanation ==", StringComparison.OrdinalIgnoreCase);
-                if (startMarker == -1) startMarker = wikiContent.IndexOf("==Explanation==", StringComparison.OrdinalIgnoreCase);
+                if (startMarker == -1)
+                    startMarker = wikiContent.IndexOf("==Explanation==", StringComparison.OrdinalIgnoreCase);
 
                 if (startMarker != -1)
                 {
                     start = wikiContent.IndexOf('\n', startMarker);
-                    if (start != -1) start++;
+                    if (start != -1)
+                        start++;
                 }
             }
 
@@ -83,8 +80,10 @@ public class ExplainXKCDClient : IDisposable
             }
 
             var endMarker = wikiContent.IndexOf("==Transcript==", start, StringComparison.OrdinalIgnoreCase);
-            if (endMarker == -1) endMarker = wikiContent.IndexOf("== Transcript ==", start, StringComparison.OrdinalIgnoreCase);
-            if (endMarker == -1) endMarker = wikiContent.Length;
+            if (endMarker == -1)
+                endMarker = wikiContent.IndexOf("== Transcript ==", start, StringComparison.OrdinalIgnoreCase);
+            if (endMarker == -1)
+                endMarker = wikiContent.Length;
 
             var explanationWikitext = wikiContent.Substring(start, endMarker - start).Trim();
 

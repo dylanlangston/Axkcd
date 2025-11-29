@@ -1,12 +1,14 @@
 namespace Test.Nested
 {
     public class AccountViewModel { }
+
     public class AccountView { }
 }
 
 namespace Test.Nested.Sub
 {
     public class UserViewModel { }
+
     public class UserView { }
 }
 

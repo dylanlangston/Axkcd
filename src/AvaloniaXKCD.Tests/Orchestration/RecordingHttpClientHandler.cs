@@ -9,13 +9,11 @@ public class RecordingHttpClientHandler : DelegatingHandler
 
     public RecordingHttpClientHandler(bool record = true)
     {
-        InnerHandler = new RecordingHandler(record)
-        {
-            InnerHandler = new HttpClientHandler()
-        };
+        InnerHandler = new RecordingHandler(record) { InnerHandler = new HttpClientHandler() };
     }
 
     public void Stop() => (InnerHandler as RecordingHandler)?.Pause();
+
     public void Start() => (InnerHandler as RecordingHandler)?.Resume();
 
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancel)

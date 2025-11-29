@@ -1,12 +1,14 @@
 namespace Test.ViewModels
 {
     public class HomeViewModel { }
+
     public class SettingsViewModel { }
 }
 
 namespace Test.Views
 {
     public class HomeView { }
+
     public class SettingsView { }
 }
 

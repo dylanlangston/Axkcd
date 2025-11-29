@@ -19,11 +19,11 @@ public partial class BrowserLocalizationService : LocalizationService
     [JSImport("getString", "interop")]
     internal static partial string GetBrowserString(string key);
 
-    public override CultureInfo GetCulture()
-        => GetBrowserLocale() switch
+    public override CultureInfo GetCulture() =>
+        GetBrowserLocale() switch
         {
             null or "" => CultureInfo.GetCultureInfo("en"),
-            var locale => CultureInfo.GetCultureInfo(locale)
+            var locale => CultureInfo.GetCultureInfo(locale),
         };
 
     public override string GetString(string key)
@@ -31,7 +31,8 @@ public partial class BrowserLocalizationService : LocalizationService
         return GetBrowserString(key);
     }
 
-    public BrowserLocalizationService() : base()
+    public BrowserLocalizationService()
+        : base()
     {
         CultureChanged += OnCultureChangedHandler;
     }

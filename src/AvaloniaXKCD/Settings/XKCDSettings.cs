@@ -21,16 +21,14 @@ public class XKCDSettings
         // Set default values
         if (OperatingSystem.IsBrowser())
         {
-
             BaseURL = GetMirrorUri(App.SystemActions.GetBaseUri());
         }
-        else BaseURL = new Uri("https://xkcd.com/", UriKind.Absolute);
+        else
+            BaseURL = new Uri("https://xkcd.com/", UriKind.Absolute);
     }
 
     public Uri BaseURL { get; set; }
 }
 
 [JsonSerializable(typeof(XKCDSettings))]
-internal partial class XKCDSettingsContext : JsonSerializerContext
-{
-}
+internal partial class XKCDSettingsContext : JsonSerializerContext { }

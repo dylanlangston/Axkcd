@@ -11,16 +11,18 @@ public class MockHttpClientHandler : DelegatingHandler
 
     public MockHttpClientHandler()
     {
-        InnerHandler = new MockHttpHandler((request) =>
-        {
-            var requestKey = $"{request.RequestUri?.AbsolutePath}_{request.Method}";
-            if (_mockedResponses.TryGetValue(requestKey, out var response))
+        InnerHandler = new MockHttpHandler(
+            (request) =>
             {
-                return response;
-            }
+                var requestKey = $"{request.RequestUri?.AbsolutePath}_{request.Method}";
+                if (_mockedResponses.TryGetValue(requestKey, out var response))
+                {
+                    return response;
+                }
 
-            return new HttpResponseMessage(System.Net.HttpStatusCode.NotFound);
-        });
+                return new HttpResponseMessage(System.Net.HttpStatusCode.NotFound);
+            }
+        );
     }
 
     public void AddMockedResponse(HttpRequestMessage request, HttpResponseMessage response)

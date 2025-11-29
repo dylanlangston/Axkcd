@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.Loader;
 using System.Threading;
 using System.Threading.Tasks;
@@ -23,25 +23,30 @@ sealed class Program
             e.Cancel = true;
         };
 
-        return await CommandLineParser.Instance.Invoke(args, async (parsedArgs) =>
-        {
-            try
+        return await CommandLineParser.Instance.Invoke(
+            args,
+            async (parsedArgs) =>
             {
-                return BuildAvaloniaApp(parsedArgs, cts.Token)
-                    .StartWithClassicDesktopLifetime(args);
-            }
-            catch (Exception err)
-            {
-                ExportContainer.Get<ISystemActions>()?.HandleError(err);
-                throw;
-            }
-        }, cts.Token);
+                try
+                {
+                    return BuildAvaloniaApp(parsedArgs, cts.Token).StartWithClassicDesktopLifetime(args);
+                }
+                catch (Exception err)
+                {
+                    ExportContainer.Get<ISystemActions>()?.HandleError(err);
+                    throw;
+                }
+            },
+            cts.Token
+        );
     }
 
     // Avalonia configuration, don't remove; also used by visual designer.
     public static AppBuilder BuildAvaloniaApp() => BuildAvaloniaApp(new ParsedArguments(), CancellationToken.None);
-    public static AppBuilder BuildAvaloniaApp(ParsedArguments parsedArguments, CancellationToken cancellationToken)
-        => AppBuilder.Configure(() => new App(parsedArguments, cancellationToken))
+
+    public static AppBuilder BuildAvaloniaApp(ParsedArguments parsedArguments, CancellationToken cancellationToken) =>
+        AppBuilder
+            .Configure(() => new App(parsedArguments, cancellationToken))
             .UsePlatformDetect()
             .WithInterFont()
             .LogToTrace();

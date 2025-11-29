@@ -1,8 +1,10 @@
-﻿namespace AvaloniaXKCD.ViewModels;
+namespace AvaloniaXKCD.ViewModels;
 
 public partial class XKCDViewModel : ViewModelBase
 {
-    private readonly XKCDClient _xkcdClient = new(new(App.Settings.Get(XKCDSettingsContext.Default.XKCDSettings)!.BaseURL));
+    private readonly XKCDClient _xkcdClient = new(
+        new(App.Settings.Get(XKCDSettingsContext.Default.XKCDSettings)!.BaseURL)
+    );
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(ComicLoaded))]
@@ -24,7 +26,8 @@ public partial class XKCDViewModel : ViewModelBase
             var titleFormat = localization?.GetString("Window_TitleFormat") ?? "AXKCD: {0}";
             App.SystemActions.SetTitle(string.Format(titleFormat, value.Title));
             App.SystemActions.InvokeOnUriChange($"{value.Num}");
-            ImageSource = $"{App.Settings.Get(XKCDSettingsContext.Default.XKCDSettings)!.BaseURL}{value.Img2x}?comic={value.Num}";
+            ImageSource =
+                $"{App.Settings.Get(XKCDSettingsContext.Default.XKCDSettings)!.BaseURL}{value.Img2x}?comic={value.Num}";
         }
         else
         {
@@ -33,15 +36,18 @@ public partial class XKCDViewModel : ViewModelBase
     }
 
     private int? _initialComic;
+
     public XKCDViewModel(int? initialComic)
     {
         _initialComic = initialComic;
         App.SystemActions.OnUriChange += async (object? _, string url) =>
         {
-            if (!string.IsNullOrEmpty(url) &&
-                int.TryParse(url, out int comicNumber) &&
-                comicNumber > 0 &&
-                comicNumber != _currentComic?.Num)
+            if (
+                !string.IsNullOrEmpty(url)
+                && int.TryParse(url, out int comicNumber)
+                && comicNumber > 0
+                && comicNumber != _currentComic?.Num
+            )
             {
                 await GoTo(comicNumber);
             }
@@ -50,7 +56,9 @@ public partial class XKCDViewModel : ViewModelBase
 
     public override async Task OnLoad()
     {
-        var comic = _initialComic.HasValue ? await _xkcdClient.GetComic(_initialComic.Value) : await _xkcdClient.Latest();
+        var comic = _initialComic.HasValue
+            ? await _xkcdClient.GetComic(_initialComic.Value)
+            : await _xkcdClient.Latest();
         if (comic != null)
         {
             CurrentComic = new XKCDComicModel(comic);
@@ -74,7 +82,8 @@ public partial class XKCDViewModel : ViewModelBase
     [RelayCommand]
     private Task GetPrevious()
     {
-        if (CurrentComic is null || CurrentComic.Num <= 1) return Task.CompletedTask;
+        if (CurrentComic is null || CurrentComic.Num <= 1)
+            return Task.CompletedTask;
         var previousComicNum = CurrentComic.Num - 1;
         return LoadComic(() => _xkcdClient.GetComic(previousComicNum));
     }
@@ -92,10 +101,12 @@ public partial class XKCDViewModel : ViewModelBase
     [RelayCommand]
     private async Task GetNext()
     {
-        if (CurrentComic is null) return;
+        if (CurrentComic is null)
+            return;
 
         var latestComicNum = (await _xkcdClient.Latest())?.Num;
-        if (latestComicNum.HasValue && CurrentComic.Num >= latestComicNum.Value) return;
+        if (latestComicNum.HasValue && CurrentComic.Num >= latestComicNum.Value)
+            return;
         var nextComicNum = CurrentComic.Num + 1;
         await LoadComic(() => _xkcdClient.GetComic(nextComicNum));
     }
@@ -124,15 +135,22 @@ public partial class XKCDViewModel : ViewModelBase
     [RelayCommand]
     private async Task CopyURI()
     {
-        if (CurrentComic is null) return;
+        if (CurrentComic is null)
+            return;
         var url = CurrentComic.GetUri(new Uri("https://xkcd.com/", UriKind.Absolute));
         try
         {
-            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop && desktop.MainWindow?.Clipboard != null)
+            if (
+                Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop
+                && desktop.MainWindow?.Clipboard != null
+            )
             {
                 await desktop.MainWindow.Clipboard.SetTextAsync(url.AbsoluteUri);
             }
-            else if (Application.Current?.ApplicationLifetime is ISingleViewApplicationLifetime singleView && TopLevel.GetTopLevel(singleView.MainView)?.Clipboard != null)
+            else if (
+                Application.Current?.ApplicationLifetime is ISingleViewApplicationLifetime singleView
+                && TopLevel.GetTopLevel(singleView.MainView)?.Clipboard != null
+            )
             {
                 await TopLevel.GetTopLevel(singleView.MainView)!.Clipboard!.SetTextAsync(url.AbsoluteUri);
             }

@@ -1,7 +1,7 @@
 {
   "name": "avaloniaxkcd-site",
   "private": true,
-  "version": "1.0.0+0",
+  "version": "1.0.8+32270",
   "type": "module",
   "scripts": {
     "generate-pwa-assets": "pwa-assets-generator",
@@ -10,20 +10,29 @@
     "dev": "tsc && vite build --watch",
     "lit-localize": "lit-localize",
     "lit-localize:extract": "lit-localize extract",
-    "lit-localize:build": "lit-localize build"
+    "lit-localize:build": "lit-localize build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
+    "@eslint/js": "^9.18.0",
     "@lit/localize-tools": "^0.8.0",
+    "@types/eslint__js": "^8.42.3",
     "@types/fs-extra": "^11.0.4",
     "@types/glob": "^9.0.0",
     "@types/html-minifier-terser": "^7.0.2",
     "@types/node": "^24.10.0",
     "@vite-pwa/assets-generator": "^1.0.2",
+    "eslint": "^9.18.0",
     "fs-extra": "^11.3.2",
     "glob": "^11.1.0",
     "html-minifier-terser": "^7.2.0",
+    "prettier": "^3.4.2",
     "rollup-plugin-minify-template-literals": "^1.1.7",
     "typescript": "~5.9.3",
+    "typescript-eslint": "^8.19.1",
     "vite": "npm:rolldown-vite@7.1.14",
     "vite-plugin-pwa": "^1.1.0",
     "vite-plugin-singlefile": "^2.3.0"
