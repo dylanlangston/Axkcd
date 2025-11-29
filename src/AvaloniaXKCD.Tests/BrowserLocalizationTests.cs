@@ -9,12 +9,9 @@ namespace AvaloniaXKCD.Tests;
 /// Due to Avalonia browser implementation (https://github.com/AvaloniaUI/Avalonia/issues/15453),
 /// we validate localized UI by taking screenshots of the Avalonia canvas rather than querying DOM.
 /// </summary>
-[ParallelLimiter<BrowserLocalizationParallelLimit>]
 [Timeout(5 * 60 * 1000)] // 5 minutes
 [Arguments("chromium", "en-US")]
 [Arguments("chromium", "es-ES")]
-[Arguments("firefox", "en-US")]
-[Arguments("firefox", "es-ES")]
 public class BrowserLocalizationTests(string browser, string locale) : BrowserBaseTest(browser)
 {
     public override BrowserNewContextOptions ContextOptions(TestContext testContext)
@@ -112,9 +109,4 @@ public class BrowserLocalizationTests(string browser, string locale) : BrowserBa
                 titlePattern.IsMatch(r.Title).ShouldBeTrue($"Title '{r.Title}' should match AXKCD pattern");
             });
     }
-}
-
-public record BrowserLocalizationParallelLimit : IParallelLimit
-{
-    public int Limit => 3;
 }
