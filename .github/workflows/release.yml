@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Checkout LFS (Cached)
         uses: ./.github/actions/cached-lfs-checkout
       - name: Setup Environment
@@ -103,7 +103,7 @@ jobs:
     continue-on-error: true
     steps:
       - name: Check out code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Checkout LFS (Cached)
         uses: ./.github/actions/cached-lfs-checkout
       - name: Setup Environment
@@ -125,7 +125,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Checkout LFS (Cached)
         uses: ./.github/actions/cached-lfs-checkout
       - name: Setup Environment
@@ -150,7 +150,7 @@ jobs:
       url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/v${{ needs.prepare.outputs.version }}
     steps:
       - name: Check out code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Download all build artifacts
         uses: actions/download-artifact@v6
         with:
