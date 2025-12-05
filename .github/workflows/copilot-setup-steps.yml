@@ -13,7 +13,7 @@ jobs:
     environment: copilot
     steps:
       - name: Check out code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Checkout LFS (Cached)
         uses: ./.github/actions/cached-lfs-checkout
       - name: Setup Environment
