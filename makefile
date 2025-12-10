@@ -195,5 +195,5 @@ format: ## Format source code.
 clean: ## Clean local environment (bin/obj folders).
 	@cd src; dotnet clean
 
-update: ## Update nuget packages to the latest pre-release.
+update: ## Update nuget packages to the latest release.
 	@cd src; dotnet outdated --upgrade
