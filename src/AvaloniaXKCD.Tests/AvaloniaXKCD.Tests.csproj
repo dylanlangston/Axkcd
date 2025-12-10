@@ -48,8 +48,4 @@
   <PropertyGroup Condition=" '$(GITHUB_ACTIONS)' == 'true' ">
     <DefineConstants>$(DefineConstants);CI_BUILD</DefineConstants>
   </PropertyGroup>
-
-  <PropertyGroup>
-    <NoWarn>$(NoWarn);NU1902</NoWarn>
-  </PropertyGroup>
 </Project>
