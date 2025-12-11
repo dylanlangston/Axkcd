@@ -39,7 +39,7 @@ public class HeadlessAvaloniaTestExecutor : ITestExecutor
             .Metadata
             .TestDetails
             .TestClassInjectedPropertyArguments
-            .Single((a) => a.Key == nameof(HeadlessAvalonia)).Value as HeadlessAvalonia;
+            .FirstOrDefault(x => x.Value is HeadlessAvalonia).Value as HeadlessAvalonia;
 
         if (headlessAvalonia == null) throw new NullReferenceException();
 
