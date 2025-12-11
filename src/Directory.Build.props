@@ -32,4 +32,7 @@
   <ItemGroup>
     <None Include="LICENSE" Pack="true" PackagePath="..\"/>
   </ItemGroup>
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);NU1902</NoWarn>
+  </PropertyGroup>
 </Project>
