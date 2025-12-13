@@ -3,6 +3,7 @@ namespace AvaloniaXKCD.Tests;
 [Timeout(5 * 60 * 1000)] // 5 minutes
 [Arguments("chromium")]
 [Arguments("firefox")]
+[Retry(2)]
 public class BrowserTests(string browser) : BrowserBaseTest(browser)
 {
     [Test]

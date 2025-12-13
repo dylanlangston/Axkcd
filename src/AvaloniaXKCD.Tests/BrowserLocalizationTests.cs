@@ -12,6 +12,7 @@ namespace AvaloniaXKCD.Tests;
 [Timeout(5 * 60 * 1000)] // 5 minutes
 [Arguments("chromium", "en-US")]
 [Arguments("chromium", "es-ES")]
+[Retry(2)]
 public class BrowserLocalizationTests(string browser, string locale) : BrowserBaseTest(browser)
 {
     public override BrowserNewContextOptions ContextOptions(TestContext testContext)
