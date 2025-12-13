@@ -22,7 +22,7 @@ runs:
       if: runner.os == 'Linux'
       uses: oven-sh/setup-bun@v2
       with:
-        bun-version: latest
+        bun-download-url: "https://github.com/oven-sh/bun/releases/latest/download/bun-linux-x64.zip"
 
     - name: Run Linux setup script
       if: runner.os == 'Linux'
