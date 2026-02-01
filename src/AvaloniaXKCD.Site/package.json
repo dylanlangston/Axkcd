@@ -13,13 +13,13 @@
     "lit-localize:build": "lit-localize build"
   },
   "devDependencies": {
-    "@lit/localize-tools": "^0.8.0",
+    "@lit/localize-tools": "^0.8.1",
     "@types/fs-extra": "^11.0.4",
     "@types/glob": "^9.0.0",
     "@types/html-minifier-terser": "^7.0.2",
-    "@types/node": "^24.10.1",
+    "@types/node": "^25.1.0",
     "@vite-pwa/assets-generator": "^1.0.2",
-    "fs-extra": "^11.3.2",
+    "fs-extra": "^11.3.3",
     "glob": "^13.0.0",
     "html-minifier-terser": "^7.2.0",
     "rollup-plugin-minify-template-literals": "^1.1.7",
@@ -33,6 +33,6 @@
   },
   "dependencies": {
     "@lit/localize": "^0.12.2",
-    "lit": "^3.3.1"
+    "lit": "^3.3.2"
   }
 }
