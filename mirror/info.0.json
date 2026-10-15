@@ -1,14 +1,14 @@
 {
   "month": "10",
-  "num": 3310,
+  "num": 3311,
   "link": "",
   "year": "2026",
   "news": "",
-  "safeTitle": "Rejected Space Mission Profiles",
+  "safeTitle": "Planet Database",
   "transcript": "",
-  "alt": "Although NASA agreed that Voyager 2 \u0027seemed lonely\u0027 they decided against launching a companion orbiter mission after further measurements indicated that the spacecraft actually preferred the peace and quiet.",
-  "img": "3310/rejected_space_mission_profiles.png",
-  "title": "Rejected Space Mission Profiles",
-  "day": "12",
+  "alt": "Atmospheric transmission spectroscopy has revealed that the sunsets from the observatory are really pretty.",
+  "img": "3311/planet_database.png",
+  "title": "Planet Database",
+  "day": "14",
   "baseUri": "https://dylanlangston.github.io/Axkcd/"
 }
