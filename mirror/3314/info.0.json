@@ -1,0 +1,14 @@
+{
+  "month": "10",
+  "num": 3314,
+  "link": "",
+  "year": "2026",
+  "news": "",
+  "safeTitle": "Vulnerability",
+  "transcript": "",
+  "alt": "Other numbers are largely unaffected, but anyone using \u00274\u0027 for their certificate key is urged to upgrade to \u00275\u0027.",
+  "img": "3314/vulnerability.png",
+  "title": "Vulnerability",
+  "day": "21",
+  "baseUri": "https://dylanlangston.github.io/Axkcd/"
+}

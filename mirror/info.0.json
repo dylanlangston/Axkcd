@@ -1,14 +1,14 @@
 {
   "month": "10",
-  "num": 3313,
+  "num": 3314,
   "link": "",
   "year": "2026",
   "news": "",
-  "safeTitle": "Fusion Device",
+  "safeTitle": "Vulnerability",
   "transcript": "",
-  "alt": "I don\u0027t see why people have trouble doing this at room temperature. Using hot rivets would honestly have been MORE work.",
-  "img": "3313/fusion_device.png",
-  "title": "Fusion Device",
-  "day": "19",
+  "alt": "Other numbers are largely unaffected, but anyone using \u00274\u0027 for their certificate key is urged to upgrade to \u00275\u0027.",
+  "img": "3314/vulnerability.png",
+  "title": "Vulnerability",
+  "day": "21",
   "baseUri": "https://dylanlangston.github.io/Axkcd/"
 }
