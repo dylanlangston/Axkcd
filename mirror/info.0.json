@@ -1,14 +1,14 @@
 {
-  "month": "10",
-  "num": 3318,
+  "month": "11",
+  "num": 3319,
   "link": "",
   "year": "2026",
   "news": "",
-  "safeTitle": "Earth Sized Planets",
+  "safeTitle": "Elevators",
   "transcript": "",
-  "alt": "It probably has an icy mantle over the real silicate geology, but I\u0027m hoping something weird happened to burn off most of the water like with Io.",
-  "img": "3318/earth_sized_planets.png",
-  "title": "Earth Sized Planets",
-  "day": "30",
+  "alt": "\u0022A reusable elevator would also be great because we\u0027d save so much on the bulky and expensive shields that people currently use to avoid bruises and rug burns when sliding down the stairs.\u0022",
+  "img": "3319/elevators.png",
+  "title": "Elevators",
+  "day": "2",
   "baseUri": "https://dylanlangston.github.io/Axkcd/"
 }
