@@ -1,14 +1,14 @@
 {
   "month": "11",
-  "num": 3322,
+  "num": 3323,
   "link": "",
   "year": "2026",
   "news": "",
-  "safeTitle": "Dragonfly",
+  "safeTitle": "Meteor Fear",
   "transcript": "",
-  "alt": "I\u0027m excited for Dragonfly, because on the list of places in the solar system that I desperately want more pictures from, \u0027Titan\u0027s surface\u0027 is right up there at the top with \u0027Jupiter\u0027s atmosphere.\u0027",
-  "img": "3322/dragonfly.png",
-  "title": "Dragonfly",
-  "day": "9",
+  "alt": "Don\u0027t worry--even though small and potentially deadly meteors hit the ground all the time, statistically you\u0027re actually much more likely to die from a rare large one that destroys your whole area!",
+  "img": "3323/meteor_fear.png",
+  "title": "Meteor Fear",
+  "day": "11",
   "baseUri": "https://dylanlangston.github.io/Axkcd/"
 }
