@@ -1,14 +1,14 @@
 {
   "month": "11",
-  "num": 3326,
+  "num": 3327,
   "link": "",
   "year": "2026",
   "news": "",
-  "safeTitle": "Voyager Crash",
+  "safeTitle": "Plate Maintenance",
   "transcript": "",
-  "alt": "[Several months later] Actaully, it looks like what it hit a few months ago was just the START of the crystal sphere zone. New data confirms Voyager 1 has now struck the ACTUAL crystal sphere.",
-  "img": "3326/voyager_crash.png",
-  "title": "Voyager Crash",
-  "day": "18",
+  "alt": "First we\u0027re going to have to relieve the built-up strain, but we\u0027ll do it one hemisphere at a time, so you\u0027ll just need to briefly move all your fragile stuff like buildings over to the other hemisphere while we work.",
+  "img": "3327/plate_maintenance.png",
+  "title": "Plate Maintenance",
+  "day": "20",
   "baseUri": "https://dylanlangston.github.io/Axkcd/"
 }
